@@ -26,13 +26,13 @@ export default function Header({ variant = "light" }: HeaderProps) {
     <div className="w-full flex flex-col justify-center items-center">
       <div className="w-full max-w-[1440px] px-6 md:px-[120px] py-4 flex justify-between items-center">
         {/* Logo */}
-        <Link href="/" className="w-[92.90px] h-10 relative flex-shrink-0">
+        <Link href="/">
           <Image
             src="/assets/icons/Group 14.svg"
             alt="finrep logo"
             width={93}
             height={40}
-            className="object-contain"
+
           />
         </Link>
 
@@ -83,6 +83,6 @@ export default function Header({ variant = "light" }: HeaderProps) {
         variant={variant}
         navLinks={navLinks}
       />
-    </div>
+    </div >
   );
 }

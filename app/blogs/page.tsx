@@ -39,7 +39,7 @@ export default function BlogsPage() {
               {/* PDF Icon */}
               <div className="w-6 h-6 relative shrink-0">
                 <Image
-                  src="/assets/images/vscode-icons_file-type-pdf2.svg"
+                  src="/assets/icons/pdf.svg"
                   alt="PDF icon"
                   width={24}
                   height={24}
@@ -54,9 +54,9 @@ export default function BlogsPage() {
           </div>
 
           {/* Right Blog Card - Image */}
-          <div className="w-full lg:w-1/2 h-[300px] md:h-[400px] lg:h-[496px] relative rounded-2xl border-2 border-[#269C7B] overflow-hidden">
+          <div className="w-full lg:w-[768px] h-[300px] md:h-[400px] lg:h-[496px] relative rounded-[16px] border-2 border-[#269C7B] overflow-hidden box-border shrink-0">
             <Image
-              src="/assets/images/blog-image.png"
+              src="/assets/images/articleimage.png"
               alt="How OFAC Violations Create Immediate SEC Disclosure Triggers"
               fill
               className="object-cover"
@@ -100,12 +100,17 @@ export default function BlogsPage() {
           <Link href="/blogs/from-sanctions-to-scrutiny" className="w-full flex flex-col lg:flex-row justify-start items-center gap-8 lg:gap-12 hover:opacity-90 transition-opacity">
             {/* Featured Image */}
             <div className="w-full lg:flex-1 h-[250px] md:h-[396px] relative rounded-lg overflow-hidden">
-              <Image
-                src="/assets/images/featured-blog-image.png"
-                alt="Featured blog article"
-                fill
-                className="object-cover"
-              />
+              <iframe
+                width="100%"
+                height="100%"
+                src="https://www.youtube.com/embed/34KQeckDHp4?si=i9fy5-16BNH9MlkC"
+                title="YouTube video player"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen
+                className="w-full h-full"
+              ></iframe>
             </div>
 
             {/* Featured Article Info */}
@@ -130,7 +135,7 @@ export default function BlogsPage() {
               >
                 <div className="w-full h-[240px] md:h-[248px] relative rounded-lg overflow-hidden">
                   <Image
-                    src={`/assets/images/blog-card-${index}.png`}
+                    src={`/assets/images/articleimage.png`}
                     alt="Blog post"
                     fill
                     className="object-cover"

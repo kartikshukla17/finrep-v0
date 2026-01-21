@@ -47,23 +47,21 @@ export default function PricingPage() {
 
                             {/* Security Badges */}
                             <div className="flex justify-start items-start gap-4">
-                                <div className="w-[80px] h-[80px] rounded-full flex items-center justify-center shrink-0" style={{ boxShadow: "4.29px 5.71px 11.43px rgba(0, 0, 0, 0.10)" }}>
+                                <div className="w-[80px] h-[80px] rounded-full flex items-center justify-center shrink-0">
                                     <img
-                                        src="/assets/images/image 305.png"
+                                        src="/assets/images/soc2.png"
                                         alt="SOC II badge"
                                         className="w-full h-full object-contain rounded-full"
                                     />
                                 </div>
-                                <div className="w-[80px] h-[80px] rounded-full flex items-center justify-center shrink-0" style={{
-                                    boxShadow: "4.29px 5.71px 11.43px rgba(0, 0, 0, 0.10)"
-                                }}>
+                                <div className="w-[80px] h-[80px] rounded-full flex items-center justify-center shrink-0" >
                                     <img
                                         src="/assets/images/image 3628.png"
                                         alt="ISO 27001 badge"
                                         className="w-full h-full object-contain rounded-full"
                                     />
                                 </div>
-                                <div className="w-[80px] h-[80px] rounded-full flex items-center justify-center shrink-0" style={{ boxShadow: "4.29px 5.71px 11.43px rgba(0, 0, 0, 0.10)" }}>
+                                <div className="w-[80px] h-[80px] rounded-full flex items-center justify-center shrink-0" >
                                     <img
                                         src="/assets/images/image copy.png"
                                         alt="Security badge"
@@ -611,11 +609,11 @@ function FAQItem({ question, answer, isOpen, onToggle }: FAQItemProps) {
                 <div className="w-6 h-6 shrink-0 flex items-center justify-center">
                     {isOpen ? (
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M5 12H19" stroke="#0E0F10" strokeWidth="2" strokeLinecap="round"/>
+                            <path d="M5 12H19" stroke="#0E0F10" strokeWidth="2" strokeLinecap="round" />
                         </svg>
                     ) : (
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 5V19M5 12H19" stroke="#0E0F10" strokeWidth="2" strokeLinecap="round"/>
+                            <path d="M12 5V19M5 12H19" stroke="#0E0F10" strokeWidth="2" strokeLinecap="round" />
                         </svg>
                     )}
                 </div>

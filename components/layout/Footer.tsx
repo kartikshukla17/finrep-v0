@@ -19,7 +19,7 @@ export default function Footer() {
             <div className="relative w-full max-w-[1440px] mx-auto px-6 md:px-[60px] lg:px-[120px] pt-12 md:pt-[100px] lg:pt-[202px] pb-12 flex flex-col justify-start items-center gap-[120px]">
                 {/* CTA Section */}
                 <div className="w-full max-w-[590px] flex flex-col justify-center items-center gap-9 text-center">
-                    <div className="w-full max-w-[634px] text-[#0E0F10] text-3xl md:text-[40px] lg:text-[48px] font-normal font-articulat leading-tight md:leading-[1.2] lg:leading-[57.60px]">
+                    <div className="w-full max-w-[634px] text-[#0E0F10] text-3xl md:text-[40px] lg:text-[48px] font-normal font-articulat leading-tight md:leading-[1.2] lg:leading-[57.60px] lg:whitespace-nowrap">
                         Solve SEC reporting for good
                     </div>
                     <div className="flex justify-start items-start gap-6">

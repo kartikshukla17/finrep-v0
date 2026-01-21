@@ -20,15 +20,15 @@ export default function Hero() {
                     {/* Announcement Banner */}
                     <div className="flex items-center gap-2 px-6 py-2 bg-[#134E3D] rounded-full shadow-[0px_0px_16px_rgba(0,0,0,0.25)] border border-[#134E3D] mb-8 max-w-full overflow-hidden">
                         {/* Fina Icon */}
-                        <div className="w-6 h-6 relative flex-shrink-0">
-                            <Image
-                                src="/assets/icons/Group.svg"
-                                alt="Fina icon"
-                                width={24}
-                                height={24}
-                                className="object-contain animate-[spin_1s_linear_1]"
-                            />
-                        </div>
+
+                        <Image
+                            src="/assets/icons/Group.svg"
+                            alt="Fina icon"
+                            width={20}
+                            height={20}
+                            className="animate-spin flex-shrink-0 "
+                        />
+
                         <div className="text-[#F4FBF8] text-sm md:text-base font-medium font-articulat truncate">
                             Fina - Our most Advanced AI is Live
                         </div>
@@ -92,7 +92,7 @@ export default function Hero() {
                             </div>
                             <div className="w-[49.90px] h-4 relative flex-shrink-0">
                                 <Image
-                                    src="/assets/icons/Accel_logo 1.svg"
+                                    src="/assets/company_logos/image.png"
                                     alt="Accel logo"
                                     width={50}
                                     height={16}
