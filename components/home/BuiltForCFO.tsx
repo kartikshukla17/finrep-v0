@@ -3,42 +3,41 @@
 import React, { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import { motion, useInView } from "framer-motion";
-import { ArrowRight, SquareArrowOutUpRight } from "lucide-react";
+import { ArrowRight, SquareArrowOutUpRight, FileText, BookOpen, BarChart3, Landmark } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { AnimatedBeam } from "@/components/ui/animated-beam";
+
 
 // --- Left Side: Accordion Data ---
 const features = [
     {
-        id: "sec-reporting",
+        id: "For SEC Reporting",
         title: "For SEC Reporting",
-        description: "Manual cross-checks and version control nightmares",
+        description: "SEC filings combine roll forwards, new guidance, peer alignment, and reviewer feedback under tight deadlines. Fragmented research and drafting create rework and late stage risk.",
         cta: "See how Finrep makes SEC easy",
+        icon: FileText,
     },
     {
-        id: "technical-accounting",
+        id: "For Technical Accounting",
         title: "For Technical Accounting",
-        description: "Hours spent searching for relevant guidance and precedents",
+        description: "Accounting decisions require interpreting evolving guidance and defending conclusions under audit scrutiny. Scattered research across handbooks and filings slows resolution.",
         cta: "See Technical Accounting workflows",
+        icon: BookOpen,
     },
     {
-        id: "controllers",
+        id: "For Investor Relations",
         title: "For Controllers",
-        description: "Endless reconciliation loops and data integrity risks",
+        description: "Investor messaging must align with disclosures while reflecting peer and market context. Manual peer analysis and last minute coordination slow preparation.",
         cta: "See Controller workflows",
+        icon: BarChart3,
     },
     {
-        id: "investor-relations",
+        id: "For Corporate Counsel",
         title: "For Investor Relations",
-        description: "Uncertainty in market sentiment and peer benchmarking",
+        description: "Insider reporting carries strict deadlines and high visibility. Manual tracking of ownership changes and filing status increases compliance risk.",
         cta: "See IR workflows",
+        icon: Landmark,
     },
-    {
-        id: "audit-teams",
-        title: "For Audit Teams",
-        description: "Scattered evidence and painful audit walkthroughs",
-        cta: "See Audit support",
-    },
+
 ];
 
 export default function BuiltForCFO() {
@@ -57,7 +56,7 @@ export default function BuiltForCFO() {
                         <div className="w-full max-w-[800px]">
                             <p className="text-[#5E6469] text-xl font-normal font-articulat leading-[30px]">
                                 CFO teams need a system - not just software - that ensures
-                                consistency, traceability, and control across every disclosure
+                                consistency,<br /> traceability, and control across every disclosure
                                 touchpoint.
                             </p>
                         </div>
@@ -107,6 +106,7 @@ export default function BuiltForCFO() {
 function FeatureItem({ feature, index, setActiveTab, isActive }: { feature: any, index: number, setActiveTab: (i: number) => void, isActive: boolean }) {
     const ref = useRef(null);
     const isInView = useInView(ref, { margin: "-45% 0px -45% 0px" });
+    const Icon = feature.icon;
 
     useEffect(() => {
         if (isInView) {
@@ -124,13 +124,17 @@ function FeatureItem({ feature, index, setActiveTab, isActive }: { feature: any,
         >
             <div className="flex items-start gap-4">
                 <div className={cn(
-                    "w-12 h-12 rounded-full flex items-center justify-center shrink-0 transition-colors duration-300",
-                    // Using green gradient or similar for active, grey for inactive
-                    isActive ? "bg-gradient-to-b from-[#23B18A] to-[#104233] shadow-lg" : "bg-[#D9D9D9]"
+                    "w-12 h-12 rounded-full flex items-center justify-center shrink-0 transition-all duration-300",
+                    isActive
+                        ? "bg-[#29AB87] shadow-lg"
+                        : "bg-[#E8F5F1]"
                 )}>
-                    {isActive && (
-                        <span className="text-white font-medium text-lg">N</span>
-                    )}
+                    <Icon
+                        className={cn(
+                            "w-6 h-6 transition-colors duration-300",
+                            isActive ? "text-white" : "text-[#29AB87]"
+                        )}
+                    />
                 </div>
 
                 <div className="flex flex-col gap-4 pt-2">
@@ -173,63 +177,9 @@ function RightSideCard() {
     return (
         <div
             ref={containerRef}
-            className="w-full h-[600px] md:w-[592px] md:h-[594px] relative bg-[#0D352A] rounded-lg overflow-hidden shrink-0"
+
         >
-            {/* Background Gradient */}
-            <div className="absolute left-[592px] top-[594px] w-[592px] h-[594px] transform rotate-180 origin-top-left bg-gradient-to-tr from-[#008743] via-transparent to-[#03251B] rounded-lg pointer-events-none"></div>
-
-            {/* Dollar Signs Overlay */}
-            <div className="absolute left-[260px] top-[-318.98px] w-[862.16px] h-[572.98px] opacity-20 pointer-events-none">
-                <div className="absolute left-[519px] top-[0px] text-[#29AB87] text-[26.94px] font-medium font-clash leading-[33.68px]">$</div>
-                <div className="absolute left-[380px] top-[245px] text-[#29AB87] text-[26.94px] font-medium font-clash leading-[33.68px]">$</div>
-                <div className="absolute left-[472px] top-[492px] text-[#29AB87] text-[26.94px] font-medium font-clash leading-[33.68px]">$</div>
-                <div className="absolute left-[100px] top-[541px] text-[#29AB87] text-[26.94px] font-medium font-clash leading-[33.68px]">$</div>
-                <div className="absolute left-[194px] top-[344px] text-[#29AB87] text-[26.94px] font-medium font-clash leading-[33.68px]">$</div>
-            </div>
-
-            {/* '95 hours /wk' Text Block */}
-            <div className="absolute left-12 top-10 flex flex-col gap-4 z-10">
-                <div className="text-white text-5xl font-medium font-articulat leading-[76.80px] tracking-wide">
-                    95 hours /wk
-                </div>
-                <div className="text-[#F9F9FA] text-2xl font-normal font-articulat leading-[38.40px] tracking-wide opacity-90">
-                    Saved with Finrep
-                </div>
-            </div>
-
-            {/* List of Pills (Sources) */}
-            <div className="absolute left-12 top-[308px] flex flex-col gap-3 z-20">
-                <Pill ref={pill1Ref}>Compliance Risk</Pill>
-                <Pill ref={pill2Ref}>Monitoring Industry Trends</Pill>
-                <Pill ref={pill3Ref}>FASB Guideline Updates</Pill>
-                <Pill ref={pill4Ref}>SEC Comment Letters</Pill>
-                <Pill ref={pill5Ref}>Peer Benchmarking</Pill>
-            </div>
-
-            {/* Glass Box Container (Visual only, behind the logo logic) */}
-            <div className="hidden absolute left-[172.39px] top-[325.69px] w-[303.12px] h-[215.14px] outline outline-[0.95px] outline-white outline-offset-[-0.47px] backdrop-blur-[23.65px] rounded-xl pointer-events-none"></div>
-
-            {/* Target Logo */}
-            <div
-                ref={logoRef}
-                className="absolute left-[462px] top-[416px] w-20 h-20 rounded-[20px] z-20 flex items-center justify-center border border-white/40 shadow-[0px_2.5px_12.9px_rgba(0,0,0,0.12)] backdrop-blur-[129px]"
-                style={{
-                    background: "linear-gradient(150deg, #23B18A 0%, rgba(35, 177, 138, 0.30) 100%)"
-                }}
-            >
-                {/* Logo graphics */}
-                <div className="relative w-8 h-10">
-                    <div className="absolute left-0 bottom-0 w-6 h-9 bg-gradient-to-t from-white to-white opacity-100 rounded-sm"></div>
-                    <div className="absolute right-0 top-0 w-[9px] h-[9px] bg-white rounded-full"></div>
-                </div>
-            </div>
-
-            {/* Beams */}
-            <AnimatedBeam containerRef={containerRef} fromRef={pill1Ref} toRef={logoRef} startXOffset={10} curvature={-50} pathColor="#29AB87" gradientStartColor="#3FE2B3" gradientStopColor="#29AB87" delay={0} duration={3} />
-            <AnimatedBeam containerRef={containerRef} fromRef={pill2Ref} toRef={logoRef} startXOffset={10} curvature={-30} pathColor="#29AB87" gradientStartColor="#3FE2B3" gradientStopColor="#29AB87" delay={0.5} duration={4} />
-            <AnimatedBeam containerRef={containerRef} fromRef={pill3Ref} toRef={logoRef} startXOffset={10} curvature={0} pathColor="#29AB87" gradientStartColor="#3FE2B3" gradientStopColor="#29AB87" delay={1} duration={3} />
-            <AnimatedBeam containerRef={containerRef} fromRef={pill4Ref} toRef={logoRef} startXOffset={10} curvature={30} pathColor="#29AB87" gradientStartColor="#3FE2B3" gradientStopColor="#29AB87" delay={1.5} duration={5} />
-            <AnimatedBeam containerRef={containerRef} fromRef={pill5Ref} toRef={logoRef} startXOffset={10} curvature={50} pathColor="#29AB87" gradientStartColor="#3FE2B3" gradientStopColor="#29AB87" delay={2} duration={4} />
+            <img src="/assets/images/image copy 3.png" alt="assets" className="object-cover rounded-lg w-full h-full" />
         </div>
     );
 }

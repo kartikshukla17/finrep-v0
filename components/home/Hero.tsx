@@ -26,7 +26,7 @@ export default function Hero() {
                                 alt="Fina icon"
                                 width={24}
                                 height={24}
-                                className="object-contain"
+                                className="object-contain animate-[spin_1s_linear_1]"
                             />
                         </div>
                         <div className="text-[#F4FBF8] text-sm md:text-base font-medium font-articulat truncate">

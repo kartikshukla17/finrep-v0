@@ -7,7 +7,7 @@ export default function OutcomeInPractice() {
             <div className="w-full max-w-[1440px] mx-auto px-6 md:px-[60px] lg:px-[120px] py-12 flex flex-col justify-start items-center gap-12">
                 {/* Top Section - Title and CTA */}
                 <div className="w-full max-w-[462px] flex flex-col justify-center items-center gap-6 text-center">
-                    <div className="w-full text-[#0E0F10] text-3xl md:text-[36px] font-medium font-articulat leading-tight md:leading-[50.40px]">
+                    <div className="w-full text-[#0E0F10] text-3xl md:text-[36px] font-medium font-articulat leading-tight md:leading-[50.40px] whitespace-nowrap">
                         Finrep's Outcome In Practice
                     </div>
                     <div className="w-full md:w-auto px-6 py-2 rounded-lg border border-[#ECEDEE] flex justify-center items-center gap-2 cursor-pointer hover:bg-gray-50 transition-colors">
