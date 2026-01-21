@@ -5,25 +5,26 @@ export default function Footer() {
     return (
         <div className="relative w-full bg-white">
             {/* Footer Image at Start */}
-            <div className="absolute left-0 top-0 w-full h-full lg:h-[681px]">
+            <div className="absolute left-0 top-0 w-full h-full lg:h-[681px] overflow-hidden flex justify-center">
                 <Image
-                    src="/assets/images/image 3627.png"
+                    src="/assets/images/footer.png"
                     alt="Footer background"
-                    fill
-                // className="object-cover opacity-10"
+                    width={1440}
+                    height={681}
+                    className="min-w-[1440px] h-auto object-cover object-top"
                 />
             </div>
 
             {/* Content - Overlaid on Image */}
-            <div className="relative w-full max-w-[1440px] mx-auto px-6 md:px-[60px] lg:px-[120px] pt-12 md:pt-[100px] lg:pt-[202px] pb-12 flex flex-col justify-start items-center gap-12 md:gap-[80px] lg:gap-[120px]">
+            <div className="relative w-full max-w-[1440px] mx-auto px-6 md:px-[60px] lg:px-[120px] pt-12 md:pt-[100px] lg:pt-[202px] pb-12 flex flex-col justify-start items-center gap-[120px]">
                 {/* CTA Section */}
-                <div className="w-full flex flex-col justify-center items-center gap-6 md:gap-9 text-center">
-                    <div className="w-full max-w-[634px] text-[#0E0F10] text-3xl md:text-[40px] lg:text-[48px] font-normal font-articulat leading-tight md:leading-[1.2] lg:leading-[57.60px] break-words">
+                <div className="w-full max-w-[590px] flex flex-col justify-center items-center gap-9 text-center">
+                    <div className="w-full max-w-[634px] text-[#0E0F10] text-3xl md:text-[40px] lg:text-[48px] font-normal font-articulat leading-tight md:leading-[1.2] lg:leading-[57.60px]">
                         Solve SEC reporting for good
                     </div>
                     <div className="flex justify-start items-start gap-6">
-                        <div className="px-6 py-4 bg-[#29AB87] rounded-lg flex justify-center items-center gap-2.5 cursor-pointer hover:bg-[#238f73] transition-colors">
-                            <div className="text-[#F4FBF8] text-lg md:text-[20px] font-medium font-articulat break-words whitespace-nowrap">
+                        <div className="w-full md:w-[283px] px-6 py-4 bg-[#29AB87] rounded-lg flex justify-center items-center gap-2.5 cursor-pointer hover:bg-[#238f73] transition-colors">
+                            <div className="text-[#F4FBF8] text-lg md:text-[20px] font-medium font-articulat whitespace-nowrap">
                                 Request Access
                             </div>
                         </div>
@@ -32,46 +33,90 @@ export default function Footer() {
 
                 {/* Navigation and Footer Content */}
                 <div className="flex flex-col justify-start items-center gap-12 w-full">
-
-                    {/* Navigation Columns - Grid on desktop, Flex-col on mobile */}
-                    <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-8 lg:gap-12 items-start justify-between">
-                        {/* Resources Column */}
-                        <div className="flex flex-col justify-start items-start gap-4 relative">
-                            <div className="text-[#9FA4A9] text-base font-medium font-articulat leading-[22.40px] break-words">
-                                Resources
+                    {/* Navigation Columns */}
+                    <div className="w-full max-w-[1200px] grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8 lg:gap-6 justify-between">
+                        {/* Features Column */}
+                        <div className="flex flex-col justify-start items-start gap-4">
+                            <div className="text-[#9FA4A9] text-base font-medium font-articulat leading-[22.40px]">
+                                Features
                             </div>
                             {[
-                                { name: "Blogs", href: "/blogs" },
-                                { name: "Pricing", href: "/pricing" },
-                                { name: "About", href: "/about" },
+                                "Comment Letter Explorer",
+                                "Smart Search",
+                                "Disclosure Comparison",
+                                "Checklist Benchmarking",
+                                "Checklist Benchmarking",
+                                "AI Powered Disclosure Writer",
                             ].map((item, idx) => (
                                 <Link
                                     key={idx}
-                                    href={item.href}
-                                    className="text-[#0E0F10] text-base font-normal font-articulat leading-[22.40px] break-words hover:text-[#29AB87] transition-colors"
+                                    href="#"
+                                    className="text-[#0E0F10] text-base font-normal font-articulat leading-[22.40px] hover:text-[#29AB87] transition-colors"
                                 >
-                                    {item.name}
+                                    {item}
+                                </Link>
+                            ))}
+                        </div>
+
+                        {/* Usecases Column */}
+                        <div className="flex flex-col justify-start items-start gap-4">
+                            <div className="text-[#9FA4A9] text-base font-medium font-articulat leading-[22.40px]">
+                                Usecases
+                            </div>
+                            {[
+                                "For SEC Reporting",
+                                "For Controllers",
+                                "For Auditors",
+                                "For CFOs",
+                                "For Investor Relations",
+                            ].map((item, idx) => (
+                                <Link
+                                    key={idx}
+                                    href="#"
+                                    className="text-[#0E0F10] text-base font-normal font-articulat leading-[22.40px] hover:text-[#29AB87] transition-colors"
+                                >
+                                    {item}
+                                </Link>
+                            ))}
+                        </div>
+
+                        {/* Resources Column */}
+                        <div className="flex flex-col justify-start items-start gap-4">
+                            <div className="text-[#9FA4A9] text-base font-medium font-articulat leading-[22.40px]">
+                                Resources
+                            </div>
+                            {[
+                                "Blogs",
+                                "Case Studies",
+                                "SEC Reporting Journal",
+                                "Documentations",
+                                "Brochure",
+                                "Security",
+                                "Privacy Policy",
+                                "Terms of Service",
+                            ].map((item, idx) => (
+                                <Link
+                                    key={idx}
+                                    href="#"
+                                    className="text-[#0E0F10] text-base font-normal font-articulat leading-[22.40px] hover:text-[#29AB87] transition-colors"
+                                >
+                                    {item}
                                 </Link>
                             ))}
                             {/* Security Badges */}
-                            <div className="flex justify-start items-start gap-4 mt-2 relative z-10">
-                                <div className="w-[80px] h-[80px] rounded-full flex items-center justify-center shrink-0" style={{
-                                    boxShadow: "4.29px 5.71px 11.43px rgba(0, 0, 0, 0.10)",
-                                    overflow: "visible"
-                                }}>
+                            <div className="flex justify-start items-start gap-4 mt-2">
+                                <div className="w-[80px] h-[80px] rounded-full flex items-center justify-center shrink-0"
+                                >
                                     <img
-                                        src="/assets/images/image 305.png"
+                                        src="/assets/images/soc2.png"
                                         alt="SOC II badge"
                                         className="w-full h-full object-contain rounded-full"
                                     />
                                 </div>
-                                <div className="w-[80px] h-[80px] rounded-full flex items-center justify-center border border-white shrink-0" style={{
-                                    background: "linear-gradient(135deg, white 35%, #D7D7D7 77%)",
-                                    boxShadow: "4.29px 5.71px 11.43px rgba(0, 0, 0, 0.10)",
-                                    overflow: "visible"
-                                }}>
+                                <div className="w-[80px] h-[80px] rounded-full flex items-center justify-center shrink-0"
+                                >
                                     <img
-                                        src="/assets/images/image 3628.png"
+                                        src="/assets/images/iso.png"
                                         alt="ISO 27001 badge"
                                         className="w-full h-full object-contain rounded-full"
                                     />
@@ -81,7 +126,7 @@ export default function Footer() {
 
                         {/* Compare Column */}
                         <div className="flex flex-col justify-start items-start gap-4">
-                            <div className="text-[#9FA4A9] text-base font-medium font-articulat leading-[22.40px] break-words">
+                            <div className="text-[#9FA4A9] text-base font-medium font-articulat leading-[22.40px]">
                                 Compare
                             </div>
                             {[
@@ -94,7 +139,7 @@ export default function Footer() {
                                 <Link
                                     key={idx}
                                     href="#"
-                                    className="text-[#0E0F10] text-base font-normal font-articulat leading-[22.40px] break-words hover:text-[#29AB87] transition-colors"
+                                    className="text-[#0E0F10] text-base font-normal font-articulat leading-[22.40px] hover:text-[#29AB87] transition-colors"
                                 >
                                     {item}
                                 </Link>
@@ -103,7 +148,7 @@ export default function Footer() {
 
                         {/* Company Column */}
                         <div className="flex flex-col justify-start items-start gap-4">
-                            <div className="text-[#9FA4A9] text-base font-medium font-articulat leading-[22.40px] break-words">
+                            <div className="text-[#9FA4A9] text-base font-medium font-articulat leading-[22.40px]">
                                 Company
                             </div>
                             {[
@@ -116,7 +161,7 @@ export default function Footer() {
                                 <Link
                                     key={idx}
                                     href="#"
-                                    className="text-[#0E0F10] text-base font-normal font-articulat leading-[22.40px] break-words hover:text-[#29AB87] transition-colors"
+                                    className="text-[#0E0F10] text-base font-normal font-articulat leading-[22.40px] hover:text-[#29AB87] transition-colors"
                                 >
                                     {item}
                                 </Link>
@@ -125,7 +170,7 @@ export default function Footer() {
                     </div>
 
                     {/* Separator */}
-                    <div className="w-full h-px bg-[#D9DBDD]"></div>
+                    <div className="w-full max-w-[1200px] h-px bg-[#D9DBDD]"></div>
 
                     {/* Logo Section - finrep logo */}
                     <div className="flex justify-center items-center w-full">
@@ -140,8 +185,11 @@ export default function Footer() {
                         </div>
                     </div>
 
+                    {/* Separator */}
+                    <div className="w-full max-w-[1200px] h-px bg-[#D9DBDD]"></div>
+
                     {/* Bottom Footer Bar */}
-                    <div className="w-full pb-12 flex flex-col md:flex-row justify-between items-center gap-6 md:gap-0">
+                    <div className="w-full max-w-[1200px] pb-12 flex flex-col md:flex-row justify-between items-center gap-6 md:gap-0">
                         {/* Social Media Icons */}
                         <div className="flex justify-start items-start gap-6">
                             <Link href="#" className="w-6 h-6 relative overflow-hidden hover:opacity-80 transition-opacity">
@@ -166,7 +214,7 @@ export default function Footer() {
 
                         {/* Backed by Accel */}
                         <div className="flex justify-center items-center gap-1">
-                            <div className="text-center text-[#9FA4A9] text-base font-normal font-articulat leading-[25.60px] break-words">
+                            <div className="text-center text-[#9FA4A9] text-base font-normal font-articulat leading-[25.60px]">
                                 Backed by
                             </div>
                             <div className="w-[49.90px] h-4 relative overflow-hidden">

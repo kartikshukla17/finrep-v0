@@ -63,7 +63,7 @@ export default function BestPractices() {
                         >
                             <div className="w-full h-[200px] md:h-[248px] rounded-lg overflow-hidden">
                                 <Image
-                                    src="/assets/images/Rectangle 34625974.png"
+                                    src="/assets/images/articleimage.png"
                                     alt="Article image"
                                     width={384}
                                     height={248}

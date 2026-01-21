@@ -103,7 +103,7 @@ export default function OutcomeInPractice() {
                 <div className="w-full md:w-auto px-6 py-4 bg-[#ADEBDA] rounded-[130px] border border-[#48E3B9] flex justify-center md:justify-start items-center gap-2 cursor-pointer hover:bg-[#9bddcd] transition-colors">
                     <div className="w-10 h-10 md:w-12 md:h-12 relative shrink-0">
                         <Image
-                            src="/assets/images/image.png"
+                            src="/assets/images/Rectangle 12.png"
                             alt="Icon"
                             width={48}
                             height={48}

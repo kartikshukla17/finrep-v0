@@ -24,18 +24,25 @@ export default function CustomAI() {
             </div>
 
             {/* Three Feature Cards */}
-            <div className="w-full max-w-[1200px] flex flex-col lg:flex-row justify-start items-center gap-6 lg:gap-4">
+            <div className="w-full max-w-[1200px] flex flex-col lg:flex-row justify-start items-center gap-4">
                 {/* Cited Outputs Card */}
-                <div className="w-full lg:flex-1 h-auto min-h-[448px] p-6 bg-black/20 rounded-lg backdrop-blur-[6px] flex flex-col justify-start items-start gap-6">
-                    <div className="w-full h-20 p-1 rounded-lg border border-white/24">
-                        <div className="w-full h-full relative">
-                            <Image
-                                src="/assets/customai/Group 1814106621.svg"
-                                alt="Cited Outputs"
-                                fill
-                                className="object-contain"
-                            />
-                        </div>
+                <div className="w-full lg:flex-1 h-auto lg:h-[448px] p-6 bg-black/20 rounded-lg backdrop-blur-[6px] flex flex-col justify-start items-start gap-6">
+                    <div className="w-full h-20 p-1 rounded-lg flex flex-col gap-2.5">
+                        {/* <div
+                            className="w-full flex-1 py-4 rounded-lg border border-white/70 flex justify-center items-center gap-2"
+                            style={{
+                                background: "linear-gradient(37deg, #3F4346 0%, #1F2123 100%)",
+                                boxShadow: "0px 4px 14px rgba(0, 0, 0, 0.16)"
+                            }}
+                        > */}
+                        <Image
+                            src="/assets/images/citedoutputs.png"
+                            alt="Cited Outputs"
+                            width={330}
+                            height={72}
+                            className="object-contain"
+                        />
+
                     </div>
                     <div className="text-white text-2xl font-medium font-articulat leading-[33.60px]">
                         Cited Outputs
@@ -50,16 +57,17 @@ export default function CustomAI() {
                 </div>
 
                 {/* Zero Data Residency Card */}
-                <div className="w-full lg:flex-1 h-auto min-h-[448px] p-6 bg-black/20 rounded-lg backdrop-blur-[6px] flex flex-col justify-start items-start gap-6">
-                    <div className="w-full h-20 p-1 rounded-lg border border-white/24">
-                        <div className="w-full h-full relative">
-                            <Image
-                                src="/assets/customai/Group 1814106618.svg"
-                                alt="Zero Data Residency"
-                                fill
-                                className="object-contain"
-                            />
-                        </div>
+                <div className="w-full lg:flex-1 h-auto lg:h-[448px] p-6 bg-black/20 rounded-lg backdrop-blur-[6px] flex flex-col justify-start items-start gap-6">
+                    <div className="w-full h-20 p-1 rounded-lg flex flex-col gap-2.5">
+
+                        <Image
+                            src="/assets/images/zerodata.png"
+                            alt="Zero Data Residency"
+                            width={330}
+                            height={72}
+                            className="object-contain"
+                        />
+
                     </div>
                     <div className="text-white text-2xl font-medium font-articulat leading-[33.60px]">
                         Zero Data Residency
@@ -74,24 +82,17 @@ export default function CustomAI() {
                 </div>
 
                 {/* EDGAR Native Card */}
-                <div className="w-full lg:flex-1 h-auto min-h-[448px] p-6 bg-black/20 rounded-lg backdrop-blur-[6px] flex flex-col justify-start items-start gap-6">
-                    <div className="w-full h-20 p-1 rounded-lg border border-white/24">
-                        <div className="w-full h-full flex justify-center items-center gap-2">
-                            <div className="w-6 h-6 relative">
-                                <Image
-                                    src="/assets/customai/duo-icons_bank.svg"
-                                    alt="EDGAR Native"
-                                    fill
-                                    className="object-contain"
-                                />
-                            </div>
-                            <div
-                                className="text-[#D9DBDD] text-2xl font-bold leading-[33.60px]"
-                                style={{ fontFamily: "Roboto Slab" }}
-                            >
-                                EDGAR
-                            </div>
-                        </div>
+                <div className="w-full lg:flex-1 h-auto lg:h-[448px] p-6 bg-black/20 rounded-lg backdrop-blur-[6px] flex flex-col justify-start items-start gap-6">
+                    <div className="w-full h-20 p-1 rounded-lg flex flex-col gap-2.5">
+
+                        <Image
+                            src="/assets/images/edgar.png"
+                            alt="EDGAR Native"
+                            width={330}
+                            height={72}
+                            className="object-contain"
+                        />
+
                     </div>
                     <div className="text-white text-2xl font-medium font-articulat leading-[33.60px]">
                         EDGAR Native
@@ -107,6 +108,6 @@ export default function CustomAI() {
                     </div>
                 </div>
             </div>
-        </div>
+        </div >
     );
 }
