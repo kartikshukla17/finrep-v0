@@ -331,16 +331,3 @@ export interface Metric {
   description?: string;
 }
 
-// ============================================================================
-// Export groups for convenience
-// ============================================================================
-
-export type {
-  // Re-export commonly used types
-  NavLink,
-  Feature,
-  BlogPost,
-  PricingTier,
-  ApiResponse,
-  LoadingState,
-};
