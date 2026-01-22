@@ -4,6 +4,7 @@ import {
     ArticleContent,
     ArticleHeader,
     ArticleSidebar,
+    ArticleSkeleton,
     RelatedArticles,
     TableOfContents,
 } from "@/components/blogs";
@@ -273,8 +274,10 @@ export default function BlogArticlePage({ params }: BlogArticlePageProps) {
     return (
       <div className="relative w-full bg-white min-h-screen flex flex-col font-articulat">
         <Header variant="dark" />
-        <main className="flex-1 w-full pt-[72px] flex items-center justify-center">
-          <p className="text-[#5E6469]">Loading article...</p>
+        <main className="flex-1 w-full pt-[72px]">
+          <div className="max-w-[1440px] mx-auto px-6 md:px-[60px] lg:px-[120px] py-8 md:py-12">
+            <ArticleSkeleton />
+          </div>
         </main>
         <Footer />
       </div>
