@@ -7,13 +7,11 @@ import { UserRoundCheck, ShieldCheck } from "lucide-react";
 export default function Hero() {
     return (
         <div className="relative w-full min-h-screen bg-[#0D352A] overflow-hidden">
-            {/* Container for content */}
-            <div className="relative w-full max-w-[1440px] mx-auto h-full flex flex-col items-center">
-                {/* Header - Absolute Positioned */}
-                <div className="w-full z-10">
-                    <Header variant="light" />
-                </div>
+            {/* Fixed Header */}
+            <Header variant="light" />
 
+            {/* Container for content */}
+            <div className="relative w-full max-w-[1440px] mx-auto h-full flex flex-col items-center pt-[72px]">
                 {/* Hero Content - Centered */}
                 <div className="flex flex-col items-center mt-[73px] w-full px-4 md:px-0">
 

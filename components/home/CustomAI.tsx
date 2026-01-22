@@ -58,7 +58,7 @@ const featureCards = [
         ]
     },
     {
-        imageSrc: "/assets/images/edgar.png",
+        imageSrc: "/assets/images/Edgar.png",
         imageAlt: "EDGAR Native",
         title: "EDGAR Native",
         descriptions: [

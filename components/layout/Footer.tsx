@@ -108,7 +108,7 @@ export default function Footer() {
                                 <div className="w-[80px] h-[80px] rounded-full flex items-center justify-center shrink-0"
                                 >
                                     <img
-                                        src="/assets/images/soc2.png"
+                                        src="/assets/images/SOC2.png"
                                         alt="SOC II badge"
                                         className="w-full h-full object-contain rounded-full"
                                     />
