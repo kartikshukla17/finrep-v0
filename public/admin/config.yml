@@ -13,16 +13,11 @@ collections:
     create: true
     slug: "{{slug}}"
     fields:
-  - { label: "Title", name: "title", widget: "string" }
-  - { label: "Subtitle", name: "subtitle", widget: "string", required: false }
-  - { label: "Date", name: "date", widget: "datetime" }
-  - { label: "Author", name: "author", widget: "string" }
-  - {
-      label: "Author Image",
-      name: "authorImage",
-      widget: "image",
-      required: false,
-    }
-  - { label: "Categories", name: "categories", widget: "list", default: [] }
-  - { label: "Cover Image", name: "coverImage", widget: "image" }
-  - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Subtitle", name: "subtitle", widget: "string", required: false }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Author", name: "author", widget: "string" }
+      - { label: "Author Image", name: "authorImage", widget: "image", required: false }
+      - { label: "Categories", name: "categories", widget: "list", default: [] }
+      - { label: "Cover Image", name: "coverImage", widget: "image" }
+      - { label: "Body", name: "body", widget: "markdown" }
