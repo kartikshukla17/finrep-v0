@@ -20,12 +20,11 @@ export default function IconCard({
     variant = 'default',
     className = ''
 }: IconCardProps) {
-    const paddingClass = variant === 'compact' ? 'py-3 px-3 pr-4' : 'py-4 px-3 pr-4';
-    const alignmentClass = description ? 'items-start' : 'items-center';
+    const paddingClass = variant === 'compact' ? 'py-3 pl-3 pr-4' : 'py-4 pl-3 pr-4';
 
     return (
-        <div className={`flex ${alignmentClass} gap-3 ${paddingClass} bg-white rounded-lg border border-[#D9DBDD] ${className}`}>
-            <div className="w-6 h-6 relative shrink-0">
+        <div className={`inline-flex items-start gap-3 ${paddingClass} bg-white rounded-lg border border-[#D9DBDD] ${className}`}>
+            <div className="w-6 h-6 relative shrink-0 overflow-hidden">
                 <Image
                     src={icon}
                     alt=""
@@ -35,12 +34,12 @@ export default function IconCard({
                     style={{ filter: iconFilter }}
                 />
             </div>
-            <div className="flex-1 flex flex-col gap-1">
-                <h4 className="text-[#0E0F10] text-base font-medium font-articulat leading-[19.20px]">
+            <div className="flex-1 flex flex-col justify-start items-start gap-1">
+                <h4 className="self-stretch text-[#0E0F10] text-base font-medium font-articulat leading-[19.20px] break-words">
                     {title}
                 </h4>
                 {description && (
-                    <p className="text-[#5E6469] text-sm font-normal font-articulat leading-[19.60px]">
+                    <p className="self-stretch text-[#5E6469] text-sm font-normal font-articulat leading-[19.60px] break-words">
                         {description}
                     </p>
                 )}

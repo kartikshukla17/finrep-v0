@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Bricolage_Grotesque, DM_Sans, Roboto_Slab, Inter } from "next/font/google";
 import { defaultMetadata } from "@/lib/metadata";
+import SmoothScroll from "@/components/SmoothScroll";
+import HashScroll from "@/components/HashScroll";
 import "./globals.css";
 
 const bricolageGrotesque = Bricolage_Grotesque({
@@ -41,7 +43,10 @@ export default function RootLayout({
       <body
         className={`${bricolageGrotesque.variable} ${dmSans.variable} ${robotoSlab.variable} ${inter.variable} antialiased`}
       >
-        {children}
+        <SmoothScroll>
+          <HashScroll />
+          {children}
+        </SmoothScroll>
       </body>
     </html>
   );

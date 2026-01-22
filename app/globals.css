@@ -73,3 +73,8 @@ body {
 .animate-progress-paused {
   animation-play-state: paused;
 }
+
+/* Scroll margin for sticky navbar overlap */
+section[id] {
+  scroll-margin-top: 90px;
+}

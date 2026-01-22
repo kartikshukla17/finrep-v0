@@ -36,14 +36,16 @@ export default function ProblemSection() {
                 </p>
             </div>
             <div className="flex-1">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3" style={{ gridAutoRows: '1fr' }}>
                     {problemItems.map((item, index) => (
                         <IconCard
                             key={index}
                             icon={item.icon}
                             title={item.title}
                             description={item.description}
+                            variant="compact"
                             iconFilter={orangeFilter}
+                            className="h-full"
                         />
                     ))}
                 </div>

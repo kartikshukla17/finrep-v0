@@ -38,7 +38,7 @@ export default function PlatformSection() {
                 <h3 className="text-black text-lg font-semibold font-articulat">
                     What Finrep enables
                 </h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3" style={{ gridAutoRows: '1fr' }}>
                     {platformItems.map((item, index) => (
                         <IconCard
                             key={index}
@@ -47,6 +47,7 @@ export default function PlatformSection() {
                             description={item.description}
                             variant="compact"
                             iconFilter={defaultGreenFilter}
+                            className="h-full"
                         />
                     ))}
                 </div>

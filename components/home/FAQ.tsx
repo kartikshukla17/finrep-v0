@@ -22,7 +22,8 @@ export default function FAQ() {
         },
         {
             question: "Can I try it for free?",
-            answer: "",
+            answer: 
+                "Finrep makes SEC research easy — search disclosures, explore comment letters, and benchmark filings in seconds. Unlock deeper insights with our AI-powered summaries and comparisons.",
         },
         {
             question: "Is my data safe?",

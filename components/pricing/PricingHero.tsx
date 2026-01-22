@@ -22,7 +22,7 @@ export default function PricingHero() {
 
                         {/* Security Badges */}
                         <div className="flex justify-start items-start gap-4">
-                            <SecurityBadge src="/assets/images/Soc2.png" alt="SOC II badge" />
+                            <SecurityBadge src="/assets/images/SOC2.png" alt="SOC II badge" />
                             <SecurityBadge src="/assets/images/image 3628.png" alt="ISO 27001 badge" />
                             <SecurityBadge src="/assets/images/image copy.png" alt="Security badge" />
                         </div>
