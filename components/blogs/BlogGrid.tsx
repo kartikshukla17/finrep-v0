@@ -34,7 +34,7 @@ export default function BlogGrid({ posts, showViewMore = true, onViewMore }: Blo
                         onClick={onViewMore}
                         className="px-[19px] py-2 bg-white rounded-[60px] border border-[#D9DBDD] flex justify-center items-center gap-2.5 hover:bg-[#F9F9FA] transition-colors"
                     >
-                        <div className="text-[#0E0F10] text-sm font-normal leading-[19.60px]">
+                        <div className="text-[#0E0F10] text-sm font-normal font-articulat leading-[19.60px]">
                             View More
                         </div>
                     </button>

@@ -22,7 +22,7 @@ export default function BlogTabs({ tabs, activeTab, onTabChange }: BlogTabsProps
                                 }`}
                         >
                             <div
-                                className={`text-base font-medium whitespace-nowrap ${isActive
+                                className={`text-base font-medium font-articulat whitespace-nowrap ${isActive
                                     ? "text-[#269C7B]"
                                     : "text-[#5E6469] hover:text-[#269C7B]"
                                     }`}

@@ -11,10 +11,10 @@ export default function BlogHero() {
             <div className="w-full flex flex-col justify-start items-center gap-12 md:gap-24 pt-[100px] md:pt-[140px] pb-24 px-6 md:px-[60px] lg:px-[120px]">
                 {/* Title and Subtitle Section */}
                 <div className="flex flex-col justify-start items-center gap-6 text-center">
-                    <h1 className="text-white text-4xl md:text-[64px] font-normal leading-tight md:leading-[89.60px]">
+                    <h1 className="text-white text-4xl md:text-[64px] font-normal font-articulat leading-tight md:leading-[89.60px]">
                         Blogs
                     </h1>
-                    <p className="max-w-[822px] text-[#F4FBF8] text-lg md:text-xl font-normal leading-8">
+                    <p className="max-w-[822px] text-[#F4FBF8] text-lg md:text-xl font-normal font-articulat leading-8">
                         Expert insights on financial disclosure, compliance, and the future
                         of CFO operations
                     </p>
@@ -24,7 +24,7 @@ export default function BlogHero() {
                 <div className="w-full max-w-[1200px] flex flex-col lg:flex-row justify-between items-center gap-12">
                     {/* Left Blog Card */}
                     <div className="flex flex-col justify-start items-start gap-6 w-full lg:w-1/2">
-                        <h2 className="w-full text-[#F9F9FA] text-2xl md:text-3xl font-medium leading-tight">
+                        <h2 className="w-full text-[#F9F9FA] text-2xl md:text-3xl font-medium font-articulat leading-tight md:leading-[33.60px]">
                             From Sanctions to Scrutiny: How OFAC Violations Create Immediate
                             SEC Disclosure Triggers
                         </h2>
@@ -38,7 +38,7 @@ export default function BlogHero() {
                                     className="object-contain"
                                 />
                             </div>
-                            <div className="text-[#F4FBF8] text-base font-medium">
+                            <div className="text-[#F4FBF8] text-base font-medium font-articulat">
                                 Free Download
                             </div>
                         </button>

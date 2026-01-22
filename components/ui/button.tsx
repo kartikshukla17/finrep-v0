@@ -32,7 +32,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     // Base styles
     const baseStyles = cn(
       'inline-flex items-center justify-center gap-2',
-      'font-medium transition-all duration-200',
+      'font-articulat font-medium transition-all duration-200',
       'focus:outline-none focus:ring-2 focus:ring-offset-2',
       'disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none',
       'whitespace-nowrap'

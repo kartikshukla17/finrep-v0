@@ -65,7 +65,7 @@ export function MobileMenu({ isOpen, onClose, variant = 'light', navLinks }: Mob
       >
         {/* Header */}
         <div className="flex items-center justify-between p-6 border-b border-[#E5E7EB]">
-          <h2 className="text-lg font-semibold text-[#0E0F10]">Menu</h2>
+          <h2 className="text-lg font-semibold font-articulat text-[#0E0F10]">Menu</h2>
           <button
             onClick={onClose}
             className="p-2 rounded-lg hover:bg-gray-100 transition-colors"
@@ -84,7 +84,7 @@ export function MobileMenu({ isOpen, onClose, variant = 'light', navLinks }: Mob
                   href={link.href}
                   onClick={onClose}
                   className={cn(
-                    'block px-4 py-3 rounded-lg text-base font-medium',
+                    'block px-4 py-3 rounded-lg text-base font-medium font-articulat',
                     'text-[#0E0F10] hover:bg-[#F4FBF8] hover:text-[#29AB87]',
                     'transition-colors duration-200'
                   )}

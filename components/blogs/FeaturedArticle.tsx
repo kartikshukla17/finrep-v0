@@ -32,10 +32,10 @@ export default function FeaturedArticle({ slug, title, date, videoUrl }: Feature
 
             {/* Featured Article Info */}
             <div className="w-full lg:w-auto flex flex-col justify-start items-start gap-4">
-                <h3 className="max-w-md text-[#0E0F10] text-xl md:text-2xl font-medium leading-tight">
+                <h3 className="max-w-md text-[#0E0F10] text-xl md:text-2xl font-medium font-articulat leading-tight md:leading-[33.60px]">
                     {title}
                 </h3>
-                <div className="text-[#5E6469] text-base font-normal leading-[22.40px]">
+                <div className="text-[#5E6469] text-base font-normal font-articulat leading-[22.40px]">
                     {date}
                 </div>
             </div>

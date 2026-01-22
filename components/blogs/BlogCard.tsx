@@ -24,10 +24,10 @@ export default function BlogCard({ slug, title, date, image, className = '' }: B
                 />
             </div>
             <div className="flex flex-col justify-start items-start gap-2">
-                <h3 className="text-[#0E0F10] text-lg md:text-xl font-medium leading-7 line-clamp-2">
+                <h3 className="text-[#0E0F10] text-lg md:text-xl font-medium font-articulat leading-7 line-clamp-2">
                     {title}
                 </h3>
-                <div className="text-[#5E6469] text-base font-normal leading-[22.40px]">
+                <div className="text-[#5E6469] text-base font-normal font-articulat leading-[22.40px]">
                     {date}
                 </div>
             </div>
