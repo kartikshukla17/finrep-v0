@@ -3,7 +3,7 @@
 import { useState } from "react";
 
 export default function FAQ() {
-    const [expandedFAQ, setExpandedFAQ] = useState<number | null>(1); // Start with FAQ 1 (index 1) expanded
+    const [expandedFAQ, setExpandedFAQ] = useState<number | null>(0); // Start with FAQ 1 (index 1) expanded
 
     const toggleFAQ = (index: number) => {
         setExpandedFAQ(expandedFAQ === index ? null : index);
@@ -12,7 +12,8 @@ export default function FAQ() {
     const faqs = [
         {
             question: "What is Finrep?",
-            answer: "",
+            answer: 
+                "Finrep is a platform that makes SEC research easy — search disclosures, explore comment letters, and benchmark filings in seconds. Unlock deeper insights with our AI-powered summaries and comparisons.",
         },
         {
             question: "How to use Finrep?",
@@ -25,11 +26,13 @@ export default function FAQ() {
         },
         {
             question: "Is my data safe?",
-            answer: "",
+            answer: 
+                "Finrep makes SEC research easy — search disclosures, explore comment letters, and benchmark filings in seconds. Unlock deeper insights with our AI-powered summaries and comparisons.",
         },
         {
             question: "Did you fine-tune your AI on my data?",
-            answer: "",
+            answer: 
+            "Finrep makes SEC research easy — search disclosures, explore comment letters, and benchmark filings in seconds. Unlock deeper insights with our AI-powered summaries and comparisons.",
         },
     ];
 

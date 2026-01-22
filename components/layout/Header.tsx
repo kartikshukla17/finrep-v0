@@ -1,11 +1,11 @@
 'use client';
 
+import { Button } from "@/components/ui/button";
+import { MobileMenu } from "@/components/ui/mobile-menu";
+import { Menu } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { MobileMenu } from "@/components/ui/mobile-menu";
-import { Button } from "@/components/ui/button";
-import { Menu } from "lucide-react";
 
 interface HeaderProps {
   variant?: "light" | "dark";
@@ -24,7 +24,7 @@ export default function Header({ variant = "light" }: HeaderProps) {
 
   return (
     <div className="w-full flex flex-col justify-center items-center">
-      <div className="w-full max-w-[1440px] px-6 md:px-[120px] py-4 flex justify-between items-center">
+      <div className="w-full max-w-[1440px] px-6 md:px-[120px] py-4 flex justify-between items-center relative">
         {/* Logo */}
         <Link href="/">
           <Image
@@ -36,10 +36,10 @@ export default function Header({ variant = "light" }: HeaderProps) {
           />
         </Link>
 
-        {/* Navigation Links - Hidden on mobile, visible on lg */}
-        <div className="hidden lg:flex justify-start items-center gap-6">
+        {/* Navigation Links - Centered absolutely */}
+        <div className="hidden lg:flex justify-center items-center gap-6 absolute left-1/2 -translate-x-1/2">
           {navLinks.map((link) => (
-            <div key={link.name} className="flex justify-start items-center gap-1">
+            <div key={link.name} className="flex justify-center items-center gap-1">
               <Link
                 href={link.href}
                 className={`${textColor} text-base font-medium font-articulat break-words hover:opacity-80 transition-opacity`}

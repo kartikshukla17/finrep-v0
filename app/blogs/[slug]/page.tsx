@@ -1,157 +1,338 @@
 "use client";
 
-import { use } from "react";
-import Header from "@/components/layout/Header";
-import Footer from "@/components/layout/Footer";
 import {
-    ArticleSidebar,
-    ArticleHeader,
     ArticleContent,
+    ArticleHeader,
+    ArticleSidebar,
+    RelatedArticles,
     TableOfContents,
-    RelatedArticles
 } from "@/components/blogs";
+import Footer from "@/components/layout/Footer";
+import Header from "@/components/layout/Header";
+import { use, useEffect, useMemo, useState } from "react";
 
-// Define the article data structure
+import ReactMarkdown, { Components } from "react-markdown";
+import remarkGfm from "remark-gfm";
+import rehypeRaw from "rehype-raw";
+import rehypeSlug from "rehype-slug";
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
+import Image from "next/image";
+import GithubSlugger from "github-slugger";
+
 interface BlogArticle {
-    id: string;
-    slug: string;
+  id: string;
+  slug: string;
+  title: string;
+  date: string;
+  author?: {
+    name: string;
+    role?: string;
+    avatar?: string;
+  };
+  category: string;
+  categories?: string[];
+  featuredImage: string;
+  content: string; // markdown now
+  excerpt?: string;
+  tags?: string[];
+  readTime?: number;
+  pdfUrl?: string;
+  tableOfContents?: {
     title: string;
-    date: string;
-    author?: {
-        name: string;
-        role?: string;
-        avatar?: string;
-    };
-    category: string;
-    categories?: string[];
-    featuredImage: string;
-    content: string;
-    excerpt?: string;
-    tags?: string[];
-    readTime?: number;
-    pdfUrl?: string;
-    tableOfContents?: {
-        title: string;
-        sections?: string[];
-    }[];
+    slug: string;
+    sections?: { title: string; slug: string }[];
+  }[];
 }
 
 interface BlogArticlePageProps {
-    params: Promise<{ slug: string }>;
+  params: Promise<{ slug: string }>;
 }
 
-export default function BlogArticlePage({ params }: BlogArticlePageProps) {
-    const { slug } = use(params);
+// Build TOC from markdown headings (## and ###) with slugs for anchor links
+// Uses github-slugger to match rehype-slug's output exactly
+function buildTOC(markdown: string) {
+  const slugger = new GithubSlugger();
+  const lines = markdown.split("\n");
+  const toc: { title: string; slug: string; sections?: { title: string; slug: string }[] }[] = [];
 
-    // TODO: Fetch article data from backend API
-    // Mock data structure - replace with actual data from backend
-    const article: BlogArticle = {
-        id: "1",
-        slug: slug,
-        title: "Auditor's Watch: How Increased SEC Scrutiny of Gatekeepers Impacts Your Next 10-K/20-F Audit",
-        date: "Jan 1, 2023",
-        author: {
-            name: "Aman Gupta",
-            role: "Guest Author",
-            avatar: "/assets/images/author-avatar.png",
-        },
+  let current: { title: string; slug: string; sections?: { title: string; slug: string }[] } | null = null;
+
+  for (const line of lines) {
+    if (line.startsWith("## ")) {
+      if (current) toc.push(current);
+      const title = line.replace("## ", "").trim();
+      current = { title, slug: slugger.slug(title), sections: [] };
+    }
+    if (line.startsWith("### ") && current) {
+      const title = line.replace("### ", "").trim();
+      current.sections?.push({ title, slug: slugger.slug(title) });
+    }
+  }
+
+  if (current) toc.push(current);
+  return toc;
+}
+
+// Custom components for ReactMarkdown
+const markdownComponents: Components = {
+  h1: ({ children, id }) => (
+    <h1 id={id} className="text-3xl md:text-4xl font-semibold text-[#0E0F10] mt-10 mb-6 font-articulat scroll-mt-28">
+      {children}
+    </h1>
+  ),
+  h2: ({ children, id }) => (
+    <h2 id={id} className="text-2xl md:text-[28px] font-medium text-[#0E0F10] mt-10 mb-4 font-articulat leading-tight scroll-mt-28">
+      {children}
+    </h2>
+  ),
+  h3: ({ children, id }) => (
+    <h3 id={id} className="text-xl md:text-2xl font-medium text-[#0E0F10] mt-8 mb-3 font-articulat scroll-mt-28">
+      {children}
+    </h3>
+  ),
+  h4: ({ children, id }) => (
+    <h4 id={id} className="text-lg md:text-xl font-medium text-[#0E0F10] mt-6 mb-2 font-articulat scroll-mt-28">
+      {children}
+    </h4>
+  ),
+  p: ({ children }) => (
+    <p className="text-base leading-7 text-[#0E0F10] mb-4 font-articulat">
+      {children}
+    </p>
+  ),
+  ul: ({ children }) => (
+    <ul className="list-disc list-outside pl-6 my-4 space-y-2 text-[#0E0F10] font-articulat">
+      {children}
+    </ul>
+  ),
+  ol: ({ children }) => (
+    <ol className="list-decimal list-outside pl-6 my-4 space-y-2 text-[#0E0F10] font-articulat">
+      {children}
+    </ol>
+  ),
+  li: ({ children }) => (
+    <li className="text-base leading-7 text-[#0E0F10]">
+      {children}
+    </li>
+  ),
+  blockquote: ({ children }) => (
+    <blockquote className="border-l-4 border-[#17453E] pl-4 my-6 italic text-[#5E6469] font-articulat">
+      {children}
+    </blockquote>
+  ),
+  a: ({ href, children }) => (
+    <a
+      href={href}
+      className="text-[#17453E] underline hover:text-[#0D352A] transition-colors"
+      target={href?.startsWith("http") ? "_blank" : undefined}
+      rel={href?.startsWith("http") ? "noopener noreferrer" : undefined}
+    >
+      {children}
+    </a>
+  ),
+  img: ({ src, alt }) => {
+    const imgSrc = typeof src === "string" ? src : "";
+    return (
+      <figure className="my-8">
+        <div className="relative w-full aspect-video rounded-lg overflow-hidden">
+          <Image
+            src={imgSrc}
+            alt={alt || ""}
+            fill
+            className="object-cover"
+          />
+        </div>
+        {alt && (
+          <figcaption className="text-sm text-[#5E6469] text-center mt-2 font-articulat">
+            {alt}
+          </figcaption>
+        )}
+      </figure>
+    );
+  },
+  code: ({ className, children }) => {
+    const isInline = !className;
+    if (isInline) {
+      return (
+        <code className="bg-[#F5F5F5] text-[#17453E] px-1.5 py-0.5 rounded text-sm font-mono">
+          {children}
+        </code>
+      );
+    }
+    return (
+      <code className={`${className} block`}>
+        {children}
+      </code>
+    );
+  },
+  pre: ({ children }) => (
+    <pre className="bg-[#1E1E1E] text-[#D4D4D4] p-4 rounded-lg overflow-x-auto my-6 font-mono text-sm">
+      {children}
+    </pre>
+  ),
+  table: ({ children }) => (
+    <div className="overflow-x-auto my-6">
+      <table className="min-w-full border-collapse border border-[#E5E7EB]">
+        {children}
+      </table>
+    </div>
+  ),
+  thead: ({ children }) => (
+    <thead className="bg-[#F9FAFB]">
+      {children}
+    </thead>
+  ),
+  th: ({ children }) => (
+    <th className="border border-[#E5E7EB] px-4 py-2 text-left font-medium text-[#0E0F10]">
+      {children}
+    </th>
+  ),
+  td: ({ children }) => (
+    <td className="border border-[#E5E7EB] px-4 py-2 text-[#0E0F10]">
+      {children}
+    </td>
+  ),
+  hr: () => (
+    <hr className="my-8 border-t border-[#E5E7EB]" />
+  ),
+  strong: ({ children }) => (
+    <strong className="font-semibold text-[#0E0F10]">
+      {children}
+    </strong>
+  ),
+  em: ({ children }) => (
+    <em className="italic">
+      {children}
+    </em>
+  ),
+};
+
+export default function BlogArticlePage({ params }: BlogArticlePageProps) {
+  const { slug } = use(params);
+
+  const [article, setArticle] = useState<BlogArticle | null>(null);
+
+  useEffect(() => {
+    const load = async () => {
+      const res = await fetch(`/api/blogs/${slug}`);
+      if (!res.ok) return;
+      const data = await res.json();
+
+      const toc = buildTOC(data.content || "");
+
+      setArticle({
+        id: slug,
+        slug,
+        title: data.title,
+        date: new Date(data.date).toDateString(),
+        author: data.author,
         category: "Blogs",
-        categories: ["Category 1", "Category 2"],
-        featuredImage: "/assets/images/article-featured.png",
-        content: "<p>Article content will come from backend...</p>",
-        excerpt: "Expert insights on financial disclosure, compliance, and the future of CFO operations",
-        tags: ["SEC Reporting", "Compliance", "OFAC"],
-        readTime: 5,
-        pdfUrl: "/documents/article.pdf",
-        tableOfContents: [
-            {
-                title: "Why the Sudden Spotlight",
-                sections: ["SEC's Renewed Focus", "The Perfect Storm", "Three Lines of Defense"],
-            },
-            {
-                title: "The New Audit Landscape",
-                sections: ["Professional Skepticism", "Documentation Standards"],
-            },
-            {
-                title: "How to Prepare",
-            },
-        ],
+        categories: Array.isArray(data.categories) ? data.categories : [],
+        featuredImage: data.featuredImage || "/assets/images/article-featured.png",
+        content: data.content || "",
+        excerpt: data.excerpt,
+        tags: data.tags,
+        readTime: data.readTime,
+        pdfUrl: data.pdfUrl,
+        tableOfContents: toc,
+      });
     };
 
-    const relatedArticles = [
-        {
-            slug: "article-1",
-            title: "From Sanctions to Scrutiny: How OFAC Violations Create Immediate SEC Disclosure Triggers",
-            date: "Jan 2, 2026",
-            image: "/assets/images/articleimage.png"
-        },
-        {
-            slug: "article-2",
-            title: "From Sanctions to Scrutiny: How OFAC Violations Create Immediate SEC Disclosure Triggers",
-            date: "Jan 2, 2026",
-            image: "/assets/images/articleimage.png"
-        },
-        {
-            slug: "article-3",
-            title: "From Sanctions to Scrutiny: How OFAC Violations Create Immediate SEC Disclosure Triggers",
-            date: "Jan 2, 2026",
-            image: "/assets/images/articleimage.png"
-        }
-    ];
+    load();
+  }, [slug]);
 
+  const relatedArticles = useMemo(
+    () => [
+      {
+        slug: "article-1",
+        title:
+          "From Sanctions to Scrutiny: How OFAC Violations Create Immediate SEC Disclosure Triggers",
+        date: "Jan 2, 2026",
+        image: "/assets/images/articleimage.png",
+      },
+      {
+        slug: "article-2",
+        title:
+          "From Sanctions to Scrutiny: How OFAC Violations Create Immediate SEC Disclosure Triggers",
+        date: "Jan 2, 2026",
+        image: "/assets/images/articleimage.png",
+      },
+      {
+        slug: "article-3",
+        title:
+          "From Sanctions to Scrutiny: How OFAC Violations Create Immediate SEC Disclosure Triggers",
+        date: "Jan 2, 2026",
+        image: "/assets/images/articleimage.png",
+      },
+    ],
+    []
+  );
+
+  // loading state
+  if (!article) {
     return (
-        <div className="relative w-full bg-white min-h-screen flex flex-col font-articulat">
-            {/* Fixed Header */}
-            <Header variant="dark" />
-
-            {/* Main Content */}
-            <main className="flex-1 w-full pt-[72px]">
-                <div className="max-w-[1440px] mx-auto px-6 md:px-[60px] lg:px-[120px] py-8 md:py-12">
-                    <div className="flex gap-8 lg:gap-12">
-                        {/* Left Sidebar - Authors & Share (Desktop only) */}
-                        <ArticleSidebar author={article.author} />
-
-                        {/* Main Article Content */}
-                        <div className="flex-1 min-w-0 max-w-[800px]">
-                            {/* Mobile Author Info */}
-                            <div className="lg:hidden mb-6">
-                                {article.author && (
-                                    <div className="flex items-center gap-2 text-sm text-[#5E6469]">
-                                        <span>By {article.author.name}</span>
-                                        {article.author.role && (
-                                            <>
-                                                <span>•</span>
-                                                <span>{article.author.role}</span>
-                                            </>
-                                        )}
-                                    </div>
-                                )}
-                            </div>
-
-                            <ArticleHeader
-                                title={article.title}
-                                date={article.date}
-                                categories={article.categories}
-                            />
-
-                            <ArticleContent
-                                featuredImage={article.featuredImage}
-                                title={article.title}
-                            />
-                        </div>
-
-                        {/* Right Sidebar - Table of Contents (Desktop only) */}
-                        {article.tableOfContents && (
-                            <TableOfContents sections={article.tableOfContents} />
-                        )}
-                    </div>
-                </div>
-
-                {/* Related Articles */}
-                <RelatedArticles articles={relatedArticles} />
-            </main>
-
-            <Footer />
-        </div>
+      <div className="relative w-full bg-white min-h-screen flex flex-col font-articulat">
+        <Header variant="dark" />
+        <main className="flex-1 w-full pt-[72px] flex items-center justify-center">
+          <p className="text-[#5E6469]">Loading article...</p>
+        </main>
+        <Footer />
+      </div>
     );
+  }
+
+  return (
+    <div className="relative w-full bg-white min-h-screen flex flex-col font-articulat">
+      <Header variant="dark" />
+
+      <main className="flex-1 w-full pt-[72px]">
+        <div className="max-w-[1440px] mx-auto px-6 md:px-[60px] lg:px-[120px] py-8 md:py-12">
+          <div className="flex gap-8 lg:gap-12">
+            <ArticleSidebar author={article.author} />
+
+            <div className="flex-1 min-w-0 max-w-[800px]">
+              <div className="lg:hidden mb-6">
+                {article.author && (
+                  <div className="flex items-center gap-2 text-sm text-[#5E6469]">
+                    <span>By {article.author.name}</span>
+                    {article.author.role && (
+                      <>
+                        <span>•</span>
+                        <span>{article.author.role}</span>
+                      </>
+                    )}
+                  </div>
+                )}
+              </div>
+
+              <ArticleHeader
+                title={article.title}
+                date={article.date}
+                categories={article.categories}
+              />
+
+              {/* Article content with featured image and markdown body from CMS */}
+              <ArticleContent featuredImage={article.featuredImage} title={article.title}>
+                <ReactMarkdown
+                  remarkPlugins={[remarkGfm]}
+                  rehypePlugins={[rehypeRaw, rehypeSlug, rehypeAutolinkHeadings]}
+                  components={markdownComponents}
+                >
+                  {article.content}
+                </ReactMarkdown>
+              </ArticleContent>
+            </div>
+
+            {article.tableOfContents && (
+              <TableOfContents sections={article.tableOfContents} />
+            )}
+          </div>
+        </div>
+
+        <RelatedArticles articles={relatedArticles} />
+      </main>
+
+      <Footer />
+    </div>
+  );
 }
