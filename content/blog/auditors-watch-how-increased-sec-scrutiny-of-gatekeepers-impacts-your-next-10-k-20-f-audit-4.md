@@ -8,7 +8,7 @@ author: Kartik Shukla
 authorImage: /uploads/writer.jpeg
 categories:
   - category1
-coverImage: /uploads/rectangle-34625974-1-.png
+coverImage: /uploads/gradient-2-.png
 ---
 # Navigating the New Era of Regulatory Oversight
 
