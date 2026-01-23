@@ -8,7 +8,7 @@ interface BlogTabsProps {
 
 export default function BlogTabs({ tabs, activeTab, onTabChange }: BlogTabsProps) {
     return (
-        <div className="w-full flex justify-center items-center overflow-x-auto">
+        <div  className="w-full flex justify-center items-center overflow-x-auto">
             <div className="flex gap-4 md:gap-0 min-w-max">
                 {tabs.map((tab) => {
                     const isActive = activeTab === tab;

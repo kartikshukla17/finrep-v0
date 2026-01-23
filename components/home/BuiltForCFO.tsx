@@ -63,7 +63,7 @@ export default function BuiltForCFO() {
     }, [activeTab]);
 
     return (
-        <div className="w-full bg-white py-24">
+        <div id="white-section-start" className="w-full bg-white py-24">
             <div className="max-w-[1440px] mx-auto px-6 md:px-[60px] lg:px-[120px] flex flex-col gap-16">
                 {/* Header */}
                 <div className="flex flex-col gap-12">

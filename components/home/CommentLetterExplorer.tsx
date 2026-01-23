@@ -1,22 +1,22 @@
 "use client";
 
-import React, { useState, useRef } from "react";
-import Image from "next/image";
-import { motion, useScroll, useMotionValueEvent, AnimatePresence } from "framer-motion";
-import { ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { AnimatePresence, motion, useMotionValueEvent, useScroll } from "framer-motion";
+import { ArrowRight } from "lucide-react";
+import Image from "next/image";
+import { useRef, useState } from "react";
 
 // Navigation tabs data
 const navigationTabs = [
     {
         id: "sec-reporting",
         label: "SEC Reporting",
-        image: "/assets/images/image copy 4.png",
         sections: [
             {
                 id: 1,
                 title: "Ground Disclosures in SEC Precedent with Ask Fina",
                 description: "Research SEC filings, guidance, peer disclosures, comment letters, and internal documents in one place with inspectable citations to defend disclosure decisions during audit and SEC review.",
+                image: "/assets/commentletterexplorer/sec-reporting-1.png",
                 benefits: [
                     { text: "SEC filing citations", badge: null },
                     { text: "Peer disclosure precedent", badge: null },
@@ -27,6 +27,7 @@ const navigationTabs = [
                 id: 2,
                 title: "Avoid EDGAR Blind Spots with Keyword Search + Alerts",
                 description: "Run precise boolean searches across EDGAR filings and receive alerts when new disclosures match your criteria, reducing the risk of missed peer language.",
+                image: "/assets/commentletterexplorer/sec-reporting-2.png",
                 benefits: [
                     { text: "EDGAR boolean logic", badge: null },
                     { text: "Filing metadata filters", badge: null },
@@ -37,6 +38,7 @@ const navigationTabs = [
                 id: 3,
                 title: "Benchmark Peer Disclosures Correctly with AI Grid Reports",
                 description: "Compare peer disclosures across companies and periods using structured grids with verbatim excerpts or AI summaries for consistent benchmarking.",
+                image: "/assets/commentletterexplorer/sec-reporting-3.png",
                 benefits: [
                     { text: "Structured peer grids", badge: null },
                     { text: "Period comparisons", badge: null },
@@ -47,6 +49,7 @@ const navigationTabs = [
                 id: 4,
                 title: "Prevent Disclosure Drift with Disclosure Comparison + Checklists",
                 description: "Review disclosures side by side and validate required coverage using FASB-aligned checklists to catch drift, omissions, and over-disclosure early.",
+                image: "/assets/commentletterexplorer/sec-reporting-4.png",
                 benefits: [
                     { text: "Side-by-side disclosures", badge: null },
                     { text: "FASB-aligned checklists", badge: null },
@@ -57,6 +60,7 @@ const navigationTabs = [
                 id: 5,
                 title: "Anticipate SEC Scrutiny with Comment Letter Explorer",
                 description: "Analyze historical and recent SEC comment letters to identify recurring focus areas and pressure-test disclosures before filing.",
+                image: "/assets/commentletterexplorer/sec-reporting-5.png",
                 benefits: [
                     { text: "SEC focus analytics", badge: null },
                     { text: "Full comment threads", badge: null },
@@ -68,12 +72,12 @@ const navigationTabs = [
     {
         id: "investor-relations",
         label: "Investor Relations",
-        image: "/assets/images/image copy 4.png",
         sections: [
             {
                 id: 1,
                 title: "Calibrate Peer Messaging with Disclosure Comparison",
                 description: "Compare disclosure language across peers and prior periods to ensure messaging aligns with investor expectations before earnings and public communications.",
+                image: "/assets/commentletterexplorer/sec-reporting-4.png",
                 benefits: [
                     { text: "Peer disclosure alignment", badge: null },
                     { text: "Cross-period consistency", badge: null },
@@ -84,6 +88,7 @@ const navigationTabs = [
                 id: 2,
                 title: "Extract Investor-Relevant Themes with AI Grid Reports",
                 description: "Analyze MD&A and risk disclosures across peers using structured grids to surface patterns and themes relevant for earnings prep and leadership briefings.",
+                image: "/assets/commentletterexplorer/sec-reporting-3.png",
                 benefits: [
                     { text: "MD&A pattern analysis", badge: null },
                     { text: "Peer theme extraction", badge: null },
@@ -94,6 +99,7 @@ const navigationTabs = [
                 id: 3,
                 title: "Prepare Defensible Investor Answers with Ask Fina",
                 description: "Generate citeable answers to investor questions using public filings, peer disclosures, and approved internal documents to reduce misstatement risk.",
+                image: "/assets/commentletterexplorer/sec-reporting-1.png",
                 benefits: [
                     { text: "Filing-backed responses", badge: null },
                     { text: "Scoped disclosure context", badge: null },
@@ -105,12 +111,12 @@ const navigationTabs = [
     {
         id: "legal",
         label: "Legal",
-        image: "/assets/images/image copy 4.png",
         sections: [
             {
                 id: 1,
                 title: "File Section 16 Forms Correctly with Form Creation and EDGAR Submission",
                 description: "Draft and file Forms 3, 4, and 5 directly from a validated transaction ledger with controlled EDGAR submission to reduce filing and math errors under deadline pressure.",
+                image: "/assets/commentletterexplorer/legal-1.png",
                 benefits: [
                     { text: "Inline form validation", badge: null },
                     { text: "EDGAR submission control", badge: null },
@@ -121,6 +127,7 @@ const navigationTabs = [
                 id: 2,
                 title: "Avoid Missed Form 4 Deadlines with Insider Dashboard",
                 description: "Monitor Form 4 risk, drafts in progress, and upcoming ownership events daily to ensure statutory deadlines are met.",
+                image: "/assets/commentletterexplorer/legal-2.png",
                 benefits: [
                     { text: "Filing risk signals", badge: null },
                     { text: "Draft status visibility", badge: null },
@@ -131,6 +138,7 @@ const navigationTabs = [
                 id: 3,
                 title: "Surface Unreported Ownership Events with Unreported Transactions Queue",
                 description: "Identify and resolve ownership events not yet reflected in SEC filings before they become compliance issues.",
+                image: "/assets/commentletterexplorer/legal-3.png",
                 benefits: [
                     { text: "Unreported event queue", badge: null },
                     { text: "Reportable classification", badge: null },
@@ -141,6 +149,7 @@ const navigationTabs = [
                 id: 4,
                 title: "Defend Legal Review Positions with Ask Fina",
                 description: "Support disclosure and filing decisions with citeable SEC precedent, guidance, and internal policy references during legal and audit review.",
+                image: "/assets/commentletterexplorer/legal-4.png",
                 benefits: [
                     { text: "SEC-backed citations", badge: null },
                     { text: "Source inspection", badge: null },
@@ -151,6 +160,7 @@ const navigationTabs = [
                 id: 5,
                 title: "Anticipate SEC Enforcement Focus with Comment Letter Explorer",
                 description: "Analyze historical and recent SEC comment letters to understand enforcement trends and pressure-test disclosures proactively.",
+                image: "/assets/commentletterexplorer/legal-5.png",
                 benefits: [
                     { text: "Enforcement pattern analysis", badge: null },
                     { text: "Full comment threads", badge: null },
@@ -162,12 +172,12 @@ const navigationTabs = [
     {
         id: "technical-accounting",
         label: "Technical Accounting",
-        image: "/assets/images/image copy 4.png",
         sections: [
             {
                 id: 1,
                 title: "Support Accounting Judgments with Ask Fina",
                 description: "Research authoritative guidance, peer filings, and internal accounting memos in one place with inspectable citations to support technical conclusions and policy decisions.",
+                image: "/assets/commentletterexplorer/technical-accounting-1.png",
                 benefits: [
                     { text: "FASB-linked citations", badge: null },
                     { text: "Peer filing precedent", badge: null },
@@ -178,6 +188,7 @@ const navigationTabs = [
                 id: 2,
                 title: "Ensure Disclosure Completeness with Checklist Benchmarking",
                 description: "Review disclosures against FASB-aligned checklists mapped to evidence in your filing and peer filings to identify gaps early.",
+                image: "/assets/commentletterexplorer/technical-accounting-2.png",
                 benefits: [
                     { text: "FASB-aligned checklists", badge: null },
                     { text: "Evidence-linked items", badge: null },
@@ -188,6 +199,7 @@ const navigationTabs = [
                 id: 3,
                 title: "Analyze Peer Accounting Treatment with AI Grid Reports",
                 description: "Compare how peers disclose complex accounting topics across periods using structured grids with verbatim excerpts or AI summaries.",
+                image: "/assets/commentletterexplorer/technical-accounting-3.png",
                 benefits: [
                     { text: "Consistent review lens", badge: null },
                     { text: "Verbatim disclosure excerpts", badge: null },
@@ -198,6 +210,7 @@ const navigationTabs = [
                 id: 4,
                 title: "Reduce Wording Risk with Disclosure Comparison",
                 description: "Validate disclosure wording and completeness by comparing exact peer language side by side before finalizing disclosures.",
+                image: "/assets/commentletterexplorer/technical-accounting-4.png",
                 benefits: [
                     { text: "Exact language comparison", badge: null },
                     { text: "Completeness validation", badge: null },
@@ -341,13 +354,13 @@ export default function CommentLetterExplorer() {
 
                         {/* Right Section - Interface Mockup */}
                         <div className="hidden lg:block flex-1 h-full z-0">
-                            <InterfaceMockup image={currentTab.image} />
+                            <InterfaceMockup image={sections[activeSection].image} />
                         </div>
                     </div>
 
                     {/* Mobile Interface Mockup */}
-                    <div className="lg:hidden pr-6 md:pr-[60px]">
-                        <InterfaceMockup image={currentTab.image} />
+                    <div className="lg:hidden pr-6 md:pr-[60px] h-[400px]">
+                        <InterfaceMockup image={sections[activeSection].image} />
                     </div>
                 </div>
             </div>
@@ -416,12 +429,43 @@ function SectionContent({ section }: {
 
 function InterfaceMockup({ image }: { image: string }) {
     return (
-        <div className="w-full h-full relative overflow-hidden rounded-tl-[20px] rounded-bl-[20px]">
-            <Image
-                src={image}
-                alt="Interface Mockup"
-                fill
+        <div className="w-full h-full relative overflow-hidden rounded-tl-[20px] rounded-bl-[20px] bg-black">
+            {/* Gradient Background - Green glow at bottom, dark at top */}
+            <div
+                className="absolute inset-0"
+                style={{
+                    background: `
+                        linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.90) 100%),
+                        radial-gradient(ellipse 106% 80% at 50% 100%, rgba(41, 171, 135, 0.28) 0%, rgba(21, 89, 70, 0.28) 40%, rgba(0, 0, 0, 0) 70%)
+                    `,
+                }}
             />
+            {/* Monotone Noise Overlay - Size 0.7, Density 100%, 10% opacity */}
+            <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-[0.15]" xmlns="http://www.w3.org/2000/svg">
+                <filter id="noiseFilter">
+                    <feTurbulence type="fractalNoise" baseFrequency="0.7" numOctaves="4" stitchTiles="stitch" />
+                    <feColorMatrix type="saturate" values="0" />
+                </filter>
+                <rect width="100%" height="100%" filter="url(#noiseFilter)" />
+            </svg>
+            {/* Image layered on top with animation */}
+            <AnimatePresence mode="wait">
+                <motion.div
+                    key={image}
+                    initial={{ opacity: 0, scale: 0.98 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.98 }}
+                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                    className="absolute inset-0 flex items-center justify-center p-8"
+                >
+                    <Image
+                        src={image}
+                        alt="Feature preview"
+                        fill
+                        className="object-contain"
+                    />
+                </motion.div>
+            </AnimatePresence>
         </div>
     );
 }

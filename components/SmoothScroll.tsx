@@ -1,12 +1,12 @@
 "use client";
 
-import { ReactNode, useEffect } from "react";
 import Lenis from "lenis";
+import { ReactNode, useEffect } from "react";
 
 export default function SmoothScroll({ children }: { children: ReactNode }) {
   useEffect(() => {
     const lenis = new Lenis({
-      duration: 1.4,
+      duration: 1,
       easing: (t: number) => 1 - Math.pow(1 - t, 4), // smooth but responsive
       smoothWheel: true,
       wheelMultiplier: 0.9,
