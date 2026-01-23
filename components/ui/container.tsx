@@ -29,8 +29,8 @@ const Container = React.forwardRef<HTMLDivElement, ContainerProps>(
       full: 'max-w-full',
     };
 
-    // Padding styles
-    const paddingStyles = padding ? 'px-6 md:px-[120px]' : '';
+    // Padding styles - px-4 on mobile, px-6 on sm, px-[120px] on md+
+    const paddingStyles = padding ? 'px-4 sm:px-6 md:px-[60px] lg:px-[120px]' : '';
 
     // Center content styles
     const centerStyles = centerContent ? 'mx-auto' : '';

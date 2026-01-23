@@ -90,7 +90,7 @@ export default function Header({ variant = "light" }: HeaderProps) {
     <header
       className={`fixed top-0 left-0 w-full z-50 backdrop-blur-[24px] transition-all duration-500 ease-in-out ${bgStyle}`}
     >
-      <div className="w-full max-w-[1440px] mx-auto px-6 md:px-[120px] py-4 flex justify-between items-center relative">
+      <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 md:px-[60px] lg:px-[120px] py-4 flex justify-between items-center relative">
         {/* Logo - no changes applied */}
         <Link href="/">
           <Image
@@ -115,8 +115,8 @@ export default function Header({ variant = "light" }: HeaderProps) {
           ))}
         </div>
 
-        {/* Action Buttons - Hidden on mobile, visible on md */}
-        <div className="hidden md:flex justify-start items-center gap-4">
+        {/* Action Buttons - Hidden on mobile, visible on lg */}
+        <div className="hidden lg:flex justify-start items-center gap-4">
           <Button
             variant="primary"
             size="md"
@@ -128,7 +128,7 @@ export default function Header({ variant = "light" }: HeaderProps) {
           </Button>
         </div>
 
-        {/* Mobile Menu Toggle */}
+        {/* Mobile Menu Toggle - visible below lg */}
         <div className="lg:hidden flex items-center">
           <button
             onClick={() => setIsMobileMenuOpen(true)}
