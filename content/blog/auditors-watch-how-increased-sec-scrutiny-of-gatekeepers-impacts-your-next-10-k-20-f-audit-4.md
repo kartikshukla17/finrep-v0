@@ -1,6 +1,8 @@
 ---
 title: "Auditor's Watch: How Increased SEC Scrutiny of Gatekeepers Impacts Your
   Next 10-K/20-F Audit"
+subtitle: "this is a subtitle "
+description: "this is a brief description! "
 date: 2026-01-23T05:42:00.000+05:30
 author: Kartik Shukla
 authorImage: /uploads/writer.jpeg
