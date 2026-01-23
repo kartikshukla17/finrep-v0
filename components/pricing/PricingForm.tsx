@@ -35,15 +35,12 @@ export default function PricingForm() {
             <form onSubmit={handleSubmit} className="flex flex-col justify-start items-start gap-9">
                 <div className="w-full flex flex-col justify-start items-start gap-5">
                     {/* Company Logo */}
-                    <div className="w-12 h-12 relative overflow-hidden rounded-[6.75px] flex items-center justify-center" style={{
-                        background: "linear-gradient(0deg, rgba(0, 0, 0, 0.16) 0%, rgba(0, 0, 0, 0.16) 100%), linear-gradient(150deg, #48E3B9 0%, rgba(35, 177, 138, 0.30) 73%), #23B18A",
-                        backdropFilter: "blur(76.19px)"
-                    }}>
+                    <div className="relative overflow-hidden rounded-[6.75px] flex items-center justify-center" >
                         <Image
-                            src="/assets/icons/Group 1814106612.svg"
+                            src="/assets/company_logos/finreplogo.png"
                             alt="Company logo"
-                            width={18}
-                            height={25}
+                            width={48}
+                            height={48}
                             className="object-contain"
                         />
                     </div>

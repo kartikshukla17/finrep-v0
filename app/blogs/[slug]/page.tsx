@@ -10,7 +10,7 @@ import {
 } from "@/components/blogs";
 import Footer from "@/components/layout/Footer";
 import Header from "@/components/layout/Header";
-import { use, useEffect, useMemo, useState } from "react";
+import { use, useEffect, useState } from "react";
 
 import ReactMarkdown, { Components } from "react-markdown";
 import remarkGfm from "remark-gfm";
@@ -19,6 +19,13 @@ import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import Image from "next/image";
 import GithubSlugger from "github-slugger";
+
+interface RelatedArticle {
+  slug: string;
+  title: string;
+  date: string;
+  image: string;
+}
 
 interface BlogArticle {
   id: string;
@@ -43,6 +50,7 @@ interface BlogArticle {
     slug: string;
     sections?: { title: string; slug: string }[];
   }[];
+  relatedArticles?: RelatedArticle[];
 }
 
 interface BlogArticlePageProps {
@@ -135,12 +143,14 @@ const markdownComponents: Components = {
     const imgSrc = typeof src === "string" ? src : "";
     return (
       <figure className="my-8">
-        <div className="relative w-full aspect-video rounded-lg overflow-hidden">
+        <div className="w-full rounded-lg overflow-hidden">
           <Image
             src={imgSrc}
             alt={alt || ""}
-            fill
-            className="object-cover"
+            width={0}
+            height={0}
+            sizes="100vw"
+            className="w-full h-auto"
           />
         </div>
         {alt && (
@@ -221,6 +231,12 @@ export default function BlogArticlePage({ params }: BlogArticlePageProps) {
 
       const toc = buildTOC(data.content || "");
 
+      // Format related articles dates
+      const formattedRelatedArticles = (data.relatedArticles || []).map((article: RelatedArticle) => ({
+        ...article,
+        date: article.date ? new Date(article.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : "",
+      }));
+
       setArticle({
         id: slug,
         slug,
@@ -236,38 +252,13 @@ export default function BlogArticlePage({ params }: BlogArticlePageProps) {
         readTime: data.readTime,
         pdfUrl: data.pdfUrl,
         tableOfContents: toc,
+        relatedArticles: formattedRelatedArticles,
       });
     };
 
     load();
   }, [slug]);
 
-  const relatedArticles = useMemo(
-    () => [
-      {
-        slug: "article-1",
-        title:
-          "From Sanctions to Scrutiny: How OFAC Violations Create Immediate SEC Disclosure Triggers",
-        date: "Jan 2, 2026",
-        image: "/assets/images/articleimage.png",
-      },
-      {
-        slug: "article-2",
-        title:
-          "From Sanctions to Scrutiny: How OFAC Violations Create Immediate SEC Disclosure Triggers",
-        date: "Jan 2, 2026",
-        image: "/assets/images/articleimage.png",
-      },
-      {
-        slug: "article-3",
-        title:
-          "From Sanctions to Scrutiny: How OFAC Violations Create Immediate SEC Disclosure Triggers",
-        date: "Jan 2, 2026",
-        image: "/assets/images/articleimage.png",
-      },
-    ],
-    []
-  );
 
   // loading state
   if (!article) {
@@ -332,7 +323,9 @@ export default function BlogArticlePage({ params }: BlogArticlePageProps) {
           </div>
         </div>
 
-        <RelatedArticles articles={relatedArticles} />
+        {article.relatedArticles && article.relatedArticles.length > 0 && (
+          <RelatedArticles articles={article.relatedArticles} />
+        )}
       </main>
 
       <Footer />

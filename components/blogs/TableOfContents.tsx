@@ -72,7 +72,7 @@ export default function TableOfContents({ sections }: TableOfContentsProps) {
             });
 
             setActiveSlug(slug);
-            window.history.pushState(null, "", `#${slug}`);
+            window.history.replaceState(null, "", `#${slug}`);
         }
     };
 

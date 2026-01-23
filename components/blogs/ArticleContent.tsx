@@ -9,13 +9,15 @@ interface ArticleContentProps {
 export default function ArticleContent({ featuredImage, title, children }: ArticleContentProps) {
     return (
         <div className="w-full flex flex-col gap-8 md:gap-12">
-            {/* Featured Image */}
-            <div className="w-full aspect-video md:h-[540px] relative rounded-lg overflow-hidden">
+            {/* Featured Image - preserves original dimensions */}
+            <div className="w-full rounded-lg overflow-hidden">
                 <Image
                     src={featuredImage}
                     alt={title}
-                    fill
-                    className="object-cover"
+                    width={0}
+                    height={0}
+                    sizes="100vw"
+                    className="w-full h-auto"
                     priority
                 />
             </div>

@@ -15,20 +15,26 @@ export default function Hero() {
                 {/* Hero Content - Centered */}
                 <div className="flex flex-col items-center mt-[73px] w-full px-4 md:px-0">
 
-                    {/* Announcement Banner */}
-                    <div className="flex items-center gap-2 px-6 py-2 bg-[#134E3D] rounded-full shadow-[0px_0px_16px_rgba(0,0,0,0.25)] border border-[#134E3D] mb-8 max-w-full overflow-hidden">
-                        {/* Fina Icon */}
+                    {/* Announcement Banner with gradient border */}
+                    <div
+                        className="p-[1px] rounded-full shadow-[0px_0px_16px_rgba(0,0,0,0.25)] mb-8 max-w-full"
+                        style={{
+                            background: 'linear-gradient(90deg, #134E3D 0%, rgba(255, 175, 66, 0.3) 50%, #134E3D 100%)'
+                        }}
+                    >
+                        <div className="flex items-center gap-2 px-6 py-2 bg-[#134E3D] rounded-full overflow-hidden">
+                            {/* Fina Icon */}
+                            <Image
+                                src="/assets/icons/Group.svg"
+                                alt="Fina icon"
+                                width={20}
+                                height={20}
+                                className="animate-spin flex-shrink-0"
+                            />
 
-                        <Image
-                            src="/assets/icons/Group.svg"
-                            alt="Fina icon"
-                            width={20}
-                            height={20}
-                            className="animate-spin flex-shrink-0 "
-                        />
-
-                        <div className="text-[#F4FBF8] text-sm md:text-base font-medium font-articulat truncate">
-                            Fina - Our most Advanced AI is Live
+                            <div className="text-[#F4FBF8] text-sm md:text-base font-medium font-articulat truncate">
+                                Fina - Our most Advanced AI is Live
+                            </div>
                         </div>
                     </div>
 

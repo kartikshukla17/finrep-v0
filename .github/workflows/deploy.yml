@@ -1,0 +1,33 @@
+name: Deploy to EC2
+on:
+    push:
+        branches: [main] # Runs when you push code OR when CMS updates content
+
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout Code
+              uses: actions/checkout@v3
+
+            - name: Deploy via SSH
+              uses: appleboy/ssh-action@master
+              with:
+                  host: ${{ secrets.EC2_HOST }} # Your EC2 IP address
+                  username: ${{ secrets.EC2_USER }} # Usually 'ubuntu'
+                  key: ${{ secrets.EC2_SSH_KEY }} # Your Private Key content
+                  script: |
+                      # 1. Go to your project folder
+                      cd /home/ubuntu/finrep-v0
+
+                      # 2. Get latest changes (including new blogs from CMS)
+                      git pull origin main
+
+                      # 3. Install new dependencies (if any)
+                      npm ci
+
+                      # 4. Build the application (Generates the static blog pages)
+                      npm run build
+
+                      # 5. Restart the server so changes are visible
+                      pm2 reload finrep --update-env || pm2 start npm --name "finrep" -- start

@@ -7,7 +7,7 @@ export default function Footer() {
             {/* Footer Image at Start */}
             <div className="absolute left-0 top-0 w-full h-full lg:h-[681px] overflow-hidden flex justify-center">
                 <Image
-                    src="/assets/images/footer.png"
+                    src="/assets/icons/footer.svg"
                     alt="Footer background"
                     width={1440}
                     height={681}
