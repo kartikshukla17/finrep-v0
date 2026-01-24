@@ -33,10 +33,10 @@ function FeatureGroup({ title, subtitle, features }: FeatureGroupProps) {
     return (
         <div className="w-full flex flex-col justify-start items-start gap-5">
             <div className="w-full flex flex-col justify-start items-start gap-2">
-                <h3 className="w-full text-white text-xl md:text-2xl font-medium font-articulat leading-tight lg:leading-[28.80px]">
+                <h3 className="w-full text-white text-xl lg:text-2xl font-medium font-articulat leading-tight lg:leading-[28.80px]">
                     {title}
                 </h3>
-                <p className="w-full text-[#C7C7C7] text-sm md:text-base font-medium font-articulat leading-tight lg:leading-[19.20px]">
+                <p className="w-full text-[#C7C7C7] text-sm lg:text-base font-medium font-articulat leading-tight lg:leading-[19.20px]">
                     {subtitle}
                 </p>
             </div>
@@ -84,14 +84,14 @@ const featureGroups = [
 export default function CFOOfficeSection() {
     return (
         <div className="w-full bg-[#0D352A]">
-            <div className="w-full max-w-[1440px] mx-auto px-6 md:px-[60px] lg:px-[120px] py-12 md:py-16 lg:py-[120px]">
-                <div className="w-full flex flex-col lg:flex-row justify-start items-start gap-8 lg:gap-16">
+            <div className="w-full max-w-[1440px] mx-auto px-5 lg:px-[120px] pt-10 pb-20 lg:py-[120px] flex justify-center lg:justify-start">
+                <div className="w-full max-w-[372px] lg:max-w-none flex flex-col lg:flex-row justify-start items-start gap-8 lg:gap-16">
                     {/* Left Side - Header */}
                     <div className="w-full lg:w-[533px] flex flex-col justify-start items-start gap-6">
-                        <h2 className="w-full text-white text-3xl md:text-[38px] lg:text-[42px] font-medium font-articulat leading-tight lg:leading-[58.80px]">
+                        <h2 className="w-full text-white text-3xl lg:text-[42px] font-medium font-articulat leading-tight lg:leading-[58.80px]">
                             A complete CFO office, powered by AI
                         </h2>
-                        <p className="w-full text-[#C7C7C7] text-base md:text-lg lg:text-xl font-normal font-articulat leading-relaxed lg:leading-[30px]">
+                        <p className="w-full text-[#C7C7C7] text-base lg:text-xl font-normal font-articulat leading-relaxed lg:leading-[30px]">
                             One platform that brings research, benchmarking, drafting, and review into a single, intelligent workflow.
                         </p>
                     </div>

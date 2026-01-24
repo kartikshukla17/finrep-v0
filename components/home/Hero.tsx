@@ -1,9 +1,19 @@
 "use client";
 
+import { motion } from "framer-motion";
+import { ShieldCheck, UserRoundCheck } from "lucide-react";
 import Image from "next/image";
 import Header from "../layout/Header";
-import { UserRoundCheck, ShieldCheck } from "lucide-react";
-import { motion } from "framer-motion";
+
+// Company logos data (placeholders for now)
+const companyLogos = [
+    { id: 1, name: "Company 1" },
+    { id: 2, name: "Company 2" },
+    { id: 3, name: "Company 3" },
+    { id: 4, name: "Company 4" },
+    { id: 5, name: "Company 5" },
+    { id: 6, name: "Company 6" },
+];
 
 // Animation variants
 const fadeInUp = {
@@ -58,7 +68,7 @@ export default function Hero() {
             <div className="relative w-full max-w-[1440px] mx-auto h-full flex flex-col items-center pt-[72px]">
                 {/* Hero Content - Centered */}
                 <motion.div
-                    className="flex flex-col items-center mt-[73px] w-full px-4 md:px-0"
+                    className="flex flex-col items-center mt-8 lg:mt-[73px] w-full px-4 md:px-0"
                     variants={staggerContainer}
                     initial="hidden"
                     animate="visible"
@@ -128,21 +138,39 @@ export default function Hero() {
                         traceability.
                     </motion.div>
 
-                    {/* Email Input and CTA */}
+                    {/* Email Input and CTA - Mobile */}
                     <motion.div
-                        className="flex flex-col md:flex-row bg-[#134E3D] rounded-[40px] p-0 w-full max-w-[488px] mb-12 overflow-hidden mx-4"
+                        className="lg:hidden flex flex-row bg-[#134E3D] rounded-full p-1 w-full max-w-[488px] mb-12 mx-4"
                         variants={scaleIn}
                         transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
                     >
                         <input
                             type="email"
                             placeholder="Enter email"
-                            className="flex-1 px-8 py-4 bg-transparent text-[#F4FBF8] text-lg md:text-[20px] font-normal font-articulat leading-8 outline-none border-none placeholder:text-[rgba(244,251,248,0.30)] text-center md:text-left"
+                            className="flex-1 min-w-0 px-4 py-3 bg-transparent text-[#F4FBF8] text-base font-normal font-articulat outline-none border-none placeholder:text-[rgba(244,251,248,0.30)] text-left"
                         />
-                        <button className="px-[30px] py-4 bg-[#29AB87] w-full md:w-auto flex justify-center items-center gap-2.5 cursor-pointer hover:bg-[#238f73] transition-colors rounded-[40px] md:ml-[-20px] z-10">
-                            <div className="text-white text-lg md:text-[20px] font-medium font-articulat leading-8 whitespace-nowrap">
+                        <button className="px-4 py-3 bg-[#29AB87] flex flex-shrink-0 justify-center items-center cursor-pointer hover:bg-[#238f73] transition-colors rounded-full">
+                            <span className="text-white text-sm font-medium font-articulat whitespace-nowrap">
+                                Book a Demo
+                            </span>
+                        </button>
+                    </motion.div>
+
+                    {/* Email Input and CTA - Desktop */}
+                    <motion.div
+                        className="hidden lg:flex flex-row bg-[#134E3D] rounded-[40px] p-0 w-full max-w-[488px] mb-12 overflow-hidden mx-4"
+                        variants={scaleIn}
+                        transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                    >
+                        <input
+                            type="email"
+                            placeholder="Enter email"
+                            className="flex-1 px-8 py-4 bg-transparent text-[#F4FBF8] text-[20px] font-normal font-articulat leading-8 outline-none border-none placeholder:text-[rgba(244,251,248,0.30)] text-left"
+                        />
+                        <button className="px-[30px] py-4 bg-[#29AB87] flex justify-center items-center gap-2.5 cursor-pointer hover:bg-[#238f73] transition-colors rounded-[40px] ml-[-20px] z-10">
+                            <span className="text-white text-[20px] font-medium font-articulat leading-8 whitespace-nowrap">
                                 Request Access
-                            </div>
+                            </span>
                         </button>
                     </motion.div>
 
@@ -196,29 +224,50 @@ export default function Hero() {
                         </motion.div>
                     </motion.div>
 
-                    {/* Company Logos Placeholders */}
+                    {/* Company Logos Section */}
                     <motion.div
-                        className="w-full flex justify-center items-center gap-3 md:gap-4 mb-20 px-4 flex-wrap"
+                        className="w-full mb-20"
                         variants={fadeInUp}
                         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
                     >
-                        <div className="text-center text-[rgba(255,255,255,0.40)] text-sm mb-4 w-full">
+                        <div className="text-center text-[rgba(255,255,255,0.40)] text-sm mb-4 w-full px-4">
                             Built and used by professionals from
                         </div>
-                        {/* 6 White Boxes as placeholders */}
-                        {[...Array(6)].map((_, i) => (
+
+                        {/* Desktop: Grid Layout */}
+                        <div className="hidden lg:flex justify-center items-center gap-4 px-4 flex-wrap">
+                            {companyLogos.map((logo, i) => (
+                                <motion.div
+                                    key={logo.id}
+                                    className="w-[120px] h-[80px] bg-white/10 rounded-lg"
+                                    initial={{ opacity: 0, y: 20 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{
+                                        duration: 0.4,
+                                        delay: 0.8 + (i * 0.1),
+                                        ease: [0.22, 1, 0.36, 1]
+                                    }}
+                                />
+                            ))}
+                        </div>
+
+                        {/* Mobile: Infinite Carousel */}
+                        <div className="lg:hidden w-full overflow-hidden">
                             <motion.div
-                                key={i}
-                                className="w-[calc(33.333%-8px)] md:w-[120px] h-[50px] md:h-[80px] bg-white/10 rounded-lg"
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{
-                                    duration: 0.4,
-                                    delay: 0.8 + (i * 0.1),
-                                    ease: [0.22, 1, 0.36, 1]
-                                }}
-                            />
-                        ))}
+                                className="flex gap-3 animate-scroll-left"
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                transition={{ duration: 0.6, delay: 0.8 }}
+                            >
+                                {/* Double the logos for seamless infinite scroll */}
+                                {[...companyLogos, ...companyLogos].map((logo, i) => (
+                                    <div
+                                        key={`${logo.id}-${i}`}
+                                        className="w-[100px] h-[60px] bg-white/10 rounded-lg flex-shrink-0"
+                                    />
+                                ))}
+                            </motion.div>
+                        </div>
                     </motion.div>
 
                 </motion.div>

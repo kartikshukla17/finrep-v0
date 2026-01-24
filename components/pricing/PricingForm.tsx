@@ -31,7 +31,7 @@ export default function PricingForm() {
     };
 
     return (
-        <div className="w-full lg:w-[564px] p-6 bg-white rounded-xl">
+        <div className="w-full max-w-[372px] lg:max-w-none lg:w-[564px] p-6 bg-white rounded-xl">
             <form onSubmit={handleSubmit} className="flex flex-col justify-start items-start gap-9">
                 <div className="w-full flex flex-col justify-start items-start gap-5">
                     {/* Company Logo */}

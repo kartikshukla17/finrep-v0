@@ -12,24 +12,87 @@ interface ComparisonCategoryProps {
     features: ComparisonFeature[];
 }
 
-function ComparisonCategory({ title, features }: ComparisonCategoryProps) {
+function ComparisonCategoryMobile({ title, features }: ComparisonCategoryProps) {
     return (
-        <div className="w-full flex flex-col justify-start items-start gap-4">
+        <div className="w-full flex flex-col justify-start items-start gap-4 lg:hidden">
             {/* Header Row */}
-            <div className="w-full bg-white flex flex-col md:flex-row justify-start items-stretch">
-                <div className="flex-1 h-auto md:h-12 px-2.5 py-2 md:py-[9px] flex justify-start items-center">
-                    <h3 className="flex-1 text-[#0E0F10] text-xl md:text-[24px] lg:text-[28px] font-medium font-articulat leading-tight lg:leading-[33.60px]">
+            <div className="w-full bg-white flex flex-col justify-start items-start gap-3">
+                <div className="w-full h-12 py-[9px] flex justify-start items-center">
+                    <h3 className="flex-1 text-[#0E0F10] text-[28px] font-medium font-articulat leading-[33.60px]">
+                        {title}
+                    </h3>
+                </div>
+                <div className="w-full h-12 bg-[#F4FBF8] rounded-md flex justify-start items-center">
+                    <div className="flex-1 h-full flex justify-center items-center">
+                        <div className="flex-1 text-center text-[#269C7B] text-base font-medium font-articulat leading-[19.20px] tracking-[0.64px]">
+                            FINREP
+                        </div>
+                    </div>
+                    <div className="flex-1 h-full flex justify-center items-center">
+                        <div className="flex-1 text-center text-[#5E6469] text-base font-medium font-articulat leading-[19.20px] tracking-[0.64px]">
+                            OTHER PLAYERS
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {/* Feature Rows */}
+            <div className="w-full flex flex-col justify-start items-start gap-2.5">
+                {features.map((feature, index) => (
+                    <div
+                        key={index}
+                        className="w-full bg-white flex flex-col justify-start items-start"
+                    >
+                        <div className="w-full py-[1px] flex justify-start items-center">
+                            <div className="flex-1 text-black text-base font-medium font-articulat">
+                                {feature.name}
+                            </div>
+                        </div>
+                        <div className="w-full h-10 bg-[#F9F9FA] rounded-lg flex justify-start items-center">
+                            <div className="flex-1 h-full flex justify-center items-center">
+                                <Image
+                                    src={feature.finrep ? "/assets/icons/Compare cell-1.svg" : "/assets/icons/Compare cell.svg"}
+                                    alt={feature.finrep ? "Supported" : "Not supported"}
+                                    width={20}
+                                    height={20}
+                                    className="object-contain"
+                                />
+                            </div>
+                            <div className="flex-1 h-full flex justify-center items-center">
+                                <Image
+                                    src={feature.others ? "/assets/icons/Compare cell-1.svg" : "/assets/icons/Compare cell.svg"}
+                                    alt={feature.others ? "Supported" : "Not supported"}
+                                    width={20}
+                                    height={20}
+                                    className="object-contain"
+                                />
+                            </div>
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </div>
+    );
+}
+
+function ComparisonCategoryDesktop({ title, features }: ComparisonCategoryProps) {
+    return (
+        <div className="hidden lg:flex w-full flex-col justify-start items-start gap-4">
+            {/* Header Row */}
+            <div className="w-full bg-white flex flex-row justify-start items-stretch">
+                <div className="flex-1 h-12 px-2.5 py-[9px] flex justify-start items-center">
+                    <h3 className="flex-1 text-[#0E0F10] text-[28px] font-medium font-articulat leading-[33.60px]">
                         {title}
                     </h3>
                 </div>
                 <div className="flex-1 flex flex-row justify-start items-center">
-                    <div className="flex-1 flex justify-center items-center py-2 md:py-0">
-                        <div className="flex-1 text-center text-[#269C7B] text-sm md:text-base font-medium font-articulat leading-[19.20px] tracking-[0.64px]">
+                    <div className="flex-1 flex justify-center items-center">
+                        <div className="flex-1 text-center text-[#269C7B] text-base font-medium font-articulat leading-[19.20px] tracking-[0.64px]">
                             FINREP
                         </div>
                     </div>
-                    <div className="flex-1 flex justify-center items-center py-2 md:py-0">
-                        <div className="flex-1 text-center text-[#5E6469] text-sm md:text-base font-medium font-articulat leading-[19.20px] tracking-[0.64px]">
+                    <div className="flex-1 flex justify-center items-center">
+                        <div className="flex-1 text-center text-[#5E6469] text-base font-medium font-articulat leading-[19.20px] tracking-[0.64px]">
                             OTHER PLAYERS
                         </div>
                     </div>
@@ -41,9 +104,9 @@ function ComparisonCategory({ title, features }: ComparisonCategoryProps) {
                 {features.map((feature, index) => (
                     <div
                         key={index}
-                        className="w-full bg-white border-b border-black/10 flex flex-col md:flex-row justify-start items-stretch"
+                        className="w-full bg-white border-b border-black/10 flex flex-row justify-start items-stretch"
                     >
-                        <div className={`flex-1 ${feature.longText ? 'h-auto py-2' : 'h-auto md:h-12'} px-2.5 py-2 md:py-[9px] flex justify-start items-center gap-2.5`}>
+                        <div className={`flex-1 ${feature.longText ? 'h-auto py-2' : 'h-12'} px-2.5 py-[9px] flex justify-start items-center gap-2.5`}>
                             <Image
                                 src="/assets/icons/Vector copy 3.svg"
                                 alt="Arrow"
@@ -51,12 +114,12 @@ function ComparisonCategory({ title, features }: ComparisonCategoryProps) {
                                 height={12}
                                 className="shrink-0 opacity-30"
                             />
-                            <div className="flex-1 text-black text-base md:text-lg font-medium font-articulat">
+                            <div className="flex-1 text-black text-lg font-medium font-articulat">
                                 {feature.name}
                             </div>
                         </div>
                         <div className="flex-1 flex flex-row justify-start items-center">
-                            <div className="flex-1 flex justify-center items-center py-2 md:py-0">
+                            <div className="flex-1 flex justify-center items-center">
                                 <Image
                                     src={feature.finrep ? "/assets/icons/Compare cell-1.svg" : "/assets/icons/Compare cell.svg"}
                                     alt={feature.finrep ? "Supported" : "Not supported"}
@@ -65,7 +128,7 @@ function ComparisonCategory({ title, features }: ComparisonCategoryProps) {
                                     className="object-contain"
                                 />
                             </div>
-                            <div className="flex-1 flex justify-center items-center py-2 md:py-0">
+                            <div className="flex-1 flex justify-center items-center">
                                 <Image
                                     src={feature.others ? "/assets/icons/Compare cell-1.svg" : "/assets/icons/Compare cell.svg"}
                                     alt={feature.others ? "Supported" : "Not supported"}
@@ -156,26 +219,49 @@ const comparisonData = [
 export default function ComparisonTable() {
     return (
         <div className="w-full bg-white">
-            <div className="w-full max-w-[1440px] mx-auto px-6 md:px-[60px] lg:px-[120px] py-12 md:py-16 lg:py-[120px]">
-                <div className="w-full flex flex-col justify-start items-start gap-8 md:gap-10 lg:gap-[42px]">
-                    {/* Header */}
-                    <div className="w-full flex flex-col justify-start items-start gap-2">
-                        <h2 className="w-full text-[#0E0F10] text-2xl md:text-[32px] lg:text-[36px] font-medium font-articulat leading-tight lg:leading-[43.20px]">
+            <div className="w-full max-w-[1440px] mx-auto px-5 lg:px-[120px] py-20 lg:py-[120px] flex justify-center lg:justify-start">
+                <div className="w-full max-w-[372px] lg:max-w-none flex flex-col justify-start items-start gap-6 lg:gap-[42px]">
+                    {/* Header - Mobile */}
+                    <div className="w-full flex flex-col justify-start items-start gap-2 lg:hidden">
+                        <h2 className="w-full text-black text-[42px] font-medium font-articulat leading-[58.80px]">
                             Built for finance teams who cannot afford uncertainty
                         </h2>
-                        <p className="w-full text-[#3F4346] text-base md:text-lg lg:text-xl font-normal font-articulat leading-relaxed lg:leading-[30px]">
+                        <p className="w-full text-[#3F4346] text-xl font-medium font-articulat leading-8">
                             Here is what you get with Finrep compared to traditional tools and generic AI platforms.
                         </p>
                     </div>
 
-                    {/* Comparison Categories */}
-                    {comparisonData.map((category, index) => (
-                        <ComparisonCategory
-                            key={index}
-                            title={category.title}
-                            features={category.features}
-                        />
-                    ))}
+                    {/* Header - Desktop */}
+                    <div className="hidden lg:flex w-full flex-col justify-start items-start gap-2">
+                        <h2 className="w-full text-[#0E0F10] text-[36px] font-medium font-articulat leading-[43.20px]">
+                            Built for finance teams who cannot afford uncertainty
+                        </h2>
+                        <p className="w-full text-[#3F4346] text-xl font-normal font-articulat leading-[30px]">
+                            Here is what you get with Finrep compared to traditional tools and generic AI platforms.
+                        </p>
+                    </div>
+
+                    {/* Comparison Categories - Mobile */}
+                    <div className="w-full flex flex-col gap-6 lg:hidden">
+                        {comparisonData.map((category, index) => (
+                            <ComparisonCategoryMobile
+                                key={index}
+                                title={category.title}
+                                features={category.features}
+                            />
+                        ))}
+                    </div>
+
+                    {/* Comparison Categories - Desktop */}
+                    <div className="hidden lg:flex w-full flex-col gap-[42px]">
+                        {comparisonData.map((category, index) => (
+                            <ComparisonCategoryDesktop
+                                key={index}
+                                title={category.title}
+                                features={category.features}
+                            />
+                        ))}
+                    </div>
                 </div>
             </div>
         </div>

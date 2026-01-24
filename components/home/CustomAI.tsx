@@ -1,40 +1,33 @@
-import Image from "next/image";
-
 interface FeatureCardProps {
     imageSrc: string;
     imageAlt: string;
     title: string;
     descriptions: string[];
+    className?: string;
 }
 
-function FeatureCard({ imageSrc, imageAlt, title, descriptions }: FeatureCardProps) {
+function FeatureCard({ imageSrc, imageAlt, title, descriptions, className = "" }: FeatureCardProps) {
     return (
-        <div className="w-full lg:flex-1 h-auto lg:h-[448px] p-6 bg-black/20 rounded-[8px] backdrop-blur-[6px] flex flex-col justify-start items-start gap-6">
-
+        <div className={`p-3 lg:p-6 bg-black/20 rounded-lg backdrop-blur-[6px] flex flex-col justify-start items-start gap-3 lg:gap-6 ${className}`}>
             <img
                 src={imageSrc}
                 alt={imageAlt}
-                className="object-contain rounded-[6px]"
+                className="object-contain rounded-[6px] w-full"
             />
 
-
-
-            <div className="text-white text-2xl font-medium font-articulat leading-[33.60px]">
+            <h3 className="text-white text-base lg:text-2xl font-medium font-articulat leading-[22.40px] lg:leading-[33.60px]">
                 {title}
-            </div>
+            </h3>
 
-
-            {
-                descriptions.map((desc, index) => (
-                    <div
-                        key={index}
-                        className="w-full text-[#B1B5B9] text-base font-normal font-articulat leading-[22.40px]"
-                    >
-                        {desc}
-                    </div>
-                ))
-            }
-        </div >
+            {descriptions.map((desc, index) => (
+                <p
+                    key={index}
+                    className="w-full text-[#B1B5B9] text-xs lg:text-base font-normal font-articulat leading-[16.80px] lg:leading-[22.40px]"
+                >
+                    {desc}
+                </p>
+            ))}
+        </div>
     );
 }
 
@@ -71,7 +64,7 @@ const featureCards = [
 export default function CustomAI() {
     return (
         <div
-            className="relative w-full px-6 md:px-[60px] lg:px-[120px] py-12 flex flex-col justify-center items-center gap-[49px]"
+            className="relative w-full px-4 lg:px-[120px] py-6 lg:py-12 flex flex-col justify-center items-center gap-6 lg:gap-[49px] overflow-hidden"
             style={{
                 backgroundImage:
                     "linear-gradient(0deg, rgba(0, 0, 0, 0.40) 0%, rgba(0, 0, 0, 0.40) 100%), url(/assets/images/gradientbg.png)",
@@ -81,27 +74,60 @@ export default function CustomAI() {
             }}
         >
             {/* Title and Subtitle */}
-            <div className="w-full max-w-[900px] flex flex-col justify-center items-center gap-4">
-                <div className="text-[#F4FBF8] text-3xl md:text-[36px] font-normal font-articulat leading-tight md:leading-[50.40px] text-center">
+            <div className="w-full max-w-[372px] lg:max-w-[900px] flex flex-col justify-center items-center gap-4">
+                <h2 className="text-[#F4FBF8] text-[28px] lg:text-[36px] font-medium lg:font-normal font-articulat leading-[39.20px] lg:leading-[50.40px] text-center">
                     Custom AI built for CFO offices who can Trust
-                </div>
-                <div className="text-[#F4FBF8] text-lg md:text-xl font-normal font-articulat leading-snug md:leading-7 text-center">
+                </h2>
+                <p className="text-[#F4FBF8] text-base lg:text-xl font-normal font-articulat leading-[22.40px] lg:leading-7 text-center">
                     Enterprise grade architecture with first class auditability,
                     governance, and security
-                </div>
+                </p>
             </div>
 
-            {/* Three Feature Cards */}
-            <div className="w-full max-w-[1200px] flex flex-col lg:flex-row justify-start items-center gap-4">
-                {featureCards.map((card, index) => (
+            {/* Feature Cards - Mobile: 1 full + 2 half, Desktop: 3 equal */}
+            <div className="w-full max-w-[372px] lg:max-w-[1200px] flex flex-col gap-3 lg:gap-4">
+                {/* Desktop: All three in a row */}
+                <div className="hidden lg:flex flex-row justify-start items-stretch gap-4">
+                    {featureCards.map((card, index) => (
+                        <FeatureCard
+                            key={index}
+                            imageSrc={card.imageSrc}
+                            imageAlt={card.imageAlt}
+                            title={card.title}
+                            descriptions={card.descriptions}
+                            className="flex-1 h-[448px]"
+                        />
+                    ))}
+                </div>
+
+                {/* Mobile: First card full width */}
+                <div className="lg:hidden">
                     <FeatureCard
-                        key={index}
-                        imageSrc={card.imageSrc}
-                        imageAlt={card.imageAlt}
-                        title={card.title}
-                        descriptions={card.descriptions}
+                        imageSrc={featureCards[0].imageSrc}
+                        imageAlt={featureCards[0].imageAlt}
+                        title={featureCards[0].title}
+                        descriptions={featureCards[0].descriptions}
+                        className="w-full"
                     />
-                ))}
+                </div>
+
+                {/* Mobile: Second and third cards side by side */}
+                <div className="lg:hidden flex flex-row gap-3">
+                    <FeatureCard
+                        imageSrc={featureCards[1].imageSrc}
+                        imageAlt={featureCards[1].imageAlt}
+                        title={featureCards[1].title}
+                        descriptions={featureCards[1].descriptions}
+                        className="flex-1"
+                    />
+                    <FeatureCard
+                        imageSrc={featureCards[2].imageSrc}
+                        imageAlt={featureCards[2].imageAlt}
+                        title={featureCards[2].title}
+                        descriptions={featureCards[2].descriptions}
+                        className="flex-1"
+                    />
+                </div>
             </div>
         </div>
     );

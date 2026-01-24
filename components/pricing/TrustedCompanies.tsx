@@ -1,6 +1,15 @@
 import Image from "next/image";
 
-const companyLogos = [
+const companyLogosMobile = [
+    { src: "/assets/icons/company_logo/Circle_idESAy34no_0 1.svg", alt: "Circle", width: 164, height: 42 },
+    { src: "/assets/icons/company_logo/Infosys_idxq8SaZnR_0.svg", alt: "Infosys", width: 114, height: 42 },
+    { src: "/assets/icons/company_logo/Logo 1.svg", alt: "EXL", width: 99, height: 36 },
+    { src: "/assets/icons/company_logo/Vector.svg", alt: "HP", width: 48, height: 48 },
+    { src: "/assets/icons/company_logo/idYV5M9CYu_1768336934604 1.svg", alt: "Wells Fargo", width: 248, height: 25 },
+    { src: "/assets/icons/company_logo/idlzlIlh4I_logos 1.svg", alt: "RingCentral", width: 226, height: 32 }
+];
+
+const companyLogosDesktop = [
     [
         { src: "/assets/icons/company_logo/Circle_idESAy34no_0 1.svg", alt: "Circle", width: 164, height: 42 },
         { src: "/assets/icons/company_logo/Infosys_idxq8SaZnR_0.svg", alt: "Infosys", width: 114, height: 42 },
@@ -16,22 +25,50 @@ const companyLogos = [
 export default function TrustedCompanies() {
     return (
         <div className="w-full bg-white border-b border-[#ECEDEE]">
-            <div className="w-full max-w-[1440px] mx-auto px-6 md:px-[60px] lg:px-[120px] py-12 md:py-16 lg:py-20">
-                <div className="w-full flex flex-col justify-center items-start gap-8 md:gap-10 lg:gap-[42px]">
-                    {/* Header */}
-                    <div className="w-full flex flex-col justify-start items-start gap-2">
-                        <h2 className="w-full text-[#0E0F10] text-2xl md:text-[32px] lg:text-[36px] font-medium font-articulat leading-tight lg:leading-[43.20px]">
+            <div className="w-full max-w-[1440px] mx-auto px-5 lg:px-[120px] py-12 lg:py-20">
+                <div className="w-full max-w-[372px] lg:max-w-none mx-auto lg:mx-0 flex flex-col justify-center items-start gap-8 lg:gap-[42px]">
+                    {/* Header - Mobile */}
+                    <div className="w-full flex flex-col justify-start items-start gap-2 lg:hidden">
+                        <h2 className="w-full text-[#0E0F10] text-[42px] font-medium font-articulat leading-[58.80px]">
                             Trusted by teams operating at scale
                         </h2>
-                        <p className="w-full text-[#3F4346] text-base md:text-lg lg:text-xl font-normal font-articulat leading-relaxed lg:leading-[30px]">
+                        <p className="w-full text-[#3F4346] text-xl font-medium font-articulat leading-8">
                             Leading enterprises rely on Finrep for accuracy, speed, and defensibility.
                         </p>
                     </div>
 
-                    {/* Logo Grid */}
-                    <div className="w-full flex flex-col justify-start items-start gap-4 md:gap-6">
-                        {companyLogos.map((row, rowIndex) => (
-                            <div key={rowIndex} className="w-full flex flex-col sm:flex-row justify-start items-stretch gap-4 md:gap-6">
+                    {/* Header - Desktop */}
+                    <div className="hidden lg:flex w-full flex-col justify-start items-start gap-2">
+                        <h2 className="w-full text-[#0E0F10] text-[36px] font-medium font-articulat leading-[43.20px]">
+                            Trusted by teams operating at scale
+                        </h2>
+                        <p className="w-full text-[#3F4346] text-xl font-normal font-articulat leading-[30px]">
+                            Leading enterprises rely on Finrep for accuracy, speed, and defensibility.
+                        </p>
+                    </div>
+
+                    {/* Mobile: Single column */}
+                    <div className="w-full flex flex-col gap-6 lg:hidden">
+                        {companyLogosMobile.map((logo, index) => (
+                            <div
+                                key={index}
+                                className="w-full h-[100px] flex items-center justify-center bg-white rounded-lg border border-[#D9DBDD] overflow-hidden"
+                            >
+                                <Image
+                                    src={logo.src}
+                                    alt={logo.alt}
+                                    width={logo.width}
+                                    height={logo.height}
+                                    className="object-contain max-h-[48px] max-w-[70%]"
+                                />
+                            </div>
+                        ))}
+                    </div>
+
+                    {/* Desktop: Grid layout */}
+                    <div className="hidden lg:flex lg:flex-col lg:gap-6 w-full">
+                        {companyLogosDesktop.map((row, rowIndex) => (
+                            <div key={rowIndex} className="w-full flex justify-start items-stretch gap-6">
                                 {row.map((logo, logoIndex) => (
                                     <div
                                         key={logoIndex}
@@ -42,7 +79,7 @@ export default function TrustedCompanies() {
                                             alt={logo.alt}
                                             width={logo.width}
                                             height={logo.height}
-                                            className="object-contain"
+                                            className="object-contain max-h-[48px] max-w-[70%]"
                                         />
                                     </div>
                                 ))}

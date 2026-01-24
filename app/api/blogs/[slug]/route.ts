@@ -19,7 +19,7 @@ export async function GET(
     const raw = fs.readFileSync(filePath, "utf-8");
     const { data, content } = matter(raw);
 
-    // Get related articles (random posts excluding current one)
+    // Get related articles (3 most recent posts excluding current one)
     const allFiles = fs.readdirSync(BLOG_DIR).filter((f) => f.endsWith(".md"));
     const otherPosts = allFiles
       .filter((f) => f !== `${slug}.md`)
@@ -34,8 +34,13 @@ export async function GET(
           image: postData.coverImage ?? "/assets/images/articleimage.png",
         };
       })
-      .sort(() => Math.random() - 0.5) // Shuffle randomly
-      .slice(0, 3); // Get 3 random articles
+      .sort((a, b) => {
+        // Sort by date descending (most recent first)
+        const dateA = a.date ? new Date(a.date).getTime() : 0;
+        const dateB = b.date ? new Date(b.date).getTime() : 0;
+        return dateB - dateA;
+      })
+      .slice(0, 3); // Get 3 most recent articles
 
     return NextResponse.json({
       slug,

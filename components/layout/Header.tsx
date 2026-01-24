@@ -1,8 +1,8 @@
 'use client';
 
 import { Button } from "@/components/ui/button";
-import { MobileMenu } from "@/components/ui/mobile-menu";
-import { Menu } from "lucide-react";
+import { AnimatePresence, motion } from "framer-motion";
+import { Menu, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -80,6 +80,16 @@ export default function Header({ variant = "light" }: HeaderProps) {
     { name: "About", href: "/about" },
   ];
 
+  const mobileMenuLinks = [
+    { name: "About", href: "/about" },
+    { name: "Pricing", href: "/pricing" },
+    { name: "Blogs", href: "/blogs" },
+  ];
+
+  const handleLinkClick = () => {
+    setIsMobileMenuOpen(false);
+  };
+
   // Dynamic colors based on scroll state
   const textColor = isScrolled ? "text-[#0E0F10]" : "text-[#F4FBF8]";
   const bgStyle = isScrolled
@@ -87,66 +97,138 @@ export default function Header({ variant = "light" }: HeaderProps) {
     : "bg-transparent";
 
   return (
-    <header
-      className={`fixed top-0 left-0 w-full z-50 backdrop-blur-[24px] transition-all duration-500 ease-in-out ${bgStyle}`}
-    >
-      <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 md:px-[60px] lg:px-[120px] py-4 flex justify-between items-center relative">
-        {/* Logo - no changes applied */}
-        <Link href="/">
-          <Image
-            src="/assets/icons/Group 14.svg"
-            alt="finrep logo"
-            width={93}
-            height={40}
-          />
-        </Link>
+    <>
+      <header
+        className={`fixed top-0 left-0 right-0 z-50 backdrop-blur-[24px] transition-all duration-500 ease-in-out ${bgStyle}`}
+      >
+        <div className="w-full max-w-[1440px] mx-auto px-4 pr-2 lg:px-[120px] py-4 flex justify-between items-center relative">
+          <Link href="/">
+            <Image
+              src="/assets/icons/Group 14.svg"
+              alt="finrep logo"
+              width={93}
+              height={40}
+            />
+          </Link>
 
-        {/* Navigation Links - Centered absolutely */}
-        <div className="hidden lg:flex justify-center items-center gap-6 absolute left-1/2 -translate-x-1/2">
-          {navLinks.map((link) => (
-            <div key={link.name} className="flex justify-center items-center gap-1">
-              <Link
-                href={link.href}
-                className={`${textColor} text-base font-medium font-articulat break-words hover:opacity-80 transition-all duration-500 ease-in-out`}
-              >
-                {link.name}
-              </Link>
-            </div>
-          ))}
+          {/* Navigation Links - Centered absolutely */}
+          <div className="hidden lg:flex justify-center items-center gap-6 absolute left-1/2 -translate-x-1/2">
+            {navLinks.map((link) => (
+              <div key={link.name} className="flex justify-center items-center gap-1">
+                <Link
+                  href={link.href}
+                  className={`${textColor} text-base font-medium font-articulat break-words hover:opacity-80 transition-all duration-500 ease-in-out`}
+                >
+                  {link.name}
+                </Link>
+              </div>
+            ))}
+          </div>
+
+          {/* Action Buttons - Hidden on mobile, visible on lg */}
+          <div className="hidden lg:flex justify-start items-center gap-4">
+            <Button variant="primary" size="md">
+              Login
+            </Button>
+            <Button variant="primary" size="md">
+              Request Access
+            </Button>
+          </div>
+
+          {/* Mobile Menu Toggle - visible below lg */}
+          <div className="lg:hidden flex items-center">
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className={`${textColor} p-2 hover:opacity-80 transition-all duration-500 ease-in-out`}
+              aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+            >
+              <Menu className="w-6 h-6" />
+            </button>
+          </div>
         </div>
+      </header>
 
-        {/* Action Buttons - Hidden on mobile, visible on lg */}
-        <div className="hidden lg:flex justify-start items-center gap-4">
-          <Button
-            variant="primary"
-            size="md"
-          >
-            Login
-          </Button>
-          <Button variant="primary" size="md">
-            Request Access
-          </Button>
-        </div>
+      {/* Mobile Menu Panel - Outside header to avoid overflow issues */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <>
+            {/* Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="fixed inset-0 bg-black/50 z-[60] lg:hidden"
+              onClick={() => setIsMobileMenuOpen(false)}
+            />
 
-        {/* Mobile Menu Toggle - visible below lg */}
-        <div className="lg:hidden flex items-center">
-          <button
-            onClick={() => setIsMobileMenuOpen(true)}
-            className={`${textColor} p-2 hover:opacity-80 transition-all duration-500 ease-in-out`}
-            aria-label="Open menu"
-          >
-            <Menu className="w-6 h-6" />
-          </button>
-        </div>
-      </div>
+            {/* Menu Panel */}
+            <motion.div
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "100%" }}
+              transition={{ type: "tween", duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+              className="fixed top-0 right-0 h-full w-[85%] max-w-[360px] bg-white z-[70] lg:hidden overflow-y-auto"
+            >
+              {/* Menu Header */}
+              <div className="flex justify-between items-center p-4 border-b border-[#ECEDEE]">
+                <Link href="/" onClick={handleLinkClick}>
+                  <Image
+                    src="/assets/icons/Group 14.svg"
+                    alt="finrep logo"
+                    width={80}
+                    height={32}
+                  />
+                </Link>
+                <button
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="p-2 text-[#0E0F10] hover:opacity-80 transition-opacity"
+                  aria-label="Close menu"
+                >
+                  <X className="w-6 h-6" />
+                </button>
+              </div>
 
-      {/* Mobile Menu */}
-      <MobileMenu
-        isOpen={isMobileMenuOpen}
-        onClose={() => setIsMobileMenuOpen(false)}
-        variant={isScrolled ? "dark" : "light"}
-        navLinks={navLinks}
-      />
-    </header>
+              {/* Menu Content */}
+              <div className="p-6 flex flex-col gap-8">
+                {/* Navigation Links */}
+                <div className="flex flex-col gap-4">
+                  {mobileMenuLinks.map((link, idx) => (
+                    <Link
+                      key={idx}
+                      href={link.href}
+                      onClick={handleLinkClick}
+                      className="text-[#0E0F10] text-xl font-medium font-articulat leading-7 hover:text-[#29AB87] transition-colors py-2"
+                    >
+                      {link.name}
+                    </Link>
+                  ))}
+                </div>
+
+                {/* CTA Buttons */}
+                <div className="flex flex-col gap-3">
+                  <Button
+                    variant="primary"
+                    size="md"
+                    className="w-full"
+                    onClick={handleLinkClick}
+                  >
+                    Login
+                  </Button>
+                  <Button
+                    variant="primary"
+                    size="md"
+                    className="w-full bg-[#0E0F10] hover:bg-[#2a2c2e]"
+                    onClick={handleLinkClick}
+                  >
+                    Request Access
+                  </Button>
+                </div>
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
+    </>
   );
 }

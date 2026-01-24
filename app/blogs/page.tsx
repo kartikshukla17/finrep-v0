@@ -20,19 +20,24 @@ export default function BlogsPage() {
   const [posts, setPosts] = useState<BlogPost[]>([]);
   const [featured, setFeatured] = useState<BlogPost | null>(null);
   const [totalPosts, setTotalPosts] = useState(0);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const load = async () => {
-      const res = await fetch("/api/blogs");
+      setLoading(true);
+      // Pass category filter to API (Blogs = all posts)
+      const categoryParam = activeTab === "Blogs" ? "" : `?category=${encodeURIComponent(activeTab)}`;
+      const res = await fetch(`/api/blogs${categoryParam}`);
       const data = await res.json();
 
       setFeatured(data.featured);
       setPosts(data.posts);
       setTotalPosts(data.total || 0);
+      setLoading(false);
     };
 
     load();
-  }, []);
+  }, [activeTab]);
 
   const handleViewMore = () => {
     console.log("Load more posts");
@@ -43,7 +48,7 @@ export default function BlogsPage() {
       <BlogHero />
 
       <div className="relative w-full bg-white">
-        <div className="w-full max-w-[1440px] mx-auto px-6 md:px-[60px] lg:px-[120px] py-16 flex flex-col justify-center items-start gap-16">
+        <div className="w-full max-w-[1440px] mx-auto px-5 lg:px-[120px] py-12 lg:py-16 flex flex-col justify-center items-center lg:items-start gap-6 lg:gap-16">
           <BlogTabs tabs={BLOG_TABS} activeTab={activeTab} onTabChange={setActiveTab} />
 
           {featured && (
