@@ -1,21 +1,53 @@
 @import "tailwindcss";
+@media (max-width: 1023px) {
+  html,
+  body {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+}
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
 
   /* Brand Colors */
-  --text-brand-white: #F4FBF8;
-  --text-brand-body: #134E3D;
-  --text-brand-subtle: #269C7B;
+  --text-brand-white: #f4fbf8;
+  --text-brand-body: #134e3d;
+  --text-brand-subtle: #269c7b;
   --text-neutral-white: white;
-  --text-neutral-title: #0E0F10;
-  --text-neutral-subtitle: #3F4346;
-  --text-neutral-caption: #3F4346;
-  --text-neutral-subtle: #5E6469;
-  --text-neutral-disabled: #9FA4A9;
-  --surface-brand-default: #29AB87;
-  --surface-neutral-darker: #B1B5B9;
+  --text-neutral-title: #0e0f10;
+  --text-neutral-subtitle: #3f4346;
+  --text-neutral-caption: #3f4346;
+  --text-neutral-subtle: #5e6469;
+  --text-neutral-disabled: #9fa4a9;
+  --surface-brand-default: #29ab87;
+  --surface-neutral-darker: #b1b5b9;
+
+  --header-height: 75px;
+}
+
+.section-screen {
+  min-height: calc(100vh);
+}
+
+/* Scale max-width containers on larger screens for better visual consistency */
+@media (min-width: 1920px) {
+  .max-w-\[1440px\] {
+    max-width: 1600px;
+  }
+}
+
+@media (min-width: 2560px) {
+  .max-w-\[1440px\] {
+    max-width: 1920px;
+  }
+}
+
+@media (min-width: 3840px) {
+  .max-w-\[1440px\] {
+    max-width: 2560px;
+  }
 }
 
 @theme inline {
@@ -33,12 +65,14 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: "Articulat CF", var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  font-family:
+    "Articulat CF", var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 }
 
 /* Font utility classes - Articulat CF with Inter fallback (Inter is loaded via next/font) */
 .font-articulat {
-  font-family: "Articulat CF", var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  font-family:
+    "Articulat CF", var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 }
 
 /* Bricolage Grotesque - loaded via next/font */
@@ -61,6 +95,7 @@ body {
   from {
     width: 0%;
   }
+
   to {
     width: 100%;
   }
@@ -77,4 +112,49 @@ body {
 /* Scroll margin for sticky navbar overlap */
 section[id] {
   scroll-margin-top: 90px;
+}
+
+/* Hide scrollbar for horizontal scroll containers */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Infinite scroll carousel animation */
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll-left {
+  animation: scroll-left 15s linear infinite;
+}
+
+.animate-scroll-left:hover {
+  animation-play-state: paused;
+}
+
+/* Spin back and forth animation for Fina icon */
+@keyframes spin-back-forth {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.animate-spin-reverse {
+  animation: spin-back-forth 1.5s ease-in-out infinite;
 }

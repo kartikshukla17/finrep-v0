@@ -61,7 +61,7 @@ export const TRUST_BADGES = [
 export const INVESTORS = [
   {
     name: "Accel",
-    logo: "/assets/icons/Accel_logo 1.svg",
+    logo: "/assets/company_logos/accel-logo.svg",
     alt: "Accel Logo",
   },
 ] as const;
@@ -151,14 +151,6 @@ export const ANIMATION_DURATION = {
   slow: 500,
 } as const;
 
-// Breakpoints (matches Tailwind defaults)
-export const BREAKPOINTS = {
-  sm: 640,
-  md: 768,
-  lg: 1024,
-  xl: 1280,
-  "2xl": 1536,
-} as const;
 
 // Maximum container width
 export const CONTAINER_MAX_WIDTH = 1440;

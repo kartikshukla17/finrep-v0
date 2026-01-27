@@ -1,8 +1,8 @@
-import type { Metadata } from "next";
-import { Bricolage_Grotesque, DM_Sans, Roboto_Slab, Inter } from "next/font/google";
-import { defaultMetadata } from "@/lib/metadata";
-import SmoothScroll from "@/components/SmoothScroll";
 import HashScroll from "@/components/HashScroll";
+import SmoothScroll from "@/components/SmoothScroll";
+import { defaultMetadata } from "@/lib/metadata";
+import type { Metadata } from "next";
+import { Bricolage_Grotesque, DM_Sans, Inter, Roboto_Slab } from "next/font/google";
 import "./globals.css";
 
 const bricolageGrotesque = Bricolage_Grotesque({
@@ -41,7 +41,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${bricolageGrotesque.variable} ${dmSans.variable} ${robotoSlab.variable} ${inter.variable} antialiased`}
+        className={`${bricolageGrotesque.variable} ${dmSans.variable} ${robotoSlab.variable} ${inter.variable} antialiased flex-1 min-h-screen overflow-x-hidden`}
       >
         <SmoothScroll>
           <HashScroll />

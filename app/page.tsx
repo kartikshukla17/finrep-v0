@@ -1,26 +1,31 @@
-import type { Metadata } from "next";
 import { pageMetadata } from "@/lib/metadata";
-import Hero from "../components/home/Hero";
-import BuiltForCFO from "../components/home/BuiltForCFO";
-import CommentLetterExplorer from "../components/home/CommentLetterExplorer";
-import OutcomeInPractice from "../components/home/OutcomeInPractice";
-import CustomAI from "../components/home/CustomAI";
-import BestPractices from "../components/home/BestPractices";
-import FAQ from "../components/home/FAQ";
-import Footer from "../components/layout/Footer";
+import type { Metadata } from "next";
+import {
+  Hero,
+  BuiltForCFO,
+  CommentLetterExplorer,
+  OutcomeInPractice,
+  CustomAI,
+  BestPractices,
+  FAQ,
+} from "@/components/home";
+import Footer from "@/components/layout/Footer";
 
 export const metadata: Metadata = pageMetadata.home;
 
 export default function Home() {
   return (
-    <div className="relative w-full bg-[#0D352A]">
+    <div className="relative w-full bg-[#0D352A] flex-1 flex flex-col">
       <Hero />
-      <BuiltForCFO />
-      <CommentLetterExplorer />
-      <OutcomeInPractice />
-      <CustomAI />
-      <BestPractices />
-      <FAQ />
+      {/* Main content sections with 150px vertical spacing */}
+      <div className="flex flex-col gap-[150px] bg-white">
+        <BuiltForCFO />
+        <CommentLetterExplorer />
+        <OutcomeInPractice />
+        <CustomAI />
+        <BestPractices />
+        <FAQ />
+      </div>
       <Footer />
     </div>
   );

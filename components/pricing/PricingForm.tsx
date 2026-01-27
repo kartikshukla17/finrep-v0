@@ -31,22 +31,28 @@ export default function PricingForm() {
     };
 
     return (
-        <div className="w-full lg:w-[564px] p-6 bg-white rounded-xl">
+        <div className="w-full max-w-[372px] lg:max-w-none lg:w-[564px] p-6 bg-white rounded-xl overflow-hidden">
             <form onSubmit={handleSubmit} className="flex flex-col justify-start items-start gap-9">
                 <div className="w-full flex flex-col justify-start items-start gap-5">
                     {/* Company Logo */}
-                    <div className="relative overflow-hidden rounded-[6.75px] flex items-center justify-center" >
+                    <div className="w-12 h-12 relative overflow-hidden">
+                        <div
+                            className="w-12 h-12 absolute left-0 top-0 rounded-[6.75px] backdrop-blur-[76.19px]"
+                            style={{
+                                background: 'linear-gradient(0deg, rgba(0, 0, 0, 0.16) 0%, rgba(0, 0, 0, 0.16) 100%), linear-gradient(150deg, #48E3B9 0%, rgba(35, 177, 138, 0.30) 73%), #23B18A'
+                            }}
+                        />
                         <Image
                             src="/assets/company_logos/finreplogo.png"
                             alt="Company logo"
                             width={48}
                             height={48}
-                            className="object-contain"
+                            className="absolute inset-0 object-contain"
                         />
                     </div>
 
                     <div className="w-full flex flex-col justify-start items-start gap-6">
-                        <h2 className="text-[#0E0F10] text-2xl md:text-[32px] font-semibold font-articulat leading-tight md:leading-[44.80px]">
+                        <h2 className="self-stretch text-[#0E0F10] text-2xl md:text-[32px] font-semibold font-articulat leading-tight md:leading-[44.80px]">
                             Get custom pricing
                         </h2>
 

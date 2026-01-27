@@ -25,31 +25,64 @@ const problemItems = [
 
 export default function ProblemSection() {
     return (
-        <div className="flex flex-col lg:flex-row gap-12">
-            <div className="flex-1 flex flex-col gap-1">
-                <h2 className="text-[#0E0F10] text-[36px] font-medium font-articulat">
-                    The problem
-                </h2>
-                <p className="text-[#5E6469] text-xl font-normal font-articulat leading-8">
-                    Finance work hasn&apos;t changed.<br />
-                    The world around it has.
-                </p>
-            </div>
-            <div className="flex-1">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-3" style={{ gridAutoRows: '1fr' }}>
-                    {problemItems.map((item, index) => (
-                        <IconCard
-                            key={index}
-                            icon={item.icon}
-                            title={item.title}
-                            description={item.description}
-                            variant="compact"
-                            iconFilter={orangeFilter}
-                            className="h-full"
-                        />
-                    ))}
+        <>
+            {/* Mobile */}
+            <div className="flex flex-col gap-12 lg:hidden">
+                <div className="flex flex-col gap-[15px]">
+                    <h2 className="text-[#0E0F10] text-[36px] font-medium font-articulat leading-[43.20px]">
+                        The problem
+                    </h2>
+                    <p className="text-[#5E6469] text-base font-normal font-articulat leading-6">
+                        Finance work hasn&apos;t changed.<br />
+                        The world around it has.
+                    </p>
+                </div>
+
+                <div>
+                    <div className="flex flex-col gap-0">
+                        {problemItems.map((item, index) => (
+                            <IconCard
+                                key={index}
+                                icon={item.icon}
+                                title={item.title}
+                                description={item.description}
+                                variant="compact"
+                                iconFilter={orangeFilter}
+                                className="h-full"
+                            />
+                        ))}
+                    </div>
                 </div>
             </div>
-        </div>
+
+            {/* Desktop */}
+            <div className="hidden p-30 pt-0 pb-0 lg:flex lg:flex-row lg:gap-12">
+                <div className="flex-1 flex flex-col gap-1">
+                    <h2 className="text-[#0E0F10] text-[36px] font-medium font-articulat">
+                        The problem
+                    </h2>
+                    <p className="text-[#5E6469] text-xl font-normal font-articulat leading-8">
+                        Finance work hasn&apos;t changed.<br />
+                        The world around it has.
+                    </p>
+                </div>
+
+                <div className="flex-1">
+                    <div className="grid grid-cols-2 gap-3" style={{ gridAutoRows: '1fr' }}>
+                        {problemItems.map((item, index) => (
+                            <IconCard
+                                key={index}
+                                icon={item.icon}
+                                title={item.title}
+                                description={item.description}
+                                variant="compact"
+                                iconFilter={orangeFilter}
+                                className="h-full"
+                            />
+                        ))}
+                    </div>
+                </div>
+            </div>
+        </>
     );
 }

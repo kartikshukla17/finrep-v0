@@ -35,7 +35,7 @@ export default function IconCard({
                 />
             </div>
             <div className="flex-1 flex flex-col justify-start items-start gap-1">
-                <h4 className="self-stretch text-[#0E0F10] text-base font-medium font-articulat leading-[19.20px] break-words">
+                <h4 className="self-stretch text-[#0E0F10] text-sm lg:text-base font-semibold lg:font-medium font-articulat leading-[16.80px] lg:leading-[19.20px] break-words">
                     {title}
                 </h4>
                 {description && (

@@ -16,7 +16,7 @@ function FAQItem({ question, answer, isOpen, onToggle }: FAQItemProps) {
                 onClick={onToggle}
                 className="w-full flex justify-between items-center gap-4 text-left group"
             >
-                <h3 className="flex-1 text-black text-xl md:text-2xl font-medium font-articulat leading-tight md:leading-[33.60px]">
+                <h3 className="flex-1 text-black text-xl lg:text-2xl font-medium font-articulat leading-tight lg:leading-[33.60px]">
                     {question}
                 </h3>
                 <div className="w-6 h-6 shrink-0 flex items-center justify-center">
@@ -32,7 +32,7 @@ function FAQItem({ question, answer, isOpen, onToggle }: FAQItemProps) {
                 </div>
             </button>
             {isOpen && (
-                <p className="w-full text-[#5E6469] text-base md:text-xl font-normal font-articulat leading-relaxed md:leading-[28px]">
+                <p className="w-full text-[#5E6469] text-base lg:text-xl font-normal font-articulat leading-relaxed lg:leading-[28px]">
                     {answer}
                 </p>
             )}
@@ -68,10 +68,10 @@ export default function PricingFAQ() {
 
     return (
         <div className="w-full bg-white">
-            <div className="w-full max-w-[1440px] mx-auto px-6 md:px-[60px] lg:px-[120px] py-12 md:py-16 lg:py-[120px]">
-                <div className="w-full flex flex-col justify-start items-center gap-8 md:gap-12">
+            <div className="w-full max-w-[1440px] mx-auto px-5 lg:px-10 pt-10 pb-20 lg:pt-30 lg:pb-30 flex justify-center lg:justify-start">
+                <div className="w-full max-w-[372px] lg:max-w-none flex flex-col justify-start items-center gap-8 lg:gap-12">
                     {/* Header */}
-                    <h2 className="text-center text-[#0E0F10] text-3xl md:text-[36px] font-medium font-articulat leading-tight md:leading-[50.40px]">
+                    <h2 className="w-full text-center lg:text-left text-[#0E0F10] text-3xl lg:text-[36px] font-medium font-articulat leading-tight lg:leading-[50.40px]">
                         FAQs
                     </h2>
 
