@@ -56,7 +56,7 @@ export default function ProblemSection() {
             </div>
 
             {/* Desktop */}
-            <div className="hidden lg:flex lg:flex-row lg:gap-12">
+            <div className="hidden p-30 pt-0 pb-0 lg:flex lg:flex-row lg:gap-12">
                 <div className="flex-1 flex flex-col gap-1">
                     <h2 className="text-[#0E0F10] text-[36px] font-medium font-articulat">
                         The problem

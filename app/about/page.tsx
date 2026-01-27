@@ -20,7 +20,7 @@ export default function AboutPage() {
             <AboutHero />
 
             {/* Vision, Problem, Platform Section */}
-            <div className="w-full bg-white py-12 lg:py-[120px] px-5 lg:px-[120px]">
+            <div className="w-full bg-white py-12 lg:py-[120px] px-5 lg:px-10 section-screen">
                 <div className="max-w-[1440px] mx-auto flex flex-col gap-12 lg:gap-[120px]">
                     <VisionSection />
                     <ProblemSection />

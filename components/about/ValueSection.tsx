@@ -91,7 +91,7 @@ export default function ValueSection() {
     return (
         <>
             {/* Mobile */}
-            <div className="w-full bg-white py-12 px-5 lg:hidden">
+            <div className="w-full bg-white py-12 px-5 lg:hidden ">
                 <div className="max-w-[372px] mx-auto flex flex-col items-center gap-12">
                     <div className="flex flex-col items-center text-center gap-1">
                         <h2 className="text-[#0E0F10] text-[42px] font-medium font-articulat leading-normal">
@@ -116,7 +116,7 @@ export default function ValueSection() {
             </div>
 
             {/* Desktop */}
-            <div className="w-full bg-white py-[120px] px-[120px] hidden lg:block">
+            <div className="w-full bg-white p-30 hidden lg:block ">
                 <div className="max-w-[1200px] mx-auto flex flex-col items-center gap-12">
                     <SectionHeader
                         title="The value"

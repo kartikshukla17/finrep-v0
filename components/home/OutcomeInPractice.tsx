@@ -32,39 +32,21 @@ const outcomeCards = [
 
 export default function OutcomeInPractice() {
     return (
-        <div className="relative w-full bg-white">
-            <div className="w-full max-w-[1440px] mx-auto px-4 md:px-[60px] lg:px-[120px] py-8 lg:py-12 flex flex-col justify-start items-center gap-6 lg:gap-12">
+        <div className="relative w-full bg-white section-screen">
+            <div className="w-full max-w-[1440px] mx-auto px-4 md:px-10 py-8 lg:py-12 flex flex-col justify-start items-center gap-6 lg:gap-12">
                 {/* Top Section - Title and CTA */}
-                <div className="w-full max-w-[372px] lg:max-w-[462px] flex flex-col justify-center items-center gap-4 lg:gap-6 text-center">
-                    <h2 className="w-full text-[#0E0F10] text-[28px] lg:text-[36px] font-medium font-articulat leading-[39.20px] lg:leading-[50.40px]">
+                <div className="w-full flex flex-col justify-center items-center gap-4 lg:gap-6 text-center">
+                    <h2 className="text-[#0E0F10] text-[28px] lg:text-[36px] font-medium font-articulat leading-[39.20px] lg:leading-[50.40px] whitespace-nowrap">
                         Finrep&apos;s Outcome In Practice
                     </h2>
-                    <button className="w-full lg:w-auto px-6 py-2 rounded-lg border border-[#ECEDEE] flex justify-center items-center gap-2 cursor-pointer hover:bg-gray-50 transition-colors">
-                        <span className="text-[#269C7B] text-sm lg:text-base font-medium font-articulat text-center">
-                            Book a Demo to See Finrep&apos;s ROI in Your Team
+                    <button className="px-6 py-3 rounded-lg border border-[#ECEDEE] flex justify-center items-center gap-2 cursor-pointer hover:bg-gray-50 transition-colors">
+                        <span className="text-[#269C7B] text-base font-medium font-articulat text-center">
+                            Request Access to See Finrep&apos;s ROI in Your Team
                         </span>
                     </button>
                 </div>
 
-                {/* Metrics Section - Row on both mobile and desktop */}
-                <div className="w-full max-w-[372px] lg:max-w-[804px] inline-flex justify-start items-center gap-6 lg:gap-12">
-                    {stats.map((stat, idx) => (
-                        <div key={idx} className="contents">
-                            <div className="flex-1 inline-flex flex-col justify-start items-start gap-4">
-                                <div className="text-[#0E0F10] text-[36px] lg:text-[64px] font-normal font-articulat leading-[50.40px] lg:leading-[89.60px]">
-                                    {stat.value}
-                                </div>
-                                <div className="w-[91px] lg:w-auto text-[#0E0F10] text-sm lg:text-xl font-normal font-articulat leading-[19.60px] lg:leading-7">
-                                    {stat.label}
-                                </div>
-                            </div>
-                            {/* Vertical separator between items */}
-                            {idx < stats.length - 1 && (
-                                <div className="w-px h-[100px] bg-[#ECEDEE]" />
-                            )}
-                        </div>
-                    ))}
-                </div>
+                
 
                 {/* Outcome Cards */}
                 <div className="w-full flex flex-col lg:flex-row justify-start items-stretch gap-3 lg:gap-[13px]">

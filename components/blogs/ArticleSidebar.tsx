@@ -12,7 +12,7 @@ interface ArticleSidebarProps {
 
 export default function ArticleSidebar({ author }: ArticleSidebarProps) {
     return (
-        <aside className="hidden lg:flex w-[200px] flex-col gap-12 shrink-0">
+        <aside className="hidden lg:flex w-[200px] flex-col gap-12 shrink-0 sticky top-[100px] self-start">
             {/* Authors Section */}
             {author && (
                 <div className="flex flex-col gap-4">

@@ -10,24 +10,24 @@ interface Logo {
 }
 
 const experienceLogos: Logo[] = [
-    { src: "/assets/company_logos/Vector.svg", alt: "JPMorgan Chase", width: 182, height: 26, opacity: "opacity-80", mixBlendMode: true },
-    { src: "/assets/company_logos/images 2.png", alt: "Sixt", width: 96, height: 54, opacity: "opacity-70", mixBlendMode: true },
-    { src: "/assets/company_logos/image 3681.png", alt: "Strive", width: 140, height: 73, opacity: "opacity-70", mixBlendMode: true },
-    { src: "/assets/company_logos/YC.png", alt: "Y Combinator", width: 194, height: 37, mixBlendMode: true },
-    { src: "/assets/company_logos/Meeso.png", alt: "Meesho", width: 114, height: 40, opacity: "opacity-70", mixBlendMode: true },
-    { src: "/assets/company_logos/flipkart-logo 1.png", alt: "Flipkart", width: 212, height: 84, mixBlendMode: true }
+    { src: "/assets/company_logos/jpmorgan-logo.svg", alt: "JPMorgan Chase", width: 182, height: 26, opacity: "opacity-80", mixBlendMode: true },
+    { src: "/assets/company_logos/sixt-logo.png", alt: "Sixt", width: 96, height: 54, opacity: "opacity-70", mixBlendMode: true },
+    { src: "/assets/company_logos/strive-logo.png", alt: "Strive", width: 140, height: 73, opacity: "opacity-70", mixBlendMode: true },
+    { src: "/assets/company_logos/y-combinator-logo.png", alt: "Y Combinator", width: 194, height: 37, mixBlendMode: true },
+    { src: "/assets/company_logos/meesho-logo.png", alt: "Meesho", width: 114, height: 40, opacity: "opacity-70", mixBlendMode: true },
+    { src: "/assets/company_logos/flipkart-logo.png", alt: "Flipkart", width: 212, height: 84, mixBlendMode: true }
 ];
 
 const experienceLogosDesktop = [
     [
-        { src: "/assets/company_logos/Vector.svg", alt: "JPMorgan Chase", width: 182, height: 26, opacity: "opacity-80", mixBlendMode: true },
-        { src: "/assets/company_logos/images 2.png", alt: "Sixt", width: 96, height: 54, opacity: "opacity-70", mixBlendMode: true },
-        { src: "/assets/company_logos/image 3681.png", alt: "Strive", width: 140, height: 73, opacity: "opacity-70", mixBlendMode: true }
+        { src: "/assets/company_logos/jpmorgan-logo.svg", alt: "JPMorgan Chase", width: 182, height: 26, opacity: "opacity-80", mixBlendMode: true },
+        { src: "/assets/company_logos/sixt-logo.png", alt: "Sixt", width: 96, height: 54, opacity: "opacity-70", mixBlendMode: true },
+        { src: "/assets/company_logos/strive-logo.png", alt: "Strive", width: 140, height: 73, opacity: "opacity-70", mixBlendMode: true }
     ],
     [
-        { src: "/assets/company_logos/YC.png", alt: "Y Combinator", width: 194, height: 37, mixBlendMode: true },
-        { src: "/assets/company_logos/Meeso.png", alt: "Meesho", width: 114, height: 40, opacity: "opacity-70", mixBlendMode: true },
-        { src: "/assets/company_logos/flipkart-logo 1.png", alt: "Flipkart", width: 212, height: 84, mixBlendMode: true }
+        { src: "/assets/company_logos/y-combinator-logo.png", alt: "Y Combinator", width: 194, height: 37, mixBlendMode: true },
+        { src: "/assets/company_logos/meesho-logo.png", alt: "Meesho", width: 114, height: 40, opacity: "opacity-70", mixBlendMode: true },
+        { src: "/assets/company_logos/flipkart-logo.png", alt: "Flipkart", width: 212, height: 84, mixBlendMode: true }
     ]
 ];
 
@@ -35,7 +35,7 @@ export default function ExperienceSection() {
     return (
         <>
             {/* Mobile */}
-            <div className="w-full bg-white py-12 px-5 lg:hidden">
+            <div className="w-full bg-white py-12 px-5 lg:hidden ">
                 <div className="max-w-[372px] mx-auto flex flex-col gap-12">
                     <div className="flex flex-col items-center text-center gap-1">
                         <h2 className="text-black text-[42px] font-medium font-articulat leading-normal">
@@ -66,7 +66,7 @@ export default function ExperienceSection() {
             </div>
 
             {/* Desktop */}
-            <div className="w-full bg-white py-[120px] px-[120px] hidden lg:block">
+            <div className="w-full bg-white p-30 hidden lg:block ">
                 <div className="max-w-[1200px] mx-auto flex flex-col gap-16">
                     <div className="flex flex-col text-center">
                         <h2 className="text-black text-[42px] font-medium font-articulat">

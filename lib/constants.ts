@@ -61,7 +61,7 @@ export const TRUST_BADGES = [
 export const INVESTORS = [
   {
     name: "Accel",
-    logo: "/assets/icons/Accel_logo 1.svg",
+    logo: "/assets/company_logos/accel-logo.svg",
     alt: "Accel Logo",
   },
 ] as const;

@@ -1,6 +1,6 @@
 "use client";
 
-import { BlogGrid, BlogHero, BlogTabs, FeaturedArticle } from "@/components/blogs";
+import { BlogGrid, BlogHero, BlogTabs } from "@/components/blogs";
 import Footer from "@/components/layout/Footer";
 import { useEffect, useState } from "react";
 
@@ -26,7 +26,10 @@ export default function BlogsPage() {
     const load = async () => {
       setLoading(true);
       // Pass category filter to API (Blogs = all posts)
-      const categoryParam = activeTab === "Blogs" ? "" : `?category=${encodeURIComponent(activeTab)}`;
+      const categoryParam =
+        activeTab === "Blogs"
+          ? ""
+          : `?category=${encodeURIComponent(activeTab)}`;
       const res = await fetch(`/api/blogs${categoryParam}`);
       const data = await res.json();
 
@@ -44,21 +47,25 @@ export default function BlogsPage() {
   };
 
   return (
-    <div className="relative w-full bg-[#0D352A] min-h-screen flex flex-col font-articulat">
+    <div className="relative w-full bg-[#0D352A] min-h-screen flex flex-col font-articulat overflow-x-hidden">
       <BlogHero />
 
       <div className="relative w-full bg-white">
-        <div className="w-full max-w-[1440px] mx-auto px-5 lg:px-[120px] py-12 lg:py-16 flex flex-col justify-center items-center lg:items-start gap-6 lg:gap-16">
-          <BlogTabs tabs={BLOG_TABS} activeTab={activeTab} onTabChange={setActiveTab} />
+        <div className="w-full max-w-[1440px] mx-auto px-5 lg:px-10 py-12 lg:pt-[120px] lg:pb-[150px] flex flex-col justify-center items-center lg:items-start gap-6 lg:gap-16">
+          <BlogTabs
+            tabs={BLOG_TABS}
+            activeTab={activeTab}
+            onTabChange={setActiveTab}
+          />
 
-          {featured && (
+          {/* {featured && (
             <FeaturedArticle
               slug={featured.slug}
               title={featured.title}
               date={featured.date}
               videoUrl={featured.videoUrl || "https://www.youtube.com/embed/34KQeckDHp4?si=i9fy5-16BNH9MlkC"}
             />
-          )}
+          )} */}
 
           <BlogGrid
             posts={posts.map((p) => ({
