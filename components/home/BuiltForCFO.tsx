@@ -2,7 +2,6 @@
 
 import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
 
@@ -91,7 +90,7 @@ const features = [
     description:
       "SEC filings combine roll forwards, new guidance, peer alignment, and reviewer feedback under tight deadlines. Fragmented research and drafting create rework and late stage risk.",
     cta: "See how Finrep makes SEC easy",
-    ctaDesktop: "Fix SEC filing workflows",
+    //ctaDesktop: "Fix SEC filing workflows",
     iconKey: "document" as const,
     statValue: "95 hours /wk",
     statLabel: "Saved with Finrep",
@@ -104,7 +103,7 @@ const features = [
     description:
       "Accounting decisions require interpreting evolving guidance and defending conclusions under audit scrutiny. Scattered research across handbooks and filings slows resolution.",
     cta: "See Technical Accounting workflows",
-    ctaDesktop: "See Technical Accounting workflows",
+    //ctaDesktop: "See Technical Accounting workflows",
     iconKey: "book" as const,
     statValue: "60% faster",
     statLabel: "Research completion",
@@ -165,7 +164,7 @@ export default function BuiltForCFO() {
   return (
     <div
       id="white-section-start"
-      className="w-full bg-white py-12 lg:py-24 overflow-hidden section-screen"
+      className="w-full bg-white py-12 lg:py-[150px] overflow-hidden"
     >
       <div className="max-w-[1440px] mx-auto px-4 md:px-10 flex flex-col gap-6 lg:gap-12 items-center">
         {/* Mobile Header - Centered & Stacked */}
@@ -215,7 +214,7 @@ export default function BuiltForCFO() {
         {/* Mobile Layout - Accordion Style */}
         <div className="lg:hidden flex flex-col w-full">
           {features.map((feature, index) => {
-            const IconComponent = iconComponents[feature.iconKey];
+            //const IconComponent = iconComponents[feature.iconKey];
             const isActive = activeTab === index;
 
             return (
@@ -239,10 +238,10 @@ export default function BuiltForCFO() {
                     }}
                     transition={{ duration: 0.3, ease: "easeInOut" }}
                   >
-                    <IconComponent
+                    {/* <IconComponent
                       className="w-5 h-5"
                       isActive={isActive}
-                    />
+                    /> */}
                   </motion.div>
                   <span className="text-xl font-medium font-articulat leading-8 tracking-[0.4px] text-[#0E0F10]">
                     {feature.title}
@@ -276,12 +275,6 @@ export default function BuiltForCFO() {
 
                         {/* Mobile Stats Card */}
                         <MobileStatsCard feature={feature} />
-
-                        {/* CTA Link */}
-                        <button className="flex items-center gap-2 text-[#29AB87] text-sm font-medium font-articulat">
-                          {feature.cta}
-                          <ArrowRight className="w-4 h-4" />
-                        </button>
                       </motion.div>
                     </motion.div>
                   )}
@@ -293,8 +286,8 @@ export default function BuiltForCFO() {
 
         {/* Desktop Layout */}
         <div className="hidden lg:flex w-full h-[600px] flex-row gap-7 items-start">
-          {/* Left Column: Slideshow List - Equal width with right */}
-          <div className="flex-1 self-stretch flex flex-col justify-start [&>*:first-child]:pt-0">
+          {/* Left Column: Slideshow List - Fixed height to prevent jitter */}
+          <div className="flex-1 h-[600px] flex flex-col justify-start [&>*:first-child]:pt-0 overflow-hidden">
             {features.map((feature, index) => (
               <FeatureItem
                 key={feature.id}
@@ -307,7 +300,7 @@ export default function BuiltForCFO() {
           </div>
 
           {/* Right Column: Card - Equal width with left */}
-          <div className="flex-1 self-stretch">
+          <div className="flex-1 h-[600px]">
             <RightSideCard activeTab={activeTab} />
           </div>
         </div>
@@ -399,7 +392,6 @@ interface FeatureItemProps {
     id: string;
     title: string;
     description: string;
-    ctaDesktop: string;
     iconKey: keyof typeof iconComponents;
     rightHeading: string;
   };
@@ -423,9 +415,9 @@ function FeatureItem({
       tabIndex={0}
       onKeyDown={(e) => e.key === "Enter" && onClick()}
       className={cn(
-        "py-6 relative text-left w-full cursor-pointer select-none self-stretch",
+        "py-6 relative text-left w-full cursor-pointer select-none flex-1",
         "transition-opacity duration-300",
-        isActive ? "opacity-100" : "opacity-40 hover:opacity-70 flex-1",
+        isActive ? "opacity-100" : "opacity-40 hover:opacity-70",
       )}
     >
       <div className="flex items-start gap-4">
@@ -450,42 +442,17 @@ function FeatureItem({
             {feature.title}
           </h3>
 
-          {/* Expanded Content - Framer Motion for smooth desktop animation */}
-          <AnimatePresence initial={false} mode="wait">
-            {isActive && (
-              <motion.div
-                initial={{ height: 0, opacity: 0 }}
-                animate={{ height: "auto", opacity: 1 }}
-                exit={{ height: 0, opacity: 0 }}
-                transition={{
-                  height: { duration: 0.4, ease: [0.4, 0, 0.2, 1] },
-                  opacity: { duration: 0.3, ease: "easeInOut" },
-                }}
-                className="overflow-hidden"
-              >
-                <motion.div
-                  initial={{ y: -8 }}
-                  animate={{ y: 0 }}
-                  exit={{ y: -8 }}
-                  transition={{ duration: 0.3, ease: "easeOut" }}
-                  className="flex flex-col gap-4 pt-2"
-                >
-                  <p className="text-[#3F4346] text-base font-normal leading-[25.6px] tracking-[0.32px]">
-                    {feature.description}
-                  </p>
-                  <motion.div
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.1, duration: 0.3 }}
-                    className="flex items-center gap-2 text-[#29AB87] font-medium hover:underline text-base"
-                  >
-                    {feature.ctaDesktop}
-                    <ArrowRight className="w-5 h-5" />
-                  </motion.div>
-                </motion.div>
-              </motion.div>
-            )}
-          </AnimatePresence>
+          {/* Expanded Content - Simple opacity animation to prevent jitter */}
+          <div className={cn(
+            "overflow-hidden transition-all duration-300",
+            isActive ? "max-h-[200px] opacity-100" : "max-h-0 opacity-0"
+          )}>
+            <div className="flex flex-col gap-4 pt-2">
+              <p className="text-[#3F4346] text-base font-normal leading-[25.6px] tracking-[0.32px]">
+                {feature.description}
+              </p>
+            </div>
+          </div>
         </div>
       </div>
 

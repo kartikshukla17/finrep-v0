@@ -106,7 +106,7 @@ const featureCards = [
 export default function CustomAI() {
   return (
     <div
-      className="relative w-full overflow-hidden section-screen"
+      className="relative w-full overflow-hidden flex justify-center"
       style={{
         backgroundImage:
           "linear-gradient(0deg, rgba(0, 0, 0, 0.40) 0%, rgba(0, 0, 0, 0.40) 100%), url(/assets/images/gradientbg.png)",
@@ -116,7 +116,7 @@ export default function CustomAI() {
       }}
     >
       {/* Desktop Layout - exact specs from design */}
-      <div className="hidden lg:flex w-full px-[120px] py-12 flex-col justify-center items-center gap-[49px]">
+      <div className="hidden lg:flex w-full px-[120px] py-12 flex-col justify-center items-center gap-[49px] h-[837px]">
         {/* Title and Subtitle */}
         <div className="flex flex-col justify-center items-center gap-6">
           <h2 className="text-[#F4FBF8] text-[36px] font-normal font-articulat leading-[50.40px] text-center">
@@ -129,7 +129,7 @@ export default function CustomAI() {
         </div>
 
         {/* Feature Cards - 1360px width, 16px gap */}
-        <div className="w-[1360px] flex flex-row justify-start items-center gap-4">
+        <div className="w-[1360px] flex flex-row justify-start items-center gap-4 ">
           {featureCards.map((card, index) => (
             <FeatureCard
               key={index}

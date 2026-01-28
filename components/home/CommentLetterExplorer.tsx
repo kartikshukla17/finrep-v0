@@ -552,7 +552,7 @@ export default function CommentLetterExplorer() {
   const mobileSection = sections[mobileActiveSection];
 
   return (
-    <>
+    <section id="solutions">
       {/* Mobile Layout - No scroll-driven behavior */}
       <div className="lg:hidden w-full bg-white py-8">
         <div className="px-4 flex flex-col gap-6">
@@ -668,7 +668,7 @@ export default function CommentLetterExplorer() {
       {/* Desktop Layout - Scroll-driven sticky behavior */}
       <div
         ref={containerRef}
-        className="hidden lg:block relative w-full bg-white section-screen"
+        className="hidden lg:block relative w-full bg-white"
         style={{ height: `${sections.length * 100}vh` }}
       >
         {/* Sticky content that stays in view - offset for header */}
@@ -736,7 +736,7 @@ export default function CommentLetterExplorer() {
           </div>
         </div>
       </div>
-    </>
+    </section>
   );
 }
 

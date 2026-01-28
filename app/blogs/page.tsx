@@ -55,7 +55,13 @@ export default function BlogsPage() {
           <BlogTabs
             tabs={BLOG_TABS}
             activeTab={activeTab}
-            onTabChange={setActiveTab}
+            onTabChange={(tab) => {
+              if (tab === "SEC Journal") {
+                window.open("https://secreportingjournal.com/", "_blank");
+                return;
+              }
+              setActiveTab(tab);
+            }}
           />
 
           {/* {featured && (
@@ -67,16 +73,24 @@ export default function BlogsPage() {
             />
           )} */}
 
-          <BlogGrid
-            posts={posts.map((p) => ({
-              slug: p.slug,
-              title: p.title,
-              date: new Date(p.date).toDateString(),
-              image: p.coverImage || "/assets/images/articleimage.png",
-            }))}
-            showViewMore={totalPosts > 9}
-            onViewMore={handleViewMore}
-          />
+          {!loading && posts.length === 0 ? (
+            <div className="w-full py-20 flex items-center justify-center">
+              <p className="text-[#5E6469] text-lg font-articulat">
+                No blogs here
+              </p>
+            </div>
+          ) : (
+            <BlogGrid
+              posts={posts.map((p) => ({
+                slug: p.slug,
+                title: p.title,
+                date: new Date(p.date).toDateString(),
+                image: p.coverImage || "/assets/images/articleimage.png",
+              }))}
+              showViewMore={totalPosts > 9}
+              onViewMore={handleViewMore}
+            />
+          )}
         </div>
       </div>
 

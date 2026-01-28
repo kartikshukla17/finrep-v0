@@ -110,11 +110,11 @@ export default function Hero() {
           >
             <div className="flex flex-col items-center gap-2">
               <div className="text-white text-4xl md:text-[64px] font-normal font-articulat leading-tight md:leading-[89.60px] text-center">
-                Financial Disclosure Intelligence
+                Financial disclosure intelligence
               </div>
               <div className="flex flex-wrap justify-center items-center gap-3 md:gap-6 mt-2">
                 <div className="text-white text-4xl md:text-[64px] font-normal font-articulat leading-tight md:leading-[89.60px]">
-                  You Can
+                  you can
                 </div>
                 <motion.div
                   className="h-14 md:h-[92px] px-6 md:px-[37px] rounded-lg border border-[#FFAF42] flex justify-center items-center"
@@ -135,7 +135,7 @@ export default function Hero() {
                   }}
                 >
                   <div className="text-[#FFAF42] text-3xl md:text-[64px] font-normal font-bricolage leading-tight md:leading-[89.60px]">
-                    Trust
+                    trust
                   </div>
                 </motion.div>
               </div>
@@ -239,7 +239,7 @@ export default function Hero() {
             </motion.div>
           </motion.div>
 
-          {/* Company Logos Section */}
+          {/* Company Logos Section - Ticker/Marquee */}
           <motion.div
             className="w-full mb-18.75"
             variants={fadeInUp}
@@ -249,55 +249,30 @@ export default function Hero() {
               Built and used by professionals from
             </div>
 
-            {/* Desktop: Grid Layout */}
-            <div className="hidden lg:flex justify-center items-center gap-9 px-4 flex-wrap">
-              {companyLogos.map((logo, i) => (
-                <motion.div
-                  key={logo.id}
-                  className="h-[80px] flex items-center justify-center"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{
-                    duration: 0.4,
-                    delay: 0.8 + i * 0.1,
-                    ease: [0.22, 1, 0.36, 1],
-                  }}
-                >
-                  <Image
-                    src={logo.src}
-                    alt={`${logo.name} logo`}
-                    width={120}
-                    height={40}
-                    className="object-contain h-[40px] w-auto"
-                  />
-                </motion.div>
-              ))}
-            </div>
-
-            {/* Mobile: Infinite Carousel */}
-            <div className="lg:hidden w-full overflow-hidden">
-              <motion.div
-                className="flex gap-6 animate-scroll-left"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.6, delay: 0.8 }}
-              >
-                {/* Double the logos for seamless infinite scroll */}
+            {/* Logo Ticker with fade mask */}
+            <div
+              className="w-full overflow-hidden py-2"
+              style={{
+                maskImage:
+                  "linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 10%, rgb(0, 0, 0) 90%, rgba(0, 0, 0, 0) 100%)",
+                WebkitMaskImage:
+                  "linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 10%, rgb(0, 0, 0) 90%, rgba(0, 0, 0, 0) 100%)",
+              }}
+            >
+              <div className="logo-ticker-track">
+                {/* Duplicate logos for seamless infinite scroll */}
                 {[...companyLogos, ...companyLogos].map((logo, i) => (
-                  <div
-                    key={`${logo.id}-${i}`}
-                    className="h-[32px] flex items-center justify-center flex-shrink-0"
-                  >
+                  <div key={`${logo.id}-${i}`} className="logo-ticker-item">
                     <Image
                       src={logo.src}
                       alt={`${logo.name} logo`}
-                      width={100}
-                      height={32}
-                      className="object-contain h-[32px] w-auto"
+                      width={200}
+                      height={50}
+                      className="object-contain h-[50px] lg:h-[70px] w-auto"
                     />
                   </div>
                 ))}
-              </motion.div>
+              </div>
             </div>
           </motion.div>
         </motion.div>

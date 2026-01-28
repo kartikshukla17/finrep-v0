@@ -75,7 +75,7 @@ export default function Header({ variant = "light" }: HeaderProps) {
   }, [variant]);
 
   const navLinks = [
-    { name: "Features", href: "/" },
+    { name: "Solutions", href: "/#solutions" },
     { name: "Security", href: "/" },
     { name: "Blogs", href: "/blogs" },
     { name: "Pricing", href: "/pricing" },
@@ -83,7 +83,7 @@ export default function Header({ variant = "light" }: HeaderProps) {
   ];
 
   const mobileMenuLinks = [
-    { name: "Features", href: "/" },
+    { name: "Solutions", href: "/#solutions" },
     { name: "Security", href: "/" },
     { name: "Pricing", href: "/pricing" },
     { name: "Blogs", href: "/blogs" },

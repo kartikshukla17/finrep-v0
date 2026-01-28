@@ -7,20 +7,20 @@ import { usePathname } from "next/navigation";
 // Page-specific titles mapping
 const pageTitles: Record<string, { mobile: string; desktop: string }> = {
   "/": {
-    mobile: "Cut days off your SEC filings",
+    mobile: "Solve SEC reporting for good",
     desktop: "Solve SEC reporting for good",
   },
   "/pricing": {
-    mobile: "Get started with Finrep today",
-    desktop: "Get started with Finrep today",
+    mobile: "Get custom pricing built around your workflow",
+    desktop: "Get custom pricing built around your workflow",
   },
   "/about": {
-    mobile: "Join us in transforming finance",
-    desktop: "Join us in transforming finance",
+    mobile: "Solve SEC reporting for good",
+    desktop: "Solve SEC reporting for good",
   },
   "/blogs": {
-    mobile: "Stay ahead with our insights",
-    desktop: "Stay ahead with our insights",
+    mobile: "Solve SEC reporting for good",
+    desktop: "Solve SEC reporting for good",
   },
   "/security": {
     mobile: "Your data is safe with us",
@@ -35,22 +35,28 @@ const defaultTitles = {
 };
 
 // Navigation data
-const navigationSections = [
+const navigationSections: {
+  title: string;
+  links: { label: string; href: string; external?: boolean }[];
+}[] = [
   {
     title: "Company",
     links: [
       { label: "About", href: "/about" },
       { label: "Pricing", href: "/pricing" },
-      { label: "Contact", href: "#" },
+      { label: "Contact", href: "mailto:support@finrep.ai" },
       { label: "Careers", href: "#" },
-      { label: "Become a Partner", href: "#" },
     ],
   },
   {
     title: "Resources",
     links: [
       { label: "Blogs", href: "/blogs" },
-      { label: "SEC Reporting Journal", href: "#" },
+      {
+        label: "SEC Reporting Journal",
+        href: "https://secreportingjournal.com/",
+        external: true,
+      },
       { label: "Security", href: "#" },
       { label: "Privacy Policy", href: "#" },
       { label: "Terms of Service", href: "#" },
@@ -117,7 +123,7 @@ export default function Footer() {
         {/* Navigation and Footer Content */}
         <div className="flex flex-col justify-start items-center gap-6 lg:gap-12 w-full">
           {/* Mobile Navigation - Stacked vertically */}
-          <div className="lg:hidden w-full max-w-[372px] flex flex-col justify-center items-start gap-6">
+          <div className="lg:hidden w-full max-w-[372px] flex flex-row justify-start items-start gap-12">
             {navigationSections.map((section, sectionIdx) => (
               <div
                 key={sectionIdx}
@@ -130,6 +136,7 @@ export default function Footer() {
                   <Link
                     key={linkIdx}
                     href={link.href}
+                    {...(link.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                     className="text-[#0E0F10] text-sm font-normal font-articulat leading-[19.60px] hover:text-[#29AB87] transition-colors"
                   >
                     {link.label}
@@ -153,7 +160,7 @@ export default function Footer() {
           </div>
 
           {/* Desktop Navigation - Two columns with badges */}
-          <div className="hidden lg:flex w-full justify-start items-center gap-12">
+          <div className="hidden lg:flex w-full justify-start items-start gap-12">
             {navigationSections.map((section, sectionIdx) => (
               <div
                 key={sectionIdx}
@@ -166,6 +173,7 @@ export default function Footer() {
                   <Link
                     key={linkIdx}
                     href={link.href}
+                    {...(link.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                     className="text-[#0E0F10] text-base font-normal font-articulat leading-[22.40px] hover:text-[#29AB87] transition-colors"
                   >
                     {link.label}
@@ -206,8 +214,11 @@ export default function Footer() {
             {/* Social Media Icons */}
             <div className="flex justify-start items-start gap-6">
               <Link
-                href="#"
+                href="https://www.linkedin.com/company/finrepai/"
                 className="w-6 h-6 relative overflow-hidden hover:opacity-80 transition-opacity"
+                target="_blank"
+                rel="noopener noreferr"
+                
               >
                 <Image
                   src="/assets/icons/pajamas_linkedin.svg"
@@ -218,8 +229,10 @@ export default function Footer() {
                 />
               </Link>
               <Link
-                href="#"
+                href="https://x.com/FinrepAI"
                 className="w-6 h-6 relative overflow-hidden hover:opacity-80 transition-opacity"
+                target="_blanck"
+                rel="noopener noreferr"
               >
                 <Image
                   src="/assets/icons/bi_twitter-x.svg"
