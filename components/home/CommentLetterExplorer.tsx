@@ -553,8 +553,8 @@ export default function CommentLetterExplorer() {
 
   return (
     <section id="solutions">
-      {/* Mobile Layout - No scroll-driven behavior */}
-      <div className="lg:hidden w-full bg-white py-6 sm:py-8 md:py-10">
+      {/* Mobile Layout - No scroll-driven behavior, with layout containment */}
+      <div className="lg:hidden w-full bg-white py-6 sm:py-8 md:py-10" style={{ contain: "layout" }}>
         <div className="px-4 sm:px-6 md:px-8 max-w-[600px] md:max-w-[700px] mx-auto flex flex-col gap-5 sm:gap-6 md:gap-8">
           {/* Mobile Horizontal Tabs - Hidden for now */}
           {/* <div className="flex gap-3 overflow-x-auto pb-2 scrollbar-hide -mx-4 px-4">
@@ -582,10 +582,10 @@ export default function CommentLetterExplorer() {
             <AnimatePresence mode="wait">
               <motion.div
                 key={`mobile-${activeTab}-${mobileActiveSection}`}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.3 }}
+                initial={{ opacity: 0, scale: 0.98 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.98 }}
+                transition={{ duration: 0.35, ease: [0.4, 0, 0.2, 1] }}
                 className="absolute inset-0"
               >
                 <MobileMockup image={mobileSection.image} />
@@ -597,10 +597,10 @@ export default function CommentLetterExplorer() {
           <AnimatePresence mode="wait">
             <motion.div
               key={`mobile-content-${activeTab}-${mobileActiveSection}`}
-              initial={{ opacity: 0, y: 10 }}
+              initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.3 }}
+              exit={{ opacity: 0, y: -12 }}
+              transition={{ duration: 0.35, ease: [0.4, 0, 0.2, 1] }}
               className="flex flex-col gap-6"
             >
               {/* Section Number */}
@@ -665,11 +665,14 @@ export default function CommentLetterExplorer() {
         </div>
       </div>
 
-      {/* Desktop Layout - Scroll-driven sticky behavior */}
+      {/* Desktop Layout - Scroll-driven sticky behavior with layout containment */}
       <div
         ref={containerRef}
         className="hidden lg:block relative w-full bg-white"
-        style={{ height: `calc(${sections.length} * var(--section-scroll-vh) * 1vh)` }}
+        style={{
+          height: `calc(${sections.length} * var(--section-scroll-vh) * 1vh)`,
+          contain: "layout style"
+        }}
       >
         {/* Sticky content that stays in view - offset for header */}
         <div className="comment-letter-sticky sticky top-[75px] h-[calc(100vh-75px)] overflow-hidden flex items-center">
@@ -780,10 +783,10 @@ function SectionContent({
 }) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 15 }}
       animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -20 }}
-      transition={{ duration: 0.2, ease: "easeInOut" }}
+      exit={{ opacity: 0, y: -15 }}
+      transition={{ duration: 0.35, ease: [0.4, 0, 0.2, 1] }}
       className="flex flex-col justify-start items-start gap-9"
     >
       {/* Title and Description */}
@@ -871,10 +874,10 @@ function InterfaceMockup({ image }: { image: string }) {
       <AnimatePresence mode="wait">
         <motion.div
           key={image}
-          initial={{ opacity: 0, scale: 0.98 }}
+          initial={{ opacity: 0, scale: 0.97 }}
           animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 0.98 }}
-          transition={{ duration: 0.3, ease: "easeInOut" }}
+          exit={{ opacity: 0, scale: 0.97 }}
+          transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
           className="absolute inset-0 flex items-center justify-center p-8"
         >
           <Image
