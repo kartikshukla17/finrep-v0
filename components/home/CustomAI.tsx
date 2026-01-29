@@ -105,18 +105,22 @@ const featureCards = [
 
 export default function CustomAI() {
   return (
-    <div
-      className="relative w-full overflow-hidden flex justify-center"
-      style={{
-        backgroundImage:
-          "linear-gradient(0deg, rgba(0, 0, 0, 0.40) 0%, rgba(0, 0, 0, 0.40) 100%), url(/assets/images/gradientbg.png)",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-      }}
-    >
+    <div className="relative w-full overflow-hidden flex justify-center">
+      {/* Background image with max-width constraint */}
+      <div className="absolute inset-0 flex justify-center">
+        <div
+          className="w-full max-w-[1920px] h-full"
+          style={{
+            backgroundImage: "linear-gradient(0deg, rgba(0, 0, 0, 0.40) 0%, rgba(0, 0, 0, 0.40) 100%), url(/assets/images/gradientbg.png)",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+          }}
+        />
+      </div>
+      <div className="relative z-10 w-full flex justify-center">
       {/* Desktop Layout - exact specs from design */}
-      <div className="hidden lg:flex w-full px-[120px] py-12 flex-col justify-center items-center gap-[49px] h-[837px]">
+      <div className="hidden lg:flex w-full px-6 md:px-8 lg:px-10 flex-col justify-center items-center gap-8 md:gap-10 lg:gap-[49px] min-h-[700px] lg:min-h-[837px] py-12">
         {/* Title and Subtitle */}
         <div className="flex flex-col justify-center items-center gap-6">
           <h2 className="text-[#F4FBF8] text-[36px] font-normal font-articulat leading-[50.40px] text-center">
@@ -128,8 +132,8 @@ export default function CustomAI() {
           </p>
         </div>
 
-        {/* Feature Cards - 1360px width, 16px gap */}
-        <div className="w-[1360px] flex flex-row justify-start items-center gap-4 ">
+        {/* Feature Cards - responsive width with max */}
+        <div className="w-full max-w-[1360px] flex flex-row justify-start items-stretch gap-4">
           {featureCards.map((card, index) => (
             <FeatureCard
               key={index}
@@ -137,27 +141,27 @@ export default function CustomAI() {
               imageAlt={card.imageAlt}
               title={card.title}
               descriptions={card.descriptions}
-              className="flex-1 h-[448px]"
+              className="flex-1 min-h-[448px]"
             />
           ))}
         </div>
       </div>
 
       {/* Mobile Layout */}
-      <div className="lg:hidden w-full px-4 py-6 flex flex-col justify-center items-center gap-6">
+      <div className="lg:hidden w-full px-4 sm:px-6 md:px-8 py-6 sm:py-8 flex flex-col justify-center items-center gap-6 sm:gap-8">
         {/* Title and Subtitle */}
-        <div className="w-full max-w-[372px] flex flex-col justify-center items-center gap-4">
-          <h2 className="text-[#F4FBF8] text-[28px] font-medium font-articulat leading-[39.20px] text-center">
+        <div className="w-full max-w-[372px] sm:max-w-[500px] md:max-w-[600px] flex flex-col justify-center items-center gap-4">
+          <h2 className="text-[#F4FBF8] text-[28px] sm:text-[32px] md:text-[34px] font-medium font-articulat leading-tight text-center">
             Custom AI built for CFO offices
           </h2>
-          <p className="text-[#F4FBF8] text-base font-normal font-articulat leading-[22.40px] text-center">
+          <p className="text-[#F4FBF8] text-base sm:text-lg font-normal font-articulat leading-relaxed text-center">
             Enterprise grade architecture with first class auditability,
             governance, and security
           </p>
         </div>
 
         {/* Feature Cards */}
-        <div className="w-full max-w-[372px] flex flex-col gap-3">
+        <div className="w-full max-w-[372px] sm:max-w-[500px] md:max-w-[700px] flex flex-col gap-3 sm:gap-4">
           {/* First card full width */}
           <MobileFeatureCard
             imageSrc={featureCards[0].imageSrc}
@@ -168,7 +172,7 @@ export default function CustomAI() {
           />
 
           {/* Second and third cards side by side */}
-          <div className="flex flex-row gap-3">
+          <div className="flex flex-row gap-3 sm:gap-4">
             <MobileFeatureCard
               imageSrc={featureCards[1].imageSrc}
               imageAlt={featureCards[1].imageAlt}
@@ -185,6 +189,7 @@ export default function CustomAI() {
             />
           </div>
         </div>
+      </div>
       </div>
     </div>
   );

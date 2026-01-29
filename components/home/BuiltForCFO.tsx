@@ -6,7 +6,13 @@ import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
 
 // Custom icon components matching the design
-const DocumentIcon = ({ className, isActive }: { className?: string; isActive?: boolean }) => (
+const DocumentIcon = ({
+  className,
+  isActive,
+}: {
+  className?: string;
+  isActive?: boolean;
+}) => (
   <svg
     width="19"
     height="24"
@@ -22,7 +28,13 @@ const DocumentIcon = ({ className, isActive }: { className?: string; isActive?: 
   </svg>
 );
 
-const BookIcon = ({ className, isActive }: { className?: string; isActive?: boolean }) => (
+const BookIcon = ({
+  className,
+  isActive,
+}: {
+  className?: string;
+  isActive?: boolean;
+}) => (
   <svg
     width="19"
     height="25"
@@ -38,7 +50,13 @@ const BookIcon = ({ className, isActive }: { className?: string; isActive?: bool
   </svg>
 );
 
-const ChartIcon = ({ className, isActive }: { className?: string; isActive?: boolean }) => (
+const ChartIcon = ({
+  className,
+  isActive,
+}: {
+  className?: string;
+  isActive?: boolean;
+}) => (
   <svg
     width="17"
     height="17"
@@ -54,7 +72,13 @@ const ChartIcon = ({ className, isActive }: { className?: string; isActive?: boo
   </svg>
 );
 
-const BuildingIcon = ({ className, isActive }: { className?: string; isActive?: boolean }) => (
+const BuildingIcon = ({
+  className,
+  isActive,
+}: {
+  className?: string;
+  isActive?: boolean;
+}) => (
   <svg
     width="24"
     height="24"
@@ -164,20 +188,20 @@ export default function BuiltForCFO() {
   return (
     <div
       id="white-section-start"
-      className="w-full bg-white py-12 lg:py-[150px] overflow-hidden"
+      className="w-full bg-white pt-[150px] overflow-hidden"
     >
-      <div className="max-w-[1440px] mx-auto px-4 md:px-10 flex flex-col gap-6 lg:gap-12 items-center">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10 flex flex-col gap-6 sm:gap-8 md:gap-10 lg:gap-12 items-center">
         {/* Mobile Header - Centered & Stacked */}
-        <div className="lg:hidden flex flex-col items-center gap-4">
-          <h2 className="text-[#0E0F10] text-[28px] font-medium font-articulat leading-tight text-center">
+        <div className="lg:hidden flex flex-col items-center gap-4 sm:gap-5 md:gap-6">
+          <h2 className="text-[#0E0F10] text-[28px] sm:text-[30px] md:text-[32px] font-medium font-articulat leading-tight text-center">
             Built for the
           </h2>
           <div className="px-6 py-3 rounded-lg border border-[#D9DBDD]">
-            <span className="text-[#FFAF42] text-4xl font-medium font-bricolage leading-tight">
+            <span className="text-[#FFAF42] text-3xl sm:text-4xl font-medium font-bricolage leading-tight">
               Office of the CFO
             </span>
           </div>
-          <p className="text-[#5E6469] text-base font-normal font-articulat leading-relaxed text-center max-w-[372px]">
+          <p className="text-[#5E6469] text-base sm:text-lg font-normal font-articulat leading-relaxed text-center max-w-[372px] sm:max-w-[500px] md:max-w-[600px]">
             <span className="font-semibold">CFO teams need a system</span> - not
             just software - that ensures consistency, traceability, and control
             across every disclosure touchpoint.
@@ -214,7 +238,7 @@ export default function BuiltForCFO() {
         {/* Mobile Layout - Accordion Style */}
         <div className="lg:hidden flex flex-col w-full">
           {features.map((feature, index) => {
-            //const IconComponent = iconComponents[feature.iconKey];
+            const IconComponent = iconComponents[feature.iconKey];
             const isActive = activeTab === index;
 
             return (
@@ -238,10 +262,10 @@ export default function BuiltForCFO() {
                     }}
                     transition={{ duration: 0.3, ease: "easeInOut" }}
                   >
-                    {/* <IconComponent
+                    <IconComponent
                       className="w-5 h-5"
                       isActive={isActive}
-                    /> */}
+                    />
                   </motion.div>
                   <span className="text-xl font-medium font-articulat leading-8 tracking-[0.4px] text-[#0E0F10]">
                     {feature.title}
@@ -268,13 +292,41 @@ export default function BuiltForCFO() {
                         transition={{ duration: 0.3, ease: "easeOut" }}
                         className="pb-4 flex flex-col gap-4"
                       >
-                        {/* Short Description */}
-                        <p className="text-[#3F4346] text-sm font-normal font-articulat leading-relaxed tracking-[0.28px]">
-                          {feature.shortDescription}
+                        {/* Description - same as desktop */}
+                        <p className="text-[#3F4346] text-base font-normal font-articulat leading-[25.6px] tracking-[0.32px]">
+                          {feature.description}
                         </p>
 
-                        {/* Mobile Stats Card */}
-                        <MobileStatsCard feature={feature} />
+                        {/* Mobile Card - same content as desktop RightSideCard */}
+                        <div
+                          className="w-full rounded-[20px] p-6 flex flex-col relative overflow-hidden"
+                          style={{
+                            background:
+                              "linear-gradient(297deg, #29AB87 0%, rgba(0, 0, 0, 0) 100%), #0D352A",
+                            boxShadow: "inset 0px 0px 34px rgba(0, 0, 0, 0.08)",
+                          }}
+                        >
+                          {/* Content */}
+                          <div className="relative z-10 flex flex-col gap-2">
+                            <span className="text-[#9FA4A9] text-sm font-medium font-articulat leading-[22.4px] tracking-[0.28px]">
+                              With Finrep
+                            </span>
+                            <h3 className="text-white text-xl font-medium font-articulat leading-[28px] tracking-[0.4px]">
+                              {feature.rightHeading}
+                            </h3>
+                          </div>
+
+                          {/* BuiltForCFO Image */}
+                          <div className="relative z-10 flex items-center justify-center mt-4">
+                            <Image
+                              src="/assets/images/BuiltForCFO.png"
+                              alt="Finrep Features"
+                              width={400}
+                              height={280}
+                              className="object-contain w-full"
+                            />
+                          </div>
+                        </div>
                       </motion.div>
                     </motion.div>
                   )}
@@ -285,9 +337,9 @@ export default function BuiltForCFO() {
         </div>
 
         {/* Desktop Layout */}
-        <div className="hidden lg:flex w-full h-[600px] flex-row gap-7 items-start">
-          {/* Left Column: Slideshow List - Fixed height to prevent jitter */}
-          <div className="flex-1 h-[600px] flex flex-col justify-start [&>*:first-child]:pt-0 overflow-hidden">
+        <div className="hidden lg:flex w-full min-h-[600px] flex-row gap-7 items-stretch">
+          {/* Left Column: Slideshow List - Flexible height */}
+          <div className="flex-1 min-h-[600px] flex flex-col justify-start [&>*:first-child]:pt-0 overflow-hidden">
             {features.map((feature, index) => (
               <FeatureItem
                 key={feature.id}
@@ -300,88 +352,10 @@ export default function BuiltForCFO() {
           </div>
 
           {/* Right Column: Card - Equal width with left */}
-          <div className="flex-1 h-[600px]">
+          <div className="flex-1 min-h-[600px]">
             <RightSideCard activeTab={activeTab} />
           </div>
         </div>
-      </div>
-    </div>
-  );
-}
-
-// Mobile Stats Card Component
-function MobileStatsCard({ feature }: { feature: (typeof features)[0] }) {
-  return (
-    <div className="w-full aspect-square max-h-[373px] relative overflow-hidden rounded-lg bg-[#0D352A]">
-      {/* Gradient Overlay */}
-      <div
-        className="absolute inset-0"
-        style={{
-          background:
-            "linear-gradient(231deg, rgba(0, 135, 67, 0.3) 1%, rgba(13, 53, 42, 0) 48%, #03251B 100%)",
-        }}
-      />
-
-      {/* Floating Dollar Signs */}
-      <div className="absolute inset-0 overflow-hidden opacity-20">
-        {[...Array(5)].map((_, i) => (
-          <span
-            key={i}
-            className="absolute text-[#29AB87] text-lg font-medium"
-            style={{
-              left: `${20 + i * 15}%`,
-              top: `${10 + (i % 3) * 20}%`,
-            }}
-          >
-            $
-          </span>
-        ))}
-      </div>
-
-      {/* Stats Content */}
-      <div className="absolute top-6 left-6 right-6 pb-4 border-b border-[#134E3D]">
-        <h3 className="text-white text-4xl font-medium font-articulat leading-tight tracking-[0.72px]">
-          {feature.statValue}
-        </h3>
-        <p className="text-[#F9F9FA] text-base font-normal font-articulat mt-2">
-          {feature.statLabel}
-        </p>
-      </div>
-
-      {/* Tags */}
-      <div className="absolute left-6 top-40 flex flex-col gap-2">
-        {[
-          "Compliance Risk",
-          "Monitoring Industry Trends",
-          "FASB Guideline Updates",
-          "SEC Comment Letters",
-          "Peer Benchmarking",
-        ].map((tag) => (
-          <div
-            key={tag}
-            className="px-2 py-1 bg-[#0D352A] border border-[#075E37] rounded text-[#ADEBDA] text-[9px] font-medium font-articulat"
-          >
-            {tag}
-          </div>
-        ))}
-      </div>
-
-      {/* Decorative Elements */}
-      <div className="absolute right-6 bottom-20 w-[190px] h-[135px] border border-white/20 backdrop-blur-sm" />
-      <div className="absolute right-4 bottom-8 w-12 h-12 bg-gradient-to-br from-[#23B18A] to-[#23B18A]/30 rounded-xl border border-white/45 backdrop-blur-lg flex items-center justify-center">
-        <svg
-          width="15"
-          height="22"
-          viewBox="0 0 15 22"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M7.5 0V22M0 7.5H15M0 14.5H15"
-            stroke="white"
-            strokeWidth="2"
-          />
-        </svg>
       </div>
     </div>
   );
@@ -430,10 +404,7 @@ function FeatureItem({
               : "bg-[#E8F5F1]",
           )}
         >
-          <IconComponent
-            className="w-6 h-6"
-            isActive={isActive}
-          />
+          <IconComponent className="w-6 h-6" isActive={isActive} />
         </div>
 
         {/* Content */}
@@ -443,10 +414,12 @@ function FeatureItem({
           </h3>
 
           {/* Expanded Content - Simple opacity animation to prevent jitter */}
-          <div className={cn(
-            "overflow-hidden transition-all duration-300",
-            isActive ? "max-h-[200px] opacity-100" : "max-h-0 opacity-0"
-          )}>
+          <div
+            className={cn(
+              "overflow-hidden transition-all duration-300",
+              isActive ? "max-h-[200px] opacity-100" : "max-h-0 opacity-0",
+            )}
+          >
             <div className="flex flex-col gap-4 pt-2">
               <p className="text-[#3F4346] text-base font-normal leading-[25.6px] tracking-[0.32px]">
                 {feature.description}

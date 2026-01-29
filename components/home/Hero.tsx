@@ -70,7 +70,7 @@ export default function Hero() {
       <div className="relative w-full max-w-[1440px] mx-auto h-full flex flex-col items-center pt-[72px]">
         {/* Hero Content - Centered */}
         <motion.div
-          className="flex flex-col items-center mt-8 lg:mt-[73px] w-full px-4 md:px-0"
+          className="flex flex-col items-center mt-6 sm:mt-8 md:mt-12 lg:mt-[73px] w-full px-4 sm:px-6 md:px-8 lg:px-0"
           variants={staggerContainer}
           initial="hidden"
           animate="visible"
@@ -104,20 +104,20 @@ export default function Hero() {
 
           {/* Main Headline */}
           <motion.div
-            className="w-full flex justify-center mb-8 px-4"
+            className="w-full flex justify-center mb-6 sm:mb-8 px-4"
             variants={fadeInUp}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           >
             <div className="flex flex-col items-center gap-2">
-              <div className="text-white text-4xl md:text-[64px] font-normal font-articulat leading-tight md:leading-[89.60px] text-center">
+              <div className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-[64px] font-normal font-articulat leading-tight text-center">
                 Financial disclosure intelligence
               </div>
-              <div className="flex flex-wrap justify-center items-center gap-3 md:gap-6 mt-2">
-                <div className="text-white text-4xl md:text-[64px] font-normal font-articulat leading-tight md:leading-[89.60px]">
+              <div className="flex flex-wrap justify-center items-center gap-2 sm:gap-3 md:gap-4 lg:gap-6 mt-2">
+                <div className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-[64px] font-normal font-articulat leading-tight">
                   you can
                 </div>
                 <motion.div
-                  className="h-14 md:h-[92px] px-6 md:px-[37px] rounded-lg border border-[#FFAF42] flex justify-center items-center"
+                  className="h-12 sm:h-14 md:h-[72px] lg:h-[92px] px-4 sm:px-6 md:px-8 lg:px-[37px] rounded-lg border border-[#FFAF42] flex justify-center items-center"
                   initial={{
                     opacity: 0,
                     scale: 0.9,
@@ -134,7 +134,7 @@ export default function Hero() {
                     ease: [0.22, 1, 0.36, 1],
                   }}
                 >
-                  <div className="text-[#FFAF42] text-3xl md:text-[64px] font-normal font-bricolage leading-tight md:leading-[89.60px]">
+                  <div className="text-[#FFAF42] text-2xl sm:text-3xl md:text-4xl lg:text-[64px] font-normal font-bricolage leading-tight">
                     trust
                   </div>
                 </motion.div>
@@ -144,7 +144,7 @@ export default function Hero() {
 
           {/* Descriptive Text */}
           <motion.div
-            className="w-full max-w-[822px] text-center text-[#F4FBF8] text-lg md:text-[20px] font-normal font-articulat leading-snug md:leading-[30px] break-words mb-12 px-4"
+            className="w-full max-w-[600px] sm:max-w-[700px] md:max-w-[750px] lg:max-w-[822px] text-center text-[#F4FBF8] text-base sm:text-lg md:text-xl lg:text-[20px] font-normal font-articulat leading-relaxed break-words mb-8 sm:mb-10 md:mb-12 px-4"
             variants={fadeInUp}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           >
@@ -155,17 +155,17 @@ export default function Hero() {
 
           {/* Email Input and CTA - Mobile */}
           <motion.div
-            className="lg:hidden flex flex-row bg-[#134E3D] rounded-full p-1 w-full max-w-[488px] mb-12 mx-4"
+            className="lg:hidden flex flex-row bg-[#134E3D] rounded-full p-1 w-full max-w-[400px] sm:max-w-[450px] md:max-w-[488px] mb-8 sm:mb-10 md:mb-12 mx-4"
             variants={scaleIn}
             transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
           >
             <input
               type="email"
               placeholder="Enter email"
-              className="flex-1 min-w-0 px-4 py-3 bg-transparent text-[#F4FBF8] text-base font-normal font-articulat outline-none border-none placeholder:text-[rgba(244,251,248,0.30)] text-left"
+              className="flex-1 min-w-0 px-3 sm:px-4 py-2.5 sm:py-3 bg-transparent text-[#F4FBF8] text-sm sm:text-base font-normal font-articulat outline-none border-none placeholder:text-[rgba(244,251,248,0.30)] text-left"
             />
-            <button className="px-4 py-3 bg-[#29AB87] flex flex-shrink-0 justify-center items-center cursor-pointer hover:bg-[#238f73] transition-colors rounded-full">
-              <span className="text-white text-sm font-medium font-articulat whitespace-nowrap">
+            <button className="px-3 sm:px-4 py-2.5 sm:py-3 bg-[#29AB87] flex flex-shrink-0 justify-center items-center cursor-pointer hover:bg-[#238f73] transition-colors rounded-full">
+              <span className="text-white text-sm sm:text-base font-medium font-articulat whitespace-nowrap">
                 Book a Demo
               </span>
             </button>
@@ -191,7 +191,7 @@ export default function Hero() {
 
           {/* Trust Badges */}
           <motion.div
-            className="flex flex-wrap justify-center items-start gap-4 md:gap-9 mb-9 md:mb-[74px] px-4"
+            className="flex flex-wrap justify-center items-start gap-3 sm:gap-4 md:gap-6 lg:gap-9 mb-6 sm:mb-9 md:mb-12 lg:mb-[74px] px-4"
             variants={staggerFast}
           >
             {/* Trusted by leading CFO teams */}

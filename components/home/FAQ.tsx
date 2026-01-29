@@ -40,14 +40,14 @@ export default function FAQ() {
 
   return (
     <div className="relative w-full bg-white section-screen">
-      <div className="w-full max-w-[1440px] mx-auto px-4 md:px-10 py-8 lg:py-12 flex flex-col justify-start items-start gap-6 lg:gap-12">
+      <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10 flex flex-col justify-start items-center gap-4 sm:gap-5 md:gap-6">
         {/* Header */}
-        <h2 className="text-left text-[#0E0F10] text-[28px] lg:text-[36px] font-medium font-articulat leading-[39.20px] lg:leading-[50.40px]">
+        <h2 className="w-full max-w-[1200px] text-left text-[#0E0F10] text-[28px] sm:text-[30px] md:text-[32px] lg:text-[36px] font-medium font-articulat leading-tight">
           FAQs
         </h2>
 
         {/* FAQ Items */}
-        <div className="w-[1200px] flex flex-col justify-start items-start gap-4 lg:gap-6">
+        <div className="w-full max-w-[1200px] flex flex-col justify-start items-start gap-4 lg:gap-6">
           {faqs.map((faq, index) => {
             const isExpanded = expandedFAQ === index;
             return (
@@ -60,7 +60,7 @@ export default function FAQ() {
                   onClick={() => toggleFAQ(index)}
                   aria-expanded={isExpanded}
                 >
-                  <span className="text-black text-xl lg:text-2xl font-medium font-articulat leading-7 lg:leading-[33.60px] pr-4 text-left">
+                  <span className="text-black text-lg sm:text-xl md:text-[22px] lg:text-2xl font-medium font-articulat leading-snug pr-4 text-left">
                     {faq.question}
                   </span>
                   <div className="w-6 h-6 relative overflow-hidden flex items-center justify-center shrink-0">
@@ -87,7 +87,7 @@ export default function FAQ() {
                       transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
                       className="overflow-hidden"
                     >
-                      <p className="w-full text-[#5E6469] text-base lg:text-xl font-normal font-articulat leading-[22.40px] lg:leading-7 pb-4">
+                      <p className="w-full text-[#5E6469] text-base sm:text-lg lg:text-xl font-normal font-articulat leading-relaxed pb-4">
                         {faq.answer}
                       </p>
                     </motion.div>

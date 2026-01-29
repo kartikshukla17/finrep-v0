@@ -26,15 +26,21 @@ const articles = [
 export default function BestPractices() {
   return (
     <div className="relative w-full bg-white">
-      {/* Desktop Layout - 1200px content with 120px side padding */}
-      <div className="hidden lg:flex w-full max-w-[1440px] mx-auto px-[120px] flex-col gap-12">
-        {/* Header Row - Subtitle left, View All Articles right */}
+      {/* Desktop Layout - 1200px content centered */}
+      <div className="hidden lg:flex w-full max-w-[1200px] mx-auto px-6 md:px-8 flex-col gap-8 md:gap-10 lg:gap-12">
+
+        {/* Header Row - Title/Subtitle left, View All Articles right */}
         <div className="w-full flex flex-row justify-between items-start">
-          <p className="max-w-[501px] text-[#5E6469] text-xl font-normal font-articulat leading-7">
-            Expert insights on financial disclosure, compliance,
-            <br />
-            and the future of CFO operations
-          </p>
+          <div className="flex flex-col gap-4">
+            <h2 className="text-[#0E0F10] text-[36px] font-medium font-articulat leading-[50.40px]">
+              Best Practices & Insights
+            </h2>
+            <p className="max-w-[501px] text-[#5E6469] text-xl font-normal font-articulat leading-7">
+              Expert insights on financial disclosure, compliance,
+              <br />
+              and the future of CFO operations
+            </p>
+          </div>
           <button className="flex justify-start items-center gap-2 cursor-pointer hover:opacity-80 transition-opacity">
             <span className="text-[#29AB87] text-base font-medium font-articulat leading-[25.60px] tracking-[0.32px]">
               View All Articles
@@ -45,7 +51,7 @@ export default function BestPractices() {
 
         {/* Featured Content - Video and Article side by side */}
         <div className="w-full flex flex-row justify-start items-center gap-12">
-          <div className="w-[640px] h-[360px] rounded-lg overflow-hidden flex-shrink-0">
+          <div className="w-[570px] aspect-video rounded-lg overflow-hidden flex-shrink-0">
             <iframe
               width="100%"
               height="100%"
@@ -58,24 +64,24 @@ export default function BestPractices() {
             ></iframe>
           </div>
           <div className="flex-1 flex flex-col justify-center items-start gap-4">
-            <h3 className="max-w-[384px] text-[#0E0F10] text-2xl font-medium font-articulat leading-[33.60px]">
+            <h3 className="text-[#0E0F10] text-2xl font-medium font-articulat leading-[33.60px]">
               From Sanctions to Scrutiny: How OFAC Violations Create Immediate
               SEC Disclosure Triggers
             </h3>
-            <p className="max-w-[384px] text-[#5E6469] text-base font-normal font-articulat leading-[22.40px]">
+            <p className="text-[#5E6469] text-base font-normal font-articulat leading-[22.40px]">
               Jan 2, 2026
             </p>
           </div>
         </div>
 
         {/* Article Cards - Three columns */}
-        <div className="w-full flex flex-row justify-start items-start gap-6">
+        <div className="w-full grid grid-cols-3 gap-6">
           {articles.map((article, idx) => (
             <article
               key={idx}
-              className="w-[384px] flex flex-col justify-start items-start gap-6"
+              className="flex flex-col justify-start items-start gap-6"
             >
-              <div className="w-full h-[248px] rounded-lg overflow-hidden">
+              <div className="w-full aspect-[384/248] rounded-lg overflow-hidden">
                 <Image
                   src={article.image}
                   alt="Article image"
@@ -98,13 +104,13 @@ export default function BestPractices() {
       </div>
 
       {/* Mobile Layout */}
-      <div className="lg:hidden w-full px-4 flex flex-col items-center gap-6">
+      <div className="lg:hidden w-full px-4 sm:px-6 md:px-8 flex flex-col items-center gap-6 sm:gap-8">
         {/* Mobile Header - Centered */}
-        <div className="w-full max-w-[372px] flex flex-col justify-center items-center gap-4">
-          <h2 className="text-center text-[#0E0F10] text-[28px] font-medium font-articulat leading-[39.20px]">
+        <div className="w-full max-w-[372px] sm:max-w-[500px] md:max-w-[600px] flex flex-col justify-center items-center gap-4">
+          <h2 className="text-center text-[#0E0F10] text-[28px] sm:text-[30px] md:text-[32px] font-medium font-articulat leading-tight">
             Best Practices & Insights
           </h2>
-          <p className="text-center text-[#5E6469] text-base font-normal font-articulat leading-[22.40px]">
+          <p className="text-center text-[#5E6469] text-base sm:text-lg font-normal font-articulat leading-relaxed">
             Expert insights on financial disclosure, compliance, and the future
             of CFO operations
           </p>
@@ -117,8 +123,8 @@ export default function BestPractices() {
         </div>
 
         {/* Featured Content - Video and Article stacked */}
-        <div className="w-full max-w-[372px] flex flex-col justify-center items-start gap-4">
-          <div className="w-full h-[396px] rounded-lg overflow-hidden">
+        <div className="w-full max-w-[372px] sm:max-w-[500px] md:max-w-[600px] flex flex-col justify-center items-start gap-4 sm:gap-5">
+          <div className="w-full aspect-video rounded-lg overflow-hidden">
             <iframe
               width="100%"
               height="100%"
@@ -131,24 +137,24 @@ export default function BestPractices() {
             ></iframe>
           </div>
           <div className="w-full flex flex-col justify-start items-start gap-2">
-            <h3 className="w-full text-[#0E0F10] text-xl font-medium font-articulat leading-7">
+            <h3 className="w-full text-[#0E0F10] text-lg sm:text-xl font-medium font-articulat leading-snug">
               From Sanctions to Scrutiny: How OFAC Violations Create Immediate
               SEC Disclosure Triggers
             </h3>
-            <p className="w-full text-[#5E6469] text-sm font-normal font-articulat leading-[19.60px]">
+            <p className="w-full text-[#5E6469] text-sm sm:text-base font-normal font-articulat leading-relaxed">
               Jan 2, 2026
             </p>
           </div>
         </div>
 
-        {/* Article Cards - Stacked vertically */}
-        <div className="w-full max-w-[372px] flex flex-col justify-start items-start gap-6">
+        {/* Article Cards - Grid on tablet, stacked on mobile */}
+        <div className="w-full max-w-[372px] sm:max-w-[500px] md:max-w-[600px] flex flex-col sm:flex-row sm:flex-wrap justify-start items-start gap-4 sm:gap-5 md:gap-6">
           {articles.map((article, idx) => (
             <article
               key={idx}
-              className="w-full flex flex-col justify-start items-start gap-4"
+              className="w-full sm:w-[calc(50%-10px)] md:w-[calc(50%-12px)] flex flex-col justify-start items-start gap-3 sm:gap-4"
             >
-              <div className="w-full h-[248px] rounded-lg overflow-hidden">
+              <div className="w-full aspect-[3/2] rounded-lg overflow-hidden">
                 <Image
                   src={article.image}
                   alt="Article image"
@@ -158,10 +164,10 @@ export default function BestPractices() {
                 />
               </div>
               <div className="w-full flex flex-col justify-start items-start gap-2">
-                <h4 className="w-full text-[#0E0F10] text-xl font-medium font-articulat leading-7">
+                <h4 className="w-full text-[#0E0F10] text-base sm:text-lg md:text-xl font-medium font-articulat leading-snug">
                   {article.title}
                 </h4>
-                <p className="w-full text-[#5E6469] text-base font-normal font-articulat leading-[22.40px]">
+                <p className="w-full text-[#5E6469] text-sm sm:text-base font-normal font-articulat leading-relaxed">
                   {article.date}
                 </p>
               </div>

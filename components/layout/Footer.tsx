@@ -68,43 +68,43 @@ export default function Footer() {
   const pathname = usePathname();
 
   // Get titles for current page, fallback to default
-  const titles = pageTitles[pathname] || defaultTitles;
+  const titles = (pathname && pageTitles[pathname]) || defaultTitles;
 
   return (
     <div className="relative w-full bg-white">
       {/* Footer Image at Start */}
-      <div className="absolute left-0 top-0 w-full h-[195px] lg:h-[681px] overflow-hidden flex justify-center">
+      <div className="absolute left-0 top-0 w-full h-[195px] sm:h-[300px] md:h-[450px] lg:h-[681px] overflow-hidden flex justify-center">
         <Image
           src="/assets/icons/footer.svg"
           alt="Footer background"
           width={1440}
           height={681}
-          className="min-w-[412px] lg:min-w-[1440px] h-auto object-cover object-top"
+          className="min-w-[412px] sm:min-w-[640px] md:min-w-[900px] lg:min-w-[1440px] h-auto object-cover object-top"
         />
       </div>
 
       {/* Content - Overlaid on Image */}
-      <div className="relative w-full max-w-[1440px] mx-auto px-4 md:px-10 pt-[50px] lg:pt-[202px] pb-12 flex flex-col justify-start items-center gap-20 lg:gap-[120px]">
+      <div className="relative w-full max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10 pt-[50px] sm:pt-[80px] md:pt-[120px] lg:pt-[202px] pb-8 sm:pb-10 md:pb-12 flex flex-col justify-start items-center gap-12 sm:gap-16 md:gap-20 lg:gap-[120px]">
         {/* CTA Section */}
-        <div className="w-full max-w-[372px] lg:max-w-[590px] flex flex-col justify-center items-center gap-6 lg:gap-9 text-center">
+        <div className="w-full max-w-[372px] sm:max-w-[480px] md:max-w-[540px] lg:max-w-[590px] flex flex-col justify-center items-center gap-5 sm:gap-6 md:gap-7 lg:gap-9 text-center">
           {/* Mobile Title */}
-          <h2 className="lg:hidden w-full text-[#0E0F10] text-[36px] font-normal font-articulat leading-[50.40px] text-center">
+          <h2 className="lg:hidden w-full text-[#0E0F10] text-[28px] sm:text-[32px] md:text-[40px] font-normal font-articulat leading-tight text-center">
             {titles.mobile}
           </h2>
           {/* Desktop Title */}
-          <h2 className="hidden lg:block w-full max-w-[634px] text-[#0E0F10] text-[48px] font-normal font-articulat leading-[57.60px] whitespace-nowrap">
+          <h2 className="hidden lg:block w-full max-w-[634px] text-[#0E0F10] text-[48px] font-normal font-articulat leading-tight">
             {titles.desktop}
           </h2>
 
           {/* Mobile: Two buttons side by side, centered */}
-          <div className="lg:hidden flex justify-center items-center gap-2">
-            <button className="px-6 py-4 bg-[#29AB87] rounded-lg flex justify-center items-center cursor-pointer hover:bg-[#238f73] transition-colors">
-              <span className="text-[#F4FBF8] text-base font-medium font-articulat whitespace-nowrap">
+          <div className="lg:hidden flex flex-col sm:flex-row justify-center items-center gap-2 sm:gap-3">
+            <button className="w-full sm:w-auto px-5 sm:px-6 py-3 sm:py-4 bg-[#29AB87] rounded-lg flex justify-center items-center cursor-pointer hover:bg-[#238f73] transition-colors">
+              <span className="text-[#F4FBF8] text-base sm:text-lg font-medium font-articulat whitespace-nowrap">
                 Book a Demo
               </span>
             </button>
-            <button className="px-6 py-4 bg-[#0E0F10] rounded-lg flex justify-center items-center cursor-pointer hover:bg-[#2a2c2e] transition-colors">
-              <span className="text-[#F4FBF8] text-base font-medium font-articulat whitespace-nowrap">
+            <button className="w-full sm:w-auto px-5 sm:px-6 py-3 sm:py-4 bg-[#0E0F10] rounded-lg flex justify-center items-center cursor-pointer hover:bg-[#2a2c2e] transition-colors">
+              <span className="text-[#F4FBF8] text-base sm:text-lg font-medium font-articulat whitespace-nowrap">
                 Register for a Free Trial
               </span>
             </button>
@@ -121,9 +121,9 @@ export default function Footer() {
         </div>
 
         {/* Navigation and Footer Content */}
-        <div className="flex flex-col justify-start items-center gap-6 lg:gap-12 w-full">
+        <div className="flex flex-col justify-start items-center gap-6 sm:gap-8 md:gap-10 lg:gap-12 w-full">
           {/* Mobile Navigation - Stacked vertically */}
-          <div className="lg:hidden w-full max-w-[372px] flex flex-row justify-start items-start gap-12">
+          <div className="lg:hidden w-full max-w-[372px] sm:max-w-[500px] md:max-w-[600px] flex flex-row justify-start items-start gap-8 sm:gap-10 md:gap-12">
             {navigationSections.map((section, sectionIdx) => (
               <div
                 key={sectionIdx}

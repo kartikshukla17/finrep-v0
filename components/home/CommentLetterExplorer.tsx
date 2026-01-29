@@ -554,8 +554,8 @@ export default function CommentLetterExplorer() {
   return (
     <section id="solutions">
       {/* Mobile Layout - No scroll-driven behavior */}
-      <div className="lg:hidden w-full bg-white py-8">
-        <div className="px-4 flex flex-col gap-6">
+      <div className="lg:hidden w-full bg-white py-6 sm:py-8 md:py-10">
+        <div className="px-4 sm:px-6 md:px-8 max-w-[600px] md:max-w-[700px] mx-auto flex flex-col gap-5 sm:gap-6 md:gap-8">
           {/* Mobile Horizontal Tabs - Hidden for now */}
           {/* <div className="flex gap-3 overflow-x-auto pb-2 scrollbar-hide -mx-4 px-4">
             {navigationTabs.map((tab, idx) => {
@@ -609,24 +609,24 @@ export default function CommentLetterExplorer() {
               </span>
 
               {/* Title & Description */}
-              <div className="flex flex-col gap-3">
-                <h3 className="text-[#0E0F10] text-[28px] font-medium font-articulat leading-tight">
+              <div className="flex flex-col gap-3 sm:gap-4">
+                <h3 className="text-[#0E0F10] text-[24px] sm:text-[26px] md:text-[28px] font-medium font-articulat leading-tight">
                   {mobileSection.mobileTitle || mobileSection.title}
                 </h3>
-                <p className="text-[#5E6469] text-base font-normal font-articulat leading-relaxed">
+                <p className="text-[#5E6469] text-base sm:text-lg font-normal font-articulat leading-relaxed">
                   {mobileSection.mobileDescription || mobileSection.description}
                 </p>
               </div>
 
               {/* Benefits */}
-              <div className="flex flex-col gap-3">
+              <div className="flex flex-col gap-2.5 sm:gap-3">
                 {mobileSection.benefits.map((benefit, idx) => (
                   <div key={idx} className="flex items-center gap-2.5">
                     {/* Checkbox Icon */}
-                    <div className="w-4 h-4 bg-[#0E0F10] rounded flex items-center justify-center flex-shrink-0">
-                      <div className="w-2 h-2 bg-white rounded-full" />
+                    <div className="w-4 h-4 sm:w-5 sm:h-5 bg-[#0E0F10] rounded flex items-center justify-center flex-shrink-0">
+                      <div className="w-2 h-2 sm:w-2.5 sm:h-2.5 bg-white rounded-full" />
                     </div>
-                    <span className="text-[#0E0F10] text-base font-medium font-articulat">
+                    <span className="text-[#0E0F10] text-base sm:text-lg font-medium font-articulat">
                       {benefit.mobileBenefit || benefit.text}
                     </span>
                     {benefit.badge && (
@@ -647,15 +647,15 @@ export default function CommentLetterExplorer() {
               </div>
 
               {/* CTA Buttons */}
-              <div className="flex gap-4">
-                <button className="flex-1 px-6 py-2 rounded-lg border border-[#29AB87] flex items-center justify-center gap-1">
-                  <span className="text-[#269C7B] text-base font-medium font-articulat">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+                <button className="flex-1 px-5 sm:px-6 py-2.5 sm:py-3 rounded-lg border border-[#29AB87] flex items-center justify-center gap-1">
+                  <span className="text-[#269C7B] text-base sm:text-lg font-medium font-articulat">
                     Try Now
                   </span>
-                  <ArrowRight className="w-6 h-6 text-[#29AB87]" />
+                  <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 text-[#29AB87]" />
                 </button>
-                <button className="flex-1 px-6 py-2 bg-[#29AB87] rounded-lg">
-                  <span className="text-[#F4FBF8] text-base font-medium font-articulat">
+                <button className="flex-1 px-5 sm:px-6 py-2.5 sm:py-3 bg-[#29AB87] rounded-lg">
+                  <span className="text-[#F4FBF8] text-base sm:text-lg font-medium font-articulat">
                     Book a Demo
                   </span>
                 </button>
@@ -669,15 +669,15 @@ export default function CommentLetterExplorer() {
       <div
         ref={containerRef}
         className="hidden lg:block relative w-full bg-white"
-        style={{ height: `${sections.length * 100}vh` }}
+        style={{ height: `${sections.length * 60}vh` }}
       >
         {/* Sticky content that stays in view - offset for header */}
-        <div className="sticky top-[75px] h-[calc(100vh-75px)] overflow-hidden">
-          <div className="w-full h-full flex flex-row">
+        <div className="sticky top-[75px] h-[calc(100vh-75px)] overflow-hidden flex items-center">
+          <div className="w-full max-h-[800px] h-full max-w-[1440px] mx-auto flex flex-row items-stretch">
             {/* Left Content Section */}
-            <div className="flex-1 h-full flex flex-col justify-start items-start gap-12 pl-10 pt-[55px]">
+            <div className="flex-1 flex flex-col justify-center items-start gap-12 pl-6 lg:pl-10 py-8">
               {/* Main Content with Numbered List and Active Section */}
-              <div className="w-full flex justify-start items-start gap-16">
+              <div className="w-full flex justify-start items-start gap-8 lg:gap-16">
                 {/* Numbered List - Clickable */}
                 <div className="flex flex-col justify-start items-start">
                   {sections.map((section, index) => (
@@ -709,7 +709,7 @@ export default function CommentLetterExplorer() {
                 </div>
 
                 {/* Active Section Content */}
-                <div className="flex-1 max-w-[545px] flex flex-col justify-start items-start gap-9">
+                <div className="flex-1 max-w-[450px] lg:max-w-[545px] flex flex-col justify-start items-start gap-6 lg:gap-9">
                   <AnimatePresence mode="wait">
                     <SectionContent
                       key={`${activeTab}-${activeSection}`}
@@ -729,8 +729,8 @@ export default function CommentLetterExplorer() {
               </div>
             </div>
 
-            {/* Right Section - Interface Mockup - Fixed width per design */}
-            <div className="w-[706px] h-full flex-shrink-0">
+            {/* Right Section - Interface Mockup */}
+            <div className="w-[45%] max-w-[706px] min-w-[350px] h-full max-h-[700px] flex-shrink-0 self-center rounded-l-2xl overflow-hidden">
               <InterfaceMockup image={sections[activeSection].image} />
             </div>
           </div>

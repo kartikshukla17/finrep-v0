@@ -36,16 +36,16 @@ export default function AboutHero() {
             <Header variant="light" />
 
             {/* Hero Content - Mobile */}
-            <div className="relative z-10 flex-1 flex flex-col justify-start items-center px-5 pt-[192px] pb-20 lg:hidden">
-                <div className="w-full max-w-[372px] flex flex-col justify-center items-center gap-9">
-                    <h1 className="text-white text-[36px] font-medium font-articulat leading-[50.40px] text-center">
+            <div className="relative z-10 flex-1 flex flex-col justify-start items-center px-4 sm:px-6 md:px-8 pt-[140px] sm:pt-[160px] md:pt-[180px] pb-16 sm:pb-20 lg:hidden">
+                <div className="w-full max-w-[372px] sm:max-w-[480px] md:max-w-[560px] flex flex-col justify-center items-center gap-6 sm:gap-8 md:gap-9">
+                    <h1 className="text-white text-[28px] sm:text-[32px] md:text-[40px] font-medium font-articulat leading-tight text-center">
                         Everything a CFO office does. Now powered by AI.
                     </h1>
-                    <button className="px-6 pr-4 py-2 bg-[#29AB87] rounded-lg flex justify-center items-center gap-2.5 hover:bg-[#238f73] transition-colors">
-                        <span className="text-[#F4FBF8] text-base font-medium font-articulat">
+                    <button className="px-5 sm:px-6 pr-3 sm:pr-4 py-2.5 sm:py-3 bg-[#29AB87] rounded-lg flex justify-center items-center gap-2 sm:gap-2.5 hover:bg-[#238f73] transition-colors">
+                        <span className="text-[#F4FBF8] text-base sm:text-lg font-medium font-articulat">
                             Explore open roles
                         </span>
-                        <ArrowRight className="w-6 h-6 text-[#F9F9FA]" strokeWidth={2} />
+                        <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 text-[#F9F9FA]" strokeWidth={2} />
                     </button>
                 </div>
             </div>
