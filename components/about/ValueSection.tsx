@@ -24,7 +24,7 @@ function ValueCardMobile({ title, description, icon }: ValueCardProps) {
                 </p>
             </div>
             <div className="absolute left-0 bottom-0 w-full h-full overflow-hidden">
-                <div className="absolute left-[18px] bottom-[18px] w-[180px] h-[180px]">
+                <div className="absolute -left-2 -bottom-2 w-[180px] h-[180px]">
                     <Image
                         src={icon}
                         alt=""
@@ -55,7 +55,7 @@ function ValueCardDesktop({ title, description, icon }: ValueCardProps) {
                 </p>
             </div>
             <div className="absolute left-0 bottom-0 w-full h-full overflow-hidden">
-                <div className="absolute left-[18px] bottom-[18px] w-[180px] h-[180px]">
+                <div className="absolute -left-2 -bottom-2 w-[180px] h-[180px]">
                     <Image
                         src={icon}
                         alt=""

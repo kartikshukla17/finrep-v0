@@ -75,7 +75,7 @@ export default function Header({ variant = "light" }: HeaderProps) {
   }, [variant]);
 
   const navLinks = [
-    { name: "Features", href: "/" },
+    { name: "Solutions", href: "/#solutions" },
     { name: "Security", href: "/" },
     { name: "Blogs", href: "/blogs" },
     { name: "Pricing", href: "/pricing" },
@@ -83,7 +83,7 @@ export default function Header({ variant = "light" }: HeaderProps) {
   ];
 
   const mobileMenuLinks = [
-    { name: "Features", href: "/" },
+    { name: "Solutions", href: "/#solutions" },
     { name: "Security", href: "/" },
     { name: "Pricing", href: "/pricing" },
     { name: "Blogs", href: "/blogs" },
@@ -106,7 +106,7 @@ export default function Header({ variant = "light" }: HeaderProps) {
         className={`fixed top-0 left-0 right-0 z-50 backdrop-blur-[24px] transition-all duration-500 ease-in-out ${bgStyle}`}
       >
         {/* Container: max-width 1440px, consistent padding */}
-        <div className="w-full max-w-[1440px] mx-auto px-4 md:px-10 py-4 flex justify-between items-center relative">
+        <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10 py-3 sm:py-4 flex justify-between items-center relative">
           {/* Logo - 93x40, positioned 40px from left */}
           <Link href="/" className="flex-shrink-0">
             <Image
@@ -188,7 +188,7 @@ export default function Header({ variant = "light" }: HeaderProps) {
                 duration: 0.3,
                 ease: [0.4, 0, 0.2, 1],
               }}
-              className="fixed top-0 right-0 h-full w-[85%] max-w-[360px] bg-white z-[70] lg:hidden overflow-y-auto"
+              className="fixed top-0 right-0 h-full w-[85%] max-w-[320px] sm:max-w-[360px] bg-white z-[70] lg:hidden overflow-y-auto"
             >
               {/* Menu Header */}
               <div className="flex justify-between items-center p-4 border-b border-[#ECEDEE]">

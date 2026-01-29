@@ -7,20 +7,20 @@ import { usePathname } from "next/navigation";
 // Page-specific titles mapping
 const pageTitles: Record<string, { mobile: string; desktop: string }> = {
   "/": {
-    mobile: "Cut days off your SEC filings",
+    mobile: "Solve SEC reporting for good",
     desktop: "Solve SEC reporting for good",
   },
   "/pricing": {
-    mobile: "Get started with Finrep today",
-    desktop: "Get started with Finrep today",
+    mobile: "Get custom pricing built around your workflow",
+    desktop: "Get custom pricing built around your workflow",
   },
   "/about": {
-    mobile: "Join us in transforming finance",
-    desktop: "Join us in transforming finance",
+    mobile: "Solve SEC reporting for good",
+    desktop: "Solve SEC reporting for good",
   },
   "/blogs": {
-    mobile: "Stay ahead with our insights",
-    desktop: "Stay ahead with our insights",
+    mobile: "Solve SEC reporting for good",
+    desktop: "Solve SEC reporting for good",
   },
   "/security": {
     mobile: "Your data is safe with us",
@@ -35,22 +35,28 @@ const defaultTitles = {
 };
 
 // Navigation data
-const navigationSections = [
+const navigationSections: {
+  title: string;
+  links: { label: string; href: string; external?: boolean }[];
+}[] = [
   {
     title: "Company",
     links: [
       { label: "About", href: "/about" },
       { label: "Pricing", href: "/pricing" },
-      { label: "Contact", href: "#" },
+      { label: "Contact", href: "mailto:support@finrep.ai" },
       { label: "Careers", href: "#" },
-      { label: "Become a Partner", href: "#" },
     ],
   },
   {
     title: "Resources",
     links: [
       { label: "Blogs", href: "/blogs" },
-      { label: "SEC Reporting Journal", href: "#" },
+      {
+        label: "SEC Reporting Journal",
+        href: "https://secreportingjournal.com/",
+        external: true,
+      },
       { label: "Security", href: "#" },
       { label: "Privacy Policy", href: "#" },
       { label: "Terms of Service", href: "#" },
@@ -62,43 +68,43 @@ export default function Footer() {
   const pathname = usePathname();
 
   // Get titles for current page, fallback to default
-  const titles = pageTitles[pathname] || defaultTitles;
+  const titles = (pathname && pageTitles[pathname]) || defaultTitles;
 
   return (
     <div className="relative w-full bg-white">
       {/* Footer Image at Start */}
-      <div className="absolute left-0 top-0 w-full h-[195px] lg:h-[681px] overflow-hidden flex justify-center">
+      <div className="absolute left-0 top-0 w-full h-[195px] sm:h-[300px] md:h-[450px] lg:h-[681px] overflow-hidden flex justify-center">
         <Image
           src="/assets/icons/footer.svg"
           alt="Footer background"
           width={1440}
           height={681}
-          className="min-w-[412px] lg:min-w-[1440px] h-auto object-cover object-top"
+          className="min-w-[412px] sm:min-w-[640px] md:min-w-[900px] lg:min-w-[1440px] h-auto object-cover object-top"
         />
       </div>
 
       {/* Content - Overlaid on Image */}
-      <div className="relative w-full max-w-[1440px] mx-auto px-4 md:px-10 pt-[50px] lg:pt-[202px] pb-12 flex flex-col justify-start items-center gap-20 lg:gap-[120px]">
+      <div className="relative w-full max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10 pt-[50px] sm:pt-[80px] md:pt-[120px] lg:pt-[202px] pb-8 sm:pb-10 md:pb-12 flex flex-col justify-start items-center gap-12 sm:gap-16 md:gap-20 lg:gap-[120px]">
         {/* CTA Section */}
-        <div className="w-full max-w-[372px] lg:max-w-[590px] flex flex-col justify-center items-center gap-6 lg:gap-9 text-center">
+        <div className="w-full max-w-[372px] sm:max-w-[480px] md:max-w-[540px] lg:max-w-[590px] flex flex-col justify-center items-center gap-5 sm:gap-6 md:gap-7 lg:gap-9 text-center">
           {/* Mobile Title */}
-          <h2 className="lg:hidden w-full text-[#0E0F10] text-[36px] font-normal font-articulat leading-[50.40px] text-center">
+          <h2 className="lg:hidden w-full text-[#0E0F10] text-[28px] sm:text-[32px] md:text-[40px] font-normal font-articulat leading-tight text-center">
             {titles.mobile}
           </h2>
           {/* Desktop Title */}
-          <h2 className="hidden lg:block w-full max-w-[634px] text-[#0E0F10] text-[48px] font-normal font-articulat leading-[57.60px] whitespace-nowrap">
+          <h2 className="hidden lg:block w-full max-w-[634px] text-[#0E0F10] text-[48px] font-normal font-articulat leading-tight">
             {titles.desktop}
           </h2>
 
           {/* Mobile: Two buttons side by side, centered */}
-          <div className="lg:hidden flex justify-center items-center gap-2">
-            <button className="px-6 py-4 bg-[#29AB87] rounded-lg flex justify-center items-center cursor-pointer hover:bg-[#238f73] transition-colors">
-              <span className="text-[#F4FBF8] text-base font-medium font-articulat whitespace-nowrap">
+          <div className="lg:hidden flex flex-col sm:flex-row justify-center items-center gap-2 sm:gap-3">
+            <button className="w-full sm:w-auto px-5 sm:px-6 py-3 sm:py-4 bg-[#29AB87] rounded-lg flex justify-center items-center cursor-pointer hover:bg-[#238f73] transition-colors">
+              <span className="text-[#F4FBF8] text-base sm:text-lg font-medium font-articulat whitespace-nowrap">
                 Book a Demo
               </span>
             </button>
-            <button className="px-6 py-4 bg-[#0E0F10] rounded-lg flex justify-center items-center cursor-pointer hover:bg-[#2a2c2e] transition-colors">
-              <span className="text-[#F4FBF8] text-base font-medium font-articulat whitespace-nowrap">
+            <button className="w-full sm:w-auto px-5 sm:px-6 py-3 sm:py-4 bg-[#0E0F10] rounded-lg flex justify-center items-center cursor-pointer hover:bg-[#2a2c2e] transition-colors">
+              <span className="text-[#F4FBF8] text-base sm:text-lg font-medium font-articulat whitespace-nowrap">
                 Register for a Free Trial
               </span>
             </button>
@@ -115,9 +121,9 @@ export default function Footer() {
         </div>
 
         {/* Navigation and Footer Content */}
-        <div className="flex flex-col justify-start items-center gap-6 lg:gap-12 w-full">
+        <div className="flex flex-col justify-start items-center gap-6 sm:gap-8 md:gap-10 lg:gap-12 w-full">
           {/* Mobile Navigation - Stacked vertically */}
-          <div className="lg:hidden w-full max-w-[372px] flex flex-col justify-center items-start gap-6">
+          <div className="lg:hidden w-full max-w-[372px] sm:max-w-[500px] md:max-w-[600px] flex flex-row justify-start items-start gap-8 sm:gap-10 md:gap-12">
             {navigationSections.map((section, sectionIdx) => (
               <div
                 key={sectionIdx}
@@ -130,6 +136,7 @@ export default function Footer() {
                   <Link
                     key={linkIdx}
                     href={link.href}
+                    {...(link.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                     className="text-[#0E0F10] text-sm font-normal font-articulat leading-[19.60px] hover:text-[#29AB87] transition-colors"
                   >
                     {link.label}
@@ -153,7 +160,7 @@ export default function Footer() {
           </div>
 
           {/* Desktop Navigation - Two columns with badges */}
-          <div className="hidden lg:flex w-full justify-start items-center gap-12">
+          <div className="hidden lg:flex w-full justify-start items-start gap-12">
             {navigationSections.map((section, sectionIdx) => (
               <div
                 key={sectionIdx}
@@ -166,6 +173,7 @@ export default function Footer() {
                   <Link
                     key={linkIdx}
                     href={link.href}
+                    {...(link.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                     className="text-[#0E0F10] text-base font-normal font-articulat leading-[22.40px] hover:text-[#29AB87] transition-colors"
                   >
                     {link.label}
@@ -206,8 +214,11 @@ export default function Footer() {
             {/* Social Media Icons */}
             <div className="flex justify-start items-start gap-6">
               <Link
-                href="#"
+                href="https://www.linkedin.com/company/finrepai/"
                 className="w-6 h-6 relative overflow-hidden hover:opacity-80 transition-opacity"
+                target="_blank"
+                rel="noopener noreferr"
+                
               >
                 <Image
                   src="/assets/icons/pajamas_linkedin.svg"
@@ -218,8 +229,10 @@ export default function Footer() {
                 />
               </Link>
               <Link
-                href="#"
+                href="https://x.com/FinrepAI"
                 className="w-6 h-6 relative overflow-hidden hover:opacity-80 transition-opacity"
+                target="_blanck"
+                rel="noopener noreferr"
               >
                 <Image
                   src="/assets/icons/bi_twitter-x.svg"

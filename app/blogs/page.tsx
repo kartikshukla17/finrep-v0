@@ -51,11 +51,17 @@ export default function BlogsPage() {
       <BlogHero />
 
       <div className="relative w-full bg-white">
-        <div className="w-full max-w-[1440px] mx-auto px-5 lg:px-10 py-12 lg:pt-[120px] lg:pb-[150px] flex flex-col justify-center items-center lg:items-start gap-6 lg:gap-16">
+        <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 lg:px-10 py-10 sm:py-12 md:py-16 lg:pt-[120px] lg:pb-[150px] flex flex-col justify-center items-center lg:items-start gap-5 sm:gap-6 md:gap-10 lg:gap-16">
           <BlogTabs
             tabs={BLOG_TABS}
             activeTab={activeTab}
-            onTabChange={setActiveTab}
+            onTabChange={(tab) => {
+              if (tab === "SEC Journal") {
+                window.open("https://secreportingjournal.com/", "_blank");
+                return;
+              }
+              setActiveTab(tab);
+            }}
           />
 
           {/* {featured && (
@@ -67,16 +73,24 @@ export default function BlogsPage() {
             />
           )} */}
 
-          <BlogGrid
-            posts={posts.map((p) => ({
-              slug: p.slug,
-              title: p.title,
-              date: new Date(p.date).toDateString(),
-              image: p.coverImage || "/assets/images/articleimage.png",
-            }))}
-            showViewMore={totalPosts > 9}
-            onViewMore={handleViewMore}
-          />
+          {!loading && posts.length === 0 ? (
+            <div className="w-full py-12 sm:py-16 md:py-20 flex items-center justify-center">
+              <p className="text-[#5E6469] text-base sm:text-lg font-articulat">
+                No blogs here
+              </p>
+            </div>
+          ) : (
+            <BlogGrid
+              posts={posts.map((p) => ({
+                slug: p.slug,
+                title: p.title,
+                date: new Date(p.date).toDateString(),
+                image: p.coverImage || "/assets/images/articleimage.png",
+              }))}
+              showViewMore={totalPosts > 9}
+              onViewMore={handleViewMore}
+            />
+          )}
         </div>
       </div>
 
