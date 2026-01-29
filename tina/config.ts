@@ -1,6 +1,8 @@
 import { defineConfig } from "tinacms";
 
-// Your hosting provider likely exposes this as an environment variable
+// Branch configuration for Approach A (Branch-based workflow)
+// - staging branch: editors work here, deploys to staging site
+// - main branch: production content, deploys to production site
 const branch =
   process.env.GITHUB_BRANCH ||
   process.env.VERCEL_GIT_COMMIT_REF ||
@@ -8,26 +10,26 @@ const branch =
   "main";
 
 export default defineConfig({
+  // Dynamic branch based on environment
   branch,
 
-  // Get this from tina.io (optional for local development)
+  // Tina Cloud credentials (required for production)
+  // Get these from https://app.tina.io after creating your project
   clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID || "",
-  // Get this from tina.io (optional for local development)
   token: process.env.TINA_TOKEN || "",
-
-  // Enable local mode for development without Tina Cloud
-  localContentPath: "",
 
   build: {
     outputFolder: "admin",
     publicFolder: "public",
   },
+
   media: {
     tina: {
       mediaRoot: "uploads",
       publicFolder: "public",
     },
   },
+
   schema: {
     collections: [
       {
@@ -35,6 +37,11 @@ export default defineConfig({
         label: "Blog Posts",
         path: "content/blog",
         format: "md",
+        defaultItem: () => ({
+          draft: true, // New posts start as drafts by default
+          date: new Date().toISOString(),
+          author: "",
+        }),
         fields: [
           {
             type: "string",
@@ -42,6 +49,13 @@ export default defineConfig({
             label: "Title",
             isTitle: true,
             required: true,
+          },
+          {
+            type: "boolean",
+            name: "draft",
+            label: "Draft Mode",
+            description:
+              "Draft posts only appear on staging. Uncheck to publish to production.",
           },
           {
             type: "datetime",
@@ -77,10 +91,12 @@ export default defineConfig({
           filename: {
             readonly: false,
             slugify: (values) => {
-              return values?.title
-                ?.toLowerCase()
-                .replace(/ /g, "-")
-                .replace(/[^\w-]+/g, "") || "";
+              return (
+                values?.title
+                  ?.toLowerCase()
+                  .replace(/ /g, "-")
+                  .replace(/[^\w-]+/g, "") || ""
+              );
             },
           },
           router: ({ document }) => `/blogs/${document._sys.filename}`,
