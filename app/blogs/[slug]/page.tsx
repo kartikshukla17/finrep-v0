@@ -281,7 +281,7 @@ export default function BlogArticlePage({ params }: BlogArticlePageProps) {
 
       <main className="flex-1 w-full pt-[72px]">
         <div className="max-w-[1440px] mx-auto px-6 md:px-[60px] lg:px-10 py-8 md:py-12">
-          <div className="flex gap-8 lg:gap-12">
+          <div className="flex gap-8 lg:gap-12 justify-center">
             <ArticleSidebar author={article.author} />
 
             <div className="flex-1 min-w-0 max-w-[800px]">

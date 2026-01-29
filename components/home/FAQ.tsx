@@ -39,7 +39,7 @@ export default function FAQ() {
   };
 
   return (
-    <div className="relative w-full bg-white section-screen">
+    <div className="relative w-full bg-white pb-30">
       <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10 flex flex-col justify-start items-center gap-4 sm:gap-5 md:gap-6">
         {/* Header */}
         <h2 className="w-full max-w-[1200px] text-left text-[#0E0F10] text-[28px] sm:text-[30px] md:text-[32px] lg:text-[36px] font-medium font-articulat leading-tight">

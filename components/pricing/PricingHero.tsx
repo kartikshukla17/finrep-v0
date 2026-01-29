@@ -3,12 +3,12 @@ import PricingForm from "./PricingForm";
 
 export default function PricingHero() {
     return (
-        <div className="relative w-full min-h-screen bg-[#0D352A] overflow-hidden">
+        <div className="relative w-full bg-[#0D352A] overflow-hidden">
             {/* Fixed Header */}
             <Header variant="light" />
 
             <div className="relative w-full max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 lg:px-10 pt-[100px] sm:pt-[110px] md:pt-[120px] lg:pt-[127px] pb-12 sm:pb-14 md:pb-16">
-                <div className="flex flex-col lg:flex-row justify-between items-center lg:items-start gap-8 sm:gap-10 md:gap-12">
+                <div className="flex flex-col lg:flex-row justify-center items-center lg:items-start gap-8 sm:gap-10 md:gap-12 lg:gap-16 xl:gap-24">
                     {/* Left Side - Content */}
                     <div className="w-full max-w-[372px] sm:max-w-[480px] md:max-w-[540px] lg:max-w-none lg:w-[564px] flex flex-col justify-start items-start gap-6 sm:gap-8 lg:gap-[42px]">
                         <div className="flex flex-col justify-start items-start gap-4 sm:gap-5 md:gap-6">

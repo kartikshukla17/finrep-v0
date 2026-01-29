@@ -84,8 +84,8 @@ const featureGroups = [
 export default function CFOOfficeSection() {
     return (
         <div className="w-full bg-[#0D352A]">
-            <div className="w-full max-w-[1440px] mx-auto px-5 lg:px-10 pt-10 pb-20 lg:pt-30 lg:pb-30 flex justify-center lg:justify-start">
-                <div className="w-full max-w-[372px] lg:max-w-none flex flex-col lg:flex-row justify-start items-start gap-8 lg:gap-16">
+            <div className="w-full max-w-[1440px] mx-auto px-5 lg:px-10 pt-10 pb-20 lg:pt-20 lg:pb-20 flex justify-center">
+                <div className="w-full max-w-[372px] lg:max-w-none flex flex-col lg:flex-row justify-center items-start gap-8 lg:gap-16">
                     {/* Left Side - Header */}
                     <div className="w-full lg:w-[533px] flex flex-col justify-start items-start gap-6">
                         <h2 className="w-full text-white text-3xl lg:text-[42px] font-medium font-articulat leading-tight lg:leading-[58.80px]">

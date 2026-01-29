@@ -669,11 +669,11 @@ export default function CommentLetterExplorer() {
       <div
         ref={containerRef}
         className="hidden lg:block relative w-full bg-white"
-        style={{ height: `${sections.length * 60}vh` }}
+        style={{ height: `calc(${sections.length} * var(--section-scroll-vh) * 1vh)` }}
       >
         {/* Sticky content that stays in view - offset for header */}
-        <div className="sticky top-[75px] h-[calc(100vh-75px)] overflow-hidden flex items-center">
-          <div className="w-full max-h-[800px] h-full max-w-[1440px] mx-auto flex flex-row items-stretch">
+        <div className="comment-letter-sticky sticky top-[75px] h-[calc(100vh-75px)] overflow-hidden flex items-center">
+          <div className="comment-letter-inner w-full max-h-[800px] h-full mx-auto flex flex-row items-stretch">
             {/* Left Content Section */}
             <div className="flex-1 flex flex-col justify-center items-start gap-12 pl-6 lg:pl-10 py-8">
               {/* Main Content with Numbered List and Active Section */}

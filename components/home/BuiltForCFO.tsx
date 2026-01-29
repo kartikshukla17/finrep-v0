@@ -236,7 +236,7 @@ export default function BuiltForCFO() {
         </div>
 
         {/* Mobile Layout - Accordion Style */}
-        <div className="lg:hidden flex flex-col w-full">
+        <div className="lg:hidden flex flex-col w-full" style={{ contain: "layout" }}>
           {features.map((feature, index) => {
             const IconComponent = iconComponents[feature.iconKey];
             const isActive = activeTab === index;
@@ -272,74 +272,62 @@ export default function BuiltForCFO() {
                   </span>
                 </button>
 
-                {/* Expanded Content with smooth Framer Motion animation */}
-                <AnimatePresence initial={false}>
-                  {isActive && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: "auto", opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{
-                        height: { duration: 0.4, ease: [0.4, 0, 0.2, 1] },
-                        opacity: { duration: 0.3, ease: "easeInOut" },
-                      }}
-                      className="overflow-hidden"
-                    >
-                      <motion.div
-                        initial={{ y: -10 }}
-                        animate={{ y: 0 }}
-                        exit={{ y: -10 }}
-                        transition={{ duration: 0.3, ease: "easeOut" }}
-                        className="pb-4 flex flex-col gap-4"
-                      >
-                        {/* Description - same as desktop */}
-                        <p className="text-[#3F4346] text-base font-normal font-articulat leading-[25.6px] tracking-[0.32px]">
-                          {feature.description}
-                        </p>
-
-                        {/* Mobile Card - same content as desktop RightSideCard */}
-                        <div
-                          className="w-full rounded-[20px] p-6 flex flex-col relative overflow-hidden"
-                          style={{
-                            background:
-                              "linear-gradient(297deg, #29AB87 0%, rgba(0, 0, 0, 0) 100%), #0D352A",
-                            boxShadow: "inset 0px 0px 34px rgba(0, 0, 0, 0.08)",
-                          }}
-                        >
-                          {/* Content */}
-                          <div className="relative z-10 flex flex-col gap-2">
-                            <span className="text-[#9FA4A9] text-sm font-medium font-articulat leading-[22.4px] tracking-[0.28px]">
-                              With Finrep
-                            </span>
-                            <h3 className="text-white text-xl font-medium font-articulat leading-[28px] tracking-[0.4px]">
-                              {feature.rightHeading}
-                            </h3>
-                          </div>
-
-                          {/* BuiltForCFO Image */}
-                          <div className="relative z-10 flex items-center justify-center mt-4">
-                            <Image
-                              src="/assets/images/BuiltForCFO.png"
-                              alt="Finrep Features"
-                              width={400}
-                              height={280}
-                              className="object-contain w-full"
-                            />
-                          </div>
-                        </div>
-                      </motion.div>
-                    </motion.div>
+                {/* Expanded Content - CSS Grid for smooth height animation */}
+                <div
+                  className={cn(
+                    "grid transition-all duration-300 ease-out",
+                    isActive ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
                   )}
-                </AnimatePresence>
+                >
+                  <div className="overflow-hidden">
+                    <div className="pb-4 flex flex-col gap-4">
+                      {/* Description - same as desktop */}
+                      <p className="text-[#3F4346] text-base font-normal font-articulat leading-[25.6px] tracking-[0.32px]">
+                        {feature.description}
+                      </p>
+
+                      {/* Mobile Card - same content as desktop RightSideCard */}
+                      <div
+                        className="w-full rounded-[20px] p-6 flex flex-col relative overflow-hidden"
+                        style={{
+                          background:
+                            "linear-gradient(297deg, #29AB87 0%, rgba(0, 0, 0, 0) 100%), #0D352A",
+                          boxShadow: "inset 0px 0px 34px rgba(0, 0, 0, 0.08)",
+                        }}
+                      >
+                        {/* Content */}
+                        <div className="relative z-10 flex flex-col gap-2">
+                          <span className="text-[#9FA4A9] text-sm font-medium font-articulat leading-[22.4px] tracking-[0.28px]">
+                            With Finrep
+                          </span>
+                          <h3 className="text-white text-xl font-medium font-articulat leading-[28px] tracking-[0.4px]">
+                            {feature.rightHeading}
+                          </h3>
+                        </div>
+
+                        {/* BuiltForCFO Image */}
+                        <div className="relative z-10 flex items-center justify-center mt-4">
+                          <Image
+                            src="/assets/images/BuiltForCFO.png"
+                            alt="Finrep Features"
+                            width={400}
+                            height={280}
+                            className="object-contain w-full"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             );
           })}
         </div>
 
-        {/* Desktop Layout */}
-        <div className="hidden lg:flex w-full min-h-[600px] flex-row gap-7 items-stretch">
-          {/* Left Column: Slideshow List - Flexible height */}
-          <div className="flex-1 min-h-[600px] flex flex-col justify-start [&>*:first-child]:pt-0 overflow-hidden">
+        {/* Desktop Layout - Fixed height with containment to prevent scroll jumps */}
+        <div className="hidden lg:flex w-full h-[650px] flex-row gap-7" style={{ contain: "layout" }}>
+          {/* Left Column: CSS Grid with fixed row heights to prevent jitter */}
+          <div className="w-1/2 h-full grid grid-rows-4">
             {features.map((feature, index) => (
               <FeatureItem
                 key={feature.id}
@@ -351,8 +339,8 @@ export default function BuiltForCFO() {
             ))}
           </div>
 
-          {/* Right Column: Card - Equal width with left */}
-          <div className="flex-1 min-h-[600px]">
+          {/* Right Column: Card */}
+          <div className="w-1/2 h-full">
             <RightSideCard activeTab={activeTab} />
           </div>
         </div>
@@ -389,12 +377,13 @@ function FeatureItem({
       tabIndex={0}
       onKeyDown={(e) => e.key === "Enter" && onClick()}
       className={cn(
-        "py-6 relative text-left w-full cursor-pointer select-none flex-1",
+        "py-5 relative text-left w-full cursor-pointer select-none h-full overflow-hidden",
         "transition-opacity duration-300",
         isActive ? "opacity-100" : "opacity-40 hover:opacity-70",
       )}
     >
-      <div className="flex items-start gap-4">
+      {/* Icon + Title Row - Always centered vertically */}
+      <div className="flex items-center gap-4">
         {/* Icon Circle */}
         <div
           className={cn(
@@ -407,24 +396,24 @@ function FeatureItem({
           <IconComponent className="w-6 h-6" isActive={isActive} />
         </div>
 
-        {/* Content */}
-        <div className="flex flex-col gap-2 flex-1 pt-1">
-          <h3 className="text-xl font-medium font-articulat text-[#0E0F10] leading-8 tracking-[0.4px]">
-            {feature.title}
-          </h3>
+        {/* Title */}
+        <h3 className="text-xl font-medium font-articulat text-[#0E0F10] leading-8 tracking-[0.4px]">
+          {feature.title}
+        </h3>
+      </div>
 
-          {/* Expanded Content - Simple opacity animation to prevent jitter */}
-          <div
-            className={cn(
-              "overflow-hidden transition-all duration-300",
-              isActive ? "max-h-[200px] opacity-100" : "max-h-0 opacity-0",
-            )}
-          >
-            <div className="flex flex-col gap-4 pt-2">
-              <p className="text-[#3F4346] text-base font-normal leading-[25.6px] tracking-[0.32px]">
-                {feature.description}
-              </p>
-            </div>
+      {/* Expanded Content - CSS Grid for smooth height animation */}
+      <div
+        className={cn(
+          "grid transition-all duration-300 ease-out ml-16",
+          isActive ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+        )}
+      >
+        <div className="overflow-hidden">
+          <div className="pt-3">
+            <p className="text-[#3F4346] text-base font-normal leading-[25.6px] tracking-[0.32px]">
+              {feature.description}
+            </p>
           </div>
         </div>
       </div>
