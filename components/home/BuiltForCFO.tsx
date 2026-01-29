@@ -114,7 +114,6 @@ const features = [
     description:
       "SEC filings combine roll forwards, new guidance, peer alignment, and reviewer feedback under tight deadlines. Fragmented research and drafting create rework and late stage risk.",
     cta: "See how Finrep makes SEC easy",
-    //ctaDesktop: "Fix SEC filing workflows",
     iconKey: "document" as const,
     statValue: "95 hours /wk",
     statLabel: "Saved with Finrep",
@@ -127,7 +126,6 @@ const features = [
     description:
       "Accounting decisions require interpreting evolving guidance and defending conclusions under audit scrutiny. Scattered research across handbooks and filings slows resolution.",
     cta: "See Technical Accounting workflows",
-    //ctaDesktop: "See Technical Accounting workflows",
     iconKey: "book" as const,
     statValue: "60% faster",
     statLabel: "Research completion",
@@ -165,7 +163,7 @@ export default function BuiltForCFO() {
   const [activeTab, setActiveTab] = useState(0);
   const [animationKey, setAnimationKey] = useState(0);
 
-  // Auto-advance to next slide (desktop only behavior can be added)
+  // Auto-advance to next slide
   useEffect(() => {
     const timer = setTimeout(() => {
       setActiveTab((prev) => (prev + 1) % features.length);
@@ -182,7 +180,7 @@ export default function BuiltForCFO() {
       setActiveTab(index);
       setAnimationKey((k) => k + 1);
     },
-    [activeTab],
+    [activeTab]
   );
 
   return (
@@ -235,7 +233,7 @@ export default function BuiltForCFO() {
           </div>
         </div>
 
-        {/* Mobile Layout - Accordion Style */}
+        {/* Mobile Layout - Accordion Style with layout containment */}
         <div className="lg:hidden flex flex-col w-full" style={{ contain: "layout" }}>
           {features.map((feature, index) => {
             const IconComponent = iconComponents[feature.iconKey];
@@ -246,7 +244,7 @@ export default function BuiltForCFO() {
                 key={feature.id}
                 className={cn(
                   "border-b transition-colors duration-300",
-                  isActive ? "border-[#269C7B]" : "border-[#D9DBDD]",
+                  isActive ? "border-[#269C7B]" : "border-[#D9DBDD]"
                 )}
               >
                 <button
@@ -255,79 +253,88 @@ export default function BuiltForCFO() {
                 >
                   <motion.div
                     className={cn(
-                      "w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0",
+                      "w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0"
                     )}
                     animate={{
                       backgroundColor: isActive ? "#29AB87" : "#E8F5F1",
                     }}
                     transition={{ duration: 0.3, ease: "easeInOut" }}
                   >
-                    <IconComponent
-                      className="w-5 h-5"
-                      isActive={isActive}
-                    />
+                    <IconComponent className="w-5 h-5" isActive={isActive} />
                   </motion.div>
                   <span className="text-xl font-medium font-articulat leading-8 tracking-[0.4px] text-[#0E0F10]">
                     {feature.title}
                   </span>
                 </button>
 
-                {/* Expanded Content - CSS Grid for smooth height animation */}
-                <div
-                  className={cn(
-                    "grid transition-all duration-300 ease-out",
-                    isActive ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
-                  )}
-                >
-                  <div className="overflow-hidden">
-                    <div className="pb-4 flex flex-col gap-4">
-                      {/* Description - same as desktop */}
-                      <p className="text-[#3F4346] text-base font-normal font-articulat leading-[25.6px] tracking-[0.32px]">
-                        {feature.description}
-                      </p>
-
-                      {/* Mobile Card - same content as desktop RightSideCard */}
-                      <div
-                        className="w-full rounded-[20px] p-6 flex flex-col relative overflow-hidden"
-                        style={{
-                          background:
-                            "linear-gradient(297deg, #29AB87 0%, rgba(0, 0, 0, 0) 100%), #0D352A",
-                          boxShadow: "inset 0px 0px 34px rgba(0, 0, 0, 0.08)",
-                        }}
+                {/* Expanded Content with smooth slide-in animation */}
+                <AnimatePresence initial={false}>
+                  {isActive && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{
+                        height: { duration: 0.4, ease: [0.4, 0, 0.2, 1] },
+                        opacity: { duration: 0.3, ease: "easeOut" }
+                      }}
+                      className="overflow-hidden"
+                    >
+                      <motion.div
+                        initial={{ y: 20, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        exit={{ y: 20, opacity: 0 }}
+                        transition={{ duration: 0.4, delay: 0.05, ease: [0.4, 0, 0.2, 1] }}
+                        className="pb-4 flex flex-col gap-4"
                       >
-                        {/* Content */}
-                        <div className="relative z-10 flex flex-col gap-2">
-                          <span className="text-[#9FA4A9] text-sm font-medium font-articulat leading-[22.4px] tracking-[0.28px]">
-                            With Finrep
-                          </span>
-                          <h3 className="text-white text-xl font-medium font-articulat leading-[28px] tracking-[0.4px]">
-                            {feature.rightHeading}
-                          </h3>
-                        </div>
+                        <p className="text-[#3F4346] text-base font-normal font-articulat leading-[25.6px] tracking-[0.32px]">
+                          {feature.description}
+                        </p>
 
-                        {/* BuiltForCFO Image */}
-                        <div className="relative z-10 flex items-center justify-center mt-4">
-                          <Image
-                            src="/assets/images/BuiltForCFO.png"
-                            alt="Finrep Features"
-                            width={400}
-                            height={280}
-                            className="object-contain w-full"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                        {/* Mobile Card with slide-up animation */}
+                        <motion.div
+                          initial={{ y: 30, opacity: 0 }}
+                          animate={{ y: 0, opacity: 1 }}
+                          transition={{ duration: 0.5, delay: 0.1, ease: [0.4, 0, 0.2, 1] }}
+                          className="w-full rounded-[20px] p-6 flex flex-col relative overflow-hidden"
+                          style={{
+                            background:
+                              "linear-gradient(297deg, #29AB87 0%, rgba(0, 0, 0, 0) 100%), #0D352A",
+                            boxShadow: "inset 0px 0px 34px rgba(0, 0, 0, 0.08)",
+                          }}
+                        >
+                          <div className="relative z-10 flex flex-col gap-2">
+                            <span className="text-[#9FA4A9] text-sm font-medium font-articulat leading-[22.4px] tracking-[0.28px]">
+                              With Finrep
+                            </span>
+                            <h3 className="text-white text-xl font-medium font-articulat leading-[28px] tracking-[0.4px]">
+                              {feature.rightHeading}
+                            </h3>
+                          </div>
+
+                          <div className="relative z-10 flex items-center justify-center mt-4">
+                            <Image
+                              src="/assets/images/BuiltForCFO.png"
+                              alt="Finrep Features"
+                              width={400}
+                              height={280}
+                              className="object-contain w-full"
+                            />
+                          </div>
+                        </motion.div>
+                      </motion.div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
             );
           })}
         </div>
 
-        {/* Desktop Layout - Fixed height with containment to prevent scroll jumps */}
-        <div className="hidden lg:flex w-full h-[650px] flex-row gap-7" style={{ contain: "layout" }}>
-          {/* Left Column: CSS Grid with fixed row heights to prevent jitter */}
-          <div className="w-1/2 h-full grid grid-rows-4">
+        {/* Desktop Layout - min-height prevents layout shift when accordion changes */}
+        <div className="hidden lg:flex w-full min-h-[620px] flex-row gap-7 items-start">
+          {/* Left Column: Accordion items with fixed min-height to prevent jitter */}
+          <div className="w-1/2 flex flex-col min-h-[580px]">
             {features.map((feature, index) => (
               <FeatureItem
                 key={feature.id}
@@ -339,8 +346,8 @@ export default function BuiltForCFO() {
             ))}
           </div>
 
-          {/* Right Column: Card */}
-          <div className="w-1/2 h-full">
+          {/* Right Column: Card with fixed height */}
+          <div className="w-1/2 h-[580px]">
             <RightSideCard activeTab={activeTab} />
           </div>
         </div>
@@ -377,20 +384,20 @@ function FeatureItem({
       tabIndex={0}
       onKeyDown={(e) => e.key === "Enter" && onClick()}
       className={cn(
-        "py-5 relative text-left w-full cursor-pointer select-none h-full overflow-hidden",
+        "relative text-left w-full cursor-pointer select-none border-b border-[#D9DBDD]",
         "transition-opacity duration-300",
-        isActive ? "opacity-100" : "opacity-40 hover:opacity-70",
+        isActive ? "opacity-100" : "opacity-50 hover:opacity-70"
       )}
     >
-      {/* Icon + Title Row - Always centered vertically */}
-      <div className="flex items-center gap-4">
+      {/* Trigger section - constant height */}
+      <div className="py-5 flex items-center gap-4">
         {/* Icon Circle */}
         <div
           className={cn(
             "w-12 h-12 rounded-full flex items-center justify-center shrink-0 transition-all duration-300",
             isActive
               ? "bg-[#29AB87] shadow-[inset_0px_-8px_16px_rgba(0,0,0,0.25)]"
-              : "bg-[#E8F5F1]",
+              : "bg-[#E8F5F1]"
           )}
         >
           <IconComponent className="w-6 h-6" isActive={isActive} />
@@ -402,28 +409,43 @@ function FeatureItem({
         </h3>
       </div>
 
-      {/* Expanded Content - CSS Grid for smooth height animation */}
-      <div
-        className={cn(
-          "grid transition-all duration-300 ease-out ml-16",
-          isActive ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
-        )}
-      >
-        <div className="overflow-hidden">
-          <div className="pt-3">
-            <p className="text-[#3F4346] text-base font-normal leading-[25.6px] tracking-[0.32px]">
-              {feature.description}
-            </p>
-          </div>
-        </div>
-      </div>
-
-      {/* Progress Bar Border */}
-      <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#D9DBDD] overflow-hidden">
+      {/* Expanded Content - smooth slide-in animation */}
+      <AnimatePresence initial={false}>
         {isActive && (
-          <div
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{
+              height: { duration: 0.4, ease: [0.4, 0, 0.2, 1] },
+              opacity: { duration: 0.3, ease: "easeOut" }
+            }}
+            className="overflow-hidden"
+          >
+            <motion.div
+              initial={{ x: -20, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              exit={{ x: -20, opacity: 0 }}
+              transition={{ duration: 0.4, delay: 0.1, ease: [0.4, 0, 0.2, 1] }}
+              className="pb-5 pl-16"
+            >
+              <p className="text-[#3F4346] text-base font-normal leading-[25.6px] tracking-[0.32px]">
+                {feature.description}
+              </p>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Progress Bar */}
+      <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-transparent overflow-hidden">
+        {isActive && (
+          <motion.div
             key={`progress-${feature.id}-${animationKey}`}
-            className="h-full bg-[#269C7B] animate-progress-fill"
+            initial={{ width: "0%" }}
+            animate={{ width: "100%" }}
+            transition={{ duration: SLIDE_DURATION / 1000, ease: "linear" }}
+            className="h-full bg-[#269C7B]"
           />
         )}
       </div>
@@ -434,6 +456,13 @@ function FeatureItem({
 // --- Right Side Component ---
 function RightSideCard({ activeTab }: { activeTab: number }) {
   const activeFeature = features[activeTab];
+
+  // Determine slide direction based on tab change
+  const slideVariants = {
+    initial: { opacity: 0, x: 30 },
+    animate: { opacity: 1, x: 0 },
+    exit: { opacity: 0, x: -30 }
+  };
 
   return (
     <div
@@ -451,14 +480,15 @@ function RightSideCard({ activeTab }: { activeTab: number }) {
           With Finrep
         </span>
 
-        {/* Dynamic Heading */}
+        {/* Dynamic Heading with slide-in animation */}
         <AnimatePresence mode="wait">
           <motion.h3
             key={activeFeature.id}
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.3 }}
+            variants={slideVariants}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            transition={{ duration: 0.45, ease: [0.4, 0, 0.2, 1] }}
             className="text-white text-[36px] font-medium font-articulat leading-[43.2px] tracking-[0.72px]"
           >
             {activeFeature.rightHeading}
@@ -466,15 +496,26 @@ function RightSideCard({ activeTab }: { activeTab: number }) {
         </AnimatePresence>
       </div>
 
-      {/* BuiltForCFO Image */}
-      <div className="relative z-10 flex-1 flex items-center justify-center mt-[60px]">
-        <Image
-          src="/assets/images/BuiltForCFO.png"
-          alt="Finrep Features"
-          width={586}
-          height={400}
-          className="object-contain w-full h-full"
-        />
+      {/* BuiltForCFO Image with subtle animation */}
+      <div className="relative z-10 flex-1 flex items-center justify-center mt-[60px] overflow-hidden">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeFeature.id}
+            initial={{ opacity: 0, scale: 0.95, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.95, y: -20 }}
+            transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
+            className="w-full h-full"
+          >
+            <Image
+              src="/assets/images/BuiltForCFO.png"
+              alt="Finrep Features"
+              width={586}
+              height={400}
+              className="object-contain w-full h-full"
+            />
+          </motion.div>
+        </AnimatePresence>
       </div>
     </div>
   );
