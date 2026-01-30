@@ -22,137 +22,126 @@ const navigationTabs = [
     sections: [
       {
         id: 1,
-        title: "Ground Disclosures in SEC Precedent with Ask Fina",
-        mobileTitle: "Minimize Scrutiny with Comment Letter Explorer",
+        title: "Get Answers You Can Trust",
+        mobileTitle: "Get Answers You Can Trust",
         description:
-          "Research SEC filings, guidance, peer disclosures, comment letters, and internal documents in one place with inspectable citations to defend disclosure decisions during audit and SEC review.",
+          "Research across filings, guidance, and SEC correspondence in one place. Conduct trustful research, 10x faster",
         mobileDescription:
-          "Leverage our AI to get insights, summaries, conclusion, and focus areas-tagged, so you know what triggers scrutiny.",
+          "Research across filings, guidance, and SEC correspondence in one place. Conduct trustful research, 10x faster",
         image: "/assets/commentletterexplorer/sec-reporting-1.png",
         benefits: [
           {
-            text: "SEC filing citations",
-            mobileBenefit: "Early SEC focus visibility",
+            text: "Unified authoritative sources",
+            mobileBenefit: "Unified authoritative sources",
             badge: null,
           },
           {
-            text: "Peer disclosure precedent",
-            mobileBenefit: "Fewer Late Replies",
+            text: "Evidence-first answers",
+            mobileBenefit: "Evidence-first answers",
             badge: null,
           },
           {
-            text: "Inspectable source trails",
-            mobileBenefit: "Reduced Comment Risk",
-            badge: "Most Liked",
+            text: "Verifiable source excerpts",
+            mobileBenefit: "Verifiable source excerpts",
+            badge: null,
           },
         ],
       },
       {
         id: 2,
-        title: "Avoid EDGAR Blind Spots with Keyword Search + Alerts",
-        mobileTitle: "Avoid EDGAR Blind Spots with Keyword Search + Alerts",
+        title: "Draft With Confidence",
+        mobileTitle: "Draft With Confidence",
         description:
-          "Run precise boolean searches across EDGAR filings and receive alerts when new disclosures match your criteria, reducing the risk of missed peer language.",
+          'See what "market standard" actually looks like for any disclosure, IR material, and other documents. Cut down benchmarking times by more than 80%',
         mobileDescription:
-          "Run precise boolean searches across EDGAR filings and receive alerts when new disclosures match your criteria.",
+          'See what "market standard" actually looks like for any disclosure, IR material, and other documents. Cut down benchmarking times by more than 80%',
         image: "/assets/commentletterexplorer/sec-reporting-2.png",
         benefits: [
           {
-            text: "EDGAR boolean logic",
-            mobileBenefit: "EDGAR boolean logic",
+            text: "Side-by-side peer views",
+            mobileBenefit: "Side-by-side peer views",
             badge: null,
           },
           {
-            text: "Filing metadata filters",
-            mobileBenefit: "Filing metadata filters",
+            text: "Verbatim disclosure excerpts",
+            mobileBenefit: "Verbatim disclosure excerpts",
             badge: null,
           },
           {
-            text: "Automated disclosure alerts",
-            mobileBenefit: "Automated disclosure alerts",
-            badge: "Most Liked",
+            text: "Repeatable benchmarking structure",
+            mobileBenefit: "Repeatable benchmarking structure",
+            badge: null,
           },
         ],
       },
       {
         id: 3,
-        title: "Benchmark Peer Disclosures Correctly with AI Grid Reports",
-        mobileTitle: "Benchmark Peer Disclosures Correctly",
+        title: "Benchmark peer disclosures with AI Grid Reports",
+        mobileTitle: "Benchmark peer disclosures with AI Grid Reports",
         description:
-          "Compare peer disclosures across companies and periods using structured grids with verbatim excerpts or AI summaries for consistent benchmarking.",
+          "Draft filings, PRs, memos using roll forwards, peer language, authoritative guidance. Get to the first draft in a matter of minutes",
         mobileDescription:
-          "Compare peer disclosures across companies and periods using structured grids with verbatim excerpts.",
+          "Draft filings, PRs, memos using roll forwards, peer language, authoritative guidance. Get to the first draft in a matter of minutes",
         image: "/assets/commentletterexplorer/sec-reporting-3.png",
         benefits: [
           {
-            text: "Structured peer grids",
-            mobileBenefit: "Structured peer grids",
+            text: "Source-linked, research integrated drafting",
+            mobileBenefit: "Source-linked, research integrated drafting",
             badge: null,
           },
           {
-            text: "Period comparisons",
-            mobileBenefit: "Period comparisons",
+            text: "Built-in redlining",
+            mobileBenefit: "Built-in redlining",
             badge: null,
           },
           {
-            text: "Verbatim and AI views",
-            mobileBenefit: "Verbatim and AI views",
+            text: "Collaborative review workflows",
+            mobileBenefit: "Collaborative review workflows",
             badge: "Most Liked",
           },
         ],
       },
       {
         id: 4,
-        title:
-          "Prevent Disclosure Drift with Disclosure Comparison + Checklists",
-        mobileTitle: "Prevent Disclosure Drift",
+        title: "Ensure Compliance Early",
+        mobileTitle: "Ensure Compliance Early",
         description:
-          "Review disclosures side by side and validate required coverage using FASB-aligned checklists to catch drift, omissions, and over-disclosure early.",
+          "Evaluate compliance while you are drafting, and align with peer languages and best practices in an instant. Support conclusions with traceable regulatory evidence.",
         mobileDescription:
-          "Review disclosures side by side and validate required coverage using FASB-aligned checklists.",
+          "Evaluate compliance while you are drafting, and align with peer languages and best practices in an instant. Support conclusions with traceable regulatory evidence.",
         image: "/assets/commentletterexplorer/sec-reporting-4.png",
         benefits: [
           {
-            text: "Side-by-side disclosures",
-            mobileBenefit: "Side-by-side disclosures",
+            text: "ASC-aligned benchmarking for filings",
+            mobileBenefit: "ASC-aligned benchmarking for filings",
             badge: null,
           },
           {
-            text: "FASB-aligned checklists",
-            mobileBenefit: "FASB-aligned checklists",
+            text: "Evidence-backed findings for benchmarking drafts",
+            mobileBenefit: "Evidence-backed findings for benchmarking drafts",
             badge: null,
-          },
-          {
-            text: "Language drift detection",
-            mobileBenefit: "Language drift detection",
-            badge: "Most Liked",
           },
         ],
       },
       {
         id: 5,
-        title: "Anticipate SEC Scrutiny with Comment Letter Explorer",
-        mobileTitle: "Anticipate SEC Scrutiny",
+        title: "Monitor Disclosure & Regulatory Changes",
+        mobileTitle: "Monitor Disclosure & Regulatory Changes",
         description:
-          "Analyze historical and recent SEC comment letters to identify recurring focus areas and pressure-test disclosures before filing.",
+          "Track evolving peer disclosures and SEC focus areas as they change. Get notified daily or weekly, before issues surface in review.",
         mobileDescription:
-          "Analyze historical and recent SEC comment letters to identify recurring focus areas.",
+          "Track evolving peer disclosures and SEC focus areas as they change. Get notified daily or weekly, before issues surface in review.",
         image: "/assets/commentletterexplorer/sec-reporting-5.png",
         benefits: [
           {
-            text: "SEC focus analytics",
-            mobileBenefit: "SEC focus analytics",
+            text: "Keyword-based monitoring",
+            mobileBenefit: "Keyword-based monitoring",
             badge: null,
           },
           {
-            text: "Full comment threads",
-            mobileBenefit: "Full comment threads",
+            text: "Topic-scoped alerts",
+            mobileBenefit: "Topic-scoped alerts",
             badge: null,
-          },
-          {
-            text: "Recurring issue tracking",
-            mobileBenefit: "Recurring issue tracking",
-            badge: "Most Liked",
           },
         ],
       },
@@ -521,13 +510,9 @@ export default function CommentLetterExplorer() {
 
   // Update active section based on scroll progress (desktop)
   useMotionValueEvent(scrollYProgress, "change", (progress) => {
-    const adjustedProgress = Math.max(0, Math.min(1, progress));
-    const easedProgress =
-      adjustedProgress * adjustedProgress * (3 - 2 * adjustedProgress);
-    const sectionIndex = Math.min(
-      Math.floor(easedProgress * sections.length),
-      sections.length - 1,
-    );
+    // Use linear progress for equal scroll distance per section
+    const clampedProgress = Math.max(0, Math.min(0.999, progress));
+    const sectionIndex = Math.floor(clampedProgress * sections.length);
     if (sectionIndex !== activeSection) {
       setActiveSection(sectionIndex);
     }
