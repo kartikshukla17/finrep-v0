@@ -41,7 +41,7 @@ export async function POST(request: Request) {
       );
     }
 
-    if (!isValidEmail(body.email)) {
+    if (!isValidEmail(body.email!)) {
       return NextResponse.json(
         { error: "Invalid email address." },
         { status: 400 }
