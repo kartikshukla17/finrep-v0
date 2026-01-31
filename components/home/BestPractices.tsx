@@ -78,7 +78,7 @@ export default function BestPractices({ articles = [] }: BestPracticesProps) {
                     alt={article.title}
                     width={384}
                     height={248}
-                    className="object-cover w-full h-full"
+                    className="object-contain w-full h-full"
                   />
                 </div>
                 <div className="flex flex-col justify-start items-start gap-2">
