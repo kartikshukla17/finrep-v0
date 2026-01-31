@@ -1,29 +1,19 @@
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
-// Article data
-const articles = [
-  {
-    image: "/assets/images/articleimage.png",
-    title:
-      "From Sanctions to Scrutiny: How OFAC Violations Create Immediate SEC Disclosure Triggers",
-    date: "Jan 2, 2026",
-  },
-  {
-    image: "/assets/images/articleimage.png",
-    title:
-      "From Sanctions to Scrutiny: How OFAC Violations Create Immediate SEC Disclosure Triggers",
-    date: "Jan 2, 2026",
-  },
-  {
-    image: "/assets/images/articleimage.png",
-    title:
-      "From Sanctions to Scrutiny: How OFAC Violations Create Immediate SEC Disclosure Triggers",
-    date: "Jan 2, 2026",
-  },
-];
+export type FeaturedArticle = {
+  slug: string;
+  title: string;
+  date: string;
+  image: string;
+};
 
-export default function BestPractices() {
+interface BestPracticesProps {
+  articles?: FeaturedArticle[];
+}
+
+export default function BestPractices({ articles = [] }: BestPracticesProps) {
   return (
     <div className="relative w-full bg-white">
       {/* Desktop Layout - 1200px content centered */}
@@ -41,12 +31,15 @@ export default function BestPractices() {
               and the future of CFO operations
             </p>
           </div>
-          <button className="flex justify-start items-center gap-2 cursor-pointer hover:opacity-80 transition-opacity">
+          <Link
+            href="/blogs"
+            className="flex justify-start items-center gap-2 cursor-pointer hover:opacity-80 transition-opacity"
+          >
             <span className="text-[#29AB87] text-base font-medium font-articulat leading-[25.60px] tracking-[0.32px]">
               View All Articles
             </span>
             <ArrowRight className="w-6 h-6 text-[#29AB87]" />
-          </button>
+          </Link>
         </div>
 
         {/* Featured Content - Video and Article side by side */}
@@ -74,31 +67,30 @@ export default function BestPractices() {
           </div>
         </div>
 
-        {/* Article Cards - Three columns */}
+        {/* Article Cards - Three columns (featured articles from CMS, max 3) */}
         <div className="w-full grid grid-cols-3 gap-6">
-          {articles.map((article, idx) => (
-            <article
-              key={idx}
-              className="flex flex-col justify-start items-start gap-6"
-            >
-              <div className="w-full aspect-[384/248] rounded-lg overflow-hidden">
-                <Image
-                  src={article.image}
-                  alt="Article image"
-                  width={384}
-                  height={248}
-                  className="object-cover w-full h-full"
-                />
-              </div>
-              <div className="flex flex-col justify-start items-start gap-2">
-                <h4 className="w-full text-[#0E0F10] text-xl font-medium font-articulat leading-7">
-                  {article.title}
-                </h4>
-                <p className="w-full text-[#5E6469] text-base font-normal font-articulat leading-[22.40px]">
-                  {article.date}
-                </p>
-              </div>
-            </article>
+          {articles.slice(0, 3).map((article) => (
+            <Link key={article.slug} href={`/blogs/${article.slug}`}>
+              <article className="flex flex-col justify-start items-start gap-6 hover:opacity-90 transition-opacity">
+                <div className="w-full aspect-[384/248] rounded-lg overflow-hidden">
+                  <Image
+                    src={article.image}
+                    alt={article.title}
+                    width={384}
+                    height={248}
+                    className="object-cover w-full h-full"
+                  />
+                </div>
+                <div className="flex flex-col justify-start items-start gap-2">
+                  <h4 className="w-full text-[#0E0F10] text-xl font-medium font-articulat leading-7">
+                    {article.title}
+                  </h4>
+                  <p className="w-full text-[#5E6469] text-base font-normal font-articulat leading-[22.40px]">
+                    {article.date}
+                  </p>
+                </div>
+              </article>
+            </Link>
           ))}
         </div>
       </div>
@@ -114,12 +106,15 @@ export default function BestPractices() {
             Expert insights on financial disclosure, compliance, and the future
             of CFO operations
           </p>
-          <button className="flex justify-start items-center gap-2 cursor-pointer hover:opacity-80 transition-opacity">
+          <Link
+            href="/blogs"
+            className="flex justify-start items-center gap-2 cursor-pointer hover:opacity-80 transition-opacity"
+          >
             <span className="text-[#29AB87] text-base font-medium font-articulat leading-[25.60px] tracking-[0.32px]">
               View All Articles
             </span>
             <ArrowRight className="w-6 h-6 text-[#29AB87]" />
-          </button>
+          </Link>
         </div>
 
         {/* Featured Content - Video and Article stacked */}
@@ -147,31 +142,30 @@ export default function BestPractices() {
           </div>
         </div>
 
-        {/* Article Cards - Grid on tablet, stacked on mobile */}
+        {/* Article Cards - Grid on tablet, stacked on mobile (featured articles, max 3) */}
         <div className="w-full max-w-[372px] sm:max-w-[500px] md:max-w-[600px] flex flex-col sm:flex-row sm:flex-wrap justify-start items-start gap-4 sm:gap-5 md:gap-6">
-          {articles.map((article, idx) => (
-            <article
-              key={idx}
-              className="w-full sm:w-[calc(50%-10px)] md:w-[calc(50%-12px)] flex flex-col justify-start items-start gap-3 sm:gap-4"
-            >
-              <div className="w-full aspect-[3/2] rounded-lg overflow-hidden">
-                <Image
-                  src={article.image}
-                  alt="Article image"
-                  width={372}
-                  height={248}
-                  className="object-cover w-full h-full"
-                />
-              </div>
-              <div className="w-full flex flex-col justify-start items-start gap-2">
-                <h4 className="w-full text-[#0E0F10] text-base sm:text-lg md:text-xl font-medium font-articulat leading-snug">
-                  {article.title}
-                </h4>
-                <p className="w-full text-[#5E6469] text-sm sm:text-base font-normal font-articulat leading-relaxed">
-                  {article.date}
-                </p>
-              </div>
-            </article>
+          {articles.slice(0, 3).map((article) => (
+            <Link key={article.slug} href={`/blogs/${article.slug}`} className="w-full sm:w-[calc(50%-10px)] md:w-[calc(50%-12px)]">
+              <article className="flex flex-col justify-start items-start gap-3 sm:gap-4 hover:opacity-90 transition-opacity">
+                <div className="w-full aspect-[3/2] rounded-lg overflow-hidden">
+                  <Image
+                    src={article.image}
+                    alt={article.title}
+                    width={372}
+                    height={248}
+                    className="object-cover w-full h-full"
+                  />
+                </div>
+                <div className="w-full flex flex-col justify-start items-start gap-2">
+                  <h4 className="w-full text-[#0E0F10] text-base sm:text-lg md:text-xl font-medium font-articulat leading-snug">
+                    {article.title}
+                  </h4>
+                  <p className="w-full text-[#5E6469] text-sm sm:text-base font-normal font-articulat leading-relaxed">
+                    {article.date}
+                  </p>
+                </div>
+              </article>
+            </Link>
           ))}
         </div>
       </div>

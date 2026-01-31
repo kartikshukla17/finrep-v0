@@ -57,9 +57,21 @@ const navigationSections: {
         href: "https://secreportingjournal.com/",
         external: true,
       },
-      { label: "Security", href: "#" },
-      { label: "Privacy Policy", href: "#" },
-      { label: "Terms of Service", href: "#" },
+      {
+        label: "Security",
+        href: "https://finrep.ai/#securitynw",
+        external: true,
+      },
+      {
+        label: "Privacy Policy",
+        href: "https://finrep.ai/pages/privacy ",
+        external: true,
+      },
+      {
+        label: "Terms of Service",
+        href: "https://finrep.ai/pages/terms-of-service",
+        external: true,
+      },
     ],
   },
 ];
@@ -136,7 +148,9 @@ export default function Footer() {
                   <Link
                     key={linkIdx}
                     href={link.href}
-                    {...(link.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                    {...(link.external
+                      ? { target: "_blank", rel: "noopener noreferrer" }
+                      : {})}
                     className="text-[#0E0F10] text-sm font-normal font-articulat leading-[19.60px] hover:text-[#29AB87] transition-colors"
                   >
                     {link.label}
@@ -173,7 +187,9 @@ export default function Footer() {
                   <Link
                     key={linkIdx}
                     href={link.href}
-                    {...(link.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                    {...(link.external
+                      ? { target: "_blank", rel: "noopener noreferrer" }
+                      : {})}
                     className="text-[#0E0F10] text-base font-normal font-articulat leading-[22.40px] hover:text-[#29AB87] transition-colors"
                   >
                     {link.label}
@@ -218,7 +234,6 @@ export default function Footer() {
                 className="w-6 h-6 relative overflow-hidden hover:opacity-80 transition-opacity"
                 target="_blank"
                 rel="noopener noreferr"
-                
               >
                 <Image
                   src="/assets/icons/pajamas_linkedin.svg"

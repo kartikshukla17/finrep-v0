@@ -20,13 +20,33 @@ export default function PricingForm() {
         subscribe: false
     });
 
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [submitMessage, setSubmitMessage] = useState<{ type: 'success' | 'error'; text: string } | null>(null);
+
     const isFormValid = formData.email && formData.phone && formData.company && formData.subscribe;
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        if (isFormValid) {
-            console.log('Form submitted:', formData);
-            // Handle form submission
+        setSubmitMessage(null);
+        if (!isFormValid) return;
+        setIsSubmitting(true);
+        try {
+            const res = await fetch('/api/pricing', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData),
+            });
+            const data = await res.json().catch(() => ({}));
+            if (!res.ok) {
+                setSubmitMessage({ type: 'error', text: (data.error as string) || 'Something went wrong. Please try again.' });
+                return;
+            }
+            setSubmitMessage({ type: 'success', text: "Thanks! We'll be in touch soon." });
+            setFormData({ email: '', phone: '', company: '', role: '', subscribe: false });
+        } catch {
+            setSubmitMessage({ type: 'error', text: 'Something went wrong. Please try again.' });
+        } finally {
+            setIsSubmitting(false);
         }
     };
 
@@ -150,16 +170,21 @@ export default function PricingForm() {
                     </div>
                 </div>
 
+                {submitMessage && (
+                    <p className={`text-sm font-medium ${submitMessage.type === 'success' ? 'text-[#29AB87]' : 'text-red-600'}`}>
+                        {submitMessage.text}
+                    </p>
+                )}
                 {/* Submit Button */}
                 <button
                     type="submit"
-                    disabled={!isFormValid}
-                    className={`w-full px-6 py-2 rounded-lg flex justify-center items-center gap-2.5 text-[#F4FBF8] text-base font-medium font-articulat transition-all ${isFormValid
+                    disabled={!isFormValid || isSubmitting}
+                    className={`w-full px-6 py-2 rounded-lg flex justify-center items-center gap-2.5 text-[#F4FBF8] text-base font-medium font-articulat transition-all ${isFormValid && !isSubmitting
                         ? 'bg-[#29AB87] hover:bg-[#238f73] cursor-pointer'
                         : 'bg-[#9FA4A9] cursor-not-allowed opacity-50'
                         }`}
                 >
-                    Get Pricing
+                    {isSubmitting ? 'Sending…' : 'Get Pricing'}
                 </button>
             </form>
         </div>

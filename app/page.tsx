@@ -10,10 +10,18 @@ import {
   FAQ,
 } from "@/components/home";
 import Footer from "@/components/layout/Footer";
+import { getFeaturedBlogPosts } from "@/lib/server/blog";
 
 export const metadata: Metadata = pageMetadata.home;
 
 export default function Home() {
+  const featuredArticles = getFeaturedBlogPosts().map((post) => ({
+    slug: post.slug,
+    title: post.title,
+    date: post.date ? new Date(post.date).toDateString() : "",
+    image: post.coverImage || "/assets/images/articleimage.png",
+  }));
+
   return (
     <div className="relative w-full bg-[#0D352A] flex-1 flex flex-col">
       <Hero />
@@ -23,7 +31,7 @@ export default function Home() {
         <CommentLetterExplorer />
         <OutcomeInPractice />
         <CustomAI />
-        <BestPractices />
+        <BestPractices articles={featuredArticles} />
         <FAQ />
       </div>
       <Footer />

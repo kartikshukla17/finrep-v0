@@ -1,5 +1,4 @@
 import { ArrowDown, SquareArrowOutUpRight } from "lucide-react";
-import Image from "next/image";
 
 // Stats data
 const stats = [
@@ -79,19 +78,17 @@ export default function OutcomeInPractice() {
         </div>
 
         {/* Bottom CTA */}
-        <button className="px-6 py-4 bg-[#ADEBDA] rounded-[130px] border border-[#48E3B9] inline-flex justify-start items-center gap-2 cursor-pointer hover:bg-[#9bddcd] transition-colors">
-          <Image
-            src="/assets/images/Rectangle 12.png"
-            alt="Icon"
-            width={36}
-            height={36}
-            className="w-9 h-9 lg:w-12 lg:h-12 object-contain rounded-full shrink-0"
-          />
+        <a
+          href="https://finrep.ai/blog/why-top-financial-firms-are-switching-from-intelligize-to-finrep-ai"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="px-6 py-4 bg-[#ADEBDA] rounded-[130px] border border-[#48E3B9] inline-flex justify-start items-center gap-2 cursor-pointer hover:bg-[#9bddcd] transition-colors"
+        >
           <span className="text-center text-[#134E3D] text-sm lg:text-base font-medium font-articulat leading-[19.60px] lg:leading-[22.40px] whitespace-nowrap">
-            See our latest benchmarking results
-          </span>
+            Why top firms are switching to Finrep
+                   </span>
           <SquareArrowOutUpRight className="w-6 h-6 text-[#134E3D] shrink-0" />
-        </button>
+        </a>
       </div>
     </div>
   );

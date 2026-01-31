@@ -134,8 +134,11 @@ export default function Header({ variant = "light" }: HeaderProps) {
           {/* Action Buttons - gap-4 (16px), 40px from right edge */}
           <div className="hidden lg:flex items-center gap-4 flex-shrink-0">
             {/* Login - Outline button with 24px horizontal padding, 8px vertical */}
-            <button
-              className={`px-6 py-2 rounded-lg border transition-all duration-300 ${
+            <a
+              href="https://app.finrep.ai/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`px-6 py-2 rounded-lg border transition-all duration-300 inline-flex items-center ${
                 isScrolled
                   ? "border-[#29AB87] text-[#29AB87] hover:bg-[#29AB87]/10"
                   : "border-[#29AB87] text-[#F4FBF8] hover:bg-[#29AB87]/20"
@@ -144,7 +147,7 @@ export default function Header({ variant = "light" }: HeaderProps) {
               <span className="text-base font-medium font-articulat">
                 Login
               </span>
-            </button>
+            </a>
             {/* Request Access - Filled button */}
             <button className="px-6 py-2 bg-[#29AB87] hover:bg-[#238f73] rounded-lg transition-all duration-300">
               <span className="text-[#F4FBF8] text-base font-medium font-articulat">
@@ -227,14 +230,21 @@ export default function Header({ variant = "light" }: HeaderProps) {
 
                 {/* CTA Buttons */}
                 <div className="flex flex-col gap-3">
-                  <Button
-                    variant="primary"
-                    size="md"
+                  <a
+                    href="https://app.finrep.ai/"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="w-full"
-                    onClick={handleLinkClick}
                   >
-                    Login
-                  </Button>
+                    <Button
+                      variant="primary"
+                      size="md"
+                      className="w-full"
+                      onClick={handleLinkClick}
+                    >
+                      Login
+                    </Button>
+                  </a>
                   <Button
                     variant="primary"
                     size="md"
