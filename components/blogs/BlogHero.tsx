@@ -82,7 +82,7 @@ export default function BlogHero() {
           </div>
 
           {/* Text Content */}
-          <div className="flex flex-col justify-start items-start gap-3 w-full">
+          {/* <div className="flex flex-col justify-start items-start gap-3 w-full">
             <h2 className="w-full text-[#F9F9FA] text-xl font-medium font-articulat leading-7">
               From Sanctions to Scrutiny: How OFAC Violations Create Immediate
               SEC Disclosure Triggers
@@ -101,7 +101,7 @@ export default function BlogHero() {
                 Free Download
               </span>
             </button>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

@@ -97,7 +97,7 @@ export default function Hero() {
               </div>
 
               <div className="text-[#F4FBF8] text-sm md:text-base font-medium font-articulat truncate">
-                Fina - Our most Advanced AI is Live
+                Fina - Our most advanced AI is Live
               </div>
             </div>
           </motion.div>

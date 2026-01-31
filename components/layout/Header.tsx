@@ -149,11 +149,16 @@ export default function Header({ variant = "light" }: HeaderProps) {
               </span>
             </a>
             {/* Request Access - Filled button */}
-            <button className="px-6 py-2 bg-[#29AB87] hover:bg-[#238f73] rounded-lg transition-all duration-300">
+            <a
+              href="https://cal.com/gana-finrep/intro?duration=15"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-6 py-2 bg-[#29AB87] hover:bg-[#238f73] rounded-lg transition-all duration-300 inline-flex items-center"
+            >
               <span className="text-[#F4FBF8] text-base font-medium font-articulat">
                 Request Access
               </span>
-            </button>
+            </a>
           </div>
 
           {/* Mobile Menu Toggle */}
@@ -245,14 +250,22 @@ export default function Header({ variant = "light" }: HeaderProps) {
                       Login
                     </Button>
                   </a>
-                  <Button
-                    variant="primary"
-                    size="md"
-                    className="w-full bg-[#0E0F10] hover:bg-[#2a2c2e]"
-                    onClick={handleLinkClick}
+                  <a
+                    href="https://cal.com/gana-finrep/intro?duration=15"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full"
                   >
-                    Request Access
-                  </Button>
+                    <Button
+                      variant="primary"
+                      size="md"
+                      className="w-full bg-[#0E0F10] hover:bg-[#2a2c2e]"
+                      onClick={handleLinkClick}
+                    >
+                      Request Access
+                    </Button>
+                  </a>
+                 
                 </div>
               </div>
             </motion.div>

@@ -709,7 +709,7 @@ export default function CommentLetterExplorer() {
                   <div className="flex justify-start items-center gap-4">
                     <button className="px-6 py-2 bg-[#29AB87] rounded-lg flex justify-center items-center gap-2.5 hover:bg-[#238f73] transition-colors">
                       <span className="text-[#F4FBF8] text-base font-medium font-articulat">
-                        Request Demo
+                        Request Access
                       </span>
                     </button>
                   </div>
