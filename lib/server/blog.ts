@@ -19,6 +19,7 @@ export type BlogPost = {
   description?: string;
   videoUrl?: string;
   draft?: boolean;
+  featured?: boolean;
 };
 
 export function getAllBlogPosts(category?: string): BlogPost[] {
@@ -47,6 +48,7 @@ export function getAllBlogPosts(category?: string): BlogPost[] {
       description: data.description,
       videoUrl: data.videoUrl,
       draft: data.draft === true,
+      featured: data.featured === true,
     } as BlogPost;
   });
 
@@ -75,6 +77,15 @@ export function getAllBlogPosts(category?: string): BlogPost[] {
   }
 
   return sortedPosts;
+}
+
+/** Returns up to 3 featured blog posts (most recent by date) for the homepage Best Practices section. */
+export function getFeaturedBlogPosts(): BlogPost[] {
+  const all = getAllBlogPosts();
+  return all
+    .filter((post) => post.featured === true)
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+    .slice(0, 3);
 }
 
 export function getBlogPostBySlug(slug: string): {
@@ -115,6 +126,7 @@ export function getBlogPostBySlug(slug: string): {
       description: data.description,
       videoUrl: data.videoUrl,
       draft: isDraft,
+      featured: data.featured === true,
     },
     content,
   };

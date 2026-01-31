@@ -58,6 +58,13 @@ export default defineConfig({
               "Draft posts only appear on staging. Uncheck to publish to production.",
           },
           {
+            type: "boolean",
+            name: "featured",
+            label: "Featured on Homepage",
+            description:
+              "Show this article in the Best Practices & Insights section on the homepage. Max 3 articles can be featured; only the 3 most recent (by date) will appear.",
+          },
+          {
             type: "datetime",
             name: "date",
             label: "Publication Date",
@@ -70,15 +77,51 @@ export default defineConfig({
             required: true,
           },
           {
+            type: "image",
+            name: "authorImage",
+            label: "Author Image",
+          },
+          {
+            type: "string",
+            name: "authorRole",
+            label: "Author Role",
+          },
+          {
             type: "string",
             name: "categories",
             label: "Categories",
             list: true,
           },
           {
+            type: "string",
+            name: "tags",
+            label: "Tags",
+            list: true,
+          },
+          {
             type: "image",
             name: "coverImage",
             label: "Cover Image",
+          },
+          {
+            type: "string",
+            name: "description",
+            label: "Description",
+            description: "Brief excerpt for previews and meta.",
+            ui: {
+              component: "textarea",
+            },
+          },
+          {
+            type: "string",
+            name: "readTime",
+            label: "Read Time",
+            description: "e.g. 5 min",
+          },
+          {
+            type: "string",
+            name: "pdfUrl",
+            label: "PDF URL",
           },
           {
             type: "rich-text",

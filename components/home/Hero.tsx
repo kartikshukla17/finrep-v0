@@ -182,11 +182,16 @@ export default function Hero() {
               placeholder="Enter email"
               className="flex-1 px-8 py-4 bg-transparent text-[#F4FBF8] text-[20px] font-normal font-articulat leading-8 outline-none border-none placeholder:text-[rgba(244,251,248,0.30)] text-left"
             />
-            <button className="px-[30px] py-4 bg-[#29AB87] flex justify-center items-center gap-2.5 cursor-pointer hover:bg-[#238f73] transition-colors rounded-[40px] ml-[-20px] z-10">
+            <a
+              href="https://cal.com/gana-finrep/intro?duration=15"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-[30px] py-4 bg-[#29AB87] flex justify-center items-center gap-2.5 cursor-pointer hover:bg-[#238f73] transition-colors rounded-[40px] ml-[-20px] z-10"
+            >
               <span className="text-white text-[20px] font-medium font-articulat leading-8 whitespace-nowrap">
                 Request Access
               </span>
-            </button>
+            </a>
           </motion.div>
 
           {/* Trust Badges */}

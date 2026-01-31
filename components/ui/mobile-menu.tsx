@@ -98,9 +98,16 @@ export function MobileMenu({ isOpen, onClose, variant = 'light', navLinks }: Mob
 
         {/* Action Buttons */}
         <div className="p-6 border-t border-[#E5E7EB] space-y-3">
-          <Button variant="outline" size="md" fullWidth>
-            Login
-          </Button>
+          <a
+            href="https://app.finrep.ai/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block w-full"
+          >
+            <Button variant="outline" size="md" fullWidth>
+              Login
+            </Button>
+          </a>
           <Button variant="primary" size="md" fullWidth>
             Request Access
           </Button>
