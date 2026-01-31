@@ -5,29 +5,34 @@ import { useState } from "react";
 
 const faqs = [
   {
-    question: "What is Finrep?",
+    question: "What does Finrep do?",
     answer:
-      "Finrep is a platform that makes SEC research easy — search disclosures, explore comment letters, and benchmark filings in seconds. Unlock deeper insights with our AI-powered summaries and comparisons.",
+      "Finrep helps teams research, compare, validate, and draft disclosures using SEC filings, EDGAR data, and IR materials in one place.",
   },
   {
-    question: "How to use Finrep?",
+    question: "Who is Finrep for?",
     answer:
-      "Finrep makes SEC research easy — search disclosures, explore comment letters, and benchmark filings in seconds. Unlock deeper insights with our AI-powered summaries and comparisons.",
+      "Finrep is used by SEC Reporting, Technical Accounting, Legal & Compliance, Investor Relations, and disclosure review teams, including those responsible for insider reporting.",
   },
   {
-    question: "Can I try it for free?",
+    question: "How is Finrep different from search or generic AI?",
     answer:
-      "Finrep makes SEC research easy — search disclosures, explore comment letters, and benchmark filings in seconds. Unlock deeper insights with our AI-powered summaries and comparisons.",
+      "Finrep provides citation-backed answers grounded in SEC filings, regulatory & authoritative guidance, and company IR materials rather than unverified summaries.",
   },
   {
-    question: "Is my data safe?",
+    question: "Can I trust Finrep's answers?",
     answer:
-      "Finrep makes SEC research easy — search disclosures, explore comment letters, and benchmark filings in seconds. Unlock deeper insights with our AI-powered summaries and comparisons.",
+      "Yes. Every answer is linked to inspectable source documents, including SEC filings, guidance, press releases, and earnings call transcripts.",
   },
   {
-    question: "Did you fine-tune your AI on my data?",
+    question: "Is Finrep useful only for SEC filing drafts like 10-K and 10-Q?",
     answer:
-      "Finrep makes SEC research easy — search disclosures, explore comment letters, and benchmark filings in seconds. Unlock deeper insights with our AI-powered summaries and comparisons.",
+      "No. Finrep is used for drafting across disclosures, including technical accounting memos, SEC filings, and investor materials such as earnings presentations.",
+  },
+  {
+    question: "Can Finrep handle Section 16 filings?",
+    answer:
+      "Yes. Finrep supports Section 16 workflows, including preparing and filing Forms 3, 4, and 5 directly to EDGAR.",
   },
 ];
 

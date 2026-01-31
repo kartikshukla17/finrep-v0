@@ -4,6 +4,7 @@ export { default as BlogTabs } from "./BlogTabs";
 export { default as FeaturedArticle } from './FeaturedArticle';
 export { default as ArticleContent } from "./ArticleContent";
 export { default as ArticleHeader } from "./ArticleHeader";
+export { default as ArticleShareButtons } from "./ArticleShareButtons";
 export { default as ArticleSidebar } from "./ArticleSidebar";
 export { default as ArticleSkeleton } from "./ArticleSkeleton";
 export { default as BlogGrid } from "./BlogGrid";

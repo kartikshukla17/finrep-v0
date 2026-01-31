@@ -1,4 +1,5 @@
 import Image from "next/image";
+import ArticleShareButtons from "./ArticleShareButtons";
 
 interface Author {
     name: string;
@@ -8,9 +9,11 @@ interface Author {
 
 interface ArticleSidebarProps {
     author?: Author;
+    slug?: string;
+    title?: string;
 }
 
-export default function ArticleSidebar({ author }: ArticleSidebarProps) {
+export default function ArticleSidebar({ author, slug, title }: ArticleSidebarProps) {
     return (
         <aside className="hidden lg:flex w-[200px] flex-col gap-12 shrink-0 sticky top-[100px] self-start">
             {/* Authors Section */}
@@ -44,18 +47,22 @@ export default function ArticleSidebar({ author }: ArticleSidebarProps) {
                 <div className="text-[#0E0F10] text-sm font-medium font-articulat leading-[22.40px]">
                     Share
                 </div>
-                <div className="flex gap-4">
-                    <ShareButton
-                        icon="/assets/icons/pajamas_linkedin.svg"
-                        alt="Share on LinkedIn"
-                        href="#"
-                    />
-                    <ShareButton
-                        icon="/assets/icons/bi_twitter-x.svg"
-                        alt="Share on Twitter"
-                        href="#"
-                    />
-                </div>
+                {slug && title ? (
+                    <ArticleShareButtons slug={slug} title={title} />
+                ) : (
+                    <div className="flex gap-4">
+                        <ShareButton
+                            icon="/assets/icons/pajamas_linkedin.svg"
+                            alt="Share on LinkedIn"
+                            href="#"
+                        />
+                        <ShareButton
+                            icon="/assets/icons/bi_twitter-x.svg"
+                            alt="Share on Twitter"
+                            href="#"
+                        />
+                    </div>
+                )}
             </div>
         </aside>
     );

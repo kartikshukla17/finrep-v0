@@ -4,6 +4,7 @@ import {
     ArticleContent,
     ArticleHeader,
     ArticleSidebar,
+    ArticleShareButtons,
     ArticleSkeleton,
     RelatedArticles,
     TableOfContents,
@@ -282,7 +283,7 @@ export default function BlogArticlePage({ params }: BlogArticlePageProps) {
       <main className="flex-1 w-full pt-[72px]">
         <div className="max-w-[1440px] mx-auto px-6 md:px-[60px] lg:px-10 py-8 md:py-12">
           <div className="flex gap-8 lg:gap-12 justify-center">
-            <ArticleSidebar author={article.author} />
+            <ArticleSidebar author={article.author} slug={article.slug} title={article.title} />
 
             <div className="flex-1 min-w-0 max-w-[800px]">
               <div className="lg:hidden mb-6">
@@ -304,6 +305,14 @@ export default function BlogArticlePage({ params }: BlogArticlePageProps) {
                 date={article.date}
                 categories={article.categories}
               />
+
+              {/* Share on mobile/tablet (sidebar share is desktop-only) */}
+              <div className="lg:hidden flex items-center gap-3 mb-6">
+                <span className="text-[#0E0F10] text-sm font-medium font-articulat">
+                  Share
+                </span>
+                <ArticleShareButtons slug={article.slug} title={article.title} />
+              </div>
 
               {/* Article content with featured image and markdown body from CMS */}
               <ArticleContent featuredImage={article.featuredImage} title={article.title}>
