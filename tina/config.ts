@@ -40,7 +40,6 @@ export default defineConfig({
         defaultItem: () => ({
           draft: true, // New posts start as drafts by default
           date: new Date().toISOString(),
-          author: "",
         }),
         fields: [
           {
@@ -72,22 +71,6 @@ export default defineConfig({
           },
           {
             type: "string",
-            name: "author",
-            label: "Author",
-            required: true,
-          },
-          {
-            type: "image",
-            name: "authorImage",
-            label: "Author Image",
-          },
-          {
-            type: "string",
-            name: "authorRole",
-            label: "Author Role",
-          },
-          {
-            type: "string",
             name: "categories",
             label: "Categories",
             list: true,
@@ -102,26 +85,6 @@ export default defineConfig({
             type: "image",
             name: "coverImage",
             label: "Cover Image",
-          },
-          {
-            type: "string",
-            name: "description",
-            label: "Description",
-            description: "Brief excerpt for previews and meta.",
-            ui: {
-              component: "textarea",
-            },
-          },
-          {
-            type: "string",
-            name: "readTime",
-            label: "Read Time",
-            description: "e.g. 5 min",
-          },
-          {
-            type: "string",
-            name: "pdfUrl",
-            label: "PDF URL",
           },
           {
             type: "rich-text",

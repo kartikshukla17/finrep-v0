@@ -180,7 +180,7 @@ export default function BuiltForCFO() {
       setActiveTab(index);
       setAnimationKey((k) => k + 1);
     },
-    [activeTab]
+    [activeTab],
   );
 
   return (
@@ -234,7 +234,10 @@ export default function BuiltForCFO() {
         </div>
 
         {/* Mobile Layout - Accordion Style with layout containment */}
-        <div className="lg:hidden flex flex-col w-full" style={{ contain: "layout" }}>
+        <div
+          className="lg:hidden flex flex-col w-full"
+          style={{ contain: "layout" }}
+        >
           {features.map((feature, index) => {
             const IconComponent = iconComponents[feature.iconKey];
             const isActive = activeTab === index;
@@ -244,7 +247,7 @@ export default function BuiltForCFO() {
                 key={feature.id}
                 className={cn(
                   "border-b transition-colors duration-300",
-                  isActive ? "border-[#269C7B]" : "border-[#D9DBDD]"
+                  isActive ? "border-[#269C7B]" : "border-[#D9DBDD]",
                 )}
               >
                 <button
@@ -253,7 +256,7 @@ export default function BuiltForCFO() {
                 >
                   <motion.div
                     className={cn(
-                      "w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0"
+                      "w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0",
                     )}
                     animate={{
                       backgroundColor: isActive ? "#29AB87" : "#E8F5F1",
@@ -276,7 +279,7 @@ export default function BuiltForCFO() {
                       exit={{ height: 0, opacity: 0 }}
                       transition={{
                         height: { duration: 0.4, ease: [0.4, 0, 0.2, 1] },
-                        opacity: { duration: 0.3, ease: "easeOut" }
+                        opacity: { duration: 0.3, ease: "easeOut" },
                       }}
                       className="overflow-hidden"
                     >
@@ -284,7 +287,11 @@ export default function BuiltForCFO() {
                         initial={{ y: 20, opacity: 0 }}
                         animate={{ y: 0, opacity: 1 }}
                         exit={{ y: 20, opacity: 0 }}
-                        transition={{ duration: 0.4, delay: 0.05, ease: [0.4, 0, 0.2, 1] }}
+                        transition={{
+                          duration: 0.4,
+                          delay: 0.05,
+                          ease: [0.4, 0, 0.2, 1],
+                        }}
                         className="pb-4 flex flex-col gap-4"
                       >
                         <p className="text-[#3F4346] text-base font-normal font-articulat leading-[25.6px] tracking-[0.32px]">
@@ -295,7 +302,11 @@ export default function BuiltForCFO() {
                         <motion.div
                           initial={{ y: 30, opacity: 0 }}
                           animate={{ y: 0, opacity: 1 }}
-                          transition={{ duration: 0.5, delay: 0.1, ease: [0.4, 0, 0.2, 1] }}
+                          transition={{
+                            duration: 0.5,
+                            delay: 0.1,
+                            ease: [0.4, 0, 0.2, 1],
+                          }}
                           className="w-full rounded-[20px] p-6 flex flex-col relative overflow-hidden"
                           style={{
                             background:
@@ -314,7 +325,7 @@ export default function BuiltForCFO() {
 
                           <div className="relative z-10 flex items-center justify-center mt-4">
                             <Image
-                              src="/assets/images/BuiltForCFO.png"
+                              src="/assets/images/BuiltForCFO.webp"
                               alt="Finrep Features"
                               width={400}
                               height={280}
@@ -386,7 +397,7 @@ function FeatureItem({
       className={cn(
         "relative text-left w-full cursor-pointer select-none border-b border-[#D9DBDD]",
         "transition-opacity duration-300",
-        isActive ? "opacity-100" : "opacity-50 hover:opacity-70"
+        isActive ? "opacity-100" : "opacity-50 hover:opacity-70",
       )}
     >
       {/* Trigger section - constant height */}
@@ -397,7 +408,7 @@ function FeatureItem({
             "w-12 h-12 rounded-full flex items-center justify-center shrink-0 transition-all duration-300",
             isActive
               ? "bg-[#29AB87] shadow-[inset_0px_-8px_16px_rgba(0,0,0,0.25)]"
-              : "bg-[#E8F5F1]"
+              : "bg-[#E8F5F1]",
           )}
         >
           <IconComponent className="w-6 h-6" isActive={isActive} />
@@ -418,7 +429,7 @@ function FeatureItem({
             exit={{ height: 0, opacity: 0 }}
             transition={{
               height: { duration: 0.4, ease: [0.4, 0, 0.2, 1] },
-              opacity: { duration: 0.3, ease: "easeOut" }
+              opacity: { duration: 0.3, ease: "easeOut" },
             }}
             className="overflow-hidden"
           >
@@ -461,7 +472,7 @@ function RightSideCard({ activeTab }: { activeTab: number }) {
   const slideVariants = {
     initial: { opacity: 0, x: 30 },
     animate: { opacity: 1, x: 0 },
-    exit: { opacity: 0, x: -30 }
+    exit: { opacity: 0, x: -30 },
   };
 
   return (
@@ -508,7 +519,7 @@ function RightSideCard({ activeTab }: { activeTab: number }) {
             className="w-full h-full"
           >
             <Image
-              src="/assets/images/BuiltForCFO.png"
+              src="/assets/images/BuiltForCFO.webp"
               alt="Finrep Features"
               width={586}
               height={400}

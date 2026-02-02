@@ -1,6 +1,7 @@
 import fs from "fs";
 import matter from "gray-matter";
 import path from "path";
+import { AUTHOR_NAME } from "@/lib/author";
 
 const BLOG_DIR = path.join(process.cwd(), "content/blog");
 
@@ -43,7 +44,7 @@ export function getAllBlogPosts(category?: string): BlogPost[] {
       title: data.title ?? slug,
       date: data.date ?? "",
       coverImage: data.coverImage,
-      author: data.author,
+      author: AUTHOR_NAME,
       categories,
       description: data.description,
       videoUrl: data.videoUrl,
@@ -121,7 +122,7 @@ export function getBlogPostBySlug(slug: string): {
       title: data.title ?? slug,
       date: data.date ?? "",
       coverImage: data.coverImage,
-      author: data.author,
+      author: AUTHOR_NAME,
       categories,
       description: data.description,
       videoUrl: data.videoUrl,

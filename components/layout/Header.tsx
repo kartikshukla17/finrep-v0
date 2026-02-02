@@ -76,7 +76,7 @@ export default function Header({ variant = "light" }: HeaderProps) {
 
   const navLinks = [
     { name: "Solutions", href: "/#solutions" },
-    { name: "Security", href: "/" },
+    { name: "Security", href: "https://finrep.ai/#securitynw", external: true },
     { name: "Blogs", href: "/blogs" },
     { name: "Pricing", href: "/pricing" },
     { name: "About", href: "/about" },
@@ -84,7 +84,7 @@ export default function Header({ variant = "light" }: HeaderProps) {
 
   const mobileMenuLinks = [
     { name: "Solutions", href: "/#solutions" },
-    { name: "Security", href: "/" },
+    { name: "Security", href: "https://finrep.ai/#securitynw", external: true },
     { name: "Pricing", href: "/pricing" },
     { name: "Blogs", href: "/blogs" },
     { name: "About", href: "/about" },
@@ -120,15 +120,27 @@ export default function Header({ variant = "light" }: HeaderProps) {
 
           {/* Navigation Links - Absolutely centered in the header */}
           <nav className="hidden lg:flex absolute left-1/2 -translate-x-1/2 items-center gap-6">
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                href={link.href}
-                className={`${textColor} text-base font-medium font-articulat hover:opacity-80 transition-all duration-300`}
-              >
-                {link.name}
-              </Link>
-            ))}
+            {navLinks.map((link) =>
+              link.external ? (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`${textColor} text-base font-medium font-articulat hover:opacity-80 transition-all duration-300`}
+                >
+                  {link.name}
+                </a>
+              ) : (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  className={`${textColor} text-base font-medium font-articulat hover:opacity-80 transition-all duration-300`}
+                >
+                  {link.name}
+                </Link>
+              )
+            )}
           </nav>
 
           {/* Action Buttons - gap-4 (16px), 40px from right edge */}
@@ -140,8 +152,8 @@ export default function Header({ variant = "light" }: HeaderProps) {
               rel="noopener noreferrer"
               className={`px-6 py-2 rounded-lg border transition-all duration-300 inline-flex items-center ${
                 isScrolled
-                  ? "border-[#29AB87] text-[#29AB87] hover:bg-[#29AB87]/10"
-                  : "border-[#29AB87] text-[#F4FBF8] hover:bg-[#29AB87]/20"
+                  ? "bg-white border-[#51A88B] text-[#51A88B] hover:bg-transparent hover:text-white"
+                  : "bg-transparent border-[#29AB8766] text-white hover:bg-[#29AB8766] hover:border-[#29AB8766]"
               }`}
             >
               <span className="text-base font-medium font-articulat">
@@ -221,16 +233,29 @@ export default function Header({ variant = "light" }: HeaderProps) {
               <div className="p-6 flex flex-col gap-8">
                 {/* Navigation Links */}
                 <div className="flex flex-col gap-4">
-                  {mobileMenuLinks.map((link, idx) => (
-                    <Link
-                      key={idx}
-                      href={link.href}
-                      onClick={handleLinkClick}
-                      className="text-[#0E0F10] text-xl font-medium font-articulat leading-7 hover:text-[#29AB87] transition-colors py-2"
-                    >
-                      {link.name}
-                    </Link>
-                  ))}
+                  {mobileMenuLinks.map((link, idx) =>
+                    link.external ? (
+                      <a
+                        key={idx}
+                        href={link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={handleLinkClick}
+                        className="text-[#0E0F10] text-xl font-medium font-articulat leading-7 hover:text-[#29AB87] transition-colors py-2"
+                      >
+                        {link.name}
+                      </a>
+                    ) : (
+                      <Link
+                        key={idx}
+                        href={link.href}
+                        onClick={handleLinkClick}
+                        className="text-[#0E0F10] text-xl font-medium font-articulat leading-7 hover:text-[#29AB87] transition-colors py-2"
+                      >
+                        {link.name}
+                      </Link>
+                    )
+                  )}
                 </div>
 
                 {/* CTA Buttons */}
@@ -265,7 +290,6 @@ export default function Header({ variant = "light" }: HeaderProps) {
                       Request Access
                     </Button>
                   </a>
-                 
                 </div>
               </div>
             </motion.div>

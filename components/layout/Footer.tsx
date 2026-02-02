@@ -45,7 +45,7 @@ const navigationSections: {
       { label: "About", href: "/about" },
       { label: "Pricing", href: "/pricing" },
       { label: "Contact", href: "mailto:support@finrep.ai" },
-      { label: "Careers", href: "#" },
+      // { label: "Careers", href: "#" },
     ],
   },
   {
@@ -122,13 +122,19 @@ export default function Footer() {
             </button>
           </div>
 
+          
           {/* Desktop: Single button */}
           <div className="hidden lg:flex justify-start items-start gap-6">
-            <button className="w-[283px] px-6 py-4 bg-[#29AB87] rounded-lg flex justify-center items-center gap-2.5 cursor-pointer hover:bg-[#238f73] transition-colors">
+            <a
+              href="https://cal.com/gana-finrep/intro?duration=15"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-[283px] px-6 py-4 bg-[#29AB87] rounded-lg flex justify-center items-center gap-2.5 cursor-pointer hover:bg-[#238f73] transition-colors"
+            >
               <span className="text-[#F4FBF8] text-[20px] font-medium font-articulat whitespace-nowrap">
                 Request Access
               </span>
-            </button>
+            </a>
           </div>
         </div>
 
@@ -161,12 +167,12 @@ export default function Footer() {
             {/* Security Badges - Mobile */}
             <div className="flex justify-start items-start gap-4">
               <img
-                src="/assets/images/SOC2.png"
+                src="/assets/images/SOC2.webp"
                 alt="SOC II badge"
                 className="w-[48px] h-[48px] object-contain"
               />
               <img
-                src="/assets/images/iso.png"
+                src="/assets/images/iso.webp"
                 alt="ISO 27001 badge"
                 className="w-[48px] h-[48px] object-contain"
               />
@@ -200,12 +206,12 @@ export default function Footer() {
             {/* Security Badges - Desktop */}
             <div className="flex justify-start items-center gap-4">
               <img
-                src="/assets/images/SOC2.png"
+                src="/assets/images/SOC2.webp"
                 alt="SOC II badge"
                 className="w-[48px] h-[48px] object-contain"
               />
               <img
-                src="/assets/images/iso.png"
+                src="/assets/images/iso.webp"
                 alt="ISO 27001 badge"
                 className="w-[48px] h-[48px] object-contain"
               />

@@ -85,7 +85,7 @@ export default function BlogsPage() {
                 slug: p.slug,
                 title: p.title,
                 date: new Date(p.date).toDateString(),
-                image: p.coverImage || "/assets/images/articleimage.png",
+                image: p.coverImage || "/assets/images/artcleimage.webp",
               }))}
               showViewMore={totalPosts > 9}
               onViewMore={handleViewMore}

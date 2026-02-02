@@ -53,7 +53,7 @@ export const TRUST_BADGES = [
   },
   {
     name: "ISO 27001",
-    logo: "/assets/images/image 3628.png",
+    logo: "/assets/images/image 3628.webp",
     alt: "ISO 27001 Certified",
   },
 ] as const;
@@ -151,7 +151,6 @@ export const ANIMATION_DURATION = {
   slow: 500,
 } as const;
 
-
 // Maximum container width
 export const CONTAINER_MAX_WIDTH = 1440;
 
@@ -161,6 +160,6 @@ export const CONTAINER_PADDING = {
   desktop: 120, // 30 * 4px
 } as const;
 
-export type NavLink = typeof NAV_LINKS[number];
-export type FeatureCategory = typeof FEATURE_CATEGORIES[number];
-export type BlogCategory = typeof BLOG_CATEGORIES[number];
+export type NavLink = (typeof NAV_LINKS)[number];
+export type FeatureCategory = (typeof FEATURE_CATEGORIES)[number];
+export type BlogCategory = (typeof BLOG_CATEGORIES)[number];

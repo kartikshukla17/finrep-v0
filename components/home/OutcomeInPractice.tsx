@@ -41,11 +41,16 @@ export default function OutcomeInPractice() {
           <h2 className="text-[#0E0F10] text-[28px] sm:text-[30px] md:text-[32px] lg:text-[36px] font-medium font-articulat leading-tight">
             Finrep&apos;s Outcome In Practice
           </h2>
-          <button className="px-6 py-3 rounded-lg border border-[#ECEDEE] flex justify-center items-center gap-2 cursor-pointer hover:bg-gray-50 transition-colors">
+          <a
+            href="https://cal.com/gana-finrep/intro?duration=15"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-6 py-3 rounded-lg border border-[#ECEDEE] flex justify-center items-center gap-2 cursor-pointer hover:bg-gray-50 transition-colors"
+          >
             <span className="text-[#269C7B] text-base font-medium font-articulat text-center">
               Request Access to See Finrep&apos;s ROI in Your Team
             </span>
-          </button>
+          </a>
         </div>
 
         {/* Outcome Cards */}

@@ -47,7 +47,7 @@ export default function BlogHero() {
         {/* Image - 768px x 496px */}
         {/* <div className="w-[768px] h-[496px] relative rounded-2xl border-2 border-[#269C7B] overflow-hidden shrink-0">
                         <Image
-                            src="/assets/images/articleimage.png"
+                            src="/assets/images/artcleimage.webp"
                             alt="How OFAC Violations Create Immediate SEC Disclosure Triggers"
                             fill
                             className="object-cover"
@@ -74,7 +74,7 @@ export default function BlogHero() {
           {/* Image */}
           <div className="w-full h-[240px] relative rounded-lg border border-[#269C7B] overflow-hidden">
             <Image
-              src="/assets/images/articleimage.png"
+              src="/assets/images/articleimage.webp"
               alt="How OFAC Violations Create Immediate SEC Disclosure Triggers"
               fill
               className="object-cover"

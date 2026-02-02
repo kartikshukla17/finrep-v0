@@ -19,7 +19,7 @@ export default function Home() {
     slug: post.slug,
     title: post.title,
     date: post.date ? new Date(post.date).toDateString() : "",
-    image: post.coverImage || "/assets/images/articleimage.png",
+    image: post.coverImage || "/assets/images/artcleimage.webp",
   }));
 
   return (

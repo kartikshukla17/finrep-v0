@@ -22,8 +22,8 @@ const navigationTabs = [
     sections: [
       {
         id: 1,
-        title: "Get Answers You Can Trust",
-        mobileTitle: "Get Answers You Can Trust",
+        title: "Get cited answers on 10M+ financial documents",
+        mobileTitle: "Get cited answers on 10M+ financial documents",
         description:
           "Research across filings, guidance, and SEC correspondence in one place. Conduct trustful research, 10x faster",
         mobileDescription:
@@ -36,30 +36,30 @@ const navigationTabs = [
             badge: null,
           },
           {
-            text: "Evidence-first answers",
-            mobileBenefit: "Evidence-first answers",
+            text: "Evidence first answers",
+            mobileBenefit: "Evidence first answers",
             badge: null,
           },
           {
             text: "Verifiable source excerpts",
             mobileBenefit: "Verifiable source excerpts",
-            badge: null,
+            badge: "Most Liked",
           },
         ],
       },
       {
         id: 2,
-        title: "Draft With Confidence",
-        mobileTitle: "Draft With Confidence",
+        title: "Benchmark peer practices clearly",
+        mobileTitle: "Benchmark peer practices clearly",
         description:
-          'See what "market standard" actually looks like for any disclosure, IR material, and other documents. Cut down benchmarking times by more than 80%',
+          'See what "market standard" actually looks like for any disclosure, IR or any other document. Cut down benchmarking times by more than 80%',
         mobileDescription:
-          'See what "market standard" actually looks like for any disclosure, IR material, and other documents. Cut down benchmarking times by more than 80%',
+          'See what "market standard" actually looks like for any disclosure, IR or any other document. Cut down benchmarking times by more than 80%',
         image: "/assets/commentletterexplorer/sec-reporting-2.png",
         benefits: [
           {
-            text: "Side-by-side peer views",
-            mobileBenefit: "Side-by-side peer views",
+            text: "Side by side peer views",
+            mobileBenefit: "Side by side peer views",
             badge: null,
           },
           {
@@ -76,8 +76,8 @@ const navigationTabs = [
       },
       {
         id: 3,
-        title: "Benchmark peer disclosures with AI Grid Reports",
-        mobileTitle: "Benchmark peer disclosures with AI Grid Reports",
+        title: "Draft disclosures with confidence",
+        mobileTitle: "Draft disclosures with confidence",
         description:
           "Draft filings, PRs, memos using roll forwards, peer language, authoritative guidance. Get to the first draft in a matter of minutes",
         mobileDescription:
@@ -85,26 +85,26 @@ const navigationTabs = [
         image: "/assets/commentletterexplorer/sec-reporting-3.png",
         benefits: [
           {
-            text: "Source-linked, research integrated drafting",
-            mobileBenefit: "Source-linked, research integrated drafting",
+            text: "Source linked, research integrated drafting",
+            mobileBenefit: "Source linked, research integrated drafting",
             badge: null,
           },
           {
-            text: "Built-in redlining",
-            mobileBenefit: "Built-in redlining",
+            text: "Built in redlining",
+            mobileBenefit: "Built in redlining",
             badge: null,
           },
           {
             text: "Collaborative review workflows",
             mobileBenefit: "Collaborative review workflows",
-            badge: "Most Liked",
+            badge: null,
           },
         ],
       },
       {
         id: 4,
-        title: "Ensure Compliance Early",
-        mobileTitle: "Ensure Compliance Early",
+        title: "Ensure compliance early with confidence.",
+        mobileTitle: "Ensure compliance early with confidence.",
         description:
           "Evaluate compliance while you are drafting, and align with peer languages and best practices in an instant. Support conclusions with traceable regulatory evidence.",
         mobileDescription:
@@ -114,19 +114,19 @@ const navigationTabs = [
           {
             text: "ASC-aligned benchmarking for filings",
             mobileBenefit: "ASC-aligned benchmarking for filings",
-            badge: null,
+            badge: "Most Liked",
           },
           {
-            text: "Evidence-backed findings for benchmarking drafts",
-            mobileBenefit: "Evidence-backed findings for benchmarking drafts",
+            text: "Evidence backed findings for benchmarking drafts",
+            mobileBenefit: "Evidence backed findings for benchmarking drafts",
             badge: null,
           },
         ],
       },
       {
         id: 5,
-        title: "Monitor Disclosure & Regulatory Changes",
-        mobileTitle: "Monitor Disclosure & Regulatory Changes",
+        title: "Monitor disclosure and regulatory changes",
+        mobileTitle: "Monitor disclosure and regulatory changes",
         description:
           "Track evolving peer disclosures and SEC focus areas as they change. Get notified daily or weekly, before issues surface in review.",
         mobileDescription:
@@ -134,13 +134,13 @@ const navigationTabs = [
         image: "/assets/commentletterexplorer/sec-reporting-5.png",
         benefits: [
           {
-            text: "Keyword-based monitoring",
-            mobileBenefit: "Keyword-based monitoring",
+            text: "Keyword based monitoring on EDGAR",
+            mobileBenefit: "Keyword based monitoring on EDGAR",
             badge: null,
           },
           {
-            text: "Topic-scoped alerts",
-            mobileBenefit: "Topic-scoped alerts",
+            text: "Topic scoped mail alerts",
+            mobileBenefit: "Topic scoped mail alerts",
             badge: null,
           },
         ],
@@ -508,11 +508,19 @@ export default function CommentLetterExplorer() {
     offset: ["start start", "end end"],
   });
 
-  // Update active section based on scroll progress (desktop)
+  // Update active section based on scroll progress (desktop) with hysteresis to avoid jitter at boundaries
   useMotionValueEvent(scrollYProgress, "change", (progress) => {
-    // Use linear progress for equal scroll distance per section
     const clampedProgress = Math.max(0, Math.min(0.999, progress));
-    const sectionIndex = Math.floor(clampedProgress * sections.length);
+    const n = sections.length;
+    const rawIndex = clampedProgress * n;
+    let sectionIndex: number;
+    if (rawIndex >= activeSection + 0.55) {
+      sectionIndex = Math.min(Math.floor(rawIndex), n - 1);
+    } else if (rawIndex < activeSection + 0.45) {
+      sectionIndex = Math.max(0, Math.floor(rawIndex));
+    } else {
+      sectionIndex = activeSection;
+    }
     if (sectionIndex !== activeSection) {
       setActiveSection(sectionIndex);
     }
@@ -539,7 +547,10 @@ export default function CommentLetterExplorer() {
   return (
     <section id="solutions">
       {/* Mobile Layout - No scroll-driven behavior, with layout containment */}
-      <div className="lg:hidden w-full bg-white py-6 sm:py-8 md:py-10" style={{ contain: "layout" }}>
+      <div
+        className="lg:hidden w-full bg-white py-6 sm:py-8 md:py-10"
+        style={{ contain: "layout" }}
+      >
         <div className="px-4 sm:px-6 md:px-8 max-w-[600px] md:max-w-[700px] mx-auto flex flex-col gap-5 sm:gap-6 md:gap-8">
           {/* Mobile Horizontal Tabs - Hidden for now */}
           {/* <div className="flex gap-3 overflow-x-auto pb-2 scrollbar-hide -mx-4 px-4">
@@ -656,14 +667,14 @@ export default function CommentLetterExplorer() {
         className="hidden lg:block relative w-full bg-white"
         style={{
           height: `calc(${sections.length} * var(--section-scroll-vh) * 1vh)`,
-          contain: "layout style"
+          contain: "layout style",
         }}
       >
         {/* Sticky content that stays in view - offset for header */}
         <div className="comment-letter-sticky sticky top-[75px] h-[calc(100vh-75px)] overflow-hidden flex items-center">
           <div className="comment-letter-inner w-full max-h-[800px] h-full mx-auto flex flex-row items-stretch">
             {/* Left Content Section */}
-            <div className="flex-1 flex flex-col justify-center items-start gap-12 pl-6 lg:pl-10 py-8">
+            <div className="flex-1 flex flex-col justify-start items-start gap-12 pl-6 lg:pl-10 py-8">
               {/* Main Content with Numbered List and Active Section */}
               <div className="w-full flex justify-start items-start gap-8 lg:gap-16">
                 {/* Numbered List - Clickable */}
@@ -696,7 +707,7 @@ export default function CommentLetterExplorer() {
                   ))}
                 </div>
 
-                {/* Active Section Content */}
+                {/* Active Section Content + Request Access just below the points */}
                 <div className="flex-1 max-w-[450px] lg:max-w-[545px] flex flex-col justify-start items-start gap-6 lg:gap-9">
                   <AnimatePresence mode="wait">
                     <SectionContent
@@ -705,20 +716,24 @@ export default function CommentLetterExplorer() {
                     />
                   </AnimatePresence>
 
-                  {/* CTA Buttons */}
                   <div className="flex justify-start items-center gap-4">
-                    <button className="px-6 py-2 bg-[#29AB87] rounded-lg flex justify-center items-center gap-2.5 hover:bg-[#238f73] transition-colors">
+                    <a
+                      href="https://cal.com/gana-finrep/intro?duration=15"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-6 py-2 bg-[#29AB87] rounded-lg flex justify-center items-center gap-2.5 hover:bg-[#238f73] transition-colors"
+                    >
                       <span className="text-[#F4FBF8] text-base font-medium font-articulat">
                         Request Access
                       </span>
-                    </button>
+                    </a>
                   </div>
                 </div>
               </div>
             </div>
 
             {/* Right Section - Interface Mockup */}
-            <div className="w-[45%] max-w-[706px] min-w-[350px] h-full max-h-[700px] flex-shrink-0 self-center rounded-l-2xl overflow-hidden">
+            <div className="w-[45%] max-w-[706px] min-w-[350px] h-full max-h-[700px] flex-shrink-0 self-center  overflow-hidden">
               <InterfaceMockup image={sections[activeSection].image} />
             </div>
           </div>

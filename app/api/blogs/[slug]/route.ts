@@ -1,7 +1,8 @@
-import { NextResponse } from "next/server";
+import { AUTHOR_IMAGE, AUTHOR_NAME } from "@/lib/author";
 import fs from "fs";
-import path from "path";
 import matter from "gray-matter";
+import { NextResponse } from "next/server";
+import path from "path";
 
 const BLOG_DIR = path.join(process.cwd(), "content/blog");
 
@@ -10,7 +11,7 @@ const isStaging = process.env.NEXT_PUBLIC_IS_STAGING === "true";
 
 export async function GET(
   _req: Request,
-  { params }: { params: Promise<{ slug: string }> }
+  { params }: { params: Promise<{ slug: string }> },
 ) {
   try {
     const { slug } = await params;
@@ -41,7 +42,7 @@ export async function GET(
           slug: postSlug,
           title: postData.title ?? postSlug,
           date: postData.date ?? "",
-          image: postData.coverImage ?? "/assets/images/articleimage.png",
+          image: postData.coverImage ?? "/assets/images/artcleimage.webp",
           draft: postData.draft === true,
         };
       })
@@ -59,13 +60,11 @@ export async function GET(
       slug,
       title: data.title ?? "",
       date: data.date ?? "",
-      author: data.author
-        ? {
-            name: data.author,
-            role: data.authorRole ?? "",
-            avatar: data.authorImage ?? "",
-          }
-        : undefined,
+      author: {
+        name: AUTHOR_NAME,
+        role: "",
+        avatar: AUTHOR_IMAGE,
+      },
       categories: data.categories ?? [],
       featuredImage: data.coverImage ?? "",
       excerpt: data.description ?? "",

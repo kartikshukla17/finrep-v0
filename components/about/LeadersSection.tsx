@@ -133,14 +133,14 @@ const leaders: Leader[] = [
   {
     name: "Gana Misra",
     role: "CEO & Co-founder",
-    image: "/assets/images/gana.png",
+    image: "/assets/images/gana.webp",
     linkedin: "https://www.linkedin.com/in/gmisrag/",
     twitter: "https://x.com/gmisrag",
   },
   {
     name: "Tushar Varshney",
     role: "CTO & Co-founder",
-    image: "/assets/images/tushar.png",
+    image: "/assets/images/tushar.webp",
     linkedin: "https://www.linkedin.com/in/tushar-varshney/",
     twitter: "https://x.com/tushaaar19",
   },
