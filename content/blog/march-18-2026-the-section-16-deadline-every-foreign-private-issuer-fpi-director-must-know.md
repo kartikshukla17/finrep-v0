@@ -24,7 +24,7 @@ Section 16 of the Securities Exchange Act serves as a cornerstone of securities 
 
 ![](/uploads/Y5NVzSnsTldKy7GjxtHHUml5ryQ.avif)
 
-## \*\*The Section 16 Reporting Timeline for FPIs \*\*
+## The Section 16 Reporting Timeline for FPIs 
 
 ![](/uploads/YzuqyLtOoGwOmtHm6q9WYfRMeU.avif)![](/uploads/4p3RhxZ5DrPTQCQrd2MaTqC6xO8.avif)
 
@@ -48,23 +48,23 @@ After filing Form 3, directors must maintain ongoing compliance through Forms 4 
 
 Navigating Section 16 compliance successfully requires proactive planning and systematic execution. Here's how leading FPI directors approach this critical responsibility:
 
-### 1. Establish Clear Internal Protocols
+#### 1. Establish Clear Internal Protocols
 
 Work with your company's legal and compliance teams to create standardized procedures for tracking insider appointments, collecting beneficial ownership information, and preparing Section 16 filings. Designate specific individuals responsible for monitoring deadlines and coordinating the filing process.
 
-### 2. Maintain Accurate Records Year-Round
+#### 2. Maintain Accurate Records Year-Round
 
 Don't wait until the deadline approaches to compile your holdings information. Maintain an ongoing record of all securities transactions, including purchases, sales, exercises of options, and receipt of equity compensation. This practice makes the filing process significantly smoother.
 
-### 3. Understand Indirect Ownership Rules
+#### 3. Understand Indirect Ownership Rules
 
 Section 16 extends beyond securities you hold directly. Be prepared to disclose holdings by your spouse, minor children, and any trusts or entities where you exercise investment control. Understanding these attribution rules early prevents last-minute complications.
 
-### 4. Leverage the FPI Extended Timeline Wisely
+#### 4. Leverage the FPI Extended Timeline Wisely
 
 While FPIs enjoy a 45-day filing window, treat this as a maximum, not a target. Build internal deadlines that allow for review, corrections, and unexpected complications. Filing early demonstrates good governance and reduces stress.
 
-### 5. Coordinate with Your Board Colleagues
+#### 5. Coordinate with Your Board Colleagues
 
 Section 16 compliance works best as a coordinated effort. Share best practices with fellow directors, align on timing for routine filings, and support each other in navigating complex scenarios like equity restructurings or corporate transactions.
 
