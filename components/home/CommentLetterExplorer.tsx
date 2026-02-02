@@ -508,19 +508,26 @@ export default function CommentLetterExplorer() {
     offset: ["start start", "end end"],
   });
 
-  // Update active section based on scroll progress (desktop) with hysteresis to avoid jitter at boundaries
+  // Only allows advancing one section at a time to prevent skipping sections
   useMotionValueEvent(scrollYProgress, "change", (progress) => {
     const clampedProgress = Math.max(0, Math.min(0.999, progress));
     const n = sections.length;
     const rawIndex = clampedProgress * n;
     let sectionIndex: number;
-    if (rawIndex >= activeSection + 0.55) {
-      sectionIndex = Math.min(Math.floor(rawIndex), n - 1);
-    } else if (rawIndex < activeSection + 0.45) {
-      sectionIndex = Math.max(0, Math.floor(rawIndex));
+
+    // Only allow moving to adjacent sections (one at a time)
+    // Require rawIndex to be closer to target section before switching
+    if (rawIndex >= activeSection + 0.8) {
+      // Advance forward: only go to next section
+      sectionIndex = Math.min(activeSection + 1, n - 1);
+    } else if (rawIndex < activeSection + 0.2) {
+      // Go backward: only go to previous section
+      sectionIndex = Math.max(activeSection - 1, 0);
     } else {
+      // Stay in current section
       sectionIndex = activeSection;
     }
+
     if (sectionIndex !== activeSection) {
       setActiveSection(sectionIndex);
     }
@@ -733,7 +740,7 @@ export default function CommentLetterExplorer() {
             </div>
 
             {/* Right Section - Interface Mockup */}
-            <div className="w-[45%] max-w-[706px] min-w-[350px] h-full max-h-[700px] flex-shrink-0 self-center  overflow-hidden">
+            <div className="w-[45%] max-w-[706px] min-w-[350px] h-full max-h-[700px] flex-shrink-0 self-center rounded-l-2xl overflow-hidden">
               <InterfaceMockup image={sections[activeSection].image} />
             </div>
           </div>
