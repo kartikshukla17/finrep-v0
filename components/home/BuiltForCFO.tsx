@@ -186,7 +186,7 @@ export default function BuiltForCFO() {
   return (
     <div
       id="white-section-start"
-      className="w-full bg-white pt-[150px] overflow-hidden"
+      className="w-full bg-white pt-20 lg:pt-[150px] overflow-hidden"
     >
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-10 flex flex-col gap-6 sm:gap-8 md:gap-10 lg:gap-12 items-center">
         {/* Mobile Header - Centered & Stacked */}
@@ -199,7 +199,7 @@ export default function BuiltForCFO() {
               Office of the CFO
             </span>
           </div>
-          <p className="text-[#5E6469] text-base sm:text-lg font-normal font-articulat leading-relaxed text-center max-w-[372px] sm:max-w-[500px] md:max-w-[600px]">
+          <p className="text-[#5E6469] text-base sm:text-lg font-normal font-articulat leading-relaxed text-left max-w-[372px] sm:max-w-[500px] md:max-w-[600px]">
             <span className="font-semibold">CFO teams need a system</span> - not
             just software - that ensures consistency, traceability, and control
             across every disclosure touchpoint.
@@ -250,96 +250,96 @@ export default function BuiltForCFO() {
                   isActive ? "border-[#269C7B]" : "border-[#D9DBDD]",
                 )}
               >
-                <button
-                  onClick={() => handleTabClick(index)}
-                  className="w-full py-4 flex items-center gap-4 text-left"
-                >
-                  <motion.div
-                    className={cn(
-                      "w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0",
-                    )}
-                    animate={{
-                      backgroundColor: isActive ? "#29AB87" : "#E8F5F1",
-                    }}
-                    transition={{ duration: 0.3, ease: "easeInOut" }}
-                  >
-                    <IconComponent className="w-5 h-5" isActive={isActive} />
-                  </motion.div>
-                  <span className="text-xl font-medium font-articulat leading-8 tracking-[0.4px] text-[#0E0F10]">
-                    {feature.title}
-                  </span>
-                </button>
-
-                {/* Expanded Content with smooth slide-in animation */}
-                <AnimatePresence initial={false}>
-                  {isActive && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: "auto", opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{
-                        height: { duration: 0.4, ease: [0.4, 0, 0.2, 1] },
-                        opacity: { duration: 0.3, ease: "easeOut" },
-                      }}
-                      className="overflow-hidden"
+                    <button
+                      onClick={() => handleTabClick(index)}
+                      className="w-full py-4 flex items-center gap-4 text-left"
                     >
                       <motion.div
-                        initial={{ y: 20, opacity: 0 }}
-                        animate={{ y: 0, opacity: 1 }}
-                        exit={{ y: 20, opacity: 0 }}
-                        transition={{
-                          duration: 0.4,
-                          delay: 0.05,
-                          ease: [0.4, 0, 0.2, 1],
+                        className={cn(
+                          "w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0",
+                        )}
+                        animate={{
+                          backgroundColor: isActive ? "#29AB87" : "#E8F5F1",
                         }}
-                        className="pb-4 flex flex-col gap-4"
+                        transition={{ duration: 0.3, ease: "easeInOut" }}
                       >
-                        <p className="text-[#3F4346] text-base font-normal font-articulat leading-[25.6px] tracking-[0.32px]">
-                          {feature.description}
-                        </p>
-
-                        {/* Mobile Card with slide-up animation */}
-                        <motion.div
-                          initial={{ y: 30, opacity: 0 }}
-                          animate={{ y: 0, opacity: 1 }}
-                          transition={{
-                            duration: 0.5,
-                            delay: 0.1,
-                            ease: [0.4, 0, 0.2, 1],
-                          }}
-                          className="w-full rounded-[20px] p-6 flex flex-col relative overflow-hidden"
-                          style={{
-                            background:
-                              "linear-gradient(297deg, #29AB87 0%, rgba(0, 0, 0, 0) 100%), #0D352A",
-                            boxShadow: "inset 0px 0px 34px rgba(0, 0, 0, 0.08)",
-                          }}
-                        >
-                          <div className="relative z-10 flex flex-col gap-2">
-                            <span className="text-[#9FA4A9] text-sm font-medium font-articulat leading-[22.4px] tracking-[0.28px]">
-                              With Finrep
-                            </span>
-                            <h3 className="text-white text-xl font-medium font-articulat leading-[28px] tracking-[0.4px]">
-                              {feature.rightHeading}
-                            </h3>
-                          </div>
-
-                          <div className="relative z-10 flex items-center justify-center mt-4">
-                            <Image
-                              src="/assets/images/BuiltForCFO.webp"
-                              alt="Finrep Features"
-                              width={400}
-                              height={280}
-                              className="object-contain w-full"
-                            />
-                          </div>
-                        </motion.div>
+                        <IconComponent className="w-5 h-5" isActive={isActive} />
                       </motion.div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
-            );
-          })}
+                      <span className="text-xl font-medium font-articulat leading-8 tracking-[0.4px] text-[#0E0F10]">
+                        {feature.title}
+                      </span>
+                    </button>
+
+                    {/* Expanded Content with smooth slide-in animation */}
+                    <AnimatePresence initial={false}>
+                      {isActive && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{
+                            height: { duration: 0.4, ease: [0.4, 0, 0.2, 1] },
+                            opacity: { duration: 0.3, ease: "easeOut" },
+                          }}
+                          className="overflow-hidden"
+                        >
+                          <motion.div
+                            initial={{ y: 20, opacity: 0 }}
+                            animate={{ y: 0, opacity: 1 }}
+                            exit={{ y: 20, opacity: 0 }}
+                            transition={{
+                              duration: 0.4,
+                              delay: 0.05,
+                              ease: [0.4, 0, 0.2, 1],
+                            }}
+                            className="pb-4 flex flex-col gap-4"
+                          >
+                            <p className="text-[#3F4346] text-base font-normal font-articulat leading-[25.6px] tracking-[0.32px]">
+                              {feature.description}
+                            </p>
+
+                            {/* Mobile Card with slide-up animation */}
+                            <motion.div
+                              initial={{ y: 30, opacity: 0 }}
+                              animate={{ y: 0, opacity: 1 }}
+                              transition={{
+                                duration: 0.5,
+                                delay: 0.1,
+                                ease: [0.4, 0, 0.2, 1],
+                              }}
+                              className="w-full rounded-[20px] p-6 flex flex-col relative overflow-hidden"
+                              style={{
+                                background:
+                                  "linear-gradient(297deg, #29AB87 0%, rgba(0, 0, 0, 0) 100%), #0D352A",
+                                boxShadow: "inset 0px 0px 34px rgba(0, 0, 0, 0.08)",
+                              }}
+                            >
+                              <div className="relative z-10 flex flex-col gap-2">
+                                <span className="text-[#9FA4A9] text-sm font-medium font-articulat leading-[22.4px] tracking-[0.28px]">
+                                  With Finrep
+                                </span>
+                                <h3 className="text-white text-xl font-medium font-articulat leading-[28px] tracking-[0.4px]">
+                                  {feature.rightHeading}
+                                </h3>
+                              </div>
+
+                              <div className="relative z-10 flex items-center justify-center mt-4">
+                                <Image
+                                  src="/assets/images/BuiltForCFO.webp"
+                                  alt="Finrep Features"
+                                  width={400}
+                                  height={280}
+                                  className="object-contain w-full"
+                                />
+                              </div>
+                            </motion.div>
+                          </motion.div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                );
+              })}
         </div>
 
         {/* Desktop Layout - min-height prevents layout shift when accordion changes */}

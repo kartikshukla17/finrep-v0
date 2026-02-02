@@ -77,7 +77,7 @@ export default function BlogHero() {
               src="/assets/images/articleimage.webp"
               alt="How OFAC Violations Create Immediate SEC Disclosure Triggers"
               fill
-              className="object-cover"
+              className="object-contain"
             />
           </div>
 

@@ -18,7 +18,6 @@ export default function BestPractices({ articles = [] }: BestPracticesProps) {
     <div className="relative w-full bg-white">
       {/* Desktop Layout - 1200px content centered */}
       <div className="hidden lg:flex w-full max-w-[1200px] mx-auto px-6 md:px-8 flex-col gap-8 md:gap-10 lg:gap-12">
-
         {/* Header Row - Title/Subtitle left, View All Articles right */}
         <div className="w-full flex flex-row justify-between items-start">
           <div className="flex flex-col gap-4">
@@ -145,7 +144,11 @@ export default function BestPractices({ articles = [] }: BestPracticesProps) {
         {/* Article Cards - Grid on tablet, stacked on mobile (featured articles, max 3) */}
         <div className="w-full max-w-[372px] sm:max-w-[500px] md:max-w-[600px] flex flex-col sm:flex-row sm:flex-wrap justify-start items-start gap-4 sm:gap-5 md:gap-6">
           {articles.slice(0, 3).map((article) => (
-            <Link key={article.slug} href={`/blogs/${article.slug}`} className="w-full sm:w-[calc(50%-10px)] md:w-[calc(50%-12px)]">
+            <Link
+              key={article.slug}
+              href={`/blogs/${article.slug}`}
+              className="w-full sm:w-[calc(50%-10px)] md:w-[calc(50%-12px)]"
+            >
               <article className="flex flex-col justify-start items-start gap-3 sm:gap-4 hover:opacity-90 transition-opacity">
                 <div className="w-full aspect-[3/2] rounded-lg overflow-hidden">
                   <Image

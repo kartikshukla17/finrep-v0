@@ -39,7 +39,7 @@ export default function ProblemSection() {
                 </div>
 
                 <div>
-                    <div className="flex flex-col gap-0">
+                    <div className="flex flex-col gap-3">
                         {problemItems.map((item, index) => (
                             <IconCard
                                 key={index}

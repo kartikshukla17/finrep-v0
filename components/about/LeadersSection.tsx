@@ -15,7 +15,7 @@ interface LeaderCardProps {
 
 function LeaderCardMobile({ leader }: LeaderCardProps) {
   return (
-    <div className="flex-1 flex flex-col items-center gap-6">
+    <div className="flex-1 flex flex-col items-start gap-6">
       <div className="w-full max-w-[372px] h-[372px] relative overflow-hidden rounded-xl shrink-0">
         <Image
           src={leader.image}
@@ -25,8 +25,8 @@ function LeaderCardMobile({ leader }: LeaderCardProps) {
           className="w-full h-full object-cover"
         />
       </div>
-      <div className="flex-1 flex flex-col items-center gap-6">
-        <div className="flex flex-col items-center gap-2">
+      <div className="flex-1 flex flex-col items-start gap-6">
+        <div className="flex flex-col items-start gap-2">
           <h3 className="text-[#0E0F10] text-[28px] font-medium font-articulat leading-[33.60px]">
             {leader.name}
           </h3>
@@ -150,9 +150,9 @@ export default function LeadersSection() {
   return (
     <>
       {/* Mobile */}
-      <div className="w-full bg-white p-30 lg:hidden ">
-        <div className="max-w-[372px] mx-auto flex flex-col items-center gap-12">
-          <div className="flex flex-col items-center text-center gap-1">
+      <div className="w-full bg-white p-5 lg:hidden ">
+        <div className="max-w-[372px] mx-0 flex flex-col items-start gap-12">
+          <div className="flex flex-col items-start text-left gap-1">
             <h2 className="text-[#0E0F10] text-[42px] font-medium font-articulat leading-normal">
               Our leaders
             </h2>

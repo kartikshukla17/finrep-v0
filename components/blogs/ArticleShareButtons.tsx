@@ -19,7 +19,10 @@ function buildLinkedInShareUrl(articleUrl: string): string {
   return `https://www.linkedin.com/sharing/share-offsite/?url=${url}`;
 }
 
-export default function ArticleShareButtons({ slug, title }: ArticleShareButtonsProps) {
+export default function ArticleShareButtons({
+  slug,
+  title,
+}: ArticleShareButtonsProps) {
   const [articleUrl, setArticleUrl] = useState("");
 
   useEffect(() => {

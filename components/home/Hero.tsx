@@ -62,7 +62,7 @@ const staggerFast = {
 
 export default function Hero() {
   return (
-    <div className="relative w-full min-height:100vh bg-[#0D352A] overflow-hidden">
+    <div className="relative w-full min-height:100vh bg-[#0D352A] overflow-hidden pb-5 lg:pb-0">
       {/* Fixed Header */}
       <Header variant="light" />
 
@@ -246,7 +246,7 @@ export default function Hero() {
 
           {/* Company Logos Section - Ticker/Marquee */}
           <motion.div
-            className="w-full mb-18.75"
+            className="w-full lg:mb-18.75"
             variants={fadeInUp}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           >

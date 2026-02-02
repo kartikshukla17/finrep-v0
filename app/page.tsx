@@ -1,16 +1,16 @@
-import { pageMetadata } from "@/lib/metadata";
-import type { Metadata } from "next";
 import {
-  Hero,
+  BestPractices,
   BuiltForCFO,
   CommentLetterExplorer,
-  OutcomeInPractice,
   CustomAI,
-  BestPractices,
   FAQ,
+  Hero,
+  OutcomeInPractice,
 } from "@/components/home";
 import Footer from "@/components/layout/Footer";
+import { pageMetadata } from "@/lib/metadata";
 import { getFeaturedBlogPosts } from "@/lib/server/blog";
+import type { Metadata } from "next";
 
 export const metadata: Metadata = pageMetadata.home;
 

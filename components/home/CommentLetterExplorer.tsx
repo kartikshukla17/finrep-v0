@@ -7,12 +7,8 @@ import {
   useMotionValueEvent,
   useScroll,
 } from "framer-motion";
-import { ArrowRight } from "lucide-react";
 import Image from "next/image";
-import { useCallback, useEffect, useRef, useState } from "react";
-
-// Auto-advance duration for mobile
-const MOBILE_SLIDE_DURATION = 5000;
+import { useRef, useState } from "react";
 
 // Navigation tabs data
 const navigationTabs = [
@@ -147,357 +143,13 @@ const navigationTabs = [
       },
     ],
   },
-  {
-    id: "investor-relations",
-    label: "Investor Relations",
-    sections: [
-      {
-        id: 1,
-        title: "Calibrate Peer Messaging with Disclosure Comparison",
-        mobileTitle: "Calibrate Peer Messaging",
-        description:
-          "Compare disclosure language across peers and prior periods to ensure messaging aligns with investor expectations before earnings and public communications.",
-        mobileDescription:
-          "Compare disclosure language across peers and prior periods to ensure messaging aligns with investor expectations.",
-        image: "/assets/commentletterexplorer/sec-reporting-4.png",
-        benefits: [
-          {
-            text: "Peer disclosure alignment",
-            mobileBenefit: "Peer disclosure alignment",
-            badge: null,
-          },
-          {
-            text: "Cross-period consistency",
-            mobileBenefit: "Cross-period consistency",
-            badge: null,
-          },
-          {
-            text: "Narrative comparison",
-            mobileBenefit: "Narrative comparison",
-            badge: "Most Liked",
-          },
-        ],
-      },
-      {
-        id: 2,
-        title: "Extract Investor-Relevant Themes with AI Grid Reports",
-        mobileTitle: "Extract Investor-Relevant Themes",
-        description:
-          "Analyze MD&A and risk disclosures across peers using structured grids to surface patterns and themes relevant for earnings prep and leadership briefings.",
-        mobileDescription:
-          "Analyze MD&A and risk disclosures across peers using structured grids to surface patterns.",
-        image: "/assets/commentletterexplorer/sec-reporting-3.png",
-        benefits: [
-          {
-            text: "MD&A pattern analysis",
-            mobileBenefit: "MD&A pattern analysis",
-            badge: null,
-          },
-          {
-            text: "Peer theme extraction",
-            mobileBenefit: "Peer theme extraction",
-            badge: null,
-          },
-          {
-            text: "Verbatim disclosure support",
-            mobileBenefit: "Verbatim disclosure support",
-            badge: "Most Liked",
-          },
-        ],
-      },
-      {
-        id: 3,
-        title: "Prepare Defensible Investor Answers with Ask Fina",
-        mobileTitle: "Prepare Defensible Investor Answers",
-        description:
-          "Generate citeable answers to investor questions using public filings, peer disclosures, and approved internal documents to reduce misstatement risk.",
-        mobileDescription:
-          "Generate citeable answers to investor questions using public filings and peer disclosures.",
-        image: "/assets/commentletterexplorer/sec-reporting-1.png",
-        benefits: [
-          {
-            text: "Filing-backed responses",
-            mobileBenefit: "Filing-backed responses",
-            badge: null,
-          },
-          {
-            text: "Scoped disclosure context",
-            mobileBenefit: "Scoped disclosure context",
-            badge: null,
-          },
-          {
-            text: "Fast Q&A preparation",
-            mobileBenefit: "Fast Q&A preparation",
-            badge: "Most Liked",
-          },
-        ],
-      },
-    ],
-  },
-  {
-    id: "legal",
-    label: "Legal",
-    sections: [
-      {
-        id: 1,
-        title:
-          "File Section 16 Forms Correctly with Form Creation and EDGAR Submission",
-        mobileTitle: "File Section 16 Forms Correctly",
-        description:
-          "Draft and file Forms 3, 4, and 5 directly from a validated transaction ledger with controlled EDGAR submission to reduce filing and math errors under deadline pressure.",
-        mobileDescription:
-          "Draft and file Forms 3, 4, and 5 directly from a validated transaction ledger with controlled EDGAR submission.",
-        image: "/assets/commentletterexplorer/legal-1.png",
-        benefits: [
-          {
-            text: "Inline form validation",
-            mobileBenefit: "Inline form validation",
-            badge: null,
-          },
-          {
-            text: "EDGAR submission control",
-            mobileBenefit: "EDGAR submission control",
-            badge: null,
-          },
-          {
-            text: "Accession tracking",
-            mobileBenefit: "Accession tracking",
-            badge: "Most Liked",
-          },
-        ],
-      },
-      {
-        id: 2,
-        title: "Avoid Missed Form 4 Deadlines with Insider Dashboard",
-        mobileTitle: "Avoid Missed Form 4 Deadlines",
-        description:
-          "Monitor Form 4 risk, drafts in progress, and upcoming ownership events daily to ensure statutory deadlines are met.",
-        mobileDescription:
-          "Monitor Form 4 risk, drafts in progress, and upcoming ownership events daily.",
-        image: "/assets/commentletterexplorer/legal-2.png",
-        benefits: [
-          {
-            text: "Filing risk signals",
-            mobileBenefit: "Filing risk signals",
-            badge: null,
-          },
-          {
-            text: "Draft status visibility",
-            mobileBenefit: "Draft status visibility",
-            badge: null,
-          },
-          {
-            text: "Vesting-based alerts",
-            mobileBenefit: "Vesting-based alerts",
-            badge: "Most Liked",
-          },
-        ],
-      },
-      {
-        id: 3,
-        title:
-          "Surface Unreported Ownership Events with Unreported Transactions Queue",
-        mobileTitle: "Surface Unreported Ownership Events",
-        description:
-          "Identify and resolve ownership events not yet reflected in SEC filings before they become compliance issues.",
-        mobileDescription:
-          "Identify and resolve ownership events not yet reflected in SEC filings.",
-        image: "/assets/commentletterexplorer/legal-3.png",
-        benefits: [
-          {
-            text: "Unreported event queue",
-            mobileBenefit: "Unreported event queue",
-            badge: null,
-          },
-          {
-            text: "Reportable classification",
-            mobileBenefit: "Reportable classification",
-            badge: null,
-          },
-          {
-            text: "Draft promotion",
-            mobileBenefit: "Draft promotion",
-            badge: "Most Liked",
-          },
-        ],
-      },
-      {
-        id: 4,
-        title: "Defend Legal Review Positions with Ask Fina",
-        mobileTitle: "Defend Legal Review Positions",
-        description:
-          "Support disclosure and filing decisions with citeable SEC precedent, guidance, and internal policy references during legal and audit review.",
-        mobileDescription:
-          "Support disclosure and filing decisions with citeable SEC precedent and guidance.",
-        image: "/assets/commentletterexplorer/legal-4.png",
-        benefits: [
-          {
-            text: "SEC-backed citations",
-            mobileBenefit: "SEC-backed citations",
-            badge: null,
-          },
-          {
-            text: "Source inspection",
-            mobileBenefit: "Source inspection",
-            badge: null,
-          },
-          {
-            text: "Policy comparison",
-            mobileBenefit: "Policy comparison",
-            badge: "Most Liked",
-          },
-        ],
-      },
-      {
-        id: 5,
-        title: "Anticipate SEC Enforcement Focus with Comment Letter Explorer",
-        mobileTitle: "Anticipate SEC Enforcement Focus",
-        description:
-          "Analyze historical and recent SEC comment letters to understand enforcement trends and pressure-test disclosures proactively.",
-        mobileDescription:
-          "Analyze historical and recent SEC comment letters to understand enforcement trends.",
-        image: "/assets/commentletterexplorer/legal-5.png",
-        benefits: [
-          {
-            text: "Enforcement pattern analysis",
-            mobileBenefit: "Enforcement pattern analysis",
-            badge: null,
-          },
-          {
-            text: "Full comment threads",
-            mobileBenefit: "Full comment threads",
-            badge: null,
-          },
-          {
-            text: "Risk-focused reporting",
-            mobileBenefit: "Risk-focused reporting",
-            badge: "Most Liked",
-          },
-        ],
-      },
-    ],
-  },
-  {
-    id: "technical-accounting",
-    label: "Technical Accounting",
-    sections: [
-      {
-        id: 1,
-        title: "Support Accounting Judgments with Ask Fina",
-        mobileTitle: "Support Accounting Judgments",
-        description:
-          "Research authoritative guidance, peer filings, and internal accounting memos in one place with inspectable citations to support technical conclusions and policy decisions.",
-        mobileDescription:
-          "Research authoritative guidance, peer filings, and internal accounting memos in one place.",
-        image: "/assets/commentletterexplorer/technical-accounting-1.png",
-        benefits: [
-          {
-            text: "FASB-linked citations",
-            mobileBenefit: "FASB-linked citations",
-            badge: null,
-          },
-          {
-            text: "Peer filing precedent",
-            mobileBenefit: "Peer filing precedent",
-            badge: null,
-          },
-          {
-            text: "Source inspection",
-            mobileBenefit: "Source inspection",
-            badge: "Most Liked",
-          },
-        ],
-      },
-      {
-        id: 2,
-        title: "Ensure Disclosure Completeness with Checklist Benchmarking",
-        mobileTitle: "Ensure Disclosure Completeness",
-        description:
-          "Review disclosures against FASB-aligned checklists mapped to evidence in your filing and peer filings to identify gaps early.",
-        mobileDescription:
-          "Review disclosures against FASB-aligned checklists mapped to evidence in your filing.",
-        image: "/assets/commentletterexplorer/technical-accounting-2.png",
-        benefits: [
-          {
-            text: "FASB-aligned checklists",
-            mobileBenefit: "FASB-aligned checklists",
-            badge: null,
-          },
-          {
-            text: "Evidence-linked items",
-            mobileBenefit: "Evidence-linked items",
-            badge: null,
-          },
-          {
-            text: "Gap identification",
-            mobileBenefit: "Gap identification",
-            badge: "Most Liked",
-          },
-        ],
-      },
-      {
-        id: 3,
-        title: "Analyze Peer Accounting Treatment with AI Grid Reports",
-        mobileTitle: "Analyze Peer Accounting Treatment",
-        description:
-          "Compare how peers disclose complex accounting topics across periods using structured grids with verbatim excerpts or AI summaries.",
-        mobileDescription:
-          "Compare how peers disclose complex accounting topics across periods.",
-        image: "/assets/commentletterexplorer/technical-accounting-3.png",
-        benefits: [
-          {
-            text: "Consistent review lens",
-            mobileBenefit: "Consistent review lens",
-            badge: null,
-          },
-          {
-            text: "Verbatim disclosure excerpts",
-            mobileBenefit: "Verbatim disclosure excerpts",
-            badge: null,
-          },
-          {
-            text: "Cross-period analysis",
-            mobileBenefit: "Cross-period analysis",
-            badge: "Most Liked",
-          },
-        ],
-      },
-      {
-        id: 4,
-        title: "Reduce Wording Risk with Disclosure Comparison",
-        mobileTitle: "Reduce Wording Risk",
-        description:
-          "Validate disclosure wording and completeness by comparing exact peer language side by side before finalizing disclosures.",
-        mobileDescription:
-          "Validate disclosure wording and completeness by comparing exact peer language.",
-        image: "/assets/commentletterexplorer/technical-accounting-4.png",
-        benefits: [
-          {
-            text: "Exact language comparison",
-            mobileBenefit: "Exact language comparison",
-            badge: null,
-          },
-          {
-            text: "Completeness validation",
-            mobileBenefit: "Completeness validation",
-            badge: null,
-          },
-          {
-            text: "Faster review",
-            mobileBenefit: "Faster review",
-            badge: "Most Liked",
-          },
-        ],
-      },
-    ],
-  },
 ];
 
 export default function CommentLetterExplorer() {
   const [activeTab, setActiveTab] = useState(0);
   const [activeSection, setActiveSection] = useState(0);
-  const [mobileActiveSection, setMobileActiveSection] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
+  const mobileContainerRef = useRef<HTMLDivElement>(null);
 
   const currentTab = navigationTabs[activeTab];
   const sections = currentTab.sections;
@@ -508,7 +160,7 @@ export default function CommentLetterExplorer() {
     offset: ["start start", "end end"],
   });
 
-  // Only allows advancing one section at a time to prevent skipping sections
+  // Only allows advancing one section at a time to prevent skipping sections (desktop)
   useMotionValueEvent(scrollYProgress, "change", (progress) => {
     const clampedProgress = Math.max(0, Math.min(0.999, progress));
     const n = sections.length;
@@ -533,138 +185,97 @@ export default function CommentLetterExplorer() {
     }
   });
 
-  // Auto-advance for mobile
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setMobileActiveSection((prev) => (prev + 1) % sections.length);
-    }, MOBILE_SLIDE_DURATION);
-
-    return () => clearTimeout(timer);
-  }, [mobileActiveSection, sections.length]);
-
-  // Handle tab change
-  const handleTabChange = useCallback((idx: number) => {
-    setActiveTab(idx);
-    setActiveSection(0);
-    setMobileActiveSection(0);
-  }, []);
-
-  const mobileSection = sections[mobileActiveSection];
-
   return (
     <section id="solutions">
-      {/* Mobile Layout - No scroll-driven behavior, with layout containment */}
+      {/* Mobile Layout - Vertically scrollable/swipeable cards */}
       <div
-        className="lg:hidden w-full bg-white py-6 sm:py-8 md:py-10"
-        style={{ contain: "layout" }}
+        ref={mobileContainerRef}
+        className="lg:hidden w-full bg-white overflow-y-scroll snap-y snap-mandatory"
+        style={{
+          height: "100vh",
+          scrollBehavior: "smooth",
+        }}
       >
-        <div className="px-4 sm:px-6 md:px-8 max-w-[600px] md:max-w-[700px] mx-auto flex flex-col gap-5 sm:gap-6 md:gap-8">
-          {/* Mobile Horizontal Tabs - Hidden for now */}
-          {/* <div className="flex gap-3 overflow-x-auto pb-2 scrollbar-hide -mx-4 px-4">
-            {navigationTabs.map((tab, idx) => {
-              const isActive = idx === activeTab;
-              return (
-                <button
-                  key={tab.id}
-                  onClick={() => handleTabChange(idx)}
-                  className={cn(
-                    "px-[19px] py-2 rounded-full text-sm font-articulat whitespace-nowrap transition-all flex-shrink-0",
-                    isActive
-                      ? "bg-[#D6F5EC] text-[#134E3D] font-medium shadow-[inset_0px_0px_8px_rgba(0,135,67,0.09)] border border-[#21886B]"
-                      : "bg-white text-[#0E0F10] font-normal border border-[#D9DBDD]",
-                  )}
-                >
-                  {tab.label}
-                </button>
-              );
-            })}
-          </div> */}
-
-          {/* Mobile Image Mockup */}
-          <div className="w-full aspect-[4/3] relative overflow-hidden rounded-lg">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={`mobile-${activeTab}-${mobileActiveSection}`}
-                initial={{ opacity: 0, scale: 0.98 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.98 }}
-                transition={{ duration: 0.35, ease: [0.4, 0, 0.2, 1] }}
-                className="absolute inset-0"
-              >
-                <MobileMockup image={mobileSection.image} />
-              </motion.div>
-            </AnimatePresence>
-          </div>
-
-          {/* Mobile Content */}
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={`mobile-content-${activeTab}-${mobileActiveSection}`}
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -12 }}
-              transition={{ duration: 0.35, ease: [0.4, 0, 0.2, 1] }}
-              className="flex flex-col gap-6"
-            >
-              {/* Section Number */}
-              <span className="text-[#0E0F10] text-xs font-medium font-articulat">
-                0{mobileSection.id}
-              </span>
-
-              {/* Title & Description */}
-              <div className="flex flex-col gap-3 sm:gap-4">
-                <h3 className="text-[#0E0F10] text-[24px] sm:text-[26px] md:text-[28px] font-medium font-articulat leading-tight">
-                  {mobileSection.mobileTitle || mobileSection.title}
-                </h3>
-                <p className="text-[#5E6469] text-base sm:text-lg font-normal font-articulat leading-relaxed">
-                  {mobileSection.mobileDescription || mobileSection.description}
-                </p>
+        {/* Scrollable cards - each card takes full viewport height */}
+        {sections.map((section, index) => (
+          <div
+            key={section.id}
+            className="min-h-screen snap-start flex items-center justify-center py-6 sm:py-8 md:py-10"
+          >
+            <div className="px-4 sm:px-6 md:px-8 max-w-[600px] md:max-w-[700px] mx-auto w-full flex flex-col gap-5 sm:gap-6 md:gap-8">
+              {/* Mobile Image - image1.png, image2.png, etc. (no container) */}
+              <div className="w-full aspect-[4/4] relative overflow-hidden rounded-[8px]">
+                <Image
+                  src={`/assets/commentletterexplorer/mobile/image${index + 1}.png`}
+                  alt="Feature preview"
+                  fill
+                  className="object-contain rounded-[8px]"
+                />
               </div>
 
-              {/* Benefits */}
-              <div className="flex flex-col gap-2.5 sm:gap-3">
-                {mobileSection.benefits.map((benefit, idx) => (
-                  <div key={idx} className="flex items-center gap-2.5">
-                    {/* Checkbox Icon */}
-                    <div className="w-4 h-4 sm:w-5 sm:h-5 bg-[#0E0F10] rounded flex items-center justify-center flex-shrink-0">
-                      <div className="w-2 h-2 sm:w-2.5 sm:h-2.5 bg-white rounded-full" />
-                    </div>
-                    <span className="text-[#0E0F10] text-base sm:text-lg font-medium font-articulat">
-                      {benefit.mobileBenefit || benefit.text}
-                    </span>
-                    {benefit.badge && (
-                      <div className="px-1 py-1 bg-gradient-to-br from-[#CC1C0F] to-[#FFAF42] rounded-lg flex items-center gap-1">
-                        <Image
-                          src="/assets/icons/solar_star-fall-2-bold-duotone.svg"
-                          alt="Star"
-                          width={16}
-                          height={16}
-                        />
-                        <span className="text-white text-xs font-semibold font-articulat">
-                          {benefit.badge}
-                        </span>
+              {/* Mobile Content */}
+              <div className="flex flex-col gap-6">
+                {/* Section Number */}
+                <span className="text-[#0E0F10] text-xs font-medium font-articulat">
+                  0{section.id}
+                </span>
+
+                {/* Title & Description */}
+                <div className="flex flex-col gap-3 sm:gap-4">
+                  <h3 className="text-[#0E0F10] text-[24px] sm:text-[26px] md:text-[28px] font-medium font-articulat leading-tight">
+                    {section.title}
+                  </h3>
+                  <p className="text-[#5E6469] text-base sm:text-lg font-normal font-articulat leading-relaxed">
+                    {section.description}
+                  </p>
+                </div>
+
+                {/* Benefits */}
+                <div className="flex flex-col gap-2.5 sm:gap-3">
+                  {section.benefits.map((benefit, idx) => (
+                    <div key={idx} className="flex items-center gap-2.5">
+                      {/* Checkbox Icon */}
+                      <div className="w-4 h-4 sm:w-5 sm:h-5 bg-[#0E0F10] rounded flex items-center justify-center flex-shrink-0">
+                        <div className="w-2 h-2 sm:w-2.5 sm:h-2.5 bg-white rounded-full" />
                       </div>
-                    )}
-                  </div>
-                ))}
+                      <span className="text-[#0E0F10] text-base sm:text-lg font-medium font-articulat">
+                        {benefit.text}
+                      </span>
+                      {benefit.badge && (
+                        <div className="px-1 py-1 bg-gradient-to-br from-[#CC1C0F] to-[#FFAF42] rounded-lg flex items-center gap-1">
+                          <Image
+                            src="/assets/icons/solar_star-fall-2-bold-duotone.svg"
+                            alt="Star"
+                            width={16}
+                            height={16}
+                          />
+                          <span className="text-white text-xs font-semibold font-articulat">
+                            {benefit.badge}
+                          </span>
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
               </div>
+            </div>
+          </div>
+        ))}
+      </div>
 
-              {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-                <button className="flex-1 px-5 sm:px-6 py-2.5 sm:py-3 rounded-lg border border-[#29AB87] flex items-center justify-center gap-1">
-                  <span className="text-[#269C7B] text-base sm:text-lg font-medium font-articulat">
-                    Try Now
-                  </span>
-                  <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 text-[#29AB87]" />
-                </button>
-                <button className="flex-1 px-5 sm:px-6 py-2.5 sm:py-3 bg-[#29AB87] rounded-lg">
-                  <span className="text-[#F4FBF8] text-base sm:text-lg font-medium font-articulat">
-                    Book a Demo
-                  </span>
-                </button>
-              </div>
-            </motion.div>
-          </AnimatePresence>
+      {/* Request Access Button - Positioned below CommentLetterExplorer, above OutcomeInPractice (mobile only) */}
+      <div className="lg:hidden w-full bg-white px-4 sm:px-6 pb-6 sm:pb-8">
+        <div className="max-w-[600px] md:max-w-[700px] mx-auto">
+          <a
+            href="https://cal.com/gana-finrep/intro?duration=15"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full px-5 sm:px-6 py-3 sm:py-3.5 bg-[#29AB87] rounded-lg flex items-center justify-center hover:bg-[#238f73] transition-colors"
+          >
+            <span className="text-[#F4FBF8] text-base sm:text-lg font-medium font-articulat">
+              Request Access
+            </span>
+          </a>
         </div>
       </div>
 
@@ -678,10 +289,10 @@ export default function CommentLetterExplorer() {
         }}
       >
         {/* Sticky content that stays in view - offset for header */}
-        <div className="comment-letter-sticky sticky top-[75px] h-[calc(100vh-75px)] overflow-hidden flex items-center">
-          <div className="comment-letter-inner w-full max-h-[800px] h-full mx-auto flex flex-row items-stretch">
+        <div className="comment-letter-sticky sticky top-[75px] h-[calc(100vh-75px)] overflow-y-auto flex items-center">
+          <div className="comment-letter-inner w-full h-full mx-auto flex flex-row items-stretch">
             {/* Left Content Section */}
-            <div className="flex-1 flex flex-col justify-start items-start gap-12 pl-6 lg:pl-10 py-8">
+            <div className="flex-1 flex flex-col justify-start items-start gap-12 pl-6 lg:pl-10 py-8 overflow-y-auto">
               {/* Main Content with Numbered List and Active Section */}
               <div className="w-full flex justify-start items-start gap-8 lg:gap-16">
                 {/* Numbered List - Clickable */}
@@ -718,7 +329,7 @@ export default function CommentLetterExplorer() {
                 <div className="flex-1 max-w-[450px] lg:max-w-[545px] flex flex-col justify-start items-start gap-6 lg:gap-9">
                   <AnimatePresence mode="wait">
                     <SectionContent
-                      key={`${activeTab}-${activeSection}`}
+                      key={activeSection}
                       section={sections[activeSection]}
                     />
                   </AnimatePresence>
@@ -747,34 +358,6 @@ export default function CommentLetterExplorer() {
         </div>
       </div>
     </section>
-  );
-}
-
-// Mobile Mockup Component with browser chrome
-function MobileMockup({ image }: { image: string }) {
-  return (
-    <div className="w-full h-full relative bg-gradient-to-br from-[#f8f9fa] to-[#e9ecef] rounded-lg overflow-hidden">
-      {/* Browser Window */}
-      <div className="absolute left-4 top-4 right-4 bottom-4 bg-gradient-to-b from-[#0B0B0B] to-[#181818] rounded-xl shadow-2xl overflow-hidden border border-white/5">
-        {/* Browser Chrome */}
-        <div className="px-3 py-2 flex items-center gap-2 bg-gradient-to-b from-white/10 to-transparent">
-          <div className="flex gap-1.5">
-            <div className="w-2.5 h-2.5 rounded-full bg-[#F9837B]" />
-            <div className="w-2.5 h-2.5 rounded-full bg-[#F5BD4F] opacity-45" />
-            <div className="w-2.5 h-2.5 rounded-full bg-[#68CC58] opacity-85" />
-          </div>
-        </div>
-        {/* Content */}
-        <div className="relative w-full h-[calc(100%-32px)]">
-          <Image
-            src={image}
-            alt="Feature preview"
-            fill
-            className="object-cover"
-          />
-        </div>
-      </div>
-    </div>
   );
 }
 

@@ -158,7 +158,7 @@ export default function Header({ variant = "light" }: HeaderProps) {
               rel="noopener noreferrer"
               className={`px-6 py-2 rounded-lg border transition-all duration-300 inline-flex items-center ${
                 isScrolled
-                  ? "bg-white border-[#51A88B] text-[#51A88B] hover:bg-transparent hover:text-white"
+                  ? "bg-white border-[#51A88B] text-[#51A88B] hover:bg-transparent"
                   : "bg-transparent border-[#29AB8766] text-white hover:bg-[#29AB8766] hover:border-[#29AB8766]"
               }`}
             >

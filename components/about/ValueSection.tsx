@@ -10,7 +10,7 @@ interface ValueCardProps {
 function ValueCardMobile({ title, description, icon }: ValueCardProps) {
     return (
         <div
-            className="relative h-[372px] p-6 rounded-lg overflow-hidden flex flex-col gap-3"
+            className="relative h-[372px] p-6 rounded-lg overflow-hidden flex flex-col gap-3 w-full"
             style={{
                 background: 'radial-gradient(ellipse 100% 100% at 100.09% 100%, #1B6651 0%, #134E3D 100%)'
             }}
@@ -19,12 +19,12 @@ function ValueCardMobile({ title, description, icon }: ValueCardProps) {
                 <h3 className="text-white text-[28px] font-medium font-articulat leading-[39.20px]">
                     {title}
                 </h3>
-                <p className="text-white text-xl font-normal font-articulat leading-7">
+                <p className="text-white text-xl font-normal font-articulat leading-[28px]">
                     {description}
                 </p>
             </div>
-            <div className="absolute left-0 bottom-0 w-full h-full overflow-hidden">
-                <div className="absolute -left-2 -bottom-2 w-[180px] h-[180px]">
+            <div className="absolute w-[216px] h-[216px] left-[-64px] top-[227px] overflow-hidden">
+                <div className="absolute w-[180px] h-[180px] left-[18px] top-[18px]">
                     <Image
                         src={icon}
                         alt=""
@@ -92,8 +92,8 @@ export default function ValueSection() {
         <>
             {/* Mobile */}
             <div className="w-full bg-white py-12 px-5 lg:hidden ">
-                <div className="max-w-[372px] mx-auto flex flex-col items-center gap-12">
-                    <div className="flex flex-col items-center text-center gap-1">
+                <div className="max-w-[372px] mx-auto flex flex-col items-start gap-12">
+                    <div className="flex flex-col items-start gap-1">
                         <h2 className="text-[#0E0F10] text-[42px] font-medium font-articulat leading-normal">
                             The value
                         </h2>

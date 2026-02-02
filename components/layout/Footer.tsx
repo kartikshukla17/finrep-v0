@@ -111,12 +111,7 @@ export default function Footer() {
           <div className="lg:hidden flex flex-col sm:flex-row justify-center items-center gap-2 sm:gap-3">
             <button className="w-full sm:w-auto px-5 sm:px-6 py-3 sm:py-4 bg-[#29AB87] rounded-lg flex justify-center items-center cursor-pointer hover:bg-[#238f73] transition-colors">
               <span className="text-[#F4FBF8] text-base sm:text-lg font-medium font-articulat whitespace-nowrap">
-                Book a Demo
-              </span>
-            </button>
-            <button className="w-full sm:w-auto px-5 sm:px-6 py-3 sm:py-4 bg-[#0E0F10] rounded-lg flex justify-center items-center cursor-pointer hover:bg-[#2a2c2e] transition-colors">
-              <span className="text-[#F4FBF8] text-base sm:text-lg font-medium font-articulat whitespace-nowrap">
-                Register for a Free Trial
+                Request Access
               </span>
             </button>
           </div>
@@ -139,30 +134,33 @@ export default function Footer() {
         {/* Navigation and Footer Content */}
         <div className="flex flex-col justify-start items-center gap-6 sm:gap-8 md:gap-10 lg:gap-12 w-full">
           {/* Mobile Navigation - Stacked vertically */}
-          <div className="lg:hidden w-full max-w-[372px] sm:max-w-[500px] md:max-w-[600px] flex flex-row justify-start items-start gap-8 sm:gap-10 md:gap-12">
-            {navigationSections.map((section, sectionIdx) => (
-              <div
-                key={sectionIdx}
-                className="flex flex-col justify-start items-start gap-3"
-              >
-                <span className="text-[#9FA4A9] text-xs font-medium font-articulat leading-[16.80px]">
-                  {section.title}
-                </span>
-                {section.links.map((link, linkIdx) => (
-                  <Link
-                    key={linkIdx}
-                    href={link.href}
-                    {...(link.external
-                      ? { target: "_blank", rel: "noopener noreferrer" }
-                      : {})}
-                    className="text-[#0E0F10] text-sm font-normal font-articulat leading-[19.60px] hover:text-[#29AB87] transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                ))}
-              </div>
-            ))}
-            {/* Security Badges - Mobile */}
+          <div className="lg:hidden w-full max-w-[372px] sm:max-w-[500px] md:max-w-[600px] flex flex-col justify-start items-start gap-6 sm:gap-8">
+            {/* Company and Resources sections side by side */}
+            <div className="flex flex-row justify-start items-start gap-8 sm:gap-10 md:gap-12 w-full">
+              {navigationSections.map((section, sectionIdx) => (
+                <div
+                  key={sectionIdx}
+                  className="flex flex-col justify-start items-start gap-3"
+                >
+                  <span className="text-[#9FA4A9] text-xs font-medium font-articulat leading-[16.80px]">
+                    {section.title}
+                  </span>
+                  {section.links.map((link, linkIdx) => (
+                    <Link
+                      key={linkIdx}
+                      href={link.href}
+                      {...(link.external
+                        ? { target: "_blank", rel: "noopener noreferrer" }
+                        : {})}
+                      className="text-[#0E0F10] text-sm font-normal font-articulat leading-[19.60px] hover:text-[#29AB87] transition-colors"
+                    >
+                      {link.label}
+                    </Link>
+                  ))}
+                </div>
+              ))}
+            </div>
+            {/* Security Badges - Mobile - Below Company and Resources */}
             <div className="flex justify-start items-start gap-4">
               <img
                 src="/assets/images/SOC2.webp"

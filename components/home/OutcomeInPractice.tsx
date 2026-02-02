@@ -91,7 +91,7 @@ export default function OutcomeInPractice() {
         >
           <span className="text-center text-[#134E3D] text-sm lg:text-base font-medium font-articulat leading-[19.60px] lg:leading-[22.40px] whitespace-nowrap">
             Why top firms are switching to Finrep
-                   </span>
+          </span>
           <SquareArrowOutUpRight className="w-6 h-6 text-[#134E3D] shrink-0" />
         </a>
       </div>
