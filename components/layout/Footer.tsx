@@ -59,8 +59,7 @@ const navigationSections: {
       },
       {
         label: "Security",
-        href: "https://finrep.ai/#securitynw",
-        external: true,
+        href: "/security",
       },
       {
         label: "Privacy Policy",

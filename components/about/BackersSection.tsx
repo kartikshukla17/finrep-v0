@@ -7,12 +7,6 @@ const backerLogos = [
     width: 125,
     height: 40,
   },
-  {
-    src: "/assets/company_logos/pie-ventures-logo.svg",
-    alt: "PIE - Pierian Services",
-    width: 100,
-    height: 42,
-  },
 ];
 
 export default function BackersSection() {

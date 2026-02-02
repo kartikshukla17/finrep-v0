@@ -1,6 +1,131 @@
-# Security at Finrep
+import ReactMarkdown, { Components } from "react-markdown";
+import remarkGfm from "remark-gfm";
+import rehypeRaw from "rehype-raw";
+import rehypeSlug from "rehype-slug";
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
+import ArticleHeader from "@/components/blogs/ArticleHeader";
+import { pageMetadata } from "@/lib/metadata";
+import type { Metadata } from "next";
 
-**Enterprise-grade protection for financial intelligence**
+export const metadata: Metadata = pageMetadata.security;
+
+// Custom components for ReactMarkdown
+const markdownComponents: Components = {
+  h1: ({ children, id }) => (
+    <h1 id={id} className="text-3xl md:text-4xl font-semibold text-[#0E0F10] mt-10 mb-6 font-articulat scroll-mt-28">
+      {children}
+    </h1>
+  ),
+  h2: ({ children, id }) => (
+    <h2 id={id} className="text-2xl md:text-[28px] font-medium text-[#0E0F10] mt-10 mb-4 font-articulat leading-tight scroll-mt-28">
+      {children}
+    </h2>
+  ),
+  h3: ({ children, id }) => (
+    <h3 id={id} className="text-xl md:text-2xl font-medium text-[#0E0F10] mt-8 mb-3 font-articulat scroll-mt-28">
+      {children}
+    </h3>
+  ),
+  h4: ({ children, id }) => (
+    <h4 id={id} className="text-lg md:text-xl font-medium text-[#0E0F10] mt-6 mb-2 font-articulat scroll-mt-28">
+      {children}
+    </h4>
+  ),
+  p: ({ children }) => (
+    <p className="text-base leading-7 text-[#0E0F10] mb-4 font-articulat">
+      {children}
+    </p>
+  ),
+  ul: ({ children }) => (
+    <ul className="list-disc list-outside pl-6 my-4 space-y-2 text-[#0E0F10] font-articulat">
+      {children}
+    </ul>
+  ),
+  ol: ({ children }) => (
+    <ol className="list-decimal list-outside pl-6 my-4 space-y-2 text-[#0E0F10] font-articulat">
+      {children}
+    </ol>
+  ),
+  li: ({ children }) => (
+    <li className="text-base leading-7 text-[#0E0F10]">
+      {children}
+    </li>
+  ),
+  blockquote: ({ children }) => (
+    <blockquote className="border-l-4 border-[#17453E] pl-4 my-6 italic text-[#5E6469] font-articulat">
+      {children}
+    </blockquote>
+  ),
+  a: ({ href, children }) => (
+    <a
+      href={href}
+      className="text-[#17453E] underline hover:text-[#0D352A] transition-colors"
+      target={href?.startsWith("http") ? "_blank" : undefined}
+      rel={href?.startsWith("http") ? "noopener noreferrer" : undefined}
+    >
+      {children}
+    </a>
+  ),
+  code: ({ className, children }) => {
+    const isInline = !className;
+    if (isInline) {
+      return (
+        <code className="bg-[#F5F5F5] text-[#17453E] px-1.5 py-0.5 rounded text-sm font-mono">
+          {children}
+        </code>
+      );
+    }
+    return (
+      <code className={`${className} block`}>
+        {children}
+      </code>
+    );
+  },
+  pre: ({ children }) => (
+    <pre className="bg-[#1E1E1E] text-[#D4D4D4] p-4 rounded-lg overflow-x-auto my-6 font-mono text-sm">
+      {children}
+    </pre>
+  ),
+  table: ({ children }) => (
+    <div className="overflow-x-auto my-6">
+      <table className="min-w-full border-collapse border border-[#E5E7EB]">
+        {children}
+      </table>
+    </div>
+  ),
+  thead: ({ children }) => (
+    <thead className="bg-[#F9FAFB]">
+      {children}
+    </thead>
+  ),
+  th: ({ children }) => (
+    <th className="border border-[#E5E7EB] px-4 py-2 text-left font-medium text-[#0E0F10]">
+      {children}
+    </th>
+  ),
+  td: ({ children }) => (
+    <td className="border border-[#E5E7EB] px-4 py-2 text-[#0E0F10]">
+      {children}
+    </td>
+  ),
+  hr: () => (
+    <hr className="my-8 border-t border-[#E5E7EB]" />
+  ),
+  strong: ({ children }) => (
+    <strong className="font-semibold text-[#0E0F10]">
+      {children}
+    </strong>
+  ),
+  em: ({ children }) => (
+    <em className="italic">
+      {children}
+    </em>
+  ),
+};
+
+const securityContent = `**Enterprise-grade protection for financial intelligence**
 
 At Finrep, security is not a compliance checkbox. It is the foundation on which the platform is built.
 
@@ -116,7 +241,7 @@ These models:
 - Never transmit data outside our infrastructure
 - Generate full audit logs
 
-This ensures that confidential financial data **never leaves Finrep’s controlled environment.**
+This ensures that confidential financial data **never leaves Finrep's controlled environment.**
 
 ---
 
@@ -242,4 +367,37 @@ Enterprise customers can request:
 - Data flow architecture
 - Security questionnaires
 
-Contact: **security@finrep.ai**
+Contact: **security@finrep.ai**`;
+
+export default function SecurityPage() {
+  return (
+    <div className="relative w-full bg-white min-h-screen flex flex-col font-articulat">
+      <Header variant="dark" />
+
+      <main className="flex-1 w-full pt-[72px]">
+        <div className="max-w-[1440px] mx-auto px-6 md:px-[60px] lg:px-10 py-8 md:py-12">
+          <div className="flex gap-8 lg:gap-12 justify-center">
+            <div className="flex-1 min-w-0 max-w-[800px]">
+              <ArticleHeader
+                title="Security at Finrep"
+                date=""
+              />
+
+              <article className="w-full max-w-none text-[#0E0F10] font-articulat">
+                <ReactMarkdown
+                  remarkPlugins={[remarkGfm]}
+                  rehypePlugins={[rehypeRaw, rehypeSlug, rehypeAutolinkHeadings]}
+                  components={markdownComponents}
+                >
+                  {securityContent}
+                </ReactMarkdown>
+              </article>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <Footer />
+    </div>
+  );
+}

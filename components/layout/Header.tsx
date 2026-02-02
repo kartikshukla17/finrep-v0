@@ -11,6 +11,12 @@ interface HeaderProps {
   variant?: "light" | "dark";
 }
 
+interface NavLink {
+  name: string;
+  href: string;
+  external?: boolean;
+}
+
 export default function Header({ variant = "light" }: HeaderProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -74,17 +80,17 @@ export default function Header({ variant = "light" }: HeaderProps) {
     }
   }, [variant]);
 
-  const navLinks = [
+  const navLinks: NavLink[] = [
     { name: "Solutions", href: "/#solutions" },
-    { name: "Security", href: "https://finrep.ai/#securitynw", external: true },
+    { name: "Security", href: "/security" },
     { name: "Blogs", href: "/blogs" },
     { name: "Pricing", href: "/pricing" },
     { name: "About", href: "/about" },
   ];
 
-  const mobileMenuLinks = [
+  const mobileMenuLinks: NavLink[] = [
     { name: "Solutions", href: "/#solutions" },
-    { name: "Security", href: "https://finrep.ai/#securitynw", external: true },
+    { name: "Security", href: "/security" },
     { name: "Pricing", href: "/pricing" },
     { name: "Blogs", href: "/blogs" },
     { name: "About", href: "/about" },
