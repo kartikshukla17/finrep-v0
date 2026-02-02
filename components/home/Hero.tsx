@@ -166,7 +166,7 @@ export default function Hero() {
             />
             <button className="px-3 sm:px-4 py-2.5 sm:py-3 bg-[#29AB87] flex flex-shrink-0 justify-center items-center cursor-pointer hover:bg-[#238f73] transition-colors rounded-full">
               <span className="text-white text-sm sm:text-base font-medium font-articulat whitespace-nowrap">
-                Book a Demo
+                Request Access
               </span>
             </button>
           </motion.div>
