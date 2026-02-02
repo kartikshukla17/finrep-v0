@@ -132,4 +132,20 @@ export const pageMetadata = {
       description: 'Learn about Finrep\'s mission to transform financial reporting.',
     },
   },
+  terms: {
+    title: 'Terms and Conditions - Finrep',
+    description: 'Terms of Service for Finrep. Read our terms and conditions governing your use of our financial reporting intelligence platform.',
+    openGraph: {
+      title: 'Terms and Conditions | Finrep',
+      description: 'Terms of Service for Finrep.',
+    },
+  },
+  privacy: {
+    title: 'Privacy Policy - Finrep',
+    description: 'Privacy Policy for Finrep. Learn how we collect, use, and protect your personal information.',
+    openGraph: {
+      title: 'Privacy Policy | Finrep',
+      description: 'Privacy Policy for Finrep.',
+    },
+  },
 };

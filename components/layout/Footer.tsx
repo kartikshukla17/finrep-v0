@@ -63,12 +63,12 @@ const navigationSections: {
       },
       {
         label: "Privacy Policy",
-        href: "https://finrep.ai/pages/privacy ",
+        href: "/privacy-policy",
         external: true,
       },
       {
         label: "Terms of Service",
-        href: "https://finrep.ai/pages/terms-of-service",
+        href: "terms-of-service",
         external: true,
       },
     ],
@@ -121,7 +121,6 @@ export default function Footer() {
             </button>
           </div>
 
-          
           {/* Desktop: Single button */}
           <div className="hidden lg:flex justify-start items-start gap-6">
             <a
