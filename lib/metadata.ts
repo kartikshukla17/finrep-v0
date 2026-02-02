@@ -9,13 +9,22 @@ export const siteConfig = {
   name: "Finrep",
   description:
     "AI-powered financial reporting intelligence platform for CFO offices. Streamline SEC reporting, technical accounting, and financial disclosure analysis.",
-  url: process.env.NEXT_PUBLIC_SITE_URL || "https://finrep.ai", // Use env var or fallback
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://finrep.ai",
   ogImage: "/assets/images/og-image.png",
   links: {
     twitter: "https://x.com/FinrepAI",
     linkedin: "https://www.linkedin.com/company/finrepai/",
   },
 };
+
+// Helper function to create absolute URLs
+const getAbsoluteUrl = (path: string): string => {
+  const baseUrl = siteConfig.url.replace(/\/$/, ""); // Remove trailing slash
+  const cleanPath = path.startsWith("/") ? path : `/${path}`;
+  return `${baseUrl}${cleanPath}`;
+};
+
+const ogImageUrl = getAbsoluteUrl(siteConfig.ogImage);
 
 export const defaultMetadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -50,7 +59,7 @@ export const defaultMetadata: Metadata = {
     siteName: siteConfig.name,
     images: [
       {
-        url: siteConfig.ogImage,
+        url: ogImageUrl,
         width: 1200,
         height: 630,
         alt: siteConfig.name,
@@ -62,7 +71,7 @@ export const defaultMetadata: Metadata = {
     title: siteConfig.name,
     description: siteConfig.description,
     creator: "@finrep",
-    images: [siteConfig.ogImage],
+    images: [ogImageUrl],
   },
   robots: {
     index: true,
@@ -88,7 +97,7 @@ export const pageMetadata = {
         "Transform your financial reporting workflow with AI. Built for CFO offices to streamline SEC reporting, technical accounting, and disclosure analysis.",
       images: [
         {
-          url: siteConfig.ogImage,
+          url: ogImageUrl,
           width: 1200,
           height: 630,
           alt: "Finrep - AI-Powered Financial Reporting Intelligence",
@@ -106,7 +115,7 @@ export const pageMetadata = {
         "Explore Finrep's powerful features for CFO offices and finance teams.",
       images: [
         {
-          url: siteConfig.ogImage,
+          url: ogImageUrl,
           width: 1200,
           height: 630,
           alt: "Features - Financial Reporting Tools",
@@ -124,7 +133,7 @@ export const pageMetadata = {
         "Discover how finance teams use Finrep to streamline reporting workflows.",
       images: [
         {
-          url: siteConfig.ogImage,
+          url: ogImageUrl,
           width: 1200,
           height: 630,
           alt: "Use Cases - Solutions for Finance Teams",
@@ -141,7 +150,7 @@ export const pageMetadata = {
       description: "Flexible pricing for financial reporting intelligence.",
       images: [
         {
-          url: siteConfig.ogImage,
+          url: ogImageUrl,
           width: 1200,
           height: 630,
           alt: "Pricing - Choose Your Plan",
@@ -159,7 +168,7 @@ export const pageMetadata = {
         "Enterprise-grade security and compliance for financial reporting.",
       images: [
         {
-          url: siteConfig.ogImage,
+          url: ogImageUrl,
           width: 1200,
           height: 630,
           alt: "Security & Compliance",
@@ -176,7 +185,7 @@ export const pageMetadata = {
       description: "Financial reporting insights and best practices.",
       images: [
         {
-          url: siteConfig.ogImage,
+          url: ogImageUrl,
           width: 1200,
           height: 630,
           alt: "Resources - Insights & Best Practices",
@@ -193,7 +202,7 @@ export const pageMetadata = {
       description: "Latest insights on financial reporting and accounting.",
       images: [
         {
-          url: siteConfig.ogImage,
+          url: ogImageUrl,
           width: 1200,
           height: 630,
           alt: "Blog - Financial Reporting Insights",
@@ -211,7 +220,7 @@ export const pageMetadata = {
         "Learn about Finrep's mission to transform financial reporting.",
       images: [
         {
-          url: siteConfig.ogImage,
+          url: ogImageUrl,
           width: 1200,
           height: 630,
           alt: "About Us - Our Story",
@@ -228,7 +237,7 @@ export const pageMetadata = {
       description: "Terms of Service for Finrep.",
       images: [
         {
-          url: siteConfig.ogImage,
+          url: ogImageUrl,
           width: 1200,
           height: 630,
           alt: "Terms and Conditions",
@@ -245,7 +254,7 @@ export const pageMetadata = {
       description: "Privacy Policy for Finrep.",
       images: [
         {
-          url: siteConfig.ogImage,
+          url: ogImageUrl,
           width: 1200,
           height: 630,
           alt: "Privacy Policy",
