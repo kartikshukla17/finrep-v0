@@ -239,7 +239,7 @@ export default function Hero() {
             >
               <ShieldCheck className="w-6 h-6 text-[#269C7B]" />
               <div className="text-center text-[rgba(255,255,255,0.40)] text-sm md:text-base font-normal font-articulat leading-6 break-words">
-                Secure, SoC-II and ISO Compliant
+                Secure, SOC Type II and ISO 27001
               </div>
             </motion.div>
           </motion.div>

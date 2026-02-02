@@ -41,7 +41,7 @@ export default function AboutHero() {
           <h1 className="text-white text-[28px] sm:text-[32px] md:text-[40px] font-medium font-articulat leading-tight text-center">
             Everything a CFO office does. Now powered by AI.
           </h1>
-          <button className="px-5 sm:px-6 pr-3 sm:pr-4 py-2.5 sm:py-3 bg-[#29AB87] rounded-lg flex justify-center items-center gap-2 sm:gap-2.5 hover:bg-[#238f73] transition-colors">
+          {/* <button className="px-5 sm:px-6 pr-3 sm:pr-4 py-2.5 sm:py-3 bg-[#29AB87] rounded-lg flex justify-center items-center gap-2 sm:gap-2.5 hover:bg-[#238f73] transition-colors">
             <span className="text-[#F4FBF8] text-base sm:text-lg font-medium font-articulat">
               Explore open roles
             </span>
@@ -49,7 +49,7 @@ export default function AboutHero() {
               className="w-5 h-5 sm:w-6 sm:h-6 text-[#F9F9FA]"
               strokeWidth={2}
             />
-          </button>
+          </button> */}
         </div>
       </div>
       {/* Hero Content - Desktop */}
