@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const backerLogos = [
   {
@@ -6,6 +7,7 @@ const backerLogos = [
     alt: "Accel",
     width: 125,
     height: 40,
+    href: "https://accel.com/companies/finrep",
   },
 ];
 
@@ -26,9 +28,12 @@ export default function BackersSection() {
 
           <div className="flex flex-col gap-3">
             {backerLogos.map((logo, index) => (
-              <div
+              <Link
                 key={index}
-                className="w-full h-[100px] relative bg-white rounded-lg border border-[#D9DBDD] overflow-hidden flex items-center justify-center"
+                href={logo.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full h-[100px] relative bg-white rounded-lg border border-[#D9DBDD] overflow-hidden flex items-center justify-center hover:opacity-90 transition-opacity cursor-pointer"
               >
                 <Image
                   src={logo.src}
@@ -36,7 +41,7 @@ export default function BackersSection() {
                   width={logo.width}
                   height={logo.height}
                 />
-              </div>
+              </Link>
             ))}
           </div>
         </div>
@@ -56,9 +61,12 @@ export default function BackersSection() {
 
           <div className="flex gap-3">
             {backerLogos.map((logo, index) => (
-              <div
+              <Link
                 key={index}
-                className="flex-1 h-[100px] relative bg-white rounded-lg border border-[#D9DBDD] overflow-hidden flex items-center justify-center"
+                href={logo.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1 h-[100px] relative bg-white rounded-lg border border-[#D9DBDD] overflow-hidden flex items-center justify-center hover:opacity-90 transition-opacity cursor-pointer"
               >
                 <Image
                   src={logo.src}
@@ -66,7 +74,7 @@ export default function BackersSection() {
                   width={logo.width}
                   height={logo.height}
                 />
-              </div>
+              </Link>
             ))}
           </div>
         </div>

@@ -21,8 +21,14 @@ export default function BlogCard({
       href={`/blogs/${slug}`}
       className={`flex flex-col justify-start items-start gap-4 lg:gap-6 hover:opacity-90 transition-opacity ${className}`}
     >
-      <div className="w-full h-[240px] lg:h-[248px] relative rounded-lg overflow-hidden">
-        <Image src={image} alt={title} fill className="object-contain" />
+      <div className="rounded-[8px] overflow-hidden w-fit max-w-full">
+        <Image
+          src={image}
+          alt={title}
+          width={372}
+          height={248}
+          className="block w-full h-auto"
+        />
       </div>
       <div className="flex flex-col justify-start items-start gap-2">
         <h3 className="text-[#0E0F10] text-lg lg:text-xl font-medium font-articulat leading-7 line-clamp-2">

@@ -3,6 +3,7 @@ import Footer from "@/components/layout/Footer";
 import Header from "@/components/layout/Header";
 import { pageMetadata } from "@/lib/metadata";
 import type { Metadata } from "next";
+import Image from "next/image";
 import ReactMarkdown, { Components } from "react-markdown";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeRaw from "rehype-raw";
@@ -373,6 +374,17 @@ export default function SecurityPage() {
           <div className="flex gap-8 lg:gap-12 justify-center">
             <div className="flex-1 min-w-0 max-w-[800px]">
               <ArticleHeader title="Security at Finrep" date="" />
+
+              <div className="w-full my-8 rounded-lg overflow-hidden">
+                <Image
+                  src="/assets/images/security.png"
+                  alt="Security at Finrep"
+                  width={800}
+                  height={450}
+                  className="w-full h-auto object-cover"
+                  priority
+                />
+              </div>
 
               <article className="w-full max-w-none text-[#0E0F10] font-articulat">
                 <ReactMarkdown

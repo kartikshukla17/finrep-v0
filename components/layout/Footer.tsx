@@ -262,7 +262,12 @@ export default function Footer() {
             </div>
 
             {/* Backed by Accel */}
-            <div className="flex justify-center items-center gap-1">
+            <Link
+              href="https://www.accel.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex justify-center items-center gap-1 cursor-pointer hover:opacity-80 transition-opacity"
+            >
               <span className="text-center text-[#9FA4A9] text-base font-normal font-articulat leading-[25.60px]">
                 Backed by
               </span>
@@ -273,7 +278,7 @@ export default function Footer() {
                 height={16}
                 className="object-contain"
               />
-            </div>
+            </Link>
           </div>
         </div>
       </div>

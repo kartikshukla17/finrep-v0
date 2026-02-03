@@ -71,13 +71,13 @@ export default function BestPractices({ articles = [] }: BestPracticesProps) {
           {articles.slice(0, 3).map((article) => (
             <Link key={article.slug} href={`/blogs/${article.slug}`}>
               <article className="flex flex-col justify-start items-start gap-6 hover:opacity-90 transition-opacity">
-                <div className="w-full aspect-[384/248] rounded-2xl overflow-hidden">
+                <div className="rounded-[8px] overflow-hidden w-fit max-w-full">
                   <Image
                     src={article.image}
                     alt={article.title}
                     width={384}
                     height={248}
-                    className="object-contain w-full h-full"
+                    className="block w-full h-auto"
                   />
                 </div>
                 <div className="flex flex-col justify-start items-start gap-2">
@@ -150,13 +150,13 @@ export default function BestPractices({ articles = [] }: BestPracticesProps) {
               className="w-full sm:w-[calc(50%-10px)] md:w-[calc(50%-12px)]"
             >
               <article className="flex flex-col justify-start items-start gap-3 sm:gap-4 hover:opacity-90 transition-opacity">
-                <div className="w-full aspect-[3/2] rounded-2xl overflow-hidden">
+                <div className="rounded-[8px] overflow-hidden w-fit max-w-full">
                   <Image
                     src={article.image}
                     alt={article.title}
                     width={372}
                     height={248}
-                    className="object-contain w-full h-full"
+                    className="block w-full h-auto"
                   />
                 </div>
                 <div className="w-full flex flex-col justify-start items-start gap-2">
