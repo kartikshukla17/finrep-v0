@@ -70,16 +70,16 @@ export default function BlogHero() {
         </div>
 
         {/* Featured Blog Cards Section */}
-        <div className="w-full max-w-[372px] flex flex-col justify-start items-center gap-4">
+        {/* <div className="w-full max-w-[372px] flex flex-col justify-start items-center gap-4">
           {/* Image */}
-          <div className="w-full h-[240px] relative rounded-lg border border-[#269C7B] overflow-hidden">
+          {/* <div className="w-full h-[240px] relative rounded-lg border border-[#269C7B] overflow-hidden">
             <Image
               src="/assets/images/articleimage.webp"
               alt="How OFAC Violations Create Immediate SEC Disclosure Triggers"
               fill
               className="object-contain"
             />
-          </div>
+          </div> */}
 
           {/* Text Content */}
           {/* <div className="flex flex-col justify-start items-start gap-3 w-full">
@@ -102,7 +102,7 @@ export default function BlogHero() {
               </span>
             </button>
           </div> */}
-        </div>
+        {/* </div> */} 
       </div>
     </div>
   );
