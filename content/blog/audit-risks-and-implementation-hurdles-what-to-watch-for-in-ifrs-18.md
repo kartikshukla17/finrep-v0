@@ -53,7 +53,9 @@ IFRS 18 requires retrospective application, meaning prior period comparatives mu
 
 The year of first-time adoption presents amplified risks as organizations navigate the standard for the first time under real conditions.
 
-## Mitigation Strategies: Preparing for Success
+Mitigation Strategies: Preparing for Success
+![](/uploads/Screenshot%202026-01-16%20at%2012.22.10%E2%80%AFAM.png)
+--------------------------------------------------------------------
 
 ### For Organizations
 
@@ -65,7 +67,10 @@ Audit firms should enhance their approach to address IFRS 18-specific risks:
 
 Leveraging technology can help mitigate implementation and ongoing compliance risks:
 
-## Industry-Specific Considerations
+
+Industry-Specific Considerations
+![](/uploads/Screenshot%202026-01-16%20at%2012.22.10%E2%80%AFAM.png)
+--------------------------------------------------------------------
 
 ### Financial Services
 
@@ -78,3 +83,4 @@ Entities whose primary business is investing face questions about what constitut
 ### Multinational Conglomerates
 
 Groups with diverse business activities must apply IFRS 18 consistently across different operations, which may have varying business models. The challenge of developing group-wide policies that accommodate this diversity shouldn't be underestimated.
+![](/uploads/Screenshot%202026-02-03%20at%2010.02.39%E2%80%AFAM.png)
