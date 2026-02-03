@@ -2,8 +2,89 @@
 
 import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
-import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
+
+// --- Finrep Feature Block (translucent block with tags + fi icon) ---
+function FinrepFeatureBlock({
+  tags,
+  className,
+}: {
+  tags: string[];
+  className?: string;
+}) {
+  return (
+    <div
+      className={cn(
+        "w-full h-full min-h-0 flex flex-row items-center gap-0 p-6 rounded-xl",
+        "bg-white/[0.06] shadow-[0px_20px_40px_rgba(0,0,0,0.20)]",
+        "outline outline-1 outline-white/20 outline-offset-[-1px]",
+        className
+      )}
+    >
+      {/* Left: Tags column */}
+      <div className="flex-1 min-w-0 flex flex-col justify-between items-stretch self-stretch">
+        {tags.map((tag, i) => (
+          <div key={i} className="flex justify-start items-center">
+            <div className="px-3 py-1.5 bg-white/10 rounded-lg flex justify-center items-center">
+              <span className="text-white/80 text-[15.85px] font-dm-sans font-medium leading-[25.37px] tracking-[0.32px]">
+                {tag}
+              </span>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Middle: Connecting lines */}
+      <div className="w-12 flex-shrink-0 self-stretch relative">
+        <svg
+          className="absolute inset-0 w-full h-full"
+          preserveAspectRatio="none"
+        >
+          {tags.map((_, i) => {
+            const n = tags.length;
+            const y1 = ((i + 0.5) / n) * 100;
+            const y2 = 50;
+            return (
+              <line
+                key={i}
+                x1="0"
+                y1={`${y1}%`}
+                x2="100%"
+                y2={`${y2}%`}
+                stroke="rgba(255,255,255,0.20)"
+                strokeWidth="1"
+              />
+            );
+          })}
+        </svg>
+      </div>
+
+      {/* Right: Green fi icon */}
+      <div className="flex-shrink-0 flex flex-col justify-center items-start self-stretch">
+        <div
+          className="p-2 bg-black/20 rounded-2xl"
+          style={{
+            boxShadow: "0px 1.26px 36.26px #23AF89",
+          }}
+        >
+          <div
+            className="w-14 h-14 rounded-[10px] flex justify-center items-center"
+            style={{
+              background: "linear-gradient(150deg, #23B18A 0%, #147359 100%)",
+              boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
+              outline: "1px rgba(255, 255, 255, 0.50) solid",
+              outlineOffset: "-1px",
+            }}
+          >
+            <span className="text-white text-2xl font-bricolage font-medium">
+              fi
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 // Custom icon components matching the design
 const DocumentIcon = ({
@@ -118,6 +199,13 @@ const features = [
     statValue: "95 hours /wk",
     statLabel: "Saved with Finrep",
     rightHeading: "Faster roll forwards with fewer reviewer escalations",
+    tags: [
+      "Compliance Risk",
+      "Monitoring Industry Trends",
+      "FASB Guideline Updates",
+      "SEC Comment Letters",
+      "Peer Benchmarking",
+    ],
   },
   {
     id: "technical-accounting",
@@ -130,6 +218,13 @@ const features = [
     statValue: "60% faster",
     statLabel: "Research completion",
     rightHeading: "More defensible accounting disclosures",
+    tags: [
+      "Research",
+      "Guidance",
+      "Handbook",
+      "Filings",
+      "Audit",
+    ],
   },
   {
     id: "investor-relations",
@@ -143,6 +238,13 @@ const features = [
     statValue: "3x faster",
     statLabel: "Earnings prep",
     rightHeading: "Sharper & more consistent earnings narratives",
+    tags: [
+      "Peer Analysis",
+      "Market Context",
+      "Messaging",
+      "Disclosures",
+      "Coordination",
+    ],
   },
   {
     id: "corporate-counsel",
@@ -156,6 +258,13 @@ const features = [
     statValue: "Zero",
     statLabel: "Missed deadlines",
     rightHeading: "Clearer oversight with fewer compliance gaps",
+    tags: [
+      "Ownership Tracking",
+      "Filing Status",
+      "Deadlines",
+      "Compliance",
+      "Insider Reporting",
+    ],
   },
 ];
 
@@ -323,13 +432,10 @@ export default function BuiltForCFO() {
                             </h3>
                           </div>
 
-                          <div className="relative z-10 flex items-center justify-center mt-4">
-                            <Image
-                              src="/assets/images/BuiltForCFO.webp"
-                              alt="Finrep Features"
-                              width={400}
-                              height={280}
-                              className="object-contain w-full rounded-[8px]"
+                          <div className="relative z-10 flex-1 flex items-stretch mt-4 min-h-[200px]">
+                            <FinrepFeatureBlock
+                              tags={feature.tags}
+                              className="min-h-full"
                             />
                           </div>
                         </motion.div>
@@ -374,6 +480,7 @@ interface FeatureItemProps {
     description: string;
     iconKey: keyof typeof iconComponents;
     rightHeading: string;
+    tags: string[];
   };
   isActive: boolean;
   animationKey: number;
@@ -507,8 +614,8 @@ function RightSideCard({ activeTab }: { activeTab: number }) {
         </AnimatePresence>
       </div>
 
-      {/* BuiltForCFO Image with subtle animation */}
-      <div className="relative z-10 flex-1 flex items-center justify-center mt-[60px] overflow-hidden">
+      {/* Finrep Feature Block - expands to full width */}
+      <div className="relative z-10 flex-1 flex items-stretch mt-[60px] overflow-hidden min-h-0">
         <AnimatePresence mode="wait">
           <motion.div
             key={activeFeature.id}
@@ -516,15 +623,9 @@ function RightSideCard({ activeTab }: { activeTab: number }) {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: -20 }}
             transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
-            className="w-full h-full"
+            className="w-full h-full min-w-0 min-h-0"
           >
-            <Image
-              src="/assets/images/BuiltForCFO.webp"
-              alt="Finrep Features"
-              width={586}
-              height={400}
-              className="object-contain w-full h-full rounded-[8px]"
-            />
+            <FinrepFeatureBlock tags={activeFeature.tags} className="min-h-full" />
           </motion.div>
         </AnimatePresence>
       </div>

@@ -97,7 +97,7 @@ export default function Hero() {
               </div>
 
               <div className="text-[#F4FBF8] text-sm md:text-base font-medium font-articulat truncate">
-                Fina - Our most advanced AI is Live
+                Fina - Our most advanced AI is live
               </div>
             </div>
           </motion.div>
@@ -148,9 +148,8 @@ export default function Hero() {
             variants={fadeInUp}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           >
-            Analyze, compare, and generate insights across SEC, Section 16, 10K,
-            10Q filings with enterprise grade accuracy and audit ready
-            traceability.
+            Analyze, compare, and generate insights across SEC filings 
+            with enterprise grade accuracy and audit ready traceability
           </motion.div>
 
           {/* Email Input and CTA - Mobile */}
@@ -212,7 +211,7 @@ export default function Hero() {
             </motion.div>
 
             {/* Backed by Accel */}
-            <motion.div
+            {/* <motion.div
               className="flex items-center gap-1"
               variants={fadeIn}
               transition={{ duration: 0.4 }}
@@ -229,7 +228,7 @@ export default function Hero() {
                   className="object-contain"
                 />
               </div>
-            </motion.div>
+            </motion.div> */}
 
             {/* Secure, SoC-II and ISO Compliant */}
             <motion.div
@@ -250,9 +249,7 @@ export default function Hero() {
             variants={fadeInUp}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           >
-            <div className="text-center text-[rgba(255,255,255,0.40)] text-sm mb-6 w-full px-4">
-              Built and used by professionals from
-            </div>
+          
 
             {/* Logo Ticker with fade mask */}
             <div

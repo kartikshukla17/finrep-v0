@@ -43,7 +43,7 @@ export default function BestPractices({ articles = [] }: BestPracticesProps) {
 
         {/* Featured Content - Video and Article side by side */}
         <div className="w-full flex flex-row justify-start items-center gap-12">
-          <div className="w-[570px] aspect-video rounded-lg overflow-hidden flex-shrink-0">
+          <div className="w-[570px] aspect-video rounded-2xl overflow-hidden flex-shrink-0">
             <iframe
               width="100%"
               height="100%"
@@ -71,7 +71,7 @@ export default function BestPractices({ articles = [] }: BestPracticesProps) {
           {articles.slice(0, 3).map((article) => (
             <Link key={article.slug} href={`/blogs/${article.slug}`}>
               <article className="flex flex-col justify-start items-start gap-6 hover:opacity-90 transition-opacity">
-                <div className="w-full aspect-[384/248] rounded-lg overflow-hidden">
+                <div className="w-full aspect-[384/248] rounded-2xl overflow-hidden">
                   <Image
                     src={article.image}
                     alt={article.title}
@@ -118,7 +118,7 @@ export default function BestPractices({ articles = [] }: BestPracticesProps) {
 
         {/* Featured Content - Video and Article stacked */}
         <div className="w-full max-w-[372px] sm:max-w-[500px] md:max-w-[600px] flex flex-col justify-center items-start gap-4 sm:gap-5">
-          <div className="w-full aspect-video rounded-lg overflow-hidden">
+          <div className="w-full aspect-video rounded-2xl overflow-hidden">
             <iframe
               width="100%"
               height="100%"
@@ -142,7 +142,7 @@ export default function BestPractices({ articles = [] }: BestPracticesProps) {
         </div>
 
         {/* Article Cards - Grid on tablet, stacked on mobile (featured articles, max 3) */}
-        <div className="w-full max-w-[372px] sm:max-w-[500px] md:max-w-[600px] flex flex-col sm:flex-row sm:flex-wrap justify-start items-start gap-4 sm:gap-5 md:gap-6">
+        <div className="w-full max-w-[372px] sm:max-w-[500px] md:max-w-[600px] flex flex-col rounded-2xl sm:flex-row sm:flex-wrap justify-start items-start gap-4 sm:gap-5 md:gap-6">
           {articles.slice(0, 3).map((article) => (
             <Link
               key={article.slug}
@@ -150,13 +150,13 @@ export default function BestPractices({ articles = [] }: BestPracticesProps) {
               className="w-full sm:w-[calc(50%-10px)] md:w-[calc(50%-12px)]"
             >
               <article className="flex flex-col justify-start items-start gap-3 sm:gap-4 hover:opacity-90 transition-opacity">
-                <div className="w-full aspect-[3/2] rounded-lg overflow-hidden">
+                <div className="w-full aspect-[3/2] rounded-2xl overflow-hidden">
                   <Image
                     src={article.image}
                     alt={article.title}
                     width={372}
                     height={248}
-                    className="object- w-full h-full"
+                    className="object-contain w-full h-full"
                   />
                 </div>
                 <div className="w-full flex flex-col justify-start items-start gap-2">
