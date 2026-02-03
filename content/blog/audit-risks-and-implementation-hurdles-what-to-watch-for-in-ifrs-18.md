@@ -2,6 +2,8 @@
 title: 'Audit Risks and Implementation Hurdles: What to Watch for in IFRS 18.'
 draft: true
 date: 2026-02-03T04:26:49.983Z
+categories:
+  - Blogs
 tags:
   - disclosure
   - finance
