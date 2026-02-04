@@ -7,11 +7,8 @@ coverImage: /uploads/image-47.png
 
 ![](</uploads/Screenshot 2026-02-04 at 11.23.59 PM.png>)![](</uploads/Screenshot 2026-02-04 at 11.24.12 PM.png>)
 Why This Matters: The ISA 2025 Revolution
------------------------------------------
 
-The ISA 2025 replaces the outdated 2007 Act, which had become inadequate for addressing modern market realities. Think about it: the previous legislation predated the cryptocurrency boom, the fintech revolution, and the explosion of digital trading platforms. It was like trying to regulate smartphones with laws written for rotary phones.
-
-![](</uploads/Screenshot 2026-02-04 at 11.24.33 PM.png>)
+![](/uploads/Screenshot%202026-01-16%20at%2012.22.10%E2%80%AFAM.png)![](</uploads/Screenshot 2026-02-04 at 11.24.33 PM.png>)
 The Seismic Shifts: What's New for Market Operators
 ![](</uploads/Screenshot 2026-02-04 at 11.25.08 PM.png>)![](</uploads/Screenshot 2026-02-04 at 11.25.21 PM.png>)![](</uploads/Screenshot 2026-02-04 at 11.25.30 PM.png>)
 ISA 2007 vs ISA 2025: A Comparative Overview
@@ -53,8 +50,7 @@ You now have a comprehensive regulatory framework. Registration with SEC is mand
 
 ![](</uploads/Screenshot 2026-02-04 at 11.26.21 PM.png>)
 
-Your Action Plan: Steps to Ensure Compliance by January 2026
-------------------------------------------------------------
+## Your Action Plan: Steps to Ensure Compliance by January 2026
 
 ![](</uploads/Screenshot 2026-02-04 at 11.26.41 PM.png>)
 **Conduct Immediate Compliance Audit**
@@ -88,7 +84,6 @@ The SEC's investigative powers have expanded. Ensure your record-keeping, data m
 
 Formally notify the SEC of your compliance status as directed. Don't wait until the last minute.
 
-
 ## The Silver Lining: Opportunities in the New Era
 
 While the ISA 2025 brings stricter regulation, it also creates significant opportunities:
@@ -100,9 +95,3 @@ By the time the January 2026 deadline passes, Nigeria's capital market will be f
 
 This isn't just regulatory posturing. The Commission now has the legal tools, the expanded mandate, and the political backing to reshape the market. Operators who adapt will thrive in a more transparent, efficient market. Those who resist or ignore the changes risk being left behind—or worse, facing severe penalties.
 
-
-
-
-The countdown to 2026 represents more than just a deadline—it's a countdown to a new era for Nigeria's capital markets. The ISA 2025 is ambitious, comprehensive, and necessary. It reflects a market that's grown up, learned from past failures, and is ready to compete globally.
-
-For market operators, the choice is clear: embrace the change, invest in compliance, and position yourself as a trusted player in this new landscape. The clock is ticking, but opportunity favors those who act decisively and strategically.
