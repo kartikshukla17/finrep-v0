@@ -7,9 +7,14 @@ coverImage: /uploads/image-47.png
 
 ![](</uploads/Screenshot 2026-02-04 at 11.23.59 PM.png>)![](</uploads/Screenshot 2026-02-04 at 11.24.12 PM.png>)
 Why This Matters: The ISA 2025 Revolution
+-----------------------------------------
 
-![](/uploads/Screenshot%202026-01-16%20at%2012.22.10%E2%80%AFAM.png)![](</uploads/Screenshot 2026-02-04 at 11.24.33 PM.png>)
+![](/uploads/Screenshot%202026-01-16%20at%2012.22.10%E2%80%AFAM.png)
+The ISA 2025 replaces the outdated 2007 Act, which had become inadequate for addressing modern market realities. Think about it: the previous legislation predated the cryptocurrency boom, the fintech revolution, and the explosion of digital trading platforms. It was like trying to regulate smartphones with laws written for rotary phones.
+
+![](</uploads/Screenshot 2026-02-04 at 11.24.33 PM.png>)
 The Seismic Shifts: What's New for Market Operators
+![](/uploads/Screenshot%202026-01-16%20at%2012.22.10%E2%80%AFAM.png)
 ![](</uploads/Screenshot 2026-02-04 at 11.25.08 PM.png>)![](</uploads/Screenshot 2026-02-04 at 11.25.21 PM.png>)![](</uploads/Screenshot 2026-02-04 at 11.25.30 PM.png>)
 ISA 2007 vs ISA 2025: A Comparative Overview
 ![](</uploads/Screenshot 2026-02-04 at 11.26.00 PM.png>)
@@ -94,4 +99,3 @@ While the ISA 2025 brings stricter regulation, it also creates significant oppor
 By the time the January 2026 deadline passes, Nigeria's capital market will be fundamentally different. The SEC has made it clear that 2026 will see intensified enforcement. Emomotimi Agama, the Director-General of SEC, emphasized that the Commission will act "firmly and impartially" to address market abuse, insider dealing, and fraudulent schemes.
 
 This isn't just regulatory posturing. The Commission now has the legal tools, the expanded mandate, and the political backing to reshape the market. Operators who adapt will thrive in a more transparent, efficient market. Those who resist or ignore the changes risk being left behind—or worse, facing severe penalties.
-
