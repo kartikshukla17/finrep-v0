@@ -16,8 +16,6 @@ The International Financial Reporting Standard 18 (IFRS 18) represents one of th
 
 Understanding IFRS 18: The Big Picture
 
-
-
 IFRS 18 introduces revolutionary changes to how companies present their financial performance. The standard mandates new categories in the statement of profit or loss, including operating, investing, and financing categories, along with defined subtotals that must be presented by all entities.
 
 ![](</uploads/Screenshot 2026-02-03 at 10.32.29 PM.png>)
@@ -43,10 +41,9 @@ The standard provides enhanced guidance on when to aggregate or disaggregate ite
 
 Implementation Hurdles: From Theory to Practice
 
-![](</uploads/Screenshot 2026-02-03 at 10.29.48 PM.png>)
---------------------------------------------------------
+## ![](</uploads/Screenshot 2026-02-03 at 10.29.48 PM.png>)
 
-### Technical Implementation Challenges&#xA;&#xA;![](</uploads/Screenshot 2026-02-03 at 10.28.59 PM.png>)
+### Technical Implementation Challenges&#xA;&#xA;&#xA;![](</uploads/Screenshot 2026-02-03 at 10.28.59 PM.png>)
 
 ### Organizational and Governance Hurdles
 
@@ -55,8 +52,6 @@ Beyond technical challenges, IFRS 18 implementation requires significant organiz
 ![](</uploads/Screenshot 2026-02-03 at 10.28.04 PM.png>)
 
 Specific Areas Requiring Enhanced Audit Scrutiny
-
-
 
 ### Operating Profit Calculation
 
@@ -78,9 +73,7 @@ The year of first-time adoption presents amplified risks as organizations naviga
 
 Mitigation Strategies: Preparing for Success
 
-
-
-### For Organizations&#xA;&#xA;![](/uploads/Screenshot%202026-02-03%20at%2010.02.07%E2%80%AFAM.png)
+### For Organizations&#xA;&#xA;&#xA;![](/uploads/Screenshot%202026-02-03%20at%2010.02.07%E2%80%AFAM.png)
 
 ### For Auditors
 
@@ -95,8 +88,6 @@ Leveraging technology can help mitigate implementation and ongoing compliance ri
 ![](</uploads/Screenshot 2026-02-03 at 10.24.36 PM.png>)
 
 Industry-Specific Considerations
-
-
 
 ### Financial Services
 
