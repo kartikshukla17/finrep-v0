@@ -1,7 +1,10 @@
 ---
 title: 'Countdown to 2026: How the New ISA Changes the Rules for Market Operators'
 draft: true
-date: 2026-02-04T17:50:39.722Z
+date: 2026-01-09T17:50:39.722Z
+tags:
+  - SEC
+  - Updates
 coverImage: /uploads/image-47.png
 ---
 
@@ -17,13 +20,12 @@ The Seismic Shifts: What's New for Market Operators
 ![](/uploads/Screenshot%202026-01-16%20at%2012.22.10%E2%80%AFAM.png)
 ![](</uploads/Screenshot 2026-02-04 at 11.25.08 PM.png>)![](</uploads/Screenshot 2026-02-04 at 11.25.21 PM.png>)![](</uploads/Screenshot 2026-02-04 at 11.25.30 PM.png>)
 ISA 2007 vs ISA 2025: A Comparative Overview
+![](/uploads/Screenshot%202026-01-16%20at%2012.22.10%E2%80%AFAM.png)
 ![](</uploads/Screenshot 2026-02-04 at 11.26.00 PM.png>)
+
 What This Means for Different Market Players
---------------------------------------------
-
-### For Traditional Capital Market Operators
-
-Your registration certificates may be revoked if you engage in business activities you're not registered for. The SEC now has direct involvement in appointing and removing CEOs and principal officers. You'll need to stay laser-focused on compliance and may need to restructure operations to align with new classifications.
+![](/uploads/Screenshot%202026-01-16%20at%2012.22.10%E2%80%AFAM.png)
+--------------------------------------------------------------------
 
 ### For Digital Asset Operators
 
@@ -55,7 +57,9 @@ You now have a comprehensive regulatory framework. Registration with SEC is mand
 
 ![](</uploads/Screenshot 2026-02-04 at 11.26.21 PM.png>)
 
-## Your Action Plan: Steps to Ensure Compliance by January 2026
+Your Action Plan: Steps to Ensure Compliance by January 2026
+![](/uploads/Screenshot%202026-01-16%20at%2012.22.10%E2%80%AFAM.png)
+--------------------------------------------------------------------
 
 ![](</uploads/Screenshot 2026-02-04 at 11.26.41 PM.png>)
 **Conduct Immediate Compliance Audit**
@@ -89,12 +93,16 @@ The SEC's investigative powers have expanded. Ensure your record-keeping, data m
 
 Formally notify the SEC of your compliance status as directed. Don't wait until the last minute.
 
-## The Silver Lining: Opportunities in the New Era
+The Silver Lining: Opportunities in the New Era
+![](/uploads/Screenshot%202026-01-16%20at%2012.22.10%E2%80%AFAM.png)
+--------------------------------------------------------------------
 
 While the ISA 2025 brings stricter regulation, it also creates significant opportunities:
 ![](</uploads/Screenshot 2026-02-04 at 11.29.15 PM.png>)
 
-## Looking Ahead: The 2026 Landscape
+Looking Ahead: The 2026 Landscape
+![](/uploads/Screenshot%202026-01-16%20at%2012.22.10%E2%80%AFAM.png)
+--------------------------------------------------------------------
 
 By the time the January 2026 deadline passes, Nigeria's capital market will be fundamentally different. The SEC has made it clear that 2026 will see intensified enforcement. Emomotimi Agama, the Director-General of SEC, emphasized that the Commission will act "firmly and impartially" to address market abuse, insider dealing, and fraudulent schemes.
 
