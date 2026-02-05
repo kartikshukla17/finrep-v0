@@ -12,27 +12,25 @@ In the fast-paced world of financial research and regulatory compliance, the too
 
 **The Bottom Line:** While Intelligize served the market well in its time, [Finrep.ai](https://finrep.ai/) represents a fundamental leap forward in how financial professionals access, analyze, and act on critical information. This isn't just an upgrade—it's a revolution.
 
-## The Numbers Don't Lie
-
-![](https://framerusercontent.com/images/Bw6dMx68ZY6Hs1XulNs9w1a0JTg.png)
+## The Numbers Don't Lie![](/uploads/Bw6dMx68ZY6Hs1XulNs9w1a0JTg.avif)
 
 ## Key Differentiators: What Sets [Finrep.ai](https://finrep.ai/) Apart
 
 When financial institutions evaluate research platforms, they're looking beyond basic functionality. Here's where [Finrep.ai](https://finrep.ai/)delivers transformative value that traditional platforms simply can't match:
 
-### Intelligent Data Processing
+#### Intelligent Data Processing
 
 [Finrep.ai](https://finrep.ai/)'s proprietary AI engine doesn't just search documents—it comprehends them. The platform analyzes relationships between data points, identifies anomalies, and surfaces insights that would take human analysts days or weeks to discover. This means you're not just finding information faster; you're discovering connections you didn't know existed.
 
-### Comprehensive Coverage with Context
+#### Comprehensive Coverage with Context
 
 While legacy platforms offer document repositories, [Finrep.ai](https://finrep.ai/) provides contextual intelligence. Every piece of data comes with relevant background, historical trends, and peer comparisons. Whether you're analyzing a 10-K filing or tracking regulatory changes, you get the full picture—not just raw documents.
 
-### Adaptive Learning Technology
+#### Adaptive Learning Technology
 
 The more you use [Finrep.ai](https://finrep.ai/), the smarter it becomes. The platform learns your research patterns, anticipates your needs, and surfaces relevant information proactively. It's like having a research analyst who knows exactly what you need before you ask.
 
-### Enterprise-Grade Security and Compliance
+#### Enterprise-Grade Security and Compliance
 
 In an era of increasing data regulations, [Finrep.ai](https://finrep.ai/) is built with security at its core. Bank-level encryption, comprehensive audit trails, and compliance with global data protection standards give you peace of mind while maximizing productivity.
 
@@ -40,7 +38,7 @@ In an era of increasing data regulations, [Finrep.ai](https://finrep.ai/) is bui
 
 While Intelligize offers keyword search and document retrieval, [Finrep.ai](https://finrep.ai/) harnesses the power of advanced artificial intelligence to deliver something far more valuable: **actionable intelligence**.
 
-### Next-Generation AI Technology
+#### Next-Generation AI Technology
 
 [Finrep.ai](https://finrep.ai/) doesn't just find documents—it understands them. Using cutting-edge natural language processing and machine learning algorithms, the platform can:
 
@@ -53,7 +51,7 @@ While Intelligize offers keyword search and document retrieval, [Finrep.ai](http
 
 In finance, being first with accurate information can mean millions in competitive advantage. Here's where the rubber meets the road:\\
 
-![](https://framerusercontent.com/images/n45rYu2zIkzirwWxutvfRLRHK04.png)
+![](/uploads/n45rYu2zIkzirwWxutvfRLRHK04.avif)
 
 That's not a marginal improvement—it's a complete transformation of workflow efficiency.
 
@@ -78,9 +76,9 @@ Let's be honest—Intelligize's interface feels like it's stuck in 2010. [Finrep
 
 ## Cost Efficiency: More Value, Lower Total Cost of Ownership
 
-When you factor in the true cost of research tools—licensing fees, training time, productivity losses, and opportunity costs—[Finrep.ai](https://finrep.ai/) delivers exceptional ROI:\\
+When you factor in the true cost of research tools—licensing fees, training time, productivity losses, and opportunity costs—[Finrep.ai](https://finrep.ai/) delivers exceptional ROI:
 
-![](https://framerusercontent.com/images/n5m6REEgWDbewHjNHEj4XFk0ThI.png)
+![](/uploads/n5m6REEgWDbewHjNHEj4XFk0ThI.avif)
 
 ## Integration & Ecosystem: Built for Modern Tech Stacks
 
